@@ -497,3 +497,377 @@ header.isSticky .basket-link .img-counter-header {
 .img-counter-header {
     margin: 0;
 }
+
+div.order2_info.comment_container {
+    width: 100%;
+}
+
+.comment_container .order2_info1 {
+    font-weight: 500;
+}
+
+.basketedit_summary_sub .order2__product.--head .order2__product_item.--name {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.order2__product_name.--link {
+    font-weight: 500;
+}
+
+.order2__product.--head .order2__product_item:not(.--name) {
+    text-transform: lowercase;
+}
+
+.order2__product.--head .order2__product_item.--vat {
+    text-transform: uppercase;
+}
+
+.order2__delivery_text,
+.order2__payment_text {
+    text-transform: uppercase;
+    font-size: 1.6rem;
+}
+
+.order2__delivery_name,
+.order2__payment_name {
+    font-weight: 500;
+    font-size: 1.6rem;
+}
+
+.order2__products {
+    font-weight: 500;
+}
+
+.order2_page #layout div.basketedit_summary_right {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.order2_page #layout div.basketedit_summary_right .order2_info_sub {
+    flex-basis: 50%;
+
+}
+
+.order2_page #layout div.basketedit_summary_right .basketedit_calculations {
+    flex-basis: 50%;
+
+}
+
+.order2_page #layout div.basketedit_summary_right .basketedit_total_summary {
+    flex-basis: 100%;
+
+}
+
+div.email_processing_consent {
+    padding-left: 0;
+}
+
+form.order2_form div.basketedit_summary {
+    padding: 0;
+}
+
+.order2__product:not(.--head) {
+    margin: 0 !important;
+    margin-bottom: 1rem !important;
+}
+
+.order2_form .param__wrapper .param__value:before {
+    background: var(--purple-light);
+}
+
+.order2_page .basketedit_summary_shipment_time strong {
+    color: var(--purple-light);
+    font-weight: 600;
+}
+
+div.order2_info {
+    font-weight: 500;
+}
+
+div.order2_info.comment_container {
+    border-radius: 24px;
+}
+
+@media(max-width:630px) {
+    .order2_page #layout div.basketedit_summary_right .order2_info_sub {
+        flex-basis: 100%;
+
+    }
+
+    .order2_page #layout div.basketedit_summary_right .basketedit_calculations {
+        flex-basis: 100%;
+
+    }
+
+    #layout .basketedit_summary_buttons input {
+        font-size: 1.3rem;
+
+    }
+
+
+}
+
+.order2_info_label_sub:after {
+    border: 1px solid var(--gray-light)
+}
+
+._mobile #dialog_wrapper {
+    border-radius: 24px;
+}
+
+#toggle_comments_button {
+    font-weight: 500;
+}
+
+@media(max-width:756px) {
+    .order2__product:not(.--head) {
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--gray-light);
+    }
+
+    .order2__products {
+        border: none
+    }
+
+    .order2__delivery_text,
+    .order2__payment_text {
+        width: auto;
+        margin: 0;
+        margin-right: 1rem;
+    }
+
+    .order2__delivery_wrapper,
+    .order2__payment_wrapper {
+        width: auto;
+    }
+
+    .order2__delivery_worth,
+    .order2__payment_worth {
+        width: auto;
+    }
+
+    form.order2_form .basketedit_total_summary label {
+        margin-right: 2rem;
+    }
+}
+
+#layout .basketedit_summary_buttons input {
+    font-weight: 500;
+}
+
+@media(max-width:630px) {
+
+
+    form.order2_form .basketedit_total_summary label {
+        margin-right: 0;
+    }
+}
+
+.orderdetails_payment_methods_container {
+    background: none;
+    border: none;
+}
+
+.prepaid_payitems_wrapper {
+    border-radius: 24px;
+}
+
+#orderdetails_info {
+    flex-direction: column;
+    align-items: flex-start !important;
+}
+
+h2.label-custom {
+    font-size: 2.2rem;
+    position: relative;
+    width: 100%;
+    color: var(--black-color-lighter);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    font-weight: 600;
+    text-transform: none;
+
+}
+
+h2.label-custom::after {
+    height: 2px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 23rem;
+    transform: translateY(-50%);
+    width: 100%;
+    background: var(--gray-light);
+
+}
+
+.thank-you-text strong {
+    font-weight: 600;
+    text-transform: unset;
+
+}
+
+.thank-you-text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--black-color-lighter);
+    font-weight: 500;
+}
+
+.orderdetails_info__status {
+    display: none
+}
+
+.number-custom span {
+    font-size: 1.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.number-custom strong {
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.prepaid_buttons {
+    justify-content: flex-start !important;
+
+}
+
+.prepaid_buttons a:first-child {
+    margin: 0 !important
+}
+
+.prepaid_buttons a::before {
+    display: none
+}
+
+.prepaid_buttons a {
+    font-weight: 600;
+    font-size: 1.4rem;
+}
+
+td.ordered-name li:before {
+    background: var(--purple-light);
+}
+
+.prepaid_order_products a>img {
+    max-width: 40px;
+}
+
+.before-rebbate-custom {
+    display: block;
+}
+
+.after-rebbate-custom {
+    display: block;
+}
+
+.prepaid_page td.ordered-name li:before {
+    background: var(--purple-light);
+}
+
+.prepaid_page #prepaid_order_products table {
+    font-weight: 500;
+}
+
+.prepaid_page #prepaid_order_products th {
+    font-weight: 500;
+}
+
+.prepaid_page td.ordered-name>a {
+    font-weight: 500;
+}
+
+.prepaid_page td.ordered-name label {
+    font-weight: 500;
+}
+
+#prepaid_order_products {
+    margin-bottom: 1rem;
+}
+
+#prepaid_delivery_list * {
+    border: none !important;
+}
+
+#prepaid_address .label-custom::after {
+    left: 50rem
+}
+
+#prepaid_order_products .label-custom::after {
+    left: 16rem
+}
+
+#prepaid_order_products>table>thead th:not(.vat-custom) {
+    text-transform: lowercase;
+}
+
+#prepaid_order_products table td {
+    border: none;
+}
+
+.prepaid_page #prepaid_order_products table {
+    margin: 0;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--gray-light);
+}
+
+#prepaid_order_products tbody tr:first-child th,
+#prepaid_order_products tbody tr:first-child td {
+    border: none
+}
+
+#prepaid_delivery_list td.ordered-price {
+    text-align: right;
+    font-weight: 500;
+}
+
+#prepaid_delivery_list td.ordered-name,
+#prepaid_delivery_list td.ordered-price {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+#prepaid_delivery_list td.ordered-name strong,
+#prepaid_delivery_list td.ordered-price strong {
+    text-transform: none;
+    font-weight: 500;
+}
+
+.prepaid_page .orderdetails_summary label {
+    font-weight: 500;
+}
+
+.prepaid_page .order2_info .order2_info_sub,
+.prepaid_page .order2_info .order2_info1 {
+    line-height: 1.5;
+}
+
+#prepaid_order_products tbody th {
+    border: none
+}
+
+.prepaid_page #currencytotal_prepaid {
+    color: var(--purple-light)
+}
+
+.prepaid_payment {
+    border-radius: 24px;
+}
+
+.payments_group:first-child .payments_group_sub_content {
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+}
+
+.payments_group:last-child .payments_group_sub_content {
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+}
+
+#prepaid_delivery_list td.ordered-price {
+    text-transform: lowercase;
+}
