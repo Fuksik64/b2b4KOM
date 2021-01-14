@@ -37,10 +37,14 @@ export default function variables() {
     menuSettings: document.querySelector("#menu_settings"),
     goBackDiv: document.querySelector(".categoriesMobileBreadcrumb"),
     iconGoBack: document.querySelector(".categoriesMobileBreadcrumb i "),
+    iconInBreadcrumbMobile: document.querySelector(
+      ".categoriesMobileBreadcrumb i"
+    ),
     iconSpan: document.querySelector(".categoriesMobileBreadcrumb span "),
     ulMobile: document.querySelector(".wrapper-div-ul-2"),
     bottomHeader: document.querySelector(".bottom-header-custom"),
     ulMobileInnerUl: document.querySelector(".wrapper-div-ul-2 ul"),
     iconRight: '<i class="icon-chevron-right"></i>',
+    mobileHideButton: document.querySelector(".backButtonContainer"),
   };
 }

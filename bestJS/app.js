@@ -1,3 +1,11 @@
+let link = document.createElement("link");
+link.setAttribute("href", "/data/include/cms/b2b4kom/JS/custom.css");
+link.setAttribute("rel", "stylesheet");
+link.setAttribute("type", "text/css");
+
+document.head.appendChild(link);
+window.addEventListener("scroll", backButton);
+
 import createOverlay from "./includes/createOverlay.js";
 import { headerController } from "./functions/header.js";
 import { desktopController } from "./functions/desktop.js";
@@ -67,14 +75,6 @@ export const scroll = new IntersectionObserver(
       document.body.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
   },
-  { rootMargin: "-80px 0px 0px 0px", threshold: 0.3 }
+  { rootMargin: "-30px 0px 0px 0px", threshold: 0.3 }
 );
 scroll.observe(document.querySelector(".b2b-category"));
-
-let link = document.createElement("link");
-link.setAttribute("href", "/data/include/cms/b2b4kom/JS/custom.css");
-link.setAttribute("rel", "stylesheet");
-link.setAttribute("type", "text/css");
-
-document.head.appendChild(link);
-window.addEventListener("scroll", backButton);

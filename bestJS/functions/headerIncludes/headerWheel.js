@@ -17,7 +17,7 @@ function enableWheelHeader(e) {
   }
   v.header.setAttribute(
     "style",
-    `transform:translateY(${-scrollValueHeader / 2}px) !important`
+    `transform:translate(-50%,${-scrollValueHeader / 2}px) !important`
   );
 }
 

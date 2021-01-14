@@ -378,6 +378,13 @@
       </iaixsl:if>
     <!--Górne menu (menu_top, 106526.1)-->
     <div class="top-header-wrapper">
+        <div class="categories-mobile">
+                <div class="button-mobile-categories">
+                <i class="icon-bars"></i>
+                <span>MENU</span>
+                </div>
+                
+        </div>
         <div id="logo" class="col-md-4 col-lg-3 d-flex align-items-center">
 
             	<nav class="nav d-flex flex-column custom-nav-header custom-nav-header">
@@ -522,7 +529,7 @@
             <iaixsl:variable name="list_title"></iaixsl:variable>
     
         
-            <div id="menu_settings" class="col-md-4 px-0 pr-0 d-flex align-items-center justify-content-center justify-content-lg-end m-0">
+        <div id="menu_settings" class="col-md-4 px-0 pr-0 d-flex align-items-center justify-content-center justify-content-lg-end m-0">
                 <iaixsl:if test="(count(/shop/currency/option) > 1) or (count(/shop/language/option) > 1) or (count(/shop/countries/country) > 1)">
                     <div class="open_trigger d-none">
                         <span>
@@ -666,12 +673,40 @@
 
                 <iaixsl:if test="$display_menu_additional">
                     <div id="menu_additional">
+                        <div class="container-contact-div">
                         <a>
                         <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/contact/link/@url"/></iaixsl:attribute>
                         <iaixsl:attribute name="class">contact-link</iaixsl:attribute>
                         <img class="icon-phone-custom" src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
                         <span>Kontakt</span>
                         </a>
+
+                        <div class="contact-info-header">
+                         <div class="col-4">
+                                <!-- <strong>
+                                Obsługa kientów hurtowych
+                                </strong> -->
+                                <p>
+                                <!-- <i class="icon-phone"></i> -->
+                                <!-- <span>Tel.: </span> -->
+                                <a href="tel:422987808">42 298 78 08</a>
+                                </p>
+                                <!-- <strong>
+                                E-mail:
+                                </strong> -->
+                                <p>
+                                <!-- <i class="icon-envelope"></i> -->
+                                <a href="mailto:sklep@4kom.pl">sklep@4kom.pl</a>
+                                </p>
+                                </div>
+                             <div class="col">
+                                 <p>Obsługa sklepu dostępna jest</p>
+                                 <p>od poniedziałku do piątku,</p>
+                                 <p>w godzinach 8:00 - 16:00</p>
+                            </div>
+                        </div>
+                        </div>
+
                         <a class="account_link">
                             <iaixsl:if test="/shop/action/login/@url">
                                 <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/login/@url"/></iaixsl:attribute>
@@ -709,7 +744,7 @@
                         </a>
                     </div>
                 </iaixsl:if>
-        <!--Menu koszyka (menu_basket, 108216.4)-->
+             <!--Menu koszyka (menu_basket, 108216.4)-->
             <iaixsl:variable name="basket_title"></iaixsl:variable>
             <div id="menu_basket_wrapper" class="d-flex px-0 ">
                 
@@ -1010,14 +1045,9 @@
                     </div>
                 </div>
             </div>
-            </div>
-             <div class="categories-mobile">
-                <div class="button-mobile-categories">
-                <i class="icon-bars"></i>
-                </div>
-               
-            </div>
-        </div>   
+        </div>
+            
+             </div>   
             <iaixsl:if test="not(/shop/client_data/client_balance/balance[@currency_sign=/shop/currency/@name]/@value)">
                 <script>
                     app_shop.vars.formatBasket = true;
@@ -1438,7 +1468,11 @@
 						</div>
 					</div>
 				</div>
-                <div class="categories-wrapper-ul2 ">
+    <div class="categories-wrapper-ul2 ">
+                <div class="backButtonContainer">
+                <i class="icon-x"></i>
+                <span>MENU</span>
+                </div>
                     <p class="categoriesMobileBreadcrumb">
                     <i class="icon-chevron-left"></i>
                     <span class="categoriesMobileSpan">Kategorie</span>
@@ -1460,6 +1494,8 @@
 												<iaixsl:value-of select="@name" />
 											</span>
                                             </div>
+										
+                                        </a>
                                             <iaixsl:choose>
 
                                                 <iaixsl:when test="count(item) > 0">
@@ -1471,8 +1507,6 @@
                                                 </iaixsl:otherwise>
 
                                             </iaixsl:choose>
-										
-                                        </a>
                                         <iaixsl:if test="count(item) > 0">
 											    <ul class="nested-ul-category2 nested-ul-category-12">
 													<iaixsl:for-each select="item">
@@ -1515,8 +1549,311 @@
 									</iaixsl:for-each>
 								</ul>
                      
-                    </div>  
+                    </div>
+
+            <iaixsl:variable name="display_menu_additional">Zaloguj się</iaixsl:variable>
+            <iaixsl:variable name="login_title"></iaixsl:variable>
+            <iaixsl:variable name="account_title"></iaixsl:variable>
+            <iaixsl:variable name="list_title"></iaixsl:variable>
+
+
+         <div id="menu_settings2" class="">
+            <iaixsl:comment>
+                <iaixsl:if test="(count(/shop/currency/option) > 1) or (count(/shop/language/option) > 1) or (count(/shop/countries/country) > 1)">
+                    <div class="open_trigger d-none">
+                        <span>
+                            <iaixsl:choose>
+                                <iaixsl:when test="count(/shop/language/option) > 1">
+                                    <iaixsl:attribute name="class">d-none d-md-inline-block flag flag_<iaixsl:value-of select="/shop/language/option[@selected='true']/@id"/></iaixsl:attribute>
+                                </iaixsl:when>
+                                <iaixsl:when test="count(/shop/currency/option) > 1">
+                                    <iaixsl:attribute name="class">d-none d-md-inline-block flag_txt</iaixsl:attribute>
+                                    <iaixsl:value-of select="/shop/currency/option[@selected='true']/@symbol"/>
+                                </iaixsl:when>
+                                <iaixsl:when test="count(/shop/countries/country) > 1">
+                                    <iaixsl:attribute name="class">d-none d-md-inline-block flag_txt</iaixsl:attribute>
+                                    <i class="icon-truck"></i>
+                                </iaixsl:when>
+
+                            </iaixsl:choose>
+                        </span>
+
+                        <div class="menu_settings_wrapper d-md-none">
+                            <iaixsl:if test="/shop/language/option/@selected or /shop/currency/option/@selected">
+                                <div class="menu_settings_inline">
+                                    <div class="menu_settings_header">
+                                        Język i waluta: 
+                                    </div>
+                                    <div class="menu_settings_content">
+                                        <span class="menu_settings_flag">
+                                            <iaixsl:attribute name="class">menu_settings_flag flag flag_<iaixsl:value-of select="/shop/language/option[@selected='true']/@id"/></iaixsl:attribute>
+                                        </span>
+                                        <strong class="menu_settings_value">
+                                            <span class="menu_settings_language"><iaixsl:value-of select="/shop/language/option[@selected='true']/@name"/></span>
+                                            <span><iaixsl:text> | </iaixsl:text></span>
+                                            <span class="menu_settings_currency"><iaixsl:value-of select="/shop/currency/option[@selected='true']/@symbol"/></span>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </iaixsl:if>
+                            <iaixsl:if test="/shop/countries/country/@selected">
+                                <div class="menu_settings_inline">
+                                    <div class="menu_settings_header">
+                                        Dostawa do: 
+                                    </div>
+                                    <div class="menu_settings_content">
+                                        <strong class="menu_settings_value">
+                                            <iaixsl:value-of select="/shop/countries/country[@selected='true']/@name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                            </iaixsl:if>
+                        </div>
+                        <i class="icon-angle-down d-none d-md-inline-block"></i>
+
+                    </div>
+
+                    <iaixsl:if test="(count(/shop/currency/option) > 1) or (count(/shop/language/option) > 1) or (count(/shop/countries/country) > 1)">
+                        <form action="/settings.php" method="post">
+
+                            <iaixsl:if test="/shop/action/settings/@url">
+                                <iaixsl:attribute name="action"><iaixsl:value-of select="/shop/action/settings/@url"/></iaixsl:attribute>
+                            </iaixsl:if>
+
+                            <ul class="bg_alter">
+                                
+                                <iaixsl:if test="count(/shop/language/option) > 1">
+                                    <li>
+                                        <div class="form-group">
+                                                <label class="menu_settings_lang_label">Język</label>
+
+                                            <iaixsl:for-each select="/shop/language/option">
+                                                <div class="radio">
+                                                    <label>
+                                                        <input type="radio" name="lang">
+                                                            <iaixsl:if test="@selected='true'"><iaixsl:attribute name="checked">checked</iaixsl:attribute></iaixsl:if>
+                                                            <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                        </input>
+                                                        <span>
+                                                            <iaixsl:attribute name="class">flag flag_<iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                        </span>
+                                                        <span><iaixsl:value-of select="@name"/></span>
+                                                    </label>
+                                                </div>
+                                            </iaixsl:for-each>
+                                        </div>
+                                    </li>
+                                </iaixsl:if>
+
+                                <iaixsl:if test="count(/shop/currency/option) > 1 or count(/shop/countries/country) > 1">
+                                    <li>
+                                        <iaixsl:if test="count(/shop/currency/option) > 1">
+                                            <div class="form-group">
+                                                <label for="menu_settings_curr">Waluta</label>
+
+                                                <div class="select-after">
+                                                    <select class="form-control" name="curr" id="menu_settings_curr">
+                                                        <iaixsl:for-each select="/shop/currency/option">
+                                                            <option>
+                                                                <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                                <iaixsl:choose>
+                                                                    <iaixsl:when test="@selected='true'">
+                                                                        <iaixsl:attribute name="selected">selected</iaixsl:attribute>
+                                                                        <iaixsl:value-of select="@symbol"/>
+                                                                    </iaixsl:when>
+                                                                    <iaixsl:otherwise>
+                                                                        <iaixsl:value-of select="@symbol"/> (1 <iaixsl:value-of select="/shop/currency/option[@selected='true']/@symbol"/> = <iaixsl:value-of select="@rate"/>  <iaixsl:value-of select="@symbol"/>)
+                                                                    </iaixsl:otherwise>
+                                                                </iaixsl:choose>
+                                                            </option>
+                                                        </iaixsl:for-each>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </iaixsl:if>
+                                        <iaixsl:if test="count(/shop/countries/country) > 1">
+                                            <div class="form-group">
+                                                <label for="menu_settings_country">Dostawa do</label>
+
+                                                <div class="select-after">
+                                                    <select class="form-control" name="country" id="menu_settings_country">
+                                                        <iaixsl:for-each select="/shop/countries/country">
+                                                            <option>
+                                                                <iaixsl:if test="@selected='true'"><iaixsl:attribute name="selected">selected</iaixsl:attribute></iaixsl:if>
+                                                                <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                                <iaixsl:value-of select="@name"/>
+                                                            </option>
+                                                        </iaixsl:for-each>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </iaixsl:if>
+                                    </li>
+                                </iaixsl:if>
+                                <li class="buttons">
+                                    <button class="btn --solid --large" type="submit">
+                                        Zastosuj zmiany
+                                    </button>
+                                </li>
+                            </ul>
+                        </form>
+                    </iaixsl:if>
+                </iaixsl:if>
+            </iaixsl:comment>
+
+                <iaixsl:if test="$display_menu_additional">
+                    <div id="menu_additional2">
+                        <a>
+                        <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/contact/link/@url"/></iaixsl:attribute>
+                        <iaixsl:attribute name="class">contact-link</iaixsl:attribute>
+                        <img class="icon-phone-custom" src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
+                        <span>Kontakt</span>
+                        </a>
+                        <a class="account_link">
+                            <iaixsl:if test="/shop/action/login/@url">
+                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/login/@url"/></iaixsl:attribute>
+                            </iaixsl:if>
+                            <iaixsl:choose>
+                                <iaixsl:when test="basket/@login and not(basket/@login = '')">
+									<iaixsl:if test="$account_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$account_title"/></iaixsl:attribute></iaixsl:if>
+                                    <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
+                                    <span>Twoje konto</span>
+                                </iaixsl:when>
+                                <iaixsl:otherwise>
+									<iaixsl:if test="$login_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$login_title"/></iaixsl:attribute></iaixsl:if>
+                                    <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
+                                    <span>
+                                    <iaixsl:value-of disable-output-escaping="yes" select="$display_menu_additional"/>
+                                    </span>
+                                </iaixsl:otherwise>
+                            </iaixsl:choose>
+                        </a> 
+                        <a href="/basketedit.php?mode=2" class="wishlist_link wish-link">
+                        <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom"/>
+                        <span>
+                            Moja lista
+                        </span>
+							<!-- <iaixsl:if test="$list_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$list_title"/></iaixsl:attribute></iaixsl:if>
+                            <span>
+                            <iaixsl:attribute name="class">
+                            wish-count
+                            </iaixsl:attribute>
+                            <iaixsl:choose>
+                            <iaixsl:when test="wishes/@count">
+                            <iaixsl:value-of select="wishes/@count"/>
+                            </iaixsl:when>
+                            <iaixsl:otherwise>0</iaixsl:otherwise></iaixsl:choose>
+                            </span> -->
+                        </a>
+                    </div>
+                </iaixsl:if>
+             <!--Menu koszyka (menu_basket, 108216.4)-->
+              <iaixsl:variable name="basket_title"></iaixsl:variable>
+            <div id="menu_basket_wrapper2" class="d-flex px-0 ">
+                
+                <!-- <div id="menu_balance" class="d-none">
+                    <div>
+                        Saldo 
+                        <strong>
+                             <iaixsl:attribute name="style">display: none;</iaixsl:attribute>
+                            <iaixsl:if test="/shop/client_data/client_balance/balance[@currency_sign=/shop/currency/@name]/@value">
+                                <iaixsl:value-of select="(/shop/client_data/client_balance/balance[@currency_sign=/shop/currency/@name]/@value_formatted)"/>
+                            </iaixsl:if>
+                        </strong>
+                    </div>
+
+                    <a href="/client-rebate.php|link_rabaty">
+                    <iaixsl:if test="/shop/action/clientRebate/@url">
+                        <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/clientRebate/@url"/></iaixsl:attribute>
+                    </iaixsl:if>
+                        Informacje o rabatach
+                    </a>
+                </div> -->
+                
+                <div id="menu_basket2" class="menu_basket2">
+             
+                    <div class="menu_basket_list2">
+                        <iaixsl:if test="not(basket/@count > 0)">
+                            <iaixsl:attribute name="class">menu_basket_list empty</iaixsl:attribute>
+                        </iaixsl:if>
+                        <a href="/basketedit.php?mode=1">
+                            <iaixsl:if test="/shop/action/basket/@url">
+                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/basket/@url"/>?mode=1</iaixsl:attribute>
+                            </iaixsl:if>
+                           
+                            <iaixsl:if test="basket/@points_used > 0">
+                                <iaixsl:attribute name="class">points</iaixsl:attribute>
+                            </iaixsl:if> 
+					            <iaixsl:if test="$basket_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$basket_title"/></iaixsl:attribute></iaixsl:if>
+                            <iaixsl:attribute name="class">basket-link</iaixsl:attribute>
+
+                            <iaixsl:if test="basket/@count = 0">
+                                <iaixsl:attribute name="class">basket-link basket-link-empty</iaixsl:attribute>
+                            </iaixsl:if>
+                            <!-- <div class="img-counter-header"> -->
+                            <img class="icon-shopping-cart-custom" src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/shopping-cart.svg" alt=""/>
+                            <!-- <span class="counter"><iaixsl:value-of disable-output-escaping="yes" select="basket/@count"/></span> -->
+                            <!-- </div> -->
+                            <iaixsl:choose>
+                            <iaixsl:when test="basket/@count &gt; 0">
+                            <strong>
+                               <iaixsl:if test="/shop/page/@cache_html = 'true' ">
+                                  <iaixsl:attribute name="style">display: none;</iaixsl:attribute>
+                               </iaixsl:if>
+                                <b><iaixsl:value-of disable-output-escaping="yes" select="basket/@cost_net_formatted"/></b>
+                                <span> netto</span>
+                                <iaixsl:if test="basket/@points_used > 0">
+                                    <small>
+                                         + <iaixsl:value-of disable-output-escaping="yes" select="basket/@points_used"/>
+                                         PKT
+                                    </small>
+                                </iaixsl:if>
+                            </strong>
+                            <span class="basket-empty has-product-mobile2">Koszyk</span>
+                            </iaixsl:when>
+                            <iaixsl:otherwise>
+                            <span class="basket-empty2">Koszyk</span>
+                            </iaixsl:otherwise>
+                            </iaixsl:choose>
+                            <span class="debug-span">
+                            <iaixsl:value-of select="basket/@count"/>
+                            </span>
+                            <iaixsl:if test="basket/@count &gt; 0">
+                                <span class="badge badge-important d-md-none"><iaixsl:value-of disable-output-escaping="yes" select="basket/@count"/></span>
+                            </iaixsl:if>
+                        </a>
+
+                       
+                    </div>
+
+                    
                 </div>
+            </div>
+         </div>
+         <div class="contact-mobile-text">
+                    <div>
+                        <div>
+                     <!-- <strong>
+                    Obsługa kientów hurtowych
+                    </strong> -->
+                    <p><i class="icon-phone"></i><a href="tel:422987808">42 298 78 08</a></p>
+                        
+                        </div>
+                        <div>
+
+                    <!-- <strong> -->
+                    <!-- E-mail: -->
+                    <!-- </strong> -->
+                    <p><i class="icon-envelope"></i><a href="mailto:sklep@4kom.pl">sklep@4kom.pl</a></p>
+                        </div>
+         </div>
+         <div>
+         <p>Obsługa sklepu dostępna jest od poniedziałku do piątku, w godzinach 8:00 - 16:00
+         </p>
+         </div>
+         </div>
+            
+    </div>
                  
                 <div id="layout">
                     <iaixsl:attribute name="class">row clearfix</iaixsl:attribute>
@@ -2031,7 +2368,6 @@
             </div>
         </iaixsl:if>
 
-
          <iaixsl:if test="/shop/return_edit/@return_id">
             <div class="menu_messages_message" id="menu_messages_warning">
                 <div class="menu_messages_message_sub">
@@ -2045,7 +2381,8 @@
             </div>
         </iaixsl:if>
 
-        <!--Banery na stronie głównej (main_banner1, 106482.1)-->
+        <iaixsl:comment>
+            <!--Banery na stronie głównej (main_banner1, 106482.1)-->
             <iaixsl:if test="count(commercial_banner/link) > 0">
                 <iaixsl:variable name="txt_69867_01"></iaixsl:variable>
 
@@ -2121,6 +2458,9 @@
                     </div>
                 </div>
             </iaixsl:if>
+        </iaixsl:comment>
+        
+        <iaixsl:comment>
         <!--CMS na stronie głównej (main_cms, 106501.1)-->
             <iaixsl:if test="page/text[@id='13']">
                 <iaixsl:for-each select="page/text[@id='13']">
@@ -2129,6 +2469,7 @@
                     </div>
                 </iaixsl:for-each>
             </iaixsl:if>
+        </iaixsl:comment>    
         <!--Hotspot na stronie głównej - strefa 1 (main_hotspot_zone1, 111262.1)-->
 
                  <!-- ! TUTAJ ZMIENIĆ -->
@@ -2408,7 +2749,7 @@
                 </section>
             </iaixsl:if>
 
-
+            <iaixsl:comment>
                 <iaixsl:if test="page/hotspot/products_zone1">
                     <section id="main_hotspot_zone1" class="hotspot mb-5 d-none">
                         
@@ -2753,7 +3094,7 @@
                         </iaixsl:choose>
                     </section>
                 </iaixsl:if>
-
+            </iaixsl:comment>
                 <iaixsl:if test="/shop/page/hotspot/products_zone1/@hotspot_ajax"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone1/product/sizes/size/availability/@id"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone1/product/category/@id"> </iaixsl:if>
@@ -2767,6 +3108,7 @@
 
             
         <!--Strona główna (main, 106486.1)-->
+        <iaixsl:comment>
             <iaixsl:if test="navigation5/item">
                 <div id="main_tree5" class="mb-4 d-none"> 
                     <iaixsl:attribute name="class">d-none</iaixsl:attribute>
@@ -2823,7 +3165,9 @@
                     </ul>
                 </div>
             </iaixsl:if>
+        </iaixsl:comment>
         <!--Buttony strefa 2 na stronie głównej (main_buttons2, 106484.1)-->
+        <iaixsl:comment>
             <iaixsl:if test="count(commercial_button2/link)"> 
                 <div id="menu_buttons2" class="row mb-4">
 
@@ -2929,8 +3273,9 @@
                     </iaixsl:for-each>
                 </div>
             </iaixsl:if>
+        </iaixsl:comment>    
         <!--Hotspot na stronie głównej - strefa 2 (main_hotspot_zone2, 111122.1)-->
-            
+            <iaixsl:comment>
                 <iaixsl:if test="page/hotspot/products_zone2">
                     <section id="main_hotspot_zone2" class="hotspot mb-5 d-none">
                         
@@ -3266,7 +3611,7 @@
                         </iaixsl:choose>
                     </section>
                 </iaixsl:if>
-
+            </iaixsl:comment>
                 <iaixsl:if test="/shop/page/hotspot/products_zone2/product/comments/@id"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone2/@hotspot_ajax"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone2/product/sizes/size/availability/@id"> </iaixsl:if>
@@ -3286,7 +3631,7 @@
                 <iaixsl:if test="/shop/page/hotspot/products_zone2/@cache_html"> </iaixsl:if>
             
         <!--Hotspot na stronie głównej - strefa 3 (main_hotspot_zone3, 111270.1)-->
-            
+            <iaixsl:comment>
                 <iaixsl:if test="page/hotspot/products_zone3">
 
                     <section id="main_hotspot_zone3" class="hotspot mb-5">
@@ -3623,7 +3968,7 @@
                         </iaixsl:choose>
                     </section>
                 </iaixsl:if>
-
+            </iaixsl:comment>
                 <iaixsl:if test="/shop/page/hotspot/products_zone3/product/comments/@id"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone3/@hotspot_ajax"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone3/product/sizes/size/availability/@id"> </iaixsl:if>
@@ -3643,7 +3988,7 @@
                 <iaixsl:if test="/shop/page/hotspot/products_zone3/@cache_html"> </iaixsl:if>
             
         <!--Hotspot na stronie głównej - strefa 4 (main_hotspot_zone4, 111148.1)-->
-            
+            <iaixsl:comment>
                 <iaixsl:if test="page/hotspot/products_zone4">
 
                     <section id="main_hotspot_zone4" class="hotspot mb-5">
@@ -3980,7 +4325,7 @@
                         </iaixsl:choose>
                     </section>
                 </iaixsl:if>
-
+            </iaixsl:comment>
                 <iaixsl:if test="/shop/page/hotspot/products_zone4/product/comments/@id"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone4/@hotspot_ajax"> </iaixsl:if>
                 <iaixsl:if test="/shop/page/hotspot/products_zone4/product/sizes/size/availability/@id"> </iaixsl:if>
@@ -4004,7 +4349,7 @@
 		<iaixsl:variable name="main_blog_after_label"></iaixsl:variable>
 		<iaixsl:variable name="main_blog_see_more">Czytaj więcej</iaixsl:variable>
 		<iaixsl:variable name="main_blog_view_all"></iaixsl:variable>
-
+    <iaixsl:comment>
 		<iaixsl:if test="count(page/mainpage2/item) > 0">
 			<section id="main_blog" class="article mb-5">
 				<h2>
@@ -4113,12 +4458,13 @@
 				</iaixsl:if>
 			</section>
 		</iaixsl:if>
+    </iaixsl:comment>    
 	<!--Newsy na stronie głównej (strefa 1) (main_news1, 111161.1)-->
         <iaixsl:variable name="main_news_date">true</iaixsl:variable>
 		<iaixsl:variable name="main_news_after_label"></iaixsl:variable>
 		<iaixsl:variable name="main_news_see_more">Czytaj więcej</iaixsl:variable>
 		<iaixsl:variable name="main_news_view_all"></iaixsl:variable>
-
+    <iaixsl:comment>
 		<iaixsl:if test="count(page/mainpage1/item) > 0">
 			<section id="main_news" class="article mb-5">
 				<h2>
@@ -4227,7 +4573,9 @@
 				</iaixsl:if>
 			</section>
 		</iaixsl:if>
+    </iaixsl:comment>    
     <!--CMS na stronie głównej 2 (main_cms2, 106519.1)-->
+    <iaixsl:comment>
             <iaixsl:if test="page/text[@id='14']">
                 <iaixsl:for-each select="page/text[@id='14']">
                         <div id="main_cms2" class="cm mb-4">
@@ -4235,7 +4583,9 @@
                         </div>
                 </iaixsl:for-each>
             </iaixsl:if>
+    </iaixsl:comment>        
         <!--Banery 3 na stronie głównej (main_banner3, 106520.1)-->
+    <iaixsl:comment>    
             <iaixsl:if test="count(commercial_banner3/link)"> 
                 <div id="menu_banners3" class="row mb-4 mx-0 d-none">
                     <iaixsl:for-each select="commercial_banner3/link">
@@ -4336,7 +4686,7 @@
                     </iaixsl:for-each>
                 </div>
             </iaixsl:if>
-        
+    </iaixsl:comment>    
                         </div>
                     </iaixsl:if>
                 </div>
@@ -5534,10 +5884,18 @@
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-            <!-- <script src="/data/include/cms/b2b4kom/JS/headerResize.js" >
+            <script>
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script> -->
+
+                $('.main_slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                prevArrow: '<button type="button" class="slick-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next"></button>',
+                });
+            </script>
           
     
        

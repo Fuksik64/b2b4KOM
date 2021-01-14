@@ -8,7 +8,7 @@ import calculateHeightOfList from "./mobileIncludes/calculations.js";
 import replaceSearchBar from "../includes/replaceSearchBar.js";
 import reverseSearchBar from "../includes/reverseSearchBar.js";
 
-const LI_HEIGHT = 46;
+const LI_HEIGHT = 25;
 let v = variables();
 let currentLevel = 0;
 let currentName;
@@ -16,6 +16,7 @@ let delta = 0;
 let lastY;
 let currentHeight = calculateHeightOfList(v.liDepthOneMobile, LI_HEIGHT);
 let wrapperHeight = v.wrapperMobileDivUl.clientHeight;
+
 let mainParentUl;
 let subParentUl;
 
@@ -33,7 +34,7 @@ function mobile() {
       }
 
       addListeners();
-
+      v.iconInBreadcrumbMobile.style.display = "none";
       if (window.innerWidth < MOBILE_BREAKPOINT) replaceSearchBar();
     },
     resize() {
@@ -54,16 +55,19 @@ function addListeners() {
   v.overlay.addEventListener("click", hideCategories);
   v.overlay.addEventListener("click", scroll.enable);
 
+  //= BACK BUTTON EVENT
+  v.mobileHideButton.addEventListener("click", hideCategories);
+
   //= TEXT EVENT
   v.goBackDiv.addEventListener("click", changeCategoryText);
 
   //=TOUCH EVENTS
-  v.categoriesWrapperMobile.addEventListener("touchmove", touchAndWheelMobile, {
+  v.wrapperMobileDivUl.addEventListener("touchmove", touchAndWheelMobile, {
     passive: true,
   });
 
   //=WHEEL EVENTS
-  v.categoriesWrapperMobile.addEventListener("wheel", touchAndWheelMobile, {
+  v.wrapperMobileDivUl.addEventListener("wheel", touchAndWheelMobile, {
     passive: true,
   });
 
@@ -95,7 +99,7 @@ function levelOneClick(e) {
   let v = variables();
   const name = e.target.parentElement.parentElement.querySelector("div>span")
     .innerHTML;
-  const li = e.target.parentElement.parentElement;
+  const li = e.target.parentElement;
   const ul = li.querySelectorAll("ul > li.li-depth-22");
 
   mainParentUl = ul;
@@ -103,7 +107,7 @@ function levelOneClick(e) {
   v.liDepthOneMobile.forEach((li) => {
     li.classList.remove("active");
   });
-
+  v.iconInBreadcrumbMobile.style.display = "";
   v.iconSpan.innerHTML = name;
   currentName = name;
   currentHeight = calculateHeightOfList(ul, LI_HEIGHT);
@@ -119,7 +123,7 @@ function levelTwoClick(e) {
   const li = e.target.parentElement.parentElement;
   const li2 = li.parentElement.parentElement.querySelectorAll(".li-depth-22");
   const ul = li.querySelectorAll("ul>li");
-
+  v.iconInBreadcrumbMobile.style.display = "";
   subParentUl = ul;
   currentLevel = 2;
   currentHeight = calculateHeightOfList(ul, LI_HEIGHT);
@@ -135,29 +139,30 @@ function levelTwoClick(e) {
 function changeCategoryText() {
   switch (currentLevel) {
     case 0:
-      hideOverlay();
-      scroll.enable();
-      setters.resetTransform(v.categoriesWrapperMobile);
+      // hideOverlay();
+      // scroll.enable();
+      // setters.resetTransform(v.categoriesWrapperMobile);
+
       currentLevel = 0;
       resetMobileWheel();
-      console.log("0");
+      v.iconInBreadcrumbMobile.style.display = "none";
       break;
     case 1:
+      v.iconInBreadcrumbMobile.style.display = "none";
       setters.resetTransform(v.ulMobileWrapper);
       v.iconSpan.innerHTML = "Kategorie";
       currentLevel = 0;
       currentHeight = calculateHeightOfList(v.liDepthOneMobile, LI_HEIGHT);
       resetMobileWheel();
-      console.log("1");
       break;
     case 2:
+      v.iconInBreadcrumbMobile.style.display = "";
       v.iconSpan.innerHTML = currentName;
       currentHeight = calculateHeightOfList(mainParentUl, LI_HEIGHT);
       v.liDepthOneMobile.forEach((li) => {
         setters.setTranslateX(v.ulMobileWrapper, -100, "%");
       });
       currentLevel = 1;
-      console.log("2");
       resetMobileWheel();
       break;
   }
@@ -168,12 +173,20 @@ function showCategories() {
   showOverlay();
   resetMobileWheel();
   setters.setTranslateX(v.categoriesWrapperMobile, 0);
+  v.body.classList.add("mobileCategoriesActive");
+  wrapperHeight = v.wrapperMobileDivUl.clientHeight;
 }
 function hideCategories() {
   let v = variables();
+  currentLevel = 0;
+  v.iconInBreadcrumbMobile.style.display = "none";
   setters.resetTransform(v.ulMobileWrapper);
   setters.resetTransform(v.categoriesWrapperMobile);
   v.iconSpan.innerHTML = "Kategorie";
+  scroll.enable();
+  setTimeout(() => {
+    v.body.classList.remove("mobileCategoriesActive");
+  }, 200);
   hideOverlay();
 }
 
@@ -183,23 +196,22 @@ function touchAndWheelMobile(e) {
     let currentY = e.touches[0].pageY;
 
     if (currentY > lastY) {
-      delta += 100;
+      delta += 10;
     } else if (currentY < lastY) {
-      delta -= 100;
+      delta -= 10;
     }
     lastY = currentY;
   } else if (e.type == "wheel") {
     delta -= parseInt(e.deltaY) / 2;
   }
-
   if (delta > 0) delta = 0;
   if (wrapperHeight > currentHeight) {
     delta = 0;
-  } else if (-delta + wrapperHeight - 6 * LI_HEIGHT > currentHeight) {
+  } else if (-delta + wrapperHeight - 5 * LI_HEIGHT > currentHeight) {
     if (e.type == "wheel") {
       delta += parseInt(e.deltaY) / 2;
     } else if (e.type == "touchmove") {
-      delta += 100;
+      delta += 10;
     }
   }
 
