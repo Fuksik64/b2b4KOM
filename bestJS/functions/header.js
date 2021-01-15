@@ -31,8 +31,7 @@ const REM = parseInt(
 const LI_HEIGHT = 28;
 
 let STARTING_WIDTH = v.navContainer.clientWidth - 30;
-let STARTING_HEIGHT =
-  calculateStartHeight(v.liDepthOneHeader, LI_HEIGHT) + 5 * REM;
+let STARTING_HEIGHT = calculateStartHeight(v.liDepthOneHeader, LI_HEIGHT);
 
 // =======================================================================
 function header() {
@@ -117,8 +116,7 @@ function enterOneHeader(e) {
 
   const WIDTH = STARTING_WIDTH * (1 + SUB_CATEGORY_MULTIPLIER);
   const WIDTH_SUB_CATEGORY = STARTING_WIDTH * SUB_CATEGORY_MULTIPLIER;
-  const HEIGHT_SUB_CATEGORY =
-    calculateHeight(liSiblings, nestedLis, LI_HEIGHT) + 2 * REM;
+  const HEIGHT_SUB_CATEGORY = calculateHeight(liSiblings, nestedLis, LI_HEIGHT);
 
   //= SET INITIAL DIMENSIONS AND ADD PINK COLOR
   li.classList.add("active");
@@ -177,7 +175,7 @@ function enterTwoHeader(e) {
   nestedUl2.classList.add("active");
   let CONTAINER_WIDTH = v.container.clientWidth - 30;
   const HEIGHT_PARENT = calculateOneHeight(li2Siblings, LI_HEIGHT);
-  const HEIGHT_CHILD = calculateOneHeight(nestedLis2, LI_HEIGHT) + 2 * REM;
+  const HEIGHT_CHILD = calculateOneHeight(nestedLis2, LI_HEIGHT);
   const SPAN_MAX_WIDTH = calculateMaxWidth(nestedLis2);
   const PARENT_CATEGORY_WIDTH = STARTING_WIDTH * SUB_CATEGORY_MULTIPLIER;
 

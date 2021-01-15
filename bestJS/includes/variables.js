@@ -35,6 +35,7 @@ export default function variables() {
     mobileButton: document.querySelector(".button-mobile-categories"),
     categoriesWrapperMobile: document.querySelector(".categories-wrapper-ul2"),
     menuSettings: document.querySelector("#menu_settings"),
+    menuSettings2: document.querySelector("#menu_settings2"),
     goBackDiv: document.querySelector(".categoriesMobileBreadcrumb"),
     iconGoBack: document.querySelector(".categoriesMobileBreadcrumb i "),
     iconInBreadcrumbMobile: document.querySelector(

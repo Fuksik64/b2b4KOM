@@ -196,9 +196,9 @@ function touchAndWheelMobile(e) {
     let currentY = e.touches[0].pageY;
 
     if (currentY > lastY) {
-      delta += 10;
+      delta += 25;
     } else if (currentY < lastY) {
-      delta -= 10;
+      delta -= 25;
     }
     lastY = currentY;
   } else if (e.type == "wheel") {

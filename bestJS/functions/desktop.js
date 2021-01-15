@@ -16,9 +16,11 @@ import { calculateStartHeight } from "../includes/calculationsCategories.js";
 export let v = variables();
 export const desktopController = desktop();
 
-const LI_HEIGHT = 28;
+const LI_HEIGHT = 27;
 
 let STARTING_WIDTH;
+let STARTING_HEIGHT;
+
 const REM = parseInt(
   window
     .getComputedStyle(document.body)
@@ -26,8 +28,6 @@ const REM = parseInt(
     .replace(/px/, "")
 );
 
-let STARTING_HEIGHT =
-  calculateStartHeight(v.liDepthOneDesktop, LI_HEIGHT) + 5 * REM;
 const CONTAINER_WIDTH = v.container.clientWidth - 45;
 
 //===========================================
@@ -41,7 +41,7 @@ function desktop() {
         : (STARTING_WIDTH = v.navContainer.clientWidth);
 
       STARTING_HEIGHT =
-        calculateStartHeight(v.liDepthOneDesktop, LI_HEIGHT) + 5 * REM;
+        calculateStartHeight(v.liDepthOneDesktop, LI_HEIGHT) + 3 * REM;
 
       setters.widthMultiple(
         [v.categoriesWrapperDesktop, v.navCategory, v.ulDesktop],
@@ -91,6 +91,15 @@ function addEvents(variables) {
     "mouseleave",
     wheelDesktop.leaveRemove
   );
+
+  if (v.container.classList.contains("main_page")) {
+    v.categoriesWrapperDesktop.addEventListener("mouseenter", (e) => {
+      v.categoriesWrapperDesktop.classList.remove("init");
+    });
+    v.categoriesWrapperDesktop.addEventListener("mouseleave", (e) => {
+      v.categoriesWrapperDesktop.classList.add("init");
+    });
+  }
 
   //=BREADCRUMB EVENTS
   v.categoriesWrapperDesktop.addEventListener("mouseleave", () => {

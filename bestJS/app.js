@@ -78,3 +78,22 @@ export const scroll = new IntersectionObserver(
   { rootMargin: "-30px 0px 0px 0px", threshold: 0.3 }
 );
 scroll.observe(document.querySelector(".b2b-category"));
+
+if (iOS()) {
+  document.body.classList.add("iOS");
+}
+
+function iOS() {
+  return (
+    [
+      "iPad Simulator",
+      "iPhone Simulator",
+      "iPod Simulator",
+      "iPad",
+      "iPhone",
+      "iPod",
+    ].includes(navigator.platform) ||
+    // iPad on iOS 13 detection
+    (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  );
+}

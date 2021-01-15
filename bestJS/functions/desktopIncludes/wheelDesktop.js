@@ -1,9 +1,8 @@
 import { v } from "../desktop.js";
 let scrollValue = 0;
-;
 export function enable(e) {
-  let variation = parseInt(e.deltaY);
-  scrollValue += variation / 5;
+  parseInt(e.deltaY) > 0 ? (scrollValue += 50) : (scrollValue -= 50);
+
   if (scrollValue < 0) {
     scrollValue = 0;
   }
