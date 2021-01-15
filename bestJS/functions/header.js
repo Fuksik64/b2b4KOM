@@ -94,18 +94,15 @@ function addListeners(variables) {
 // =======================================================================
 function enterOneHeader(e) {
   const li = e.target;
-  const liSiblings = e.target.parentElement.querySelectorAll(
-    ".li-depth-1-header"
-  );
+  const liSiblings = li.parentElement.querySelectorAll(".li-depth-1-header");
   const nestedUl = li.querySelector(".nested-ul-category-header");
   const nestedLis =
     nestedUl != null ? nestedUl.querySelectorAll("li.li-depth-2-header") : null;
   if (nestedUl == null) {
     //= SUB_CATEGORY IS EMPTY
-    setters.widthMultiple(
-      [v.categoriesWrapperHeader, v.ulHeader],
-      STARTING_WIDTH
-    );
+    setters.width(v.categoriesWrapperHeader, STARTING_WIDTH);
+    setters.width(v.ulHeader, STARTING_WIDTH - 2);
+
     setters.heightMultiple(
       [v.categoriesWrapperHeader, v.ulHeader],
       STARTING_HEIGHT
@@ -140,10 +137,9 @@ function leaveOneHeader(e) {
   if (nestedUl == null) return;
   nestedUl.classList.remove("active");
 
-  setters.widthMultiple(
-    [v.categoriesWrapperHeader, v.ulHeader],
-    STARTING_WIDTH
-  );
+  setters.width(v.categoriesWrapperHeader, STARTING_WIDTH);
+  setters.width(v.ulHeader, STARTING_WIDTH - 2);
+
   setters.heightMultiple(
     [v.categoriesWrapperHeader, v.ulHeader],
     STARTING_HEIGHT
@@ -211,6 +207,12 @@ function enterTwoHeader(e) {
   );
 }
 function leaveTwoHeader(e) {
+  const li = e.target.parentElement.parentElement;
+  const liSiblings = li.parentElement.querySelectorAll(".li-depth-1-header");
+  const nestedUl = li.querySelector(".nested-ul-category-header");
+  const nestedLis =
+    nestedUl != null ? nestedUl.querySelectorAll("li.li-depth-2-header") : null;
+
   const li2 = e.target;
   const nestedUl2 = li2.querySelector(".nested-ul-category-header");
   li2.classList.remove("active");
@@ -218,6 +220,22 @@ function leaveTwoHeader(e) {
   if (nestedUl2 == null) return;
   nestedUl2.classList.remove("active");
   setters.resetWidth(nestedUl2);
+
+  const WIDTH = STARTING_WIDTH * (1 + SUB_CATEGORY_MULTIPLIER);
+  const WIDTH_SUB_CATEGORY = STARTING_WIDTH * SUB_CATEGORY_MULTIPLIER;
+  const HEIGHT_SUB_CATEGORY = calculateHeight(liSiblings, nestedLis, LI_HEIGHT);
+
+  //= SET INITIAL DIMENSIONS AND ADD PINK COLOR
+  li.classList.add("active");
+  nestedUl.classList.add("active");
+
+  setters.width(v.categoriesWrapperHeader, WIDTH);
+  setters.heightMultiple(
+    [v.categoriesWrapperHeader, v.ulHeader, nestedUl],
+    HEIGHT_SUB_CATEGORY
+  );
+
+  setters.width(nestedUl, WIDTH_SUB_CATEGORY);
 }
 // =======================================================================
 
@@ -233,10 +251,9 @@ function menuHeaderHamburgerClick() {
 
         scroll.disable();
         disablePointer(500);
-        setters.widthMultiple(
-          [v.categoriesWrapperHeader, v.ulHeader],
-          STARTING_WIDTH
-        );
+        setters.width(v.categoriesWrapperHeader, STARTING_WIDTH);
+        setters.width(v.ulHeader, STARTING_WIDTH - 2);
+
         clicked = true;
         v.categoriesWrapperHeader.addEventListener(
           "mouseenter",
@@ -289,7 +306,7 @@ export function wrapCategories() {
 
 function defaultDimensions() {
   v.header.classList.add("active-categories-header");
-  setters.widthMultiple([v.categoriesWrapperHeader], STARTING_WIDTH);
+  setters.width(v.categoriesWrapperHeader, STARTING_WIDTH);
   setters.resetBorder(v.categoriesWrapperHeader);
   setters.resetPadding(v.categoriesWrapperHeader);
   headerWheel.enable();

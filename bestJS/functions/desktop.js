@@ -65,9 +65,10 @@ function desktop() {
         : (STARTING_WIDTH = v.navContainer.clientWidth);
 
       setters.widthMultiple(
-        [v.categoriesWrapperDesktop, v.navCategory, v.ulDesktop],
+        [v.categoriesWrapperDesktop, v.navCategory],
         STARTING_WIDTH
       );
+      setters.width(v.ulDesktop, STARTING_WIDTH - 2);
       hideOverlay();
 
       if (!v.container.classList.contains("main_page")) collapseFunction();
@@ -144,9 +145,10 @@ function enterOne(e) {
   if (nestedUl == null) {
     //= SUB_CATEGORY IS EMPTY
     setters.widthMultiple(
-      [v.categoriesWrapperDesktop, v.ulDesktop, v.navCategory],
+      [v.categoriesWrapperDesktop, v.navCategory],
       STARTING_WIDTH
     );
+    setters.width(v.ulDesktop, STARTING_WIDTH - 2);
     setters.heightMultiple(
       [v.categoriesWrapperDesktop, v.ulDesktop],
       STARTING_HEIGHT
@@ -182,9 +184,11 @@ function leaveOne(e) {
   nestedUl.classList.remove("active");
 
   setters.widthMultiple(
-    [v.categoriesWrapperDesktop, v.navCategory, v.ulDesktop],
+    [v.categoriesWrapperDesktop, v.navCategory],
     STARTING_WIDTH
   );
+  setters.width(v.ulDesktop, STARTING_WIDTH - 2);
+
   setters.heightMultiple(
     [v.categoriesWrapperDesktop, v.ulDesktop],
     STARTING_HEIGHT
@@ -253,8 +257,17 @@ function enterTwo(e) {
 }
 function leaveTwo(e) {
   const li2 = e.target;
+  const li = e.target.parentElement.parentElement;
+  const nestedUl = li.querySelector(".nested-ul-category");
+  const liSiblings = e.target.parentElement.parentElement.parentElement.querySelectorAll(
+    ".li-depth-1"
+  );
   const liParent = li2.parentElement.parentElement;
   const nestedUl2 = li2.querySelector(".nested-ul-category");
+
+  const nestedLis =
+    nestedUl != null ? nestedUl.querySelectorAll("li.li-depth-2") : null;
+
   li2.classList.remove("active");
 
   v.breadcrumbText.innerHTML = `${
@@ -264,6 +277,23 @@ function leaveTwo(e) {
   if (nestedUl2 == null) return;
   nestedUl2.classList.remove("active");
   setters.resetWidth(nestedUl2);
+
+  const WIDTH = STARTING_WIDTH * (1 + SUB_CATEGORY_MULTIPLIER);
+  const WIDTH_SUB_CATEGORY = STARTING_WIDTH * SUB_CATEGORY_MULTIPLIER;
+  const HEIGHT_SUB_CATEGORY =
+    calculateHeight(liSiblings, nestedLis, LI_HEIGHT) + 3 * REM;
+
+  //= SET INITIAL DIMENSIONS AND ADD PINK COLOR
+  li.classList.add("active");
+  nestedUl.classList.add("active");
+
+  setters.widthMultiple([v.categoriesWrapperDesktop, v.navCategory], WIDTH);
+  setters.heightMultiple(
+    [v.categoriesWrapperDesktop, v.ulDesktop, nestedUl],
+    HEIGHT_SUB_CATEGORY
+  );
+
+  setters.width(nestedUl, WIDTH_SUB_CATEGORY);
 }
 function enterThree(e) {
   const li3 = e.target;
@@ -291,9 +321,10 @@ function defaultDimensions() {
     STARTING_HEIGHT
   );
   setters.widthMultiple(
-    [v.categoriesWrapperDesktop, v.ulDesktop, v.navCategory],
+    [v.categoriesWrapperDesktop, v.navCategory],
     STARTING_WIDTH
   );
+  setters.width(v.ulDesktop, STARTING_WIDTH - 2);
 }
 //===========================================
 const collapse = collapseCategories();

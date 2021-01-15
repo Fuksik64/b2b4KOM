@@ -116,6 +116,7 @@ function levelOneClick(e) {
   resetMobileWheel();
   li.classList.add("active");
   setters.setTranslateX(v.ulMobileWrapper, -100, "%");
+  checkForMoreItems();
 }
 function levelTwoClick(e) {
   let v = variables();
@@ -135,17 +136,15 @@ function levelTwoClick(e) {
     li.classList.remove("active");
   });
   li.classList.add("active");
+  checkForMoreItems();
 }
 function changeCategoryText() {
   switch (currentLevel) {
     case 0:
-      // hideOverlay();
-      // scroll.enable();
-      // setters.resetTransform(v.categoriesWrapperMobile);
-
       currentLevel = 0;
       resetMobileWheel();
       v.iconInBreadcrumbMobile.style.display = "none";
+      checkForMoreItems();
       break;
     case 1:
       v.iconInBreadcrumbMobile.style.display = "none";
@@ -154,6 +153,7 @@ function changeCategoryText() {
       currentLevel = 0;
       currentHeight = calculateHeightOfList(v.liDepthOneMobile, LI_HEIGHT);
       resetMobileWheel();
+      checkForMoreItems();
       break;
     case 2:
       v.iconInBreadcrumbMobile.style.display = "";
@@ -164,6 +164,7 @@ function changeCategoryText() {
       });
       currentLevel = 1;
       resetMobileWheel();
+      checkForMoreItems();
       break;
   }
 }
@@ -175,6 +176,7 @@ function showCategories() {
   setters.setTranslateX(v.categoriesWrapperMobile, 0);
   v.body.classList.add("mobileCategoriesActive");
   wrapperHeight = v.wrapperMobileDivUl.clientHeight;
+  checkForMoreItems();
 }
 function hideCategories() {
   let v = variables();
@@ -194,20 +196,22 @@ function hideCategories() {
 function touchAndWheelMobile(e) {
   if (e.type == "touchmove") {
     let currentY = e.touches[0].pageY;
-
     if (currentY > lastY) {
-      delta += 25;
+      v.body.classList.contains("iOS") ? (delta += 10) : (delta += 25);
     } else if (currentY < lastY) {
-      delta -= 25;
+      v.body.classList.contains("iOS") ? (delta -= 10) : (delta -= 25);
     }
     lastY = currentY;
   } else if (e.type == "wheel") {
     delta -= parseInt(e.deltaY) / 2;
   }
   if (delta > 0) delta = 0;
+  v.categoriesWrapperMobile.classList.add("moreItems");
   if (wrapperHeight > currentHeight) {
     delta = 0;
+    v.categoriesWrapperMobile.classList.remove("moreItems");
   } else if (-delta + wrapperHeight - 5 * LI_HEIGHT > currentHeight) {
+    v.categoriesWrapperMobile.classList.remove("moreItems");
     if (e.type == "wheel") {
       delta += parseInt(e.deltaY) / 2;
     } else if (e.type == "touchmove") {
@@ -231,5 +235,11 @@ function resetMobileWheel() {
   delta = 0;
 }
 //=======================================================================
+function checkForMoreItems() {
+  let v = variables();
+  currentHeight > wrapperHeight
+    ? v.categoriesWrapperMobile.classList.add("moreItems")
+    : v.categoriesWrapperMobile.classList.remove("moreItems");
+}
 //=======================================================================
 //=======================================================================

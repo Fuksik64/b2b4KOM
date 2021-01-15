@@ -495,8 +495,8 @@
                 </iaixsl:if>
                 <div class="logo-text">
                 <!-- <iaixsl:attribute name="class">logo-text</iaixsl:attribute> -->
-                <p>etui ochronne</p>
-                <p>szkła, akcesoria</p>
+                <p>Hurtownia</p>
+                <p>akcesoriów GSM</p>
                 </div>
                 
             </a>
@@ -690,31 +690,14 @@
                         <img class="icon-phone-custom" src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
                         <span>Kontakt</span>
                         </a>
-
-                        <div class="contact-info-header">
-                         <div class="col-4">
-                                <!-- <strong>
-                                Obsługa kientów hurtowych
-                                </strong> -->
-                                <p>
-                                <!-- <i class="icon-phone"></i> -->
-                                <!-- <span>Tel.: </span> -->
-                                <a href="tel:422987808">42 298 78 08</a>
-                                </p>
-                                <!-- <strong>
-                                E-mail:
-                                </strong> -->
-                                <p>
-                                <!-- <i class="icon-envelope"></i> -->
-                                <a href="mailto:sklep@4kom.pl">sklep@4kom.pl</a>
-                                </p>
-                                </div>
-                             <div class="col">
-                                 <p>Obsługa sklepu dostępna jest</p>
-                                 <p>od poniedziałku do piątku,</p>
-                                 <p>w godzinach 8:00 - 16:00</p>
-                            </div>
-                        </div>
+                                <iaixsl:if test="/shop/commercial_button">
+                                    <iaixsl:for-each select="/shop/commercial_button/link">
+                                        <iaixsl:if test="html/@title='Kontakt'">
+                                        <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                        </iaixsl:if>
+                                    </iaixsl:for-each>
+                                </iaixsl:if>
+                       
                         </div>
 
                         <a class="account_link">
@@ -2526,9 +2509,9 @@
                     </div>
                     <div class="featured-products-wrapper">
                         <div class="featured-items">
-                            <ul class="featured-ul">
+                            <ul class="featured-ul slider-polecane">
                             <iaixsl:for-each select="/shop/page/hotspot/newproducts/product">
-                                <iaixsl:if test="position() &lt; 5">
+                                <iaixsl:if test="position() &lt; 17">
                                     <li>
                                         <a>
                                             <iaixsl:attribute name="href">
@@ -2537,14 +2520,14 @@
                                             <iaixsl:attribute name="target">_self</iaixsl:attribute>
                                             <span class="label">
                                                 <iaixsl:choose>
-                                                    <iaixsl:when test="/shop/page/hotspot/newproducts/product/@bestseller=true">
+                                                    <iaixsl:when test="@bestseller=true">
                                                     Bestseller
                                                     </iaixsl:when>
                                                     <iaixsl:otherwise>
                                                         <iaixsl:value-of select="firm/@name"/>
                                                     </iaixsl:otherwise>
                                                 </iaixsl:choose>
-                                                <iaixsl:if test="/shop/page/hotspot/newproducts/product/@bestseller">
+                                                <iaixsl:if test="@bestseller">
                                                     Bestseller
                                                 </iaixsl:if>
                                             </span>
@@ -2559,9 +2542,16 @@
                                             <span class="name">
                                                 <iaixsl:value-of select="name" />
                                             </span>
+                                            <div class="prices-wrapper">
+                                            <iaixsl:if test="price/@maxprice_net_formatted">
+                                             <span class="price-before-rebbate">
+                                                <iaixsl:value-of select="price/@maxprice_net_formatted"/>
+                                            </span>
+                                            </iaixsl:if>
                                             <span class="price">
                                                   <iaixsl:value-of select="price/@price_net_formatted"/>
                                             </span>
+                                            </div>
                                          </a>
                                     </li>
                                 </iaixsl:if>
@@ -2618,9 +2608,9 @@
                     </div>
                     <div class="featured-products-wrapper">
                         <div class="featured-items">
-                            <ul class="featured-ul">
+                            <ul class="featured-ul slider-nowosci">
                             <iaixsl:for-each select="/shop/page/hotspot/newproducts/product">
-                                <iaixsl:if test="position() &lt; 5">
+                                <iaixsl:if test="position() &lt; 17">
                                     <li>
                                         <a>
                                             <iaixsl:attribute name="href">
@@ -2651,9 +2641,16 @@
                                             <span class="name">
                                                 <iaixsl:value-of select="name" />
                                             </span>
-                                            <span class="price">
-                                                <iaixsl:value-of select="price/@price_formatted" />
+                                            <div class="prices-wrapper">
+                                            <iaixsl:if test="price/@maxprice_net_formatted">
+                                             <span class="price-before-rebbate">
+                                                <iaixsl:value-of select="price/@maxprice_net_formatted"/>
                                             </span>
+                                            </iaixsl:if>
+                                            <span class="price">
+                                                  <iaixsl:value-of select="price/@price_net_formatted"/>
+                                            </span>
+                                            </div>
                                          </a>
                                     </li>
                                 </iaixsl:if>
@@ -2710,9 +2707,9 @@
                     </div>
                     <div class="featured-products-wrapper">
                         <div class="featured-items">
-                            <ul class="featured-ul">
+                            <ul class="featured-ul slider-promocje">
                             <iaixsl:for-each select="/shop/page/hotspot/promoproducts/product">
-                                <iaixsl:if test="position() &lt; 5">
+                                <iaixsl:if test="position() &lt; 17">
                                     <li>
                                         <a>
                                             <iaixsl:attribute name="href">
@@ -2743,9 +2740,16 @@
                                             <span class="name">
                                                 <iaixsl:value-of select="name" />
                                             </span>
-                                            <span class="price">
-                                                <iaixsl:value-of select="price/@price_formatted" />
+                                            <div class="prices-wrapper">
+                                            <iaixsl:if test="price/@maxprice_net_formatted">
+                                             <span class="price-before-rebbate">
+                                                <iaixsl:value-of select="price/@maxprice_net_formatted"/>
                                             </span>
+                                            </iaixsl:if>
+                                            <span class="price">
+                                                  <iaixsl:value-of select="price/@price_net_formatted"/>
+                                            </span>
+                                            </div>
                                          </a>
                                     </li>
                                 </iaixsl:if>
@@ -4948,7 +4952,7 @@
 					</iaixsl:otherwise>
 				</iaixsl:choose>
 				
-                <div class="contact-info-footer footer_links col-md-4 col-sm-6 col-12">
+                <!-- <div class="contact-info-footer footer_links col-md-4 col-sm-6 col-12">
                             <a>
                             <iaixsl:attribute name="href">
                             <iaixsl:value-of select="/shop/@baseurl"/>
@@ -4995,7 +4999,7 @@
                                </li>
                             </ul>
 
-                </div>
+                </div> -->
 				<iaixsl:if test="$allow_returns_footer = 'true'">
 
 				<ul id="menu_orders" class="footer_links col-md-4 col-sm-6 col-12">
@@ -5320,7 +5324,7 @@
 				</iaixsl:if>
 			</div>
 		<!--Dane kontaktowe w menu (menu_contact, 113288.1)-->
-            <iaixsl:variable name="hideAdress"></iaixsl:variable>
+            <!-- <iaixsl:variable name="hideAdress"></iaixsl:variable>
             <div id="menu_contact" class="container d-md-flex align-items-md-center justify-content-md-between">
                 <ul >
                     <li class="contact_type_header">
@@ -5424,7 +5428,7 @@
                         
                     </a>
                 </div>
-            </iaixsl:if> 
+            </iaixsl:if>  -->
         <!--Stopka (menu_footer, 106456.1)-->
              <iaixsl:if test="/shop/iai/@button_src"/>
         <!--Bannery sekcji 2 (menu_banners2, 109348.1)-->
@@ -5946,7 +5950,10 @@
             <iaixsl:if test="/shop/@menu_dynamically_added_content"> </iaixsl:if>
         
                 </footer>
+
+                
             </iaixsl:if>
+
             <iaixsl:variable name="projector_script_bottom">true</iaixsl:variable>
             <iaixsl:if test="/shop/page/@type = 'main' or /shop/page/@type = 'search' or /shop/page/@type = 'place-order' or /shop/page/@type = 'noproduct' or ($projector_script_bottom and /shop/page/@type = 'projector')">
                 <iaixsl:choose>
@@ -5989,8 +5996,33 @@
                 infinite: true,
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                prevArrow: '<button type="button" class="slick-prev"></button>',
-                nextArrow: '<button type="button" class="slick-next"></button>',
+                prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next  slick-custom-next"></button>',
+                });
+
+                $('.slider-polecane').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
+                centerMode:false,
+                });
+                $('.slider-nowosci').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
+                centerMode:false,
+                });
+                $('.slider-promocje').slick({
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
+                nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
+                centerMode:false,
                 });
             </script>
           
