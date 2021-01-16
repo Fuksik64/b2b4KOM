@@ -2318,3 +2318,8 @@ footer #footer_links ul li span.footer_links_label {
     display: flex;
     align-items: center;
 }
+
+.featured-ul li {
+    flex-basis: unset;
+    padding: 0;
+}
