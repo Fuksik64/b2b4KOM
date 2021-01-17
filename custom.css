@@ -1031,10 +1031,9 @@ body.mobileCategoriesActive .overlay {
 }
 
 #menu_basket2 .menu_basket_list a img {
-    max-width: 20px;
-    max-height: 20px;
+    max-width: 15px;
+    max-height: 15px;
     margin-right: 2rem;
-    rotate: 45deg;
 }
 
 .ul-category2 {
@@ -1962,19 +1961,7 @@ body.iOS .categories-wrapper-ul2 {
 
 }
 
-#menu_newsletter::after {
-    content: '';
-    background: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png');
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: -100%;
-    height: 100vh;
-    background-size: contain;
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-position-x: center;
-}
+
 
 .newsletter-custom form.row {
 
@@ -2273,11 +2260,11 @@ footer #footer_links ul li span.footer_links_label {
     position: relative;
 }
 
-.categories-wrapper-ul2.moreItems .wrapper-div-ul-2::after {
+#menu_settings2.moreItems::after {
     opacity: 1;
 }
 
-.wrapper-div-ul-2::after {
+#menu_settings2::after {
     content: "\F078";
     font-family: 'FontAwesome';
     font-size: 1.2rem;
@@ -2289,23 +2276,26 @@ footer #footer_links ul li span.footer_links_label {
     align-items: flex-start;
     padding-top: .2rem;
     min-height: 2.6rem;
-    background: #fff;
+    background: none;
+    z-index: -1;
     opacity: 0;
     transition: opacity .2s ease;
-    bottom: 0%;
+    /* bottom: 0%; */
     animation-name: moreItems;
-    animation-duration: 1s;
+    animation-duration: .7s;
+    top: 0;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    transform: translateY(calc(-100% + 3px))
 }
 
 @keyframes moreItems {
     from {
-        transform: translateY(0)
+        transform: translateY(calc(-100% + 3px))
     }
 
     to {
-        transform: translateY(5px);
+        transform: translateY(calc(-100%))
     }
 }
 
@@ -2330,4 +2320,93 @@ footer #footer_links ul li span.footer_links_label {
 
 #products_associated_zone2 .custom-associated:hover {
     border: 1px solid var(--gray-light)
+}
+
+@media(max-width:400px) {
+    .newsletter-custom form.row {
+        box-shadow: none;
+        border-radius: 0;
+    }
+}
+
+.featured-ul li a {
+    border: none;
+    border-radius: 0;
+}
+
+.featured-ul li a:hover {
+    border: none
+}
+
+.featured-ul li {
+    border: 1px solid transparent;
+    border-radius: 24px;
+}
+
+.featured-ul li:hover {
+    border-color: var(--gray-light);
+
+}
+
+.categoriesMobileBreadcrumb i {
+    margin-top: 2px;
+}
+
+/* .mobileCategoriesActive {
+    overflow: hidden;
+} */
+
+.wrapper-div-ul-2 {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+/* html,
+body {
+    height: unset;
+} */
+/* 
+#menu_newsletter {
+    position: relative;
+    width: 100%;
+
+}
+
+
+#menu_newsletter::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    height: 300px;
+    left: 0;
+    width: 100%;
+    display: block;
+    position: absolute;
+    background-image: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom;
+} */
+.wrapper-div-ul-2::-webkit-scrollbar {
+    display: none;
+
+}
+
+/* @media(max-width:1199px) {
+    #footer_links.four_elements .footer_links {
+        flex-basis: 50% !important
+    }
+} */
+
+/* !TEST */
+header {
+    position: sticky !important;
+    transform: translateX(0) !important;
+    left: 0 !important;
+}
+
+#container {
+    padding-top: 0;
 }

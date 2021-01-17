@@ -13,5 +13,7 @@ export default function createOverlay() {
     div.className = "overlay";
     div.style.height = height + "px";
     document.getElementsByTagName("body")[0].prepend(div);
+    document.do
   }
 }
+

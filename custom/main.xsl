@@ -275,9 +275,19 @@
                 <iaixsl:attribute name="class"><iaixsl:value-of select="page/@type"/>_page <iaixsl:if test="/shop/page/login/@shop_registration = 'true'">registration_page </iaixsl:if>container</iaixsl:attribute>
 
                 <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'head')">
+
+                <iaixsl:if test="/shop/commercial_button">
+                
+                                    <iaixsl:for-each select="/shop/commercial_button/link">
+                                        <iaixsl:if test="html/@title='Komunikat'">
+                                        <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                        </iaixsl:if>
+                                    </iaixsl:for-each>
+                </iaixsl:if>
 <header>
                         <iaixsl:attribute name="class">d-flex flex-wrap container<iaixsl:if test="count(commercial_banner/link) > 0"> commercial_banner</iaixsl:if></iaixsl:attribute>
                         <!--Javascript (menu_javascript, 107349.1)-->
+
             
             <script class="ajaxLoad">
                 <iaixsl:if test="( page/@type = 'basketedit') or ( page/@type='login' and page/login/onceorder/@display='y') or ((page/@type = 'client-new') and not(page/client-data/@edit = 'true') and (page/client-data/@afterlogin = 'order')) or ( page/@type = 'order1') or ( page/@type = 'order-nonstandardized') or ( page/@type = 'pickup-sites') or ( page/@type = 'order2') or ( page/@type = 'client-save') or ( page/@type = 'prepaid') or ( page/@type = 'order-payment') or ( page/@type = 'order-newpayment') or ( page/@type = 'rma_products' ) or ( page/@type = 'return_products' ) or (page/@type = 'client-orders') or (page/@type = 'rma-add') or (page/@type = 'place-order')">
@@ -4726,8 +4736,6 @@
                         </div>
                     </iaixsl:if>
                 </div>
-             </div>
-
             <!-- NEWSLETTER -->
                     
                     <iaixsl:variable name="hideLabel"></iaixsl:variable>
@@ -4824,13 +4832,15 @@
                     <iaixsl:if test="/shop/@menu_newsletter"></iaixsl:if>
                     <iaixsl:if test="/shop/@menu_newsletter_remove"></iaixsl:if>
                     <!-- NEWSLETTER -->
+             </div>
+
             <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'footer')">
                 <footer>
                     <iaixsl:attribute name="class"></iaixsl:attribute>
 
                      
                     <!--Buttony reklamowe (menu_buttons, 112160.1)-->
-			<iaixsl:if test="count(commercial_button/link)">
+			<!-- <iaixsl:if test="count(commercial_button/link)">
 				<div id="menu_buttons" class="container">
 					<div class="row menu_buttons_sub">
 						<iaixsl:for-each select="commercial_button/link">
@@ -4932,7 +4942,7 @@
 						</iaixsl:for-each>
 					</div>
 				</div>
-			</iaixsl:if>
+			</iaixsl:if> -->
 		<!--Menu - Drzewo 4 (menu_tree4, 113290.1)-->
 			<iaixsl:variable name="allow_returns_footer"><iaixsl:choose><iaixsl:when test="/shop/basket/@wholesaler = 'true' and /shop/basket/@blocked_wholesale_returns = 'true'">false</iaixsl:when><iaixsl:otherwise>true</iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
 			<div id="footer_links">
@@ -5002,17 +5012,17 @@
                 </div> -->
 				<iaixsl:if test="$allow_returns_footer = 'true'">
 
-				<ul id="menu_orders" class="footer_links col-md-4 col-sm-6 col-12">
+				<ul id="menu_orders" class="footer_links col-md-3 col-sm-6 col-12">
 					<iaixsl:choose>
 						<iaixsl:when test="count(navigation4/item) = 1 and (/shop/action/shop_information/@order_link_active='y' or /shop/action/shipping_cost/@order_link_active='y' or /shop/action/payment_methods/@order_link_active='y' or /shop/action/terms/@order_link_active='y' or /shop/action/private_policy/@order_link_active='y' or /shop/action/order_cancel/@order_link_active='y')">
-							<iaixsl:attribute name="class">footer_links col-md-4 col-sm-6 col-12 orders_bg</iaixsl:attribute>
+							<iaixsl:attribute name="class">footer_links col-md-3 col-sm-6 col-12 orders_bg</iaixsl:attribute>
 						</iaixsl:when>
 						
 						<iaixsl:when test="count(navigation4/item) = 2 and (/shop/action/shop_information/@order_link_active='n' and /shop/action/shipping_cost/@order_link_active='n' and /shop/action/payment_methods/@order_link_active='n' and /shop/action/terms/@order_link_active='n' and /shop/action/private_policy/@order_link_active='n' and /shop/action/order_cancel/@order_link_active='n')">
-							<iaixsl:attribute name="class">footer_links col-md-4 col-sm-6 col-12 orders_bg</iaixsl:attribute>
+							<iaixsl:attribute name="class">footer_links col-md-3 col-sm-6 col-12 orders_bg</iaixsl:attribute>
 						</iaixsl:when>
 						<iaixsl:when test="count(navigation4/item) = 0">
-							<iaixsl:attribute name="class">footer_links col-md-4 col-sm-6 col-12 orders_bg</iaixsl:attribute>
+							<iaixsl:attribute name="class">footer_links col-md-3 col-sm-6 col-12 orders_bg</iaixsl:attribute>
 						</iaixsl:when>
 					</iaixsl:choose>
 					<li>
@@ -5067,7 +5077,7 @@
 				</ul>
 				</iaixsl:if>
 				
-				<ul id="menu_account" class="footer_links col-md-4 col-sm-6 col-12">
+				<ul id="menu_account" class="footer_links col-md-3 col-sm-6 col-12">
 					<li>
 						<a id="menu_account_header" class=" footer_links_label">
 							<iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/login/@url"/></iaixsl:attribute>
@@ -5162,7 +5172,7 @@
 				
 				<iaixsl:if test="/shop/action/shop_information/@order_link_active='y' or /shop/action/shipping_cost/@order_link_active='y' or /shop/action/payment_methods/@order_link_active='y' or /shop/action/terms/@order_link_active='y' or /shop/action/private_policy/@order_link_active='y' or /shop/action/order_cancel/@order_link_active='y'">
 
-					<ul id="menu_regulations" class="footer_links col-md-4 col-sm-6 col-12">
+					<ul id="menu_regulations" class="footer_links col-md-3 col-sm-6 col-12">
 						<li><span class="footer_links_label">Regulaminy</span>
 							<ul class="footer_links_sub">
 								<iaixsl:if test="/shop/action/shop_information/@order_link_active='y' and not(/shop/action/shop_information/@url = '')">
@@ -5222,7 +5232,7 @@
 				
 				<iaixsl:if test="navigation4/item">
 					<iaixsl:for-each select="navigation4/item">
-						<ul class="footer_links col-md-4 col-sm-6 col-12">
+						<ul class="footer_links col-md-3 col-sm-6 col-12">
 							<iaixsl:attribute name="id">links_footer_<iaixsl:value-of select="position()"/></iaixsl:attribute>
 							<li>
 								<iaixsl:choose>
@@ -6083,7 +6093,7 @@
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
  
-            <script src="/data/include/cms/b2b4kom/JS/countMinHeightProductMain.js" >
+            <script src="/data/include/cms/b2b4kom/JS/main/countMinHeightProductMain.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
@@ -6118,6 +6128,23 @@
                 nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
                 centerMode:false,
                 lazyLoad: 'ondemand',
+                responsive: [
+                    {
+                      breakpoint: 978,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                      }
+                    },
+                    {
+                      breakpoint: 650,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                      }
+                    },
+                    
+                ]
                 });
                 $('.slider-nowosci').slick({
                 infinite: false,
@@ -6127,6 +6154,23 @@
                 nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
                 centerMode:false,
                 lazyLoad: 'ondemand',
+                responsive: [
+                    {
+                      breakpoint: 978,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                      }
+                    },
+                    {
+                      breakpoint: 650,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                      }
+                    },
+                    
+                ]                
                 });
                 $('.slider-promocje').slick({
                 infinite: false,
@@ -6136,6 +6180,23 @@
                 nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
                 centerMode:false,
                 lazyLoad: 'ondemand',
+                responsive: [
+                    {
+                      breakpoint: 978,
+                      settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                      }
+                    },
+                    {
+                      breakpoint: 650,
+                      settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
+                      }
+                    },
+                    
+                ]
                 });
             </script>
           

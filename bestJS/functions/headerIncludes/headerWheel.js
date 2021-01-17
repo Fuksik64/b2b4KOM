@@ -18,12 +18,12 @@ function enableWheelHeader(e) {
   }
   v.header.setAttribute(
     "style",
-    `transform:translate(-50%,${-scrollValueHeader}px) !important`
+    `transform:translate(0,${-scrollValueHeader}px) !important`
   );
 }
 
 function resetWheelHeader() {
   let v = variables();
   scrollValueHeader = 0;
-  v.header.style.transform = `translateY(0)`;
+  v.header.style.transform = `translate(0,0)`;
 }
