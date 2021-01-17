@@ -96,6 +96,7 @@ function addEvents(variables) {
   if (v.container.classList.contains("main_page")) {
     v.categoriesWrapperDesktop.addEventListener("mouseenter", (e) => {
       v.categoriesWrapperDesktop.classList.remove("init");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
     v.categoriesWrapperDesktop.addEventListener("mouseleave", (e) => {
       v.categoriesWrapperDesktop.classList.add("init");

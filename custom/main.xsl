@@ -2532,7 +2532,7 @@
                                                 </iaixsl:if>
                                             </span>
                                             <img>
-                                                <iaixsl:attribute name="src">
+                                                <iaixsl:attribute name="data-lazy">
                                                     <iaixsl:value-of select="icon" />
                                                 </iaixsl:attribute>
                                                 <iaixsl:attribute name="class">
@@ -2631,7 +2631,7 @@
                                                 </iaixsl:if>
                                             </span>
                                             <img>
-                                                <iaixsl:attribute name="src">
+                                                <iaixsl:attribute name="data-lazy">
                                                     <iaixsl:value-of select="icon" />
                                                 </iaixsl:attribute>
                                                 <iaixsl:attribute name="class">
@@ -2730,7 +2730,7 @@
                                                 </iaixsl:if>
                                             </span>
                                             <img>
-                                                <iaixsl:attribute name="src">
+                                                <iaixsl:attribute name="data-lazy">
                                                     <iaixsl:value-of select="icon" />
                                                 </iaixsl:attribute>
                                                 <iaixsl:attribute name="class">
@@ -5949,7 +5949,114 @@
             
             <iaixsl:if test="/shop/@menu_dynamically_added_content"> </iaixsl:if>
         
+
+
                 </footer>
+            <iaixsl:variable name="hideAdress"></iaixsl:variable>
+            <div id="menu_contact" class="container d-md-flex align-items-md-center justify-content-md-between">
+                <ul >
+                    <li class="contact_type_header">
+                        <a href="contact.php">
+                            <iaixsl:if test="/shop/action/contact/@url">
+                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/contact/@url"/></iaixsl:attribute>
+                            </iaixsl:if>   
+
+                            <iaixsl:attribute name="title"></iaixsl:attribute>
+                            Kontakt
+                        </a>  
+                    </li>
+                    <iaixsl:for-each select="/shop/contact/contact_nodes/node[@type='phone'][1]">
+                        <li class="contact_type_phone">
+                            <iaixsl:choose>
+                                <iaixsl:when test="@link">                    
+                                    <a>
+                                        <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+                                        <iaixsl:value-of select="@value"/>
+                                    </a>        
+                                </iaixsl:when>
+                                <iaixsl:otherwise>
+                                    <span><iaixsl:value-of select="@value"/></span>
+                                </iaixsl:otherwise>
+                            </iaixsl:choose>
+                        </li>    
+                    </iaixsl:for-each>
+                    
+                    <iaixsl:for-each select="/shop/contact/contact_nodes/node[@type='text'][1]">  
+                        <li class="contact_type_text">
+                            <span><iaixsl:value-of select="@value"/></span>   
+                        </li>                       
+                    </iaixsl:for-each>
+
+                    <iaixsl:for-each select="/shop/contact/contact_nodes/node[@type='mail'][1]">
+                        <li class="contact_type_mail">
+                            <iaixsl:choose>
+                                <iaixsl:when test="@link">                   
+                                    <a>
+                                        <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+                                        <iaixsl:value-of select="@value"/>
+                                    </a>                    
+                                </iaixsl:when>
+                                <iaixsl:otherwise>
+                                    <span><iaixsl:value-of select="@value"/></span>
+                                </iaixsl:otherwise>
+                            </iaixsl:choose>    
+                        </li>                          
+                    </iaixsl:for-each>            
+
+                    <iaixsl:if test="not($hideAdress)"> 
+                        <li class="contact_type_adress">                           
+                            <span class="shopshortname">
+                                <iaixsl:value-of select="contact/owner/@shopshortname"/>
+                                <span>, </span>
+                            </span>
+                            <span class="adress_street">
+                                <iaixsl:value-of select="contact/adress/@street"/>
+                                <span>, </span>
+                            </span>
+                            <span class="adress_zipcode">                   
+                                <iaixsl:value-of select="contact/adress/@zipcode"/>
+                                <span class="n55931_city"><iaixsl:text> </iaixsl:text><iaixsl:value-of select="contact/adress/@city"/></span>
+                            </span>
+                        </li>    
+                    </iaixsl:if>                   
+                </ul>
+                <div class="logo_iai">
+                    <iaixsl:if test="/shop/iai/@button_src">
+                        <iaixsl:choose>
+                            <iaixsl:when test="/shop/iai/@is_mobile_application = 'yes'">
+                                <span class="n53399_iailogo">
+                                    <img class="n53399_iailogo">
+                                        <iaixsl:attribute name="src"><iaixsl:value-of select="/shop/iai/@button_src"/></iaixsl:attribute>
+                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="/shop/iai/@button_text"/></iaixsl:attribute>
+                                    </img>
+                                </span>
+                            </iaixsl:when>
+                            <iaixsl:otherwise>
+                                <a class="n53399_iailogo" target="_blank">
+                                    <iaixsl:if test="/shop/iai/@button_target">
+                                        <iaixsl:attribute name="target"><iaixsl:value-of select="/shop/iai/@button_target"/></iaixsl:attribute>
+                                    </iaixsl:if>
+                                    <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/iai/@button_link"/></iaixsl:attribute>
+                                    <iaixsl:attribute name="title"><iaixsl:value-of select="/shop/iai/@button_text"/></iaixsl:attribute>
+                                    <img class="n53399_iailogo">
+                                        <iaixsl:attribute name="src"><iaixsl:value-of select="/shop/iai/@button_src"/></iaixsl:attribute>
+                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="/shop/iai/@button_text"/></iaixsl:attribute>
+                                    </img>
+                                </a>
+                            </iaixsl:otherwise>
+                        </iaixsl:choose>
+                    </iaixsl:if>
+                </div>
+            </div>
+
+            <iaixsl:if test="/shop/iai/@mobile_link">
+                <div class="rwdswicher">
+                    <a class="rs-link">
+                        <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/iai/@mobile_link"/></iaixsl:attribute>
+                        
+                    </a>
+                </div>
+            </iaixsl:if> 
 
                 
             </iaixsl:if>
@@ -5993,36 +6100,42 @@
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
 
                 $('.main_slider').slick({
-                infinite: true,
+                infinite: false,
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
                 nextArrow: '<button type="button" class="slick-next  slick-custom-next"></button>',
+                lazyLoad: 'ondemand',
+                autoplay:true,
+                autoplaySpeed: 4000,
                 });
 
                 $('.slider-polecane').slick({
-                infinite: true,
+                infinite: false,
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
                 nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
                 centerMode:false,
+                lazyLoad: 'ondemand',
                 });
                 $('.slider-nowosci').slick({
-                infinite: true,
+                infinite: false,
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
                 nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
                 centerMode:false,
+                lazyLoad: 'ondemand',
                 });
                 $('.slider-promocje').slick({
-                infinite: true,
+                infinite: false,
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 prevArrow: '<button type="button" class="slick-prev slick-custom-prev"></button>',
                 nextArrow: '<button type="button" class="slick-next slick-custom-next"></button>',
                 centerMode:false,
+                lazyLoad: 'ondemand',
                 });
             </script>
           

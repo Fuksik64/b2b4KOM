@@ -75,7 +75,7 @@ export const scroll = new IntersectionObserver(
       document.body.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
   },
-  { rootMargin: "-30px 0px 0px 0px", threshold: 0.3 }
+  { rootMargin: "120px 0px 0px 0px" }
 );
 scroll.observe(document.querySelector(".b2b-category"));
 

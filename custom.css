@@ -2323,3 +2323,11 @@ footer #footer_links ul li span.footer_links_label {
     flex-basis: unset;
     padding: 0;
 }
+
+#products_associated_zone2 .custom-associated {
+    border: 1px solid transparent
+}
+
+#products_associated_zone2 .custom-associated:hover {
+    border: 1px solid var(--gray-light)
+}
