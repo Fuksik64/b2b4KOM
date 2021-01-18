@@ -480,7 +480,7 @@
 									</iaixsl:for-each>
 								</ul>
                                 </div>
-					</nav>
+				</nav>
 
             <iaixsl:if test="mask/top2/link/image/@src and (mask/top2/link/image/@width>1 or mask/top2/link/image/@height > 1)"><iaixsl:attribute name="data-bg"><iaixsl:value-of select="mask/top2/link/image/@src"/></iaixsl:attribute></iaixsl:if>
             <a>

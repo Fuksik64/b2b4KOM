@@ -277,6 +277,7 @@
 <header>
                         <iaixsl:attribute name="class">d-flex flex-wrap container<iaixsl:if test="count(commercial_banner/link) > 0"> commercial_banner</iaixsl:if></iaixsl:attribute>
                         <!--Javascript (menu_javascript, 107349.1)-->
+
             
             <script class="ajaxLoad">
                 <iaixsl:if test="( page/@type = 'basketedit') or ( page/@type='login' and page/login/onceorder/@display='y') or ((page/@type = 'client-new') and not(page/client-data/@edit = 'true') and (page/client-data/@afterlogin = 'order')) or ( page/@type = 'order1') or ( page/@type = 'order-nonstandardized') or ( page/@type = 'pickup-sites') or ( page/@type = 'order2') or ( page/@type = 'client-save') or ( page/@type = 'prepaid') or ( page/@type = 'order-payment') or ( page/@type = 'order-newpayment') or ( page/@type = 'rma_products' ) or ( page/@type = 'return_products' ) or (page/@type = 'client-orders') or (page/@type = 'rma-add') or (page/@type = 'place-order')">
@@ -402,7 +403,17 @@
 											<iaixsl:attribute name="target">
 												<iaixsl:value-of select="@target" />
 											</iaixsl:attribute>
-                                            <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/>
+                                            <iaixsl:if test="@gfx">
+                                                    <img>
+                                                    <iaixsl:attribute name="src">
+                                                    <iaixsl:value-of select="@gfx"/>
+                                                    </iaixsl:attribute>
+                                                    <iaixsl:attribute name="class">
+                                                    b2b-category-img
+                                                    </iaixsl:attribute>
+                                                    </img>
+                                            </iaixsl:if>
+                                            <!-- <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/> -->
 											<span>
 												<iaixsl:value-of select="@name" />
 											</span>
@@ -484,8 +495,8 @@
                 </iaixsl:if>
                 <div class="logo-text">
                 <!-- <iaixsl:attribute name="class">logo-text</iaixsl:attribute> -->
-                <p>etui ochronne</p>
-                <p>szkła, akcesoria</p>
+                <p>Hurtownia</p>
+                <p>akcesoriów GSM</p>
                 </div>
                 
             </a>
@@ -676,34 +687,17 @@
                         <a>
                         <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/contact/link/@url"/></iaixsl:attribute>
                         <iaixsl:attribute name="class">contact-link</iaixsl:attribute>
-                        <img class="icon-phone-custom" src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
+                        <img class="icon-phone-custom" src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
                         <span>Kontakt</span>
                         </a>
-
-                        <div class="contact-info-header">
-                         <div class="col-4">
-                                <!-- <strong>
-                                Obsługa kientów hurtowych
-                                </strong> -->
-                                <p>
-                                <!-- <i class="icon-phone"></i> -->
-                                <!-- <span>Tel.: </span> -->
-                                <a href="tel:422987808">42 298 78 08</a>
-                                </p>
-                                <!-- <strong>
-                                E-mail:
-                                </strong> -->
-                                <p>
-                                <!-- <i class="icon-envelope"></i> -->
-                                <a href="mailto:sklep@4kom.pl">sklep@4kom.pl</a>
-                                </p>
-                                </div>
-                             <div class="col">
-                                 <p>Obsługa sklepu dostępna jest</p>
-                                 <p>od poniedziałku do piątku,</p>
-                                 <p>w godzinach 8:00 - 16:00</p>
-                            </div>
-                        </div>
+                                <iaixsl:if test="/shop/commercial_button">
+                                    <iaixsl:for-each select="/shop/commercial_button/link">
+                                        <iaixsl:if test="html/@title='Kontakt'">
+                                        <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                        </iaixsl:if>
+                                    </iaixsl:for-each>
+                                </iaixsl:if>
+                       
                         </div>
 
                         <a class="account_link">
@@ -713,12 +707,12 @@
                             <iaixsl:choose>
                                 <iaixsl:when test="basket/@login and not(basket/@login = '')">
 									<iaixsl:if test="$account_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$account_title"/></iaixsl:attribute></iaixsl:if>
-                                    <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
+                                    <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
                                     <span>Twoje konto</span>
                                 </iaixsl:when>
                                 <iaixsl:otherwise>
 									<iaixsl:if test="$login_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$login_title"/></iaixsl:attribute></iaixsl:if>
-                                    <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
+                                    <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
                                     <span>
                                     <iaixsl:value-of disable-output-escaping="yes" select="$display_menu_additional"/>
                                     </span>
@@ -726,7 +720,7 @@
                             </iaixsl:choose>
                         </a>
                         <a href="/basketedit.php?mode=2" class="wishlist_link wish-link">
-                        <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom"/>
+                        <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom"/>
                         <span>
                             Moja lista
                         </span>
@@ -787,7 +781,7 @@
                                 <iaixsl:attribute name="class">basket-link basket-link-empty</iaixsl:attribute>
                             </iaixsl:if>
                             <div class="img-counter-header">
-                            <img class="icon-shopping-cart-custom" src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/shopping-cart.svg" alt=""/>
+                            <img class="icon-shopping-cart-custom" src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/shopping-cart.svg" alt=""/>
                             <span class="counter"><iaixsl:value-of disable-output-escaping="yes" select="basket/@count"/></span>
                             </div>
                             <iaixsl:choose>
@@ -1300,7 +1294,7 @@
 </header>
                 </iaixsl:if>
                 	
-    <div class="categories-wrapper-ul2 ">
+<div class="categories-wrapper-ul2 ">
                 <div class="backButtonContainer">
                 <i class="icon-x"></i>
                 <span>MENU</span>
@@ -1321,7 +1315,17 @@
 												<iaixsl:value-of select="@target" />   </iaixsl:attribute>          <div>
 										
 											
-                                            <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/>
+                                               <iaixsl:if test="@gfx">
+                                                    <img>
+                                                    <iaixsl:attribute name="src">
+                                                    <iaixsl:value-of select="@gfx"/>
+                                                    </iaixsl:attribute>
+                                                    <iaixsl:attribute name="class">
+                                                    b2b-category-img
+                                                    </iaixsl:attribute>
+                                                    </img>
+                                                    </iaixsl:if>
+                                            <!-- <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/> -->
 											<span>
 												<iaixsl:value-of select="@name" />
 											</span>
@@ -1538,7 +1542,7 @@
                         <a>
                         <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/contact/link/@url"/></iaixsl:attribute>
                         <iaixsl:attribute name="class">contact-link</iaixsl:attribute>
-                        <img class="icon-phone-custom" src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
+                        <img class="icon-phone-custom" src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/call.svg" alt="" />
                         <span>Kontakt</span>
                         </a>
                         <a class="account_link">
@@ -1548,7 +1552,7 @@
                             <iaixsl:choose>
                                 <iaixsl:when test="basket/@login and not(basket/@login = '')">
 									<iaixsl:if test="$account_title != ''"><iaixsl:attribute name="title"><iaixsl:value-of select="$account_title"/></iaixsl:attribute></iaixsl:if>
-                                    <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
+                                    <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/user.svg" class="icon-user-custom" />
                                     <span>Twoje konto</span>
                                 </iaixsl:when>
                                 <iaixsl:otherwise>
@@ -1665,17 +1669,11 @@
          <div class="contact-mobile-text">
                     <div>
                         <div>
-                     <!-- <strong>
-                    Obsługa kientów hurtowych
-                    </strong> -->
                     <p><i class="icon-phone"></i><a href="tel:422987808">42 298 78 08</a></p>
                         
                         </div>
                         <div>
 
-                    <!-- <strong> -->
-                    <!-- E-mail: -->
-                    <!-- </strong> -->
                     <p><i class="icon-envelope"></i><a href="mailto:sklep@4kom.pl">sklep@4kom.pl</a></p>
                         </div>
          </div>
@@ -1685,7 +1683,7 @@
          </div>
          </div>
             
-    </div>
+</div>
                 <div id="layout">
                     <iaixsl:attribute name="class">row container clearfix</iaixsl:attribute>
                     <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'aside')">
@@ -1710,87 +1708,99 @@
                                       <iaixsl:attribute name="class">col-3</iaixsl:attribute>
                                 </iaixsl:otherwise>
                             </iaixsl:choose>
-                            <div class="col-3-height">		
-                                <nav class="nav d-flex flex-column custom-nav">
-                                    <div class="d-flex nav-category">
-                                        <i class="icon-bars"></i>
-                                        <p class="m-0">MENU</p>
-                                        <div class="nav-breadcrumb">
-                                        <span>
-                                            <div class="icon-chevron-down"></div>
-                                        </span>
-                                        </div>
+<div class="col-3-height">
+
+					
+							<nav class="nav d-flex flex-column custom-nav custom-nav-desktop">
+								<div class="d-flex nav-category">
+									<i class="icon-bars"></i>
+									<p class="m-0">KATEGORIE</p>
+                                    <div class="nav-breadcrumb">
+                                     <span></span>
                                     </div>
-                                    <div class="categories-wrapper-ul">
-                                    <ul class="d-flex flex-column ul-category col-12">
-                                        <iaixsl:for-each select="navigation/item">
-                                        <li class="li-depth-1">
-                                            <a>                                            
-                                                <iaixsl:attribute name="href">
-                                                    <iaixsl:value-of select="@link" />
-                                                </iaixsl:attribute>
-                                                <iaixsl:attribute name="target">
-                                                    <iaixsl:value-of select="@target" />
-                                                </iaixsl:attribute>
-                                                <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/>
-                                                <span>
-                                                    <iaixsl:value-of select="@name" />
-                                                </span>
-                                                <iaixsl:choose>
+								</div>
+                                <div class="categories-wrapper-ul init">
+                       
+								<ul class="d-flex flex-column ul-category col-12">
+									<iaixsl:for-each select="navigation/item">
+									<li class="li-depth-1">
+										<a>                                            
+											<iaixsl:attribute name="href">
+												<iaixsl:value-of select="@link" />
+											</iaixsl:attribute>
+											<iaixsl:attribute name="target">
+												<iaixsl:value-of select="@target" />
+											</iaixsl:attribute>
 
-                                                    <iaixsl:when test="count(item) > 0">
-                                                    <i class="icon-chevron-right"></i>
-                                                    </iaixsl:when>
+                                            <iaixsl:if test="@gfx">
+                                                    <img>
+                                                    <iaixsl:attribute name="src">
+                                                    <iaixsl:value-of select="@gfx"/>
+                                                    </iaixsl:attribute>
+                                                    <iaixsl:attribute name="class">
+                                                    b2b-category-img
+                                                    </iaixsl:attribute>
+                                                    </img>
+                                            </iaixsl:if> 
+                                            <!-- <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/> -->
+											<span>
+												<iaixsl:value-of select="@name" />
+											</span>
+                                            <iaixsl:choose>
 
-                                                    <iaixsl:otherwise>
-                                                    <i class="icon-chevron-right invisible"></i>
-                                                    </iaixsl:otherwise>
+                                                <iaixsl:when test="count(item) > 0">
+											    <i class="icon-chevron-right"></i>
+                                                </iaixsl:when>
 
-                                                </iaixsl:choose>
-                                            
-                                            </a>
-                                            <iaixsl:if test="count(item) > 0">
-                                                    <ul class="nested-ul-category nested-ul-category-1">
-                                                        <iaixsl:for-each select="item">
-                                                            <li class="li-depth-2">
-                                                                <a>
-                                                                <iaixsl:attribute name="href">
-                                                                    <iaixsl:value-of select="@link"/>
-                                                                </iaixsl:attribute>
-                                                                <span>
-                                                                <iaixsl:value-of select="@name" />
-                                                                </span>
-                                                                <iaixsl:if test="count(item) > 0">
-                                                                <i class="icon-chevron-right"></i>
-                                                                </iaixsl:if>
-                                                                </a>
-                                                                <iaixsl:if test="count(item) > 0">
-                                                                <ul class="nested-ul-category nested-ul-category-2">
-                                                                    <iaixsl:for-each select="item">
-                                                                        <li class="li-depth-3">
-                                                                            <a>
-                                                                            <iaixsl:attribute name="href">
-                                                                                <iaixsl:value-of select="@link"/>
-                                                                            </iaixsl:attribute>
-                                                                            <span>
-                                                                            <iaixsl:value-of select="@name" />
-                                                                            </span>
-                                                                            </a>
-                                                                        </li>
-                                                                    </iaixsl:for-each>
-                                                                </ul>
-                                            </iaixsl:if>
-                                                            </li>
-                                                        </iaixsl:for-each>
-                                                    </ul>
-                                            </iaixsl:if>
+                                                <iaixsl:otherwise>
+                                                <i class="icon-chevron-right invisible"></i>
+                                                </iaixsl:otherwise>
 
-                                        </li>
-                                        </iaixsl:for-each>
-                                    </ul>
-                                    </div>
-                                </nav>
-					    	</div>
+                                            </iaixsl:choose>
+										
+                                        </a>
+                                        <iaixsl:if test="count(item) > 0">
+											    <ul class="nested-ul-category nested-ul-category-1">
+													<iaixsl:for-each select="item">
+														<li class="li-depth-2">
+															<a>
+															<iaixsl:attribute name="href">
+																<iaixsl:value-of select="@link"/>
+															</iaixsl:attribute>
+                                                            <span>
+															<iaixsl:value-of select="@name" />
+                                                            </span>
+                                                            <iaixsl:if test="count(item) > 0">
+											                 <i class="icon-chevron-right"></i>
+                                                            </iaixsl:if>
+															</a>
+                                                            <iaixsl:if test="count(item) > 0">
+                                                            <ul class="nested-ul-category nested-ul-category-2">
+                                                                <iaixsl:for-each select="item">
+                                                                    <li class="li-depth-3">
+                                                                        <a>
+                                                                        <iaixsl:attribute name="href">
+                                                                            <iaixsl:value-of select="@link"/>
+                                                                        </iaixsl:attribute>
+                                                                        <span>
+                                                                        <iaixsl:value-of select="@name" />
+                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </iaixsl:for-each>
+                                                            </ul>
+                                        </iaixsl:if>
+														</li>
+													</iaixsl:for-each>
+												</ul>
+                                        </iaixsl:if>
+
+									</li>
+									</iaixsl:for-each>
+								</ul>
+                                </div>
+                            </nav>
+</div>
                             <!--Dodatkowe linki (strefa 1) (menu_additional1, 106528.1)-->
             <iaixsl:variable name="SET_filters"></iaixsl:variable>
             <div class="setMobileGrid" data-item="#menu_navbar"/>
