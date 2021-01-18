@@ -1801,7 +1801,7 @@
                 </iaixsl:choose>
             </div>
             <div class="setMobileGrid" data-item="#menu_contact"/>
-            <div class="setMobileGrid" data-item="#menu_settings"/>
+            <!-- <div class="setMobileGrid" data-item="#menu_settings"/> -->
             <iaixsl:if test="$SET_filters and not($SET_filters = '')">
                 <div class="setMobileGrid">
                   <iaixsl:attribute name="data-item"><iaixsl:value-of select="$SET_filters"/></iaixsl:attribute>
@@ -3595,13 +3595,17 @@
                             <iaixsl:if test="/shop/page/client-data/@edit='true'">
                                 <h2>
                                     <iaixsl:attribute name="class">big_label</iaixsl:attribute>
+                                    <span>
                                     Połącz konto z innym serwisem
+                                    </span>
                                 </h2>
                             </iaixsl:if>
                             <iaixsl:if test="not(/shop/page/client-data/@edit='true')">
                                 <h2>
                                     <iaixsl:attribute name="class">big_label</iaixsl:attribute>
+                                <span>
                                     Połącz konto z innym serwisem
+                                </span>
                                 </h2>
                             </iaixsl:if>
 
@@ -3748,7 +3752,9 @@
 				<div class="row clearfix wholesale_box">
 					<div class="col-12">
 						<h2 class="big_label" id="wholesale_header">
+                            <span>
 							Rejestracja hurtownika
+                            </span>
 						</h2>
 					</div>
 					<div class="col-12">
@@ -3881,7 +3887,9 @@
 				<div class="col-12" id="client_new_client">
 
 					<h2 class="big_label" id="client_header">
-					  Twoje dane
+                        <span>
+					        Twoje dane
+                        </span>
 					</h2>
 
 					<iaixsl:choose>
@@ -5284,7 +5292,9 @@
 				<iaixsl:if test="$client_new_mode != 'onceorder'">
 					<div class="col-12" id="client_new_login">
 						<h2 class="big_label">
-							Twoje konto
+                            <span>
+							    Twoje konto
+                            </span>
 						</h2>
 
 						<div class="login_box cn_wrapper">

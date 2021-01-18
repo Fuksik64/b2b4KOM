@@ -2459,7 +2459,7 @@
 						<iaixsl:variable name="imagesSum"><iaixsl:value-of select="$enclosureCount + $bundledCount"/></iaixsl:variable>
 						<iaixsl:if test="$imagesSum > 1">
 							
-							<div id="photos_nav" class="photos__nav d-none d-md-flex slider-nav">
+							<div id="photos_nav" class="photos__nav d-flex slider-nav">
 								<iaixsl:if test="$imagesSum > $thumbnailsCount">
 									<iaixsl:attribute name="data-more-slides"><iaixsl:value-of select="$imagesSum - $thumbnailsCount"/></iaixsl:attribute>
 								</iaixsl:if>
@@ -7682,7 +7682,15 @@
                 centerMode:true,
                 prevArrow: '<button type="button" class="slick-prev"></button>',
                 nextArrow: '<button type="button" class="slick-next"></button>',
-                asNavFor: '.slick-slider'
+                asNavFor: '.slick-slider',
+                responsive: [
+                {
+                    breakpoint: 978,
+                    settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                 }
+                ]
             });
 
             </script>

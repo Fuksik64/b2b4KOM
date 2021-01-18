@@ -3858,6 +3858,107 @@
             </iaixsl:if>
         </div> -->
 
+
+        <!-- !Krótki opis kategorii -->
+        <h1 class="category-short-description">
+        <iaixsl:value-of  select="/shop/page/products/additional/category_list/name" disable-output-escaping="yes"/> 
+        </h1>
+
+        <!--! Obrazek kategorii -->
+       
+        <iaixsl:variable name="current_search_node_id">
+            <iaixsl:value-of select='/shop/page/search_params/node/@id' />
+        </iaixsl:variable>
+        <div class="category-picture-wrapper">
+        
+          <!-- !LEVEL 1 -->
+        <iaixsl:for-each select="/shop/navigation/item"> 
+        <iaixsl:if test="@ni=$current_search_node_id and @gfx_onmouseover">
+        <div class="wrapper-dropdown-picture">
+        <h2>
+        <span class="level-1">
+            <iaixsl:value-of select="@name"/> 
+        </span>
+
+        </h2>
+        <button class="image-dropdown-button" id="category-picture-dropdown-button">wybierz</button>
+        <ul class="image-dropdown" id="category-picture-dropdown">
+            <iaixsl:for-each select="item">
+            <a>
+                <iaixsl:attribute name="href">
+                    <iaixsl:value-of select="@link"/>
+                </iaixsl:attribute>
+                <iaixsl:attribute name="target">
+                    <iaixsl:value-of select="@target"/>
+                </iaixsl:attribute>
+                 <li>
+                <span>
+                    <iaixsl:value-of select="@name" />
+                </span>
+                </li>
+            </a>
+            </iaixsl:for-each>
+        </ul>
+        </div>
+    
+         <img>
+            <iaixsl:attribute name="src">
+            <iaixsl:value-of select="@gfx_onmouseover"/>
+            </iaixsl:attribute>
+            <iaixsl:attribute name="title">
+            <iaixsl:value-of select="@name"/>
+            </iaixsl:attribute>
+         </img>
+            </iaixsl:if> 
+         </iaixsl:for-each>
+         <!-- !LEVEL 2 -->
+            <iaixsl:for-each select="/shop/navigation/item"> 
+                <iaixsl:for-each select="item"> 
+                <iaixsl:if test="@ni=$current_search_node_id and @gfx_onmouseover">
+                <div class="wrapper-dropdown-picture">
+                <h2>
+                <iaixsl:for-each select="/shop/bc/item">
+                 <span class="level-2">
+                
+                   <iaixsl:value-of select="@title"/> 
+                 </span> 
+                </iaixsl:for-each>
+
+                </h2>
+                <button class="image-dropdown-button" id="category-picture-dropdown-button">wybierz</button>
+                <ul class="image-dropdown" id="category-picture-dropdown">
+                    <iaixsl:for-each select="item">
+                    <a>
+                        <iaixsl:attribute name="href">
+                            <iaixsl:value-of select="@link"/>
+                        </iaixsl:attribute>
+                        <iaixsl:attribute name="target">
+                            <iaixsl:value-of select="@target"/>
+                        </iaixsl:attribute>
+                         <li>
+                        <span>
+                            <iaixsl:value-of select="@name" />
+                        </span>
+                        </li>
+                    </a>
+                    </iaixsl:for-each>
+                </ul>
+                </div>
+
+                 <img>
+                    <iaixsl:attribute name="src">
+                    <iaixsl:value-of select="@gfx_onmouseover"/>
+                    </iaixsl:attribute>
+                    <iaixsl:attribute name="title">
+                    <iaixsl:value-of select="@name"/>
+                    </iaixsl:attribute>
+                 </img>
+                    </iaixsl:if> 
+                 </iaixsl:for-each>
+            </iaixsl:for-each>
+        
+        </div>
+
     <!--Stronicowanie wyników (search_paging, 110683.1)-->
 
         <iaixsl:variable name="select_sort_label"></iaixsl:variable>
@@ -3876,8 +3977,13 @@
                             <iaixsl:if test="$select_sort_label">
                                 <label for="select_top_sort"><iaixsl:value-of disable-output-escaping="yes" select="$select_sort_label"/></label>
                             </iaixsl:if>
+
                             <span>
+                            <i class="d-md-none icon-sort"></i>
+                            <span class="d-md-none">Sortuj</span>
+                            <span class="hide-md">
                                 sortuj według:
+                            </span>
                             </span>
                             <select class="s_paging__select --order --small-md" id="select_top_sort" name="sort_order">
                                 <option value="name-a" class="option_name-a"><iaixsl:if test="page/products/navigation/@sort = 'name' and page/products/navigation/@order = 'a'"><iaixsl:attribute name="selected">selected</iaixsl:attribute></iaixsl:if>nazwy rosnąco</option>
@@ -3918,7 +4024,8 @@
                     <iaixsl:if test="count(/shop/page/products/navigation/filtering/filter)">
                         <div class="s_paging__item --filters d-md-none mb-2 mb-sm-3">
                             <a class="btn --solid --large" href="#menu_filter">
-                                Filtrowanie
+                                <!-- Filtrowanie -->
+                                <i class="icon-lejek"></i>  Filtruj
                             </a>
                         </div>
                     </iaixsl:if>
@@ -6180,9 +6287,11 @@
                         </div>
                     </iaixsl:if>
                 </div>
+            <div class="description-wrapper-custom search_categoriesdescription_sub cm container">
+                <iaixsl:value-of select="/shop/page/products/additional/category_list/description" disable-output-escaping="yes"  />
+            </div>
              </div>
 
-            
  <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'footer')">
                 <footer>
                     <iaixsl:attribute name="class"></iaixsl:attribute>
@@ -7300,6 +7409,10 @@
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
             <script src="/data/include/cms/b2b4kom/JS/resetBasketJs.js" >
+                <iaixsl:attribute name="defer"></iaixsl:attribute>
+                <iaixsl:attribute name="type">module</iaixsl:attribute>
+            </script>
+            <script src="/data/include/cms/b2b4kom/JS/search/categoryPictureDropdown.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
