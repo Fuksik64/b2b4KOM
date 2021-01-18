@@ -43134,11 +43134,12 @@ header.stickyMobile::before {
     right: -10px;
   }
 
+  /* 
   html,
   body {
     overflow-x: unset;
 
-  }
+  } */
 
   body {
     padding: 0 15px
@@ -47712,3 +47713,4 @@ header.isSticky .basket-link strong b {
     padding: 0 1rem
   }
 }
+

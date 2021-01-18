@@ -93,15 +93,13 @@ function addEvents(variables) {
     wheelDesktop.leaveRemove
   );
 
-  if (v.container.classList.contains("main_page")) {
-    v.categoriesWrapperDesktop.addEventListener("mouseenter", (e) => {
-      v.categoriesWrapperDesktop.classList.remove("init");
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    });
-    v.categoriesWrapperDesktop.addEventListener("mouseleave", (e) => {
-      v.categoriesWrapperDesktop.classList.add("init");
-    });
-  }
+  v.categoriesWrapperDesktop.addEventListener("mouseenter", (e) => {
+    v.categoriesWrapperDesktop.classList.remove("init");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+  v.categoriesWrapperDesktop.addEventListener("mouseleave", (e) => {
+    v.categoriesWrapperDesktop.classList.add("init");
+  });
 
   //=BREADCRUMB EVENTS
   v.categoriesWrapperDesktop.addEventListener("mouseleave", () => {

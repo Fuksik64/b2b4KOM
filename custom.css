@@ -2233,7 +2233,7 @@ footer #footer_links ul li a.footer_links_label {
 }
 
 .price-before-rebbate {
-    color: var(--purple-light);
+    color: var(--black-color-lighter);
     text-decoration: line-through;
     margin-right: .5rem;
     font-size: 1.5rem;
@@ -2322,10 +2322,14 @@ footer #footer_links ul li span.footer_links_label {
     border: 1px solid var(--gray-light)
 }
 
-@media(max-width:400px) {
+@media(max-width:585px) {
     .newsletter-custom form.row {
         box-shadow: none;
         border-radius: 0;
+    }
+
+    #menu_newsletter>img {
+        display: none
     }
 }
 
@@ -2409,4 +2413,108 @@ header {
 
 #container {
     padding-top: 0;
+    overflow: visible;
+}
+
+#menu_newsletter {
+    background-color: #fff;
+    /* background-image: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: bottom; */
+}
+
+#menu_newsletter>img {
+    position: absolute;
+    top: 25%;
+    width: 100%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* footer {
+    position: relative;
+}
+
+footer::after {
+    content: '';
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 100%;
+    display: block;
+    background-image: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 10%;
+    position: absolute;
+} */
+.featured-bestsellers .show-more a {
+    display: flex;
+    align-items: center;
+}
+
+
+.featured-bestsellers .show-more i {
+    margin-left: 1rem;
+    font-size: 1rem;
+}
+
+@media(max-width:1199px) {
+    .custom-nav .ul-category li.li-depth-1 a {
+        font-size: 1.2rem;
+    }
+}
+
+/* 
+@media(max-width:978px) {
+
+    html,
+    body {
+        overflow: unset;
+    }
+
+    header {
+
+
+        position: fixed !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+    }
+} */
+html {
+    max-width: 100vw;
+    margin: auto;
+    overflow-x: hidden;
+
+}
+
+html,
+body {
+    height: 100%;
+    overflow: visible;
+}
+
+body {
+    padding: 0
+}
+
+#container {
+    padding: 0 15px !important
+}
+
+@media(max-width:978px) {
+
+    html,
+    body {
+        height: 100%;
+        overflow-x: hidden;
+    }
+}
+
+.b2b-category-ul .navigation-2-item:last-child {
+    font-weight: 600;
 }
