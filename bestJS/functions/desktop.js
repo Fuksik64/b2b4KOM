@@ -37,7 +37,7 @@ function desktop() {
   return {
     init() {
       v.container.classList.contains("main_page")
-        ? (STARTING_WIDTH = v.navContainer.clientWidth - 30)
+        ? (STARTING_WIDTH = v.navContainer.clientWidth - 15)
         : (STARTING_WIDTH = v.navContainer.clientWidth);
 
       STARTING_HEIGHT =
@@ -61,7 +61,7 @@ function desktop() {
     },
     resize() {
       v.container.classList.contains("main_page")
-        ? (STARTING_WIDTH = v.navContainer.clientWidth - 30)
+        ? (STARTING_WIDTH = v.navContainer.clientWidth - 15)
         : (STARTING_WIDTH = v.navContainer.clientWidth);
 
       setters.widthMultiple(

@@ -2073,7 +2073,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Weryfikacja danych</strong>
+                                    <strong class="progress__name">Potwierdzenie</strong>
                                     <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                                 </div>
                             </div>
@@ -2119,7 +2119,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Weryfikacja danych</strong>
+                                    <strong class="progress__name">Potwierdzenie</strong>
                                     <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                                 </div>
                             </div>
@@ -2141,7 +2141,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Złożenie zamówienia</strong>
+                                    <strong class="progress__name">Gotowe</strong>
                                     <span class="progress__description">Przyjęcie do realizacji</span>
                                 </div>
                             </div>
@@ -2243,7 +2243,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2344,7 +2344,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2423,7 +2423,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2472,7 +2472,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2553,7 +2553,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2602,7 +2602,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2683,7 +2683,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2732,7 +2732,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2813,7 +2813,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2862,7 +2862,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2921,7 +2921,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2965,7 +2965,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Złożenie zamówienia</strong>
+                                <strong class="progress__name">Gotowe</strong>
                                 <span class="progress__description">Przyjęcie do realizacji</span>
                             </div>
                         </div>
@@ -3044,7 +3044,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -3164,7 +3164,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -5521,6 +5521,7 @@
                 <div class="basketedit_rebatecodes_outline">
                     
                     <iaixsl:if test="/shop/page/rebates/code_details/@active = 'y'">
+                    <i class="rabbate-icon"></i>
                         <div class="basketedit_rebatecode_title">
                             <span class="basketedit_rebatecode_title">
                                 Aktywny kod rabatowy: 
@@ -5574,7 +5575,9 @@
                                 Wpisywanie kodu rabatowego skasuje rabat przypisany do Twojego konta. 
                             </div>
                         </iaixsl:if>
+                        <i class="rabbate-icon"></i>
                         <p class="rabbate-text">
+
                         <span class="basketedit_rebatecode_activate_txt">Masz kod rabatowy? </span>
                         <span>
                             Wpisz go poniżej

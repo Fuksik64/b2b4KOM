@@ -5686,7 +5686,7 @@
 		<!--Produkty powiązane z tym produktem - strefa 2 (projector_associated_zone2, 111439.1)-->
             
                 <iaixsl:if test="page/projector/products_associated_zone2">
-                    <section id="products_associated_zone2" class="hotspot mb-5  col-12 p-0 px-sm-3">
+                    <section id="products_associated_zone2" class="hotspot mb-5 --slider col-12 p-0 px-sm-3">
                         
                         <iaixsl:variable name="headline_after_products_associated_zone2"></iaixsl:variable>
                         
@@ -5724,7 +5724,6 @@
                                                 <iaixsl:choose>
                                                     <iaixsl:when test="page/projector/products_associated_zone2/@name">
                                                     <!-- <iaixsl:value-of select="page/projector/products_associated_zone2/@name"/> -->
-                                                    TEST
                                                     </iaixsl:when>
                                                     <iaixsl:otherwise>Produkty kupione z tym produktem</iaixsl:otherwise>
                                                 </iaixsl:choose>
@@ -7656,21 +7655,10 @@
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-            <script src="/data/include/cms/b2b4kom/JS/projector/associatedProductRestartSlider.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
+            
             <script src="/data/include/cms/b2b4kom/JS/projector/projectorSliders.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
-        
-          
-            <script>
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-
-              
-
             </script>
             <script src="/data/include/cms/b2b4kom/JS/footerRotateChevron.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>

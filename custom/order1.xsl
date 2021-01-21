@@ -2070,7 +2070,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Weryfikacja danych</strong>
+                                    <strong class="progress__name">Potwierdzenie</strong>
                                     <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                                 </div>
                             </div>
@@ -2116,7 +2116,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Weryfikacja danych</strong>
+                                    <strong class="progress__name">Potwierdzenie</strong>
                                     <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                                 </div>
                             </div>
@@ -2138,7 +2138,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Złożenie zamówienia</strong>
+                                    <strong class="progress__name">Gotowe</strong>
                                     <span class="progress__description">Przyjęcie do realizacji</span>
                                 </div>
                             </div>
@@ -2240,7 +2240,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2341,7 +2341,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2420,7 +2420,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2469,7 +2469,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2550,7 +2550,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2599,7 +2599,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2680,7 +2680,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2729,7 +2729,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2810,7 +2810,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2859,7 +2859,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2918,7 +2918,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2962,7 +2962,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Złożenie zamówienia</strong>
+                                <strong class="progress__name">Gotowe</strong>
                                 <span class="progress__description">Przyjęcie do realizacji</span>
                             </div>
                         </div>
@@ -3041,7 +3041,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -3161,7 +3161,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -3588,8 +3588,12 @@
               <iaixsl:if test="count(page/order1/shipping/delivery) = 0">
                   <iaixsl:attribute name="data-no_delivery">true</iaixsl:attribute>
               </iaixsl:if>
-
-              <div class="headline row">
+                    <h2 class="big_label custom-label">
+                        <span>
+                        Sposoby dostawy
+                        </span>
+                    </h2>
+              <div class="headline row d-none">
                 <iaixsl:choose>
                   <iaixsl:when test="/shop/page/order1/shipping_division">
                     <span class="headline__name --prepaid">
@@ -3626,22 +3630,9 @@
                     </span>
                   </iaixsl:when>
                   <iaixsl:otherwise>
-                    <span class="headline__name --prepaid">
-                      <iaixsl:if test="not(/shop/page/order1/shipping/delivery[@type = 'dvp' and @checked = 'true'])">
-                        <iaixsl:attribute name="class">headline__name --prepaid --active col-6</iaixsl:attribute>
-                      </iaixsl:if>
-                       <h2 class="big_label-custom">
-                       Płatność z góry
-                        </h2>
-                    </span>
-                    <span class="headline__name --dvp">
-                      <iaixsl:if test="not(/shop/page/order1/shipping/delivery[@type = 'prepaid']) or /shop/page/order1/shipping/delivery[@type = 'dvp' and @checked = 'true'] and not(/shop/page/order1/balance/@active='y' and /shop/page/order1/balance/@onlyPrepaid='y')">
-                        <iaixsl:attribute name="class">headline__name --dvp --active col-6</iaixsl:attribute>
-                      </iaixsl:if>
-                       <h2 class="big_label-custom">
-                        Płatność za pobraniem
-                        </h2>
-                    </span>
+                  
+                    
+                   
                   </iaixsl:otherwise>
                 </iaixsl:choose>
               </div>
@@ -3653,6 +3644,15 @@
                   <iaixsl:if test="not(/shop/page/order1/shipping/delivery[@type = 'dvp' and @checked = 'true'])">
                     <iaixsl:attribute name="class">order__delivery_section --prepaid --active col-12 col-md-6</iaixsl:attribute>
                   </iaixsl:if>
+
+                  <span class="headline__name --prepaid">
+                      <iaixsl:if test="not(/shop/page/order1/shipping/delivery[@type = 'dvp' and @checked = 'true'])">
+                        <iaixsl:attribute name="class">headline__name --prepaid --active col-12 col-md-6</iaixsl:attribute>
+                      </iaixsl:if>
+                       <span class="big_label-custom">
+                       Płatność z góry
+                        </span>
+                    </span>
                   <iaixsl:for-each select="/shop/page/order1/shipping/delivery[@type = 'prepaid']">
                     <div class="order__delivery_group f-group --radio mb-0 px-2  px-sm-3">
                       
@@ -3834,7 +3834,7 @@
                           </span>
                         </span>
 
-                        <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row">
+                        <!-- <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row"> -->
                           
                           <iaixsl:if test="not(/shop/page/order1/shipping/@hide_cost='true')">
                             <span class="order__delivery_cost mb-1 mb-md-0 mr-md-3 mr-lg-4 d-flex flex-column">
@@ -3899,7 +3899,7 @@
                                 </iaixsl:otherwise>
                             </iaixsl:choose>
                           </span>
-                        </span>
+                        <!-- </span> -->
                       </label>
                     </div>
                   </iaixsl:for-each>
@@ -3912,7 +3912,14 @@
                   <iaixsl:if test="not(/shop/page/order1/shipping/delivery[@type = 'prepaid']) or /shop/page/order1/shipping/delivery[@type = 'dvp' and @checked = 'true'] and not(/shop/page/order1/balance/@active='y' and /shop/page/order1/balance/@onlyPrepaid='y')">
                     <iaixsl:attribute name="class">order__delivery_section --dvp --active col-12 col-md-6</iaixsl:attribute>
                   </iaixsl:if>
-
+                     <span class="headline__name --dvp">
+                      <iaixsl:if test="not(/shop/page/order1/shipping/delivery[@type = 'prepaid']) or /shop/page/order1/shipping/delivery[@type = 'dvp' and @checked = 'true'] and not(/shop/page/order1/balance/@active='y' and /shop/page/order1/balance/@onlyPrepaid='y')">
+                        <iaixsl:attribute name="class">headline__name --dvp --active col-12 col-md-6</iaixsl:attribute>
+                      </iaixsl:if>
+                       <span class="big_label-custom">
+                        Płatność za pobraniem
+                        </span>
+                    </span>
                   <iaixsl:for-each select="/shop/page/order1/shipping/delivery[@type = 'dvp']">
                     <div class="order__delivery_group f-group --radio mb-0 px-2  px-sm-3">
                       
@@ -4092,7 +4099,7 @@
                           </span>
                         </span>
 
-                        <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row">
+                        <!-- <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row"> -->
                           
                           <iaixsl:if test="not(/shop/page/order1/shipping/@hide_cost='true')">
                             <span class="order__delivery_cost mb-1 mb-md-0 mr-md-3 mr-lg-4 d-flex flex-column">
@@ -4157,7 +4164,7 @@
                                 </iaixsl:otherwise>
                             </iaixsl:choose>
                           </span>
-                        </span>
+                        <!-- </span> -->
                       </label>
                     </div>
                   </iaixsl:for-each>
@@ -4472,7 +4479,7 @@
                             </span>
                           </span>
 
-                          <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row">
+                          <!-- <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row"> -->
                             
                             <iaixsl:if test="not(/shop/page/order1/shipping_division/@hide_cost='true')">
                               <span class="order__delivery_cost mb-1 mb-md-0 mr-md-3 mr-lg-4 d-flex flex-column">
@@ -4537,7 +4544,7 @@
                                   </iaixsl:otherwise>
                               </iaixsl:choose>
                             </span>
-                          </span>
+                          <!-- </span> -->
                         </label>
                       </div>
                     </iaixsl:for-each>
@@ -4730,7 +4737,7 @@
                             </span>
                           </span>
 
-                          <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row">
+                          <!-- <span class="order__delivery_sub d-flex flex-column align-items-center justify-content-center flex-md-row"> -->
                             
                             <iaixsl:if test="not(/shop/page/order1/shipping_division/@hide_cost='true')">
                               <span class="order__delivery_cost mb-1 mb-md-0 mr-md-3 mr-lg-4 d-flex flex-column">
@@ -4795,7 +4802,7 @@
                                   </iaixsl:otherwise>
                               </iaixsl:choose>
                             </span>
-                          </span>
+                          <!-- </span> -->
                         </label>
                       </div>
                     </iaixsl:for-each>

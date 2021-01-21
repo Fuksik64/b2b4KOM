@@ -3,26 +3,27 @@ function countMinHeightProduct() {
   let height = 0;
   let imgHeight = 0;
   let textHeight = 0;
+  console.log("haba");
   return {
     countMax() {
-      products = Array.from(document.querySelectorAll(".featured-ul li "));
+      products = Array.from(document.querySelectorAll(".product.slick-slide"));
       if (products != null) {
         products.forEach((item) => {
           if (item.clientHeight > height) height = item.clientHeight;
           if (item.querySelector("img").clientHeight > imgHeight)
             imgHeight = item.querySelector("img").clientHeight;
-          if (item.querySelector("span.name").clientHeight > textHeight)
-            textHeight = item.querySelector("span.name").clientHeight;
+          if (item.querySelector("h3").clientHeight > textHeight)
+            textHeight = item.querySelector("h3").clientHeight;
         });
       }
     },
-    
+
     setHeight() {
       if (products != null) {
         products.forEach((item) => {
           item.style.minHeight = height + "px";
           item.querySelector("img").style.minHeight = imgHeight + "px";
-          item.querySelector("span.name").style.minHeight = textHeight + "px";
+          item.querySelector("h3").style.minHeight = textHeight + "px";
         });
       }
     },

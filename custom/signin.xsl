@@ -3590,8 +3590,10 @@
                     <iaixsl:attribute name="class">signin-form_box col-12 signin_cookie</iaixsl:attribute>
                 </iaixsl:if>
 
-                <h2 class="big_label">
+                <h2 class="big_label custom-label">
+                    <span>
                     Logowanie
+                    </span>
                 </h2>
 
                 <iaixsl:choose>
@@ -4005,8 +4007,10 @@
                                 </iaixsl:if>
                             </iaixsl:when>
                             <iaixsl:otherwise>
-                                <h2 class="big_label">
+                                <h2 class="big_label custom-label">
+                                <span>
                                     Rejestracja
+                                </span>
                                 </h2>
                                 <p class="registration_desc">Jeżeli wcześniej nie założyłeś konta w naszym sklepie, zostaniesz poproszony o podanie swoich danych i adresu dostawy.</p>
                                 <a class="btn --solid --medium signin-form_register2">

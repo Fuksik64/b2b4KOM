@@ -206,12 +206,14 @@
                                                                             <iaixsl:if test="$var_size_min_net_maxprice_formatted != ''">
                                                                             
                                                                                 <del class="price --max">
-                                                                                    <span><iaixsl:value-of select="$var_size_min_net_maxprice_formatted"/></span><b><iaixsl:text> - </iaixsl:text></b><span><iaixsl:value-of select="$var_size_max_maxprice_net_formatted"/></span><iaixsl:value-of select="$var_net_prices"/>
+                                                                                    <span><iaixsl:value-of select="$var_size_min_net_maxprice_formatted"/></span><b><iaixsl:text> - </iaixsl:text></b><span><iaixsl:value-of select="$var_size_max_maxprice_net_formatted"/></span>
+                                                                                    <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                                                 </del>
                                                                             </iaixsl:if>
 
                                                                             <strong class="price">
-                                                                                <iaixsl:value-of select="$var_size_min_net_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_net_formatted"/><iaixsl:value-of select="$var_net_prices"/>
+                                                                                <iaixsl:value-of select="$var_size_min_net_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_net_formatted"/>
+                                                                                <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                                             </strong>
 
                                                                             <iaixsl:if test="$var_points_net != ''">
@@ -242,12 +244,14 @@
                                                                                 
                                                                                 <del class="price --max">
                                                                                     
-                                                                                    <iaixsl:value-of select="$var_maxprice_net_formatted"/><iaixsl:value-of select="$var_net_prices"/>
+                                                                                    <iaixsl:value-of select="$var_maxprice_net_formatted"/>
+                                                                                    <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                                                 </del>
                                                                             </iaixsl:if>
                                                                             <strong class="price">
                                                                                 
-                                                                                <iaixsl:value-of select="$var_price_formatted"/><iaixsl:value-of select="$var_net_prices"/>
+                                                                                <iaixsl:value-of select="$var_price_formatted"/>
+                                                                                <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                                             </strong>
                                                                             <iaixsl:if test="$var_points_net != ''">
                                                                             
@@ -258,7 +262,9 @@
                                                                         </iaixsl:otherwise>
                                                                     </iaixsl:choose>
                                                                     <iaixsl:if test="price/@unit_converted_price_net_formatted">
-                                                                        <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/><iaixsl:value-of select="$var_net_prices"/></small>
+                                                                        <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/>
+                                                                        <!-- <iaixsl:value-of select="$var_net_prices"/> -->
+                                                                        </small>
                                                                     </iaixsl:if>
                                                                 </div>
 

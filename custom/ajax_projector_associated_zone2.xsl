@@ -2,8 +2,8 @@
 <iaixsl:stylesheet xmlns:php="http://php.net/xsl" xmlns:iaixsl="http://www.w3.org/1999/XSL/Transform" xmlns:iaielement="http://iai-system.com/ddd" xmlns:fb="http://www.facebook.com/2008/fbml" version="1.0" exclude-result-prefixes="php iaielement fb"><iaixsl:output indent="no" method="html" doctype-system="about:legacy-compat" version="1.0" encoding="UTF-8"/><iaixsl:strip-space elements="table tr td img"/><iaixsl:decimal-format name="yen" NaN="" grouping-separator="," decimal-separator="."/><iaixsl:template match="shop">
                 <iaixsl:if test="page/projector/products_associated_zone2">
 
-                    <section id="products_associated_zone2" class="hotspot mb-5  col-12 px-sm-3">
-                        
+                    <section id="products_associated_zone2" class="hotspot mb-5 --slider ">
+                        <iaixsl:attribute name="class">hotspot mb-5 --slider</iaixsl:attribute>
                         <iaixsl:variable name="headline_after_products_associated_zone2"></iaixsl:variable>
                         
                         <iaixsl:if test="not(page/projector/products_associated_zone2/product or page/projector/products_associated_zone2/opinion)">
@@ -14,7 +14,8 @@
                             <iaixsl:when test="page/projector/products_associated_zone2/product or page/projector/products_associated_zone2/opinion">
 
                             
-                            <h2>
+                            <h2 class="big_label custom-label">
+                                <span>
                                 <iaixsl:choose>
                                     <iaixsl:when test="page/projector/products_associated_zone2/@link">
                                         <a class="headline">
@@ -37,8 +38,8 @@
                                             <span class="headline__name">
                                                 <iaixsl:choose>
                                                     <iaixsl:when test="page/projector/products_associated_zone2/@name">
-                                                    <!-- <iaixsl:value-of select="page/projector/products_associated_zone2/@name"/> -->
-                                                    Zobacz również
+                                                    <iaixsl:value-of select="page/projector/products_associated_zone2/@name"/>
+                                                    <!-- Zobacz również -->
                                                     
                                                     </iaixsl:when>
                                                     <iaixsl:otherwise>Produkty kupione z tym produktem</iaixsl:otherwise>
@@ -47,6 +48,8 @@
                                         </span>
                                     </iaixsl:otherwise>
                                 </iaixsl:choose>
+                                </span>
+
                             </h2>
 
                             <div class="products d-flex flex-wrap justify-content-center">
@@ -63,13 +66,17 @@
                                      <iaixsl:value-of select="product/firm"/>
                                     </iaixsl:variable>
 
-                                    <div class="product col-lg-2 col-sm-3 py-3 custom-associated">
+                                    <div class="product">
                                             <span class="label">
-                                                
-                                                  
-                                                        <iaixsl:value-of select="$firm"/>
-                                               
-                                               
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="@bestseller=true">
+                                                    Bestseller
+                                                    </iaixsl:when>
+                                                    <iaixsl:otherwise>
+                                                        <iaixsl:value-of select="firm/@name"/>
+                                                    </iaixsl:otherwise>
+                                                </iaixsl:choose>
+                                       
                                             </span>
                                         
                                         <iaixsl:if test="$var_yousave and not($var_yousave = '') and price/@yousave_formatted != ''">
@@ -222,11 +229,13 @@
                                                         <iaixsl:when test="$var_size_min_net_formatted != $var_size_max_net_formatted">
                                                             <iaixsl:if test="$var_size_min_net_maxprice_formatted != ''">
                                                                 <del class="price --max">
-                                                                    <span><iaixsl:value-of select="$var_size_min_net_maxprice_formatted"/></span><b><iaixsl:text> - </iaixsl:text></b><span><iaixsl:value-of select="$var_size_max_maxprice_net_formatted"/></span><iaixsl:value-of select="$var_net_prices"/>
+                                                                    <span><iaixsl:value-of select="$var_size_min_net_maxprice_formatted"/></span><b><iaixsl:text> - </iaixsl:text></b><span><iaixsl:value-of select="$var_size_max_maxprice_net_formatted"/></span>
+                                                                    <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                                 </del>
                                                             </iaixsl:if>
                                                             <strong class="price">
-                                                                <iaixsl:value-of select="$var_size_min_net_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_net_formatted"/><iaixsl:value-of select="$var_net_prices"/>
+                                                                <iaixsl:value-of select="$var_size_min_net_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_net_formatted"/>
+                                                                <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                             </strong>
                                                             <iaixsl:if test="$var_points_net != ''">
                                                                 <span class="price --points">
@@ -257,7 +266,8 @@
                                                         <iaixsl:otherwise>
                                                             <iaixsl:if test="$var_maxprice_net_formatted != ''">
                                                                 <del class="price --max">
-                                                                    <iaixsl:value-of select="$var_maxprice_net_formatted"/><iaixsl:value-of select="$var_net_prices"/>
+                                                                    <iaixsl:value-of select="$var_maxprice_net_formatted"/>
+                                                                    <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                                 </del>
                                                             </iaixsl:if>
                                                             <strong class="price">
@@ -273,7 +283,9 @@
                                                         </iaixsl:otherwise>
                                                     </iaixsl:choose>
                                                     <iaixsl:if test="price/@unit_converted_price_net_formatted">
-                                                        <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/><iaixsl:value-of select="$var_net_prices"/></small>
+                                                        <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/>
+                                                        <!-- <iaixsl:value-of select="$var_net_prices"/> -->
+                                                        </small>
                                                     </iaixsl:if>
                                                 </div>
                                             </iaixsl:otherwise>

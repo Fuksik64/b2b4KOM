@@ -19679,38 +19679,41 @@ $.fn.setHeight = function (container) {
 const HotspotSlider = function HotspotSlider(params) {
   this.params = params;
   this.defaults = {
-    prevArrow: `<a class="hotspot__arrow --prev"href=""><span>${app_shop.txt.hotspot_prev}</span></a>`,
-    nextArrow: `<a class="hotspot__arrow --next"href=""><span>${app_shop.txt.hotspot_next}</span></a>`,
-    dotsClass: "hotspot__dots",
+    prevArrow:
+      '<button type="button" class="slick-prev slick-custom-prev"></button>',
+    nextArrow:
+      '<button type="button" class="slick-next  slick-custom-next"></button>',
+    // dotsClass: "hotspot__dots",
     arrows: true,
-    dots: true,
-    slidesToShow: 6,
-    slidesToScroll: 6,
+    // dots: true,
+    dots: false,
+    slidesToShow: 4,
+    slidesToScroll: 4,
     responsive: [
-      { breakpoint: 1200, settings: { slidesToShow: 4, slidesToScroll: 4 } },
-      { breakpoint: 979, settings: { slidesToShow: 4, slidesToScroll: 4 } },
-      {
-        breakpoint: 757,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          swipeToSlide: true,
-          centerMode: true,
-          centerPadding: "15vw",
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 550,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          swipeToSlide: true,
-          centerMode: true,
-          centerPadding: "18vw",
-          dots: false,
-        },
-      },
+      { breakpoint: 978, settings: { slidesToShow: 3, slidesToScroll: 3 } },
+      { breakpoint: 650, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+      // {
+      //   breakpoint: 757,
+      //   settings: {
+      //     slidesToShow: 2,
+      //     slidesToScroll: 2,
+      //     swipeToSlide: true,
+      //     centerMode: true,
+      //     centerPadding: "15vw",
+      //     dots: false,
+      //   },
+      // },
+      // {
+      //   breakpoint: 550,
+      //   settings: {
+      //     slidesToShow: 1,
+      //     slidesToScroll: 1,
+      //     swipeToSlide: true,
+      //     centerMode: true,
+      //     centerPadding: "18vw",
+      //     dots: false,
+      //   },
+      // },
     ],
   };
   this.init = () => {

@@ -2072,7 +2072,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Weryfikacja danych</strong>
+                                    <strong class="progress__name">Potwierdzenie</strong>
                                     <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                                 </div>
                             </div>
@@ -2118,7 +2118,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Weryfikacja danych</strong>
+                                    <strong class="progress__name">Potwierdzenie</strong>
                                     <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                                 </div>
                             </div>
@@ -2140,7 +2140,7 @@
                                     </div>
                                 </div>
                                 <div class="progress__text">
-                                    <strong class="progress__name">Złożenie zamówienia</strong>
+                                    <strong class="progress__name">Gotowe</strong>
                                     <span class="progress__description">Przyjęcie do realizacji</span>
                                 </div>
                             </div>
@@ -2242,7 +2242,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2343,7 +2343,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2422,7 +2422,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2471,7 +2471,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2552,7 +2552,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2601,7 +2601,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2682,7 +2682,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2731,7 +2731,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2812,7 +2812,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2861,7 +2861,7 @@
                                         </div>
                                     </div>
                                     <div class="progress__text">
-                                        <strong class="progress__name">Złożenie zamówienia</strong>
+                                        <strong class="progress__name">Gotowe</strong>
                                         <span class="progress__description">Przyjęcie do realizacji</span>
                                     </div>
                                 </div>
@@ -2920,7 +2920,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -2964,7 +2964,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Złożenie zamówienia</strong>
+                                <strong class="progress__name">Gotowe</strong>
                                 <span class="progress__description">Przyjęcie do realizacji</span>
                             </div>
                         </div>
@@ -3043,7 +3043,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -3163,7 +3163,7 @@
                                 </div>
                             </div>
                             <div class="progress__text">
-                                <strong class="progress__name">Weryfikacja danych</strong>
+                                <strong class="progress__name">Potwierdzenie</strong>
                                 <span class="progress__description">Sprawdź poprawność zamówienia przed jego złożeniem</span>
                             </div>
                         </div>
@@ -3620,7 +3620,8 @@
 										<div class="order2_info_sub" id="order2_info_sub1">
 												<div class="order2_info_label_sub">
 														<h3 class="order2_info1" id="order2_nagl_1">
-																Dane zamawiającego:
+																<i class="icon-customer-data --pink"></i>
+                                                                Dane zamawiającego
 														</h3>
 														<a class="order2_button_change_mobile d-sm-none">
 																<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
@@ -3700,7 +3701,8 @@
 														<iaixsl:otherwise>
 																<div class="order2_info_label_sub">
 																		<h3 class="order2_info1" id="order2_nagl_2b">
-																				Adres dostawy:
+                                                                                <i class="icon-address-receive"></i>
+																				Adres dostawy
 																		</h3>
 																		<a class="order2_button_change_address_mobile d-sm-none">
 																				<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/deliveryaddress/@changelink"/></iaixsl:attribute>
@@ -3737,7 +3739,8 @@
 										<div class="order2_info_sub" id="order2_info_sub3">
 												<div class="order2_info_label_sub">
 														<h3 class="order2_info1" id="order2_nagl_1">
-																Dane odbiorcy:
+                                                            <i class="icon-receiver-data --pink"></i>
+																Dane odbiorcy
 														</h3>
 														<a class="order2_button_change2_mobile d-sm-none">
 																<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
@@ -4225,7 +4228,10 @@
 															<div class="order2__products mb-5">
 
 																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
-																	<strong class="order2__product_item --name">Zamówione produkty</strong>
+                                                                   
+																	<strong class="order2__product_item --name">
+                                                                     <i class="icon-comment pink-icon-comment"></i>
+                                                                    Zamówione produkty</strong>
 																	<span class="order2__product_item --price">Cena jedn.</span>
 																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
 																		<span class="order2__product_item --vat">VAT</span>
@@ -4396,7 +4402,10 @@
 															<div class="order2__products --virtual mb-5">
 
 																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
-																	<strong class="order2__product_item --name">Zamówione produkty wirtualne</strong>
+																	<strong class="order2__product_item --name">
+                                                                    <i class="icon-comment pink-icon-comment"></i>
+                                                                    
+                                                                    Zamówione produkty wirtualne</strong>
 																	<span class="order2__product_item --price">Cena jedn.</span>
 																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
 																		<span class="order2__product_item --vat">VAT</span>
@@ -4567,7 +4576,10 @@
 															<div class="order2__products --service mb-5">
 
 																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
-																	<strong class="order2__product_item --name">Zamówione usługi</strong>
+																	<strong class="order2__product_item --name">
+                                                                    <i class="icon-comment pink-icon-comment"></i>
+                                                                    
+                                                                    Zamówione usługi</strong>
 																	<span class="order2__product_item --price">Cena jedn.</span>
 																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
 																		<span class="order2__product_item --vat">VAT</span>
@@ -4802,7 +4814,7 @@
 																		<strong class="order2__delivery_text">
 																			<iaixsl:choose>
 																				<iaixsl:when test="not(page/order2/orderdetails/@deliveryname_division)">
-																					Forma dostawy: 
+																					Sposób dostawy:
 																				</iaixsl:when>
 																				<iaixsl:otherwise>
 																					Forma dostawy dla produktów dostępnych od ręki: 
@@ -4877,7 +4889,7 @@
 																<div class="order2__payment mb-3">
 																	<iaixsl:if test="not(page/order2/orderdetails/@deliverytype = 'prepaid' and page/order2/orderdetails/@payment_name = '') or (page/order2/orderdetails/@tradeCredit = 'y')">
 																		<div class="order2__payment_item d-flex flex-wrap">
-																			<strong class="order2__payment_text">Forma płatności: </strong>
+																			<strong class="order2__payment_text">Metoda płatności: </strong>
 
 																			<div class="order2__payment_wrapper">
 																				<strong class="order2__payment_name">
