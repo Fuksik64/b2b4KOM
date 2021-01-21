@@ -2360,9 +2360,9 @@
             <div id="producers-list_sub" class="row m-0">
 		        <iaixsl:for-each select="page/producers-list/firm">
                     <a class="col-md-3 col-sm-3 col-3 producers-list_item">
-                        <div class="img-wrapper">
                         <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
                         <iaixsl:attribute name="title"><iaixsl:value-of select="@name"/></iaixsl:attribute>
+                        <div class="img-wrapper">
                         <iaixsl:if test="@icon">
                             <img class="links_producers">
                                 <iaixsl:attribute name="src"><iaixsl:value-of select="@icon"/></iaixsl:attribute>

@@ -2,7 +2,25 @@ function associatedProductRestartSlider() {
   let section = document.querySelector("#products_associated_zone2");
   let sectionProducts = null;
   const observer = new MutationObserver(mutationFunction);
+  let height = 0;
+  let products;
 
+  function countHeight() {
+    products = Array.from(document.querySelectorAll(".custom-associated"));
+    if (products != null) {
+      products.forEach((product) => {
+        product.style.minHeight = "";
+        product.style.height = "";
+        if (product.clientHeight > height) {
+          height = product.clientHeight;
+        }
+      });
+      products.forEach((product) => {
+        product.style.minHeight = height + "px";
+        product.style.height = height + "px";
+      });
+    }
+  }
   observer.observe(section, {
     attributes: true,
     childList: false,
@@ -17,14 +35,14 @@ function associatedProductRestartSlider() {
         if (!sectionProducts.classList.contains("custom-init")) {
           sectionProducts = section.querySelector(".products");
           init();
+          countHeight();
         }
       }
     }
   }
   function init() {
-    observer.disconnect();
     $("#products_associated_zone2 .products").slick({
-      slidesToShow: 5,
+      slidesToShow: 4,
       arrows: true,
       slidesToScroll: 1,
       asNavFor: ".slider-for",
@@ -37,12 +55,14 @@ function associatedProductRestartSlider() {
       nextArrow: '<button type="button" class="slick-next"></button>',
       responsive: [
         {
-          breakpoint: 1199,
+          init: countHeight(),
+          breakpoint: 978,
           settings: {
-            slidesToShow: 4,
+            slidesToShow: 3,
           },
         },
         {
+          init: countHeight(),
           breakpoint: 585,
           settings: {
             slidesToShow: 2,

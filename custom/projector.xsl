@@ -1957,7 +1957,16 @@
                             <iaixsl:value-of select="@title"/>
                             </a>
                         </iaixsl:for-each>
-
+                             <i class="icon-angle-right"></i>
+                            <a>
+                            <iaixsl:attribute name="href">
+                                <iaixsl:value-of select="/shop/page/projector/product/@link"/>
+                            </iaixsl:attribute>
+                            <iaixsl:attribute name="class">
+                                mr-2 ml-2
+                            </iaixsl:attribute>
+                            <iaixsl:value-of select="/shop/page/projector/product/name"/>
+                            </a>
                     </div>
 
                     
@@ -3071,7 +3080,9 @@
                                                 </iaixsl:choose>
                                             </label>
                                             <div class="projector_price_subwrapper">
-                                                
+                                                   <iaixsl:if test="not(page/projector/product/price/@maxprice_net_formatted) and not(/shop/page/projector/product/sizes/size[@selected='true']/price/@maxprice_net_formatted)">
+                                                        <iaixsl:attribute name="class">projector_price_subwrapper no-discount</iaixsl:attribute>
+                                                    </iaixsl:if>
                                                 <div id="projector_price_maxprice_wrapper">
                                                     <iaixsl:if test="not(page/projector/product/price/@maxprice_net_formatted) and not(/shop/page/projector/product/sizes/size[@selected='true']/price/@maxprice_net_formatted)">
                                                         <iaixsl:attribute name="style">display:none;</iaixsl:attribute>
@@ -3892,7 +3903,7 @@
     </div>
     <div class="row col-12">
     
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 px-0">
         
             <iaixsl:if test="page/projector/products_associated_zone1">
 
@@ -4275,7 +4286,7 @@
                     <iaixsl:if test="/shop/page/projector/products_associated_zone1/@hotspot_ajax"> </iaixsl:if>
 
         </div>
-        <div class="col-12 col-md-6 overflowHidden">
+        <div class="col-12 col-md-6 px-0 overflowHidden">
             			<iaixsl:variable name="product_producer_label">Producent</iaixsl:variable>
 			<iaixsl:variable name="product_code_label">Kod produktu</iaixsl:variable>
 			<iaixsl:variable name="product_series_label">Seria</iaixsl:variable>
@@ -7649,49 +7660,16 @@
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-        
-            <script>
-            <iaixsl:attribute name="defer"></iaixsl:attribute>
- 
-           
-            </script>
-            <script src="/data/include/cms/b2b4kom/JS/projector/setHeightSliderBottom.js" >
+            <script src="/data/include/cms/b2b4kom/JS/projector/projectorSliders.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
+        
+          
             <script>
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
 
-                <!-- $('.photos__slider').slick('unslick') -->
-                $('.slick-slider').not('.slick-initialized').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                asNavFor: '.slider-nav',
-                dots: false,
-                centerMode: true,
-                focusOnSelect: true,
-                dots:false,
-                fade:false
-            });
-             $('.slider-nav').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                arrows: true,
-                dots:false,
-                fade: false,
-                centerMode:true,
-                prevArrow: '<button type="button" class="slick-prev"></button>',
-                nextArrow: '<button type="button" class="slick-next"></button>',
-                asNavFor: '.slick-slider',
-                responsive: [
-                {
-                    breakpoint: 978,
-                    settings: {
-                    slidesToShow: 3,
-                    slidesToScroll: 1,
-                 }
-                ]
-            });
+              
 
             </script>
             <script src="/data/include/cms/b2b4kom/JS/footerRotateChevron.js" >

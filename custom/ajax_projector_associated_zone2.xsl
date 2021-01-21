@@ -2,7 +2,7 @@
 <iaixsl:stylesheet xmlns:php="http://php.net/xsl" xmlns:iaixsl="http://www.w3.org/1999/XSL/Transform" xmlns:iaielement="http://iai-system.com/ddd" xmlns:fb="http://www.facebook.com/2008/fbml" version="1.0" exclude-result-prefixes="php iaielement fb"><iaixsl:output indent="no" method="html" doctype-system="about:legacy-compat" version="1.0" encoding="UTF-8"/><iaixsl:strip-space elements="table tr td img"/><iaixsl:decimal-format name="yen" NaN="" grouping-separator="," decimal-separator="."/><iaixsl:template match="shop">
                 <iaixsl:if test="page/projector/products_associated_zone2">
 
-                    <section id="products_associated_zone2" class="hotspot mb-5 --slider col-12 p-0 px-sm-3">
+                    <section id="products_associated_zone2" class="hotspot mb-5  col-12 px-sm-3">
                         
                         <iaixsl:variable name="headline_after_products_associated_zone2"></iaixsl:variable>
                         

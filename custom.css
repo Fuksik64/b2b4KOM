@@ -436,7 +436,8 @@ body #footer_links .footer_links#menu_orders {
 }
 
 .menu_not_main_wrapper {
-    padding: 0 15px !important
+    padding: 0 !important;
+    margin: auto;
 }
 
 .client_orders_null {
@@ -2961,4 +2962,418 @@ body {
 
 .client-new_page #content {
     padding: 0;
+}
+
+#search-list {
+    width: 100%
+}
+
+.photos__link.--nav {
+    border: 1px solid transparent
+}
+
+.slick-next:before,
+.slick-prev:before {
+    color: var(--black-color-lighter)
+}
+
+.slick-next:hover::before,
+.slick-prev:hover::before {
+    color: var(--purple-light)
+}
+
+#products_associated_zone2 .custom-associated {
+    padding: 0;
+    margin: 1rem;
+}
+
+#projector_dictionary .dictionary__group {
+    font-weight: 500;
+}
+
+#projector_buy_section .projector_buttons {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+}
+
+#projector_buy_section #projector_number_cont {
+    min-width: 70px;
+}
+
+#projector_buy_section a.projector_buttons_obs {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    margin-left: 1rem;
+    width: auto;
+}
+
+@media(max-width:585px) {
+
+
+    #projector_buy_section .projector_butttons_buy {
+        font-size: 1.3rem;
+        width: auto;
+    }
+
+
+    .product_name__name {
+        text-align: center;
+        font-size: 1.6rem;
+    }
+
+    .projector_price_subwrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    #projector_price_maxprice_wrapper {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: .5rem;
+    }
+
+    strong.projector_price_value {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: .5rem;
+    }
+
+    .product_name__wrapper {
+        width: 100%;
+    }
+
+    .instalment_yousave {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        text-align: center;
+        font-weight: 500;
+        color: var(--black-color-lighter)
+    }
+}
+
+.showWarranty strong,
+.projector_product_status_wrapper strong {
+    font-weight: 600;
+}
+
+.showWarranty span,
+.projector_product_status_wrapper span {
+    font-weight: 500;
+}
+
+strong.projector_price_value {
+    font-weight: 600;
+}
+
+.projector_price_subwrapper.no-discount .instalment_yousave {
+    display: none;
+}
+
+.projector_price_subwrapper.no-discount {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.hotspot.--list .product__name {
+    font-weight: 500;
+}
+
+.hotspot.--list .product__prices .price {
+    font-weight: 600;
+}
+
+#projector_buy_section a.projector_buttons_obs {
+    border-color: var(--gray-light);
+    font-weight: 500;
+}
+
+.projector_page #products_associated_zone1 .headline:after {
+    background-color: var(--gray-light);
+}
+
+h2.label-specyfikacja:after,
+.projector_page #products_associated_zone2 .headline:after {
+    background-color: var(--gray-light);
+}
+
+#projector_form div.product_section.versions .fancy-select .trigger .version_label {
+    font-weight: 500;
+}
+
+@media (max-width: 978px) {
+
+    .projector_page#container {
+        padding: 100px 0px 0 0px !important;
+
+    }
+
+    /* .projector_page #layout>.row.container>.col-9 {
+        padding: 0;
+    } */
+
+    .projector_page #content {
+        padding: 0 15px !important
+    }
+
+    .projector_page #content>div {
+        margin: auto
+    }
+
+    .projector_page #content>.row {
+        padding: 0;
+    }
+
+    .projector_page #products_associated_zone2 {
+        padding: 0;
+    }
+
+
+
+    #projector_in_bundle .product__promo {
+        text-align: right;
+    }
+
+    #products_associated_zone1,
+    #projector_dictionary,
+    #projector_form,
+    #projector_photos {
+        padding: 0;
+    }
+}
+
+.projector_page #projector_in_bundle .headline {
+    padding-left: 0;
+
+}
+
+#container.projector_page .breadcrumb-search a {
+    font-weight: 500;
+}
+
+.projector_page #layout>.row.container {
+    margin: 0
+}
+
+.product_name__description {
+    font-weight: 500;
+}
+
+.hotspot.--list .product {
+    display: grid !important;
+    border-bottom: 1px solid var(--gray-light);
+    grid-template-columns: 1fr 15fr;
+
+}
+
+.hotspot.--list .product__wrapper {
+    width: 100%
+}
+
+.hotspot.--list .product__wrapper {
+    display: grid !important;
+    width: 100%;
+    grid-template-columns: 1fr;
+}
+
+.hotspot.--list .product__prices .price.--phone {
+    font-size: 1.3rem;
+}
+
+.featured-ul li a span.name {
+    text-transform: unset;
+}
+
+.hotspot.--list .product__prices .price {
+    white-space: nowrap;
+}
+
+.hotspot.--list .product__promo,
+.hotspot.--list .product__promo .price {
+    color: var(--black-color-lighter);
+    font-weight: 500;
+}
+
+.hotspot.--list .product__prices .price.--phone {
+    white-space: pre-wrap;
+}
+
+.hotspot.--list .product__prices .price {
+    color: var(--purple-light);
+    text-align: right;
+}
+
+.projector_page #projector_in_bundle,
+.projector_page #projector_longdescription {
+    padding: 0
+}
+
+.hotspot.--list .product__promo .price {
+    text-align: right;
+}
+
+span.projector_price_yousave {
+    color: var(--black-color-lighter)
+}
+
+#products_associated_zone2 .custom-associated:focus {
+    outline: none;
+}
+
+#projector_longdescription .big_label span {
+    text-transform: none;
+}
+
+.warrantyLink {
+    font-weight: 500;
+}
+
+.hotspot.--list .product__promo .price.--max {
+    color: var(--black-color-lighter)
+}
+
+#products_associated_zone2 .product__prices .price.--phone {
+    font-size: 1.5rem;
+}
+
+.product-custom .product-icon-custom h3 {
+    font-size: 1.3rem;
+}
+
+#search-list div.search-sizes table.custom-search-size tr .show_hurt_price_search {
+    flex-basis: 100%;
+    min-height: 58px;
+}
+
+.main_page .col-3-height {
+    padding-left: 0;
+}
+
+#layout>.row.container {
+    padding: 0;
+}
+
+#container #layout>.row.container>aside,
+#container #layout>.row.menu_not_main_wrapper>aside {
+    padding-left: 0 !important;
+}
+
+.projector_page #layout .breadcrumb-search {
+    padding-left: 0;
+}
+
+.basketedit_page #content {
+    padding: 0;
+}
+
+.basketedit_page * {
+    font-weight: 500;
+}
+
+.productslist_product_sum>span:first-child {
+    font-weight: 600
+}
+
+#layout .unit_price_basket_custom {
+    font-weight: 600;
+}
+
+.basket-custom-h2 {
+    font-weight: 600;
+}
+
+.basket-custom-h2:after {
+    background-color: var(--gray-light);
+}
+
+.span-delivery-time-basket .text-delivery {
+    font-weight: 500;
+}
+
+.rabbate-text,
+span.basketedit_rebatecode_activate_txt {
+
+    font-weight: 500;
+
+}
+
+.span-delivery-time-basket .text-delivery {
+    width: 100%;
+}
+
+#a_remove_code {
+    margin-right: .5rem;
+}
+
+.span-delivery-time-basket {
+    padding-top: 15px;
+}
+
+div.toshippingfree_sub .price,
+.span-delivery-time-basket .text-delivery span {
+    font-weight: 600;
+}
+
+.cop_site #content {
+    padding: 0
+}
+
+.order__payments .headline .big_label-custom,
+.order__delivery .headline .big_label-custom {
+    text-transform: none;
+}
+
+.order1_page * {
+    font-weight: 500;
+}
+
+.order1_page .order__payments_name,
+.order1_page .order__delivery_name {
+    font-weight: 600;
+}
+
+.order1_page .order__delivery_sub strong {
+    font-weight: 600;
+    color: var(--purple-light)
+}
+
+.order1_page .order__payment_name {
+    font-weight: 500;
+}
+
+.order1_page #content {
+    overflow: hidden;
+}
+
+.order1_page .summary.--order1 {
+    padding: 15px !important
+}
+
+.order1_page .summary__calculation_value {
+    font-weight: 600;
+}
+
+.order__payments .headline .big_label-custom,
+.order__delivery .headline .big_label-custom {
+    white-space: nowrap;
+}
+
+.order__delivery .headline .big_label-custom:before {
+    margin-left: 15rem;
+}
+
+.order__payments .headline .big_label-custom:before {
+    margin-left: 17rem;
+}
+
+.projector_page #layout .breadcrumb-search {
+    padding: 1rem 15px
+}
+
+#cookie_login_social_more ul,
+#client_new_social ul {
+    justify-content: space-between;
 }

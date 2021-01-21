@@ -2696,7 +2696,7 @@
                 </section>
             </iaixsl:if>
 
-            <iaixsl:if test="page/hotspot/products_zone2">
+            <iaixsl:if test="page/hotspot/products_zone2 and page/hotspot/promoproducts/@limit !=0">
                 <section class="featured-bestsellers">
                     <h2 class="featured promotions">Aktualne promocje</h2>
                     <div class="show-more">
