@@ -5476,7 +5476,7 @@
 													<div class="basketedit_summary_buttons table_display">
 
 															<div class="btn_wrapper">
-																	<input class="btn --solid --large order2_button_order terms_required" type="submit">
+																	<button class="btn --solid --large order2_button_order terms_required" type="submit">
 
 																			<iaixsl:attribute name="value">Zamawiam z obowiązkiem zapłaty</iaixsl:attribute>
 
@@ -5488,7 +5488,7 @@
 																					</iaixsl:if>
 
 																			</iaixsl:if>
-																	</input>
+																	</button>
 																	<div class="button_legend">
 																			<i class="icon-need"></i> Pola oznaczone gwiazdką są wymagane.
 																	</div>

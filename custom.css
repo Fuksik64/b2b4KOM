@@ -4109,13 +4109,41 @@ h3#order2_headline_invoice {
     justify-content: center;
 }
 
-#basket_go_next:hover {
-    background: var(--black-color-lighter);
-
+.btn.--solid.--large:hover::after,
+button.search_buy:hover::after {
+    left: 0;
 }
 
-.btn.--solid.--large {
-    transition: all .5s ease
+.btn.--solid.--large::after,
+button.search_buy::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    display: block;
+    background: var(--purple-dark);
+    left: -100%;
+    transition: all .2s ease;
+    position: absolute;
+    z-index: -1;
+    ;
+}
+
+button.search_buy:hover {
+    background: var(--gradient) !important;
+}
+
+button.search_buy:hover i {
+    color: #fff !important;
+}
+
+.btn.--solid.--large,
+button.search_buy {
+    transition: all .5s ease;
+    position: relative !important;
+    overflow: hidden;
+    right: 0 !important;
+    z-index: 1;
 }
 
 textarea.order2_text {
@@ -4134,7 +4162,7 @@ textarea.order2_text:focus {
     }
 }
 
-.icon-refresh.icon-spin {
+.projector_page .icon-refresh.icon-spin {
     margin: 0;
     display: flex;
     justify-content: center;
@@ -4206,4 +4234,105 @@ textarea.order2_text:focus {
 
 .progress__item.--fourth.--active .progress__fontello::before {
     content: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/gotowePINK.svg');
+}
+
+.hotspot .product__icon img[data-src] {
+    max-width: 24px !important;
+    max-height: 24px !important;
+    min-height: 24px !important;
+    min-width: 24px !important;
+}
+
+.product-custom .product-icon-custom h3 {
+    text-transform: none;
+}
+
+.icon-calendar.--pink {
+    content: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/twojezamowieniebedziegotowePINK.svg');
+}
+
+.rabbate-icon.--pink {
+    content: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/kodrabatowyPINK.svg');
+}
+
+.product-icon-custom p {
+    margin-top: 0;
+    margin-bottom: .5rem;
+}
+
+@media(max-width:585px) {
+    #search-list div.search-sizes {
+        padding: 0 5px
+    }
+}
+
+.btn.--large.--solid:hover {
+    background: var(--gradient);
+}
+
+.icon-order-number {
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+    max-width: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+}
+
+.icon-order-number::before {
+    content: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/numerzamowienia.svg');
+    width: 35px;
+    height: 35px;
+    min-width: 35px;
+    min-height: 35px;
+    max-height: 35px;
+    max-width: 35px;
+
+}
+
+.icon-order-number.--pink::before {
+    content: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/numerzamowieniaPINK.svg');
+}
+
+input.orderdetails_radio:checked~label.prepaid_payment_sub {
+    border-color: var(--purple-light);
+}
+
+.prepaid_page * {
+    font-weight: 500;
+}
+
+.prepaid_page .progress__name {
+    font-weight: 600;
+}
+
+#layout .product-custom .product-icon-custom .label_icons {
+    width: 100%;
+    border: none;
+    background: none;
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#layout .product-custom .product-icon-custom .label_icons span {
+    background: none;
+}
+
+#layout .product-custom .product-icon-custom .label_icons img {
+    min-width: 50px;
+    height: auto;
+    margin: 0;
+}
+
+.number-custom {
+    flex-wrap: wrap;
+    align-items: center;
+    display: flex;
 }

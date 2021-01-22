@@ -8,7 +8,7 @@ function countMinHeightProduct() {
         products.forEach((product) => {
           if (
             product.clientHeight > height &&
-            product.querySelector("img").classList.contains("b-loaded")
+            product.querySelector("img.b-lazy")
           ) {
             height = product.clientHeight;
           }
@@ -27,4 +27,4 @@ document.addEventListener("DOMContentLoaded", () => {
     countHeightCategories.countHeight();
   }, 450);
 });
-// window.addEventListener("resize", countHeightCategories.countHeight);
+window.addEventListener("resize", countHeightCategories.countHeight);

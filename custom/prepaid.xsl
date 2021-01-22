@@ -3610,7 +3610,7 @@
                     <div class="order-details-id">
                     <div class="top-details">
                     <div class="number-custom">
-                    <i class="fas fa-times"></i>
+                    <i class="icon-order-number --pink"></i>
                     <span>Numer zamówienia: </span>
                     <strong>
                     <iaixsl:value-of select="page/prepaid/details/@orderid"/>
@@ -4557,8 +4557,8 @@
                 <table class="ui-responsive table-stroke ui-table ui-table-reflow">
                     <thead>
                         <tr>
-                            <th/>
-                            <th/>
+                            <th class="icon-"><i class="pink-icon-comment"></i></th>   
+                            <th>Zamówione produkty</th>                           
                             <iaixsl:if test="not(page/ordered_products/product/@size_id = 'uniw')">
                                 <th>Rozmiar</th>
                             </iaixsl:if>

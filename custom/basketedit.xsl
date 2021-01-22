@@ -5479,7 +5479,7 @@
             <div class="basketedit_summary_container row">
                 <div class="col-12 col-md-6 row">
                     <div class="span-delivery-time-basket col-12 col-sm-6 col-md-12">
-                        <i class="icon-calendar"></i>
+                        <i class="icon-calendar --pink"></i>
                         <p class="text-delivery">
                         Twoje zamówienie będzie gotowe do wysłania w 
                         <span>
@@ -5521,7 +5521,7 @@
                 <div class="basketedit_rebatecodes_outline">
                     
                     <iaixsl:if test="/shop/page/rebates/code_details/@active = 'y'">
-                    <i class="rabbate-icon"></i>
+                    <i class="rabbate-icon --pink"></i>
                         <div class="basketedit_rebatecode_title">
                             <span class="basketedit_rebatecode_title">
                                 Aktywny kod rabatowy: 
@@ -5575,7 +5575,7 @@
                                 Wpisywanie kodu rabatowego skasuje rabat przypisany do Twojego konta. 
                             </div>
                         </iaixsl:if>
-                        <i class="rabbate-icon"></i>
+                        <i class="rabbate-icon --pink"></i>
                         <p class="rabbate-text">
 
                         <span class="basketedit_rebatecode_activate_txt">Masz kod rabatowy? </span>

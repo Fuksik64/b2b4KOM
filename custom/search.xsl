@@ -4263,14 +4263,27 @@
 
                                                         <iaixsl:if test="@promo">
                                                             <span class="label promo">
-                                                                W promocji
+                                                                <!-- W promocji -->
+                                                               <img>
+                                                               <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/promo.svg</iaixsl:attribute>
+                                                               </img>
                                                             </span>
                                                         </iaixsl:if>
                                                         <iaixsl:if test="@new">
                                                             <span class="label newproducts">
-                                                                Nowość
+                                                             <img>
+                                                               <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/new.svg</iaixsl:attribute>
+                                                               </img>
                                                             </span>
                                                         </iaixsl:if>
+                                                        <iaixsl:if test="@bestseller">
+                                                            <span class="label newproducts">
+                                                             <img>
+                                                               <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/best.svg</iaixsl:attribute>
+                                                               </img>
+                                                            </span>
+                                                        </iaixsl:if>
+                                                       
                                                         <iaixsl:choose>
                                                             <iaixsl:when test="@promo and @new">
                                                             </iaixsl:when>
@@ -7396,19 +7409,12 @@
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-            <script src="/data/include/cms/b2b4kom/JS/search/checkInputValue.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
+          
             <script src="/data/include/cms/b2b4kom/JS/search/categoriesFiltersWrapper.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
             <script src="/data/include/cms/b2b4kom/JS/basketDetailsHover.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
-            <script src="/data/include/cms/b2b4kom/JS/resetBasketJs.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
