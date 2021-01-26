@@ -139,11 +139,9 @@
                         <iaixsl:choose>
                             <iaixsl:when test="/shop/@preview > 0">
                                 <script><iaixsl:attribute name="src">/gfx/<iaixsl:value-of select="language/@id"/>/<iaixsl:value-of select="/shop/@preview"/>/shop.js</iaixsl:attribute></script>
-<script src="/gfx/pol/orderdetails_payments.js.gzip?r=1600678639"></script>
                             </iaixsl:when>
                             <iaixsl:otherwise>
                                 <script><iaixsl:attribute name="src">/gfx/<iaixsl:value-of select="language/@id"/>/shop.js.gzip?r=1600678639</iaixsl:attribute></script>
-<script src="/gfx/pol/orderdetails_payments.js.gzip?r=1600678639"></script>
                             </iaixsl:otherwise>
                         </iaixsl:choose>
                     </iaixsl:if>
@@ -1802,98 +1800,109 @@
                 </iaixsl:choose>
             </div>
             <div class="setMobileGrid" data-item="#menu_contact"/>
-            <div class="setMobileGrid" data-item="#menu_settings"/>
+            <!-- <div class="setMobileGrid" data-item="#menu_settings"/> -->
             <iaixsl:if test="$SET_filters and not($SET_filters = '')">
                 <div class="setMobileGrid">
                   <iaixsl:attribute name="data-item"><iaixsl:value-of select="$SET_filters"/></iaixsl:attribute>
                 </div>
             </iaixsl:if>
-        
-                  <div class="col-3-height">	
-                                <nav class="nav d-flex flex-column custom-nav">
-                                    <div class="d-flex nav-category">
-                                        <i class="icon-bars"></i>
-                                        <p class="m-0">MENU</p>
-                                        <div class="nav-breadcrumb">
-                                        <span>
-                                            <div class="icon-chevron-down"></div>
-                                        </span>
-                                        </div>
+
+<div class="col-3-height">
+
+					
+							<nav class="nav d-flex flex-column custom-nav custom-nav-desktop">
+								<div class="d-flex nav-category">
+									<i class="icon-bars"></i>
+									<p class="m-0">KATEGORIE</p>
+                                    <div class="nav-breadcrumb">
+                                     <span></span>
                                     </div>
-                                    <div class="categories-wrapper-ul">
-                                    <ul class="d-flex flex-column ul-category col-12">
-                                        <iaixsl:for-each select="navigation/item">
-                                        <li class="li-depth-1">
-                                            <a>                                            
-                                                <iaixsl:attribute name="href">
-                                                    <iaixsl:value-of select="@link" />
-                                                </iaixsl:attribute>
-                                                <iaixsl:attribute name="target">
-                                                    <iaixsl:value-of select="@target" />
-                                                </iaixsl:attribute>
-                                                <img src="https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/>
-                                                <span>
-                                                    <iaixsl:value-of select="@name" />
-                                                </span>
-                                                <iaixsl:choose>
+								</div>
+                                <div class="categories-wrapper-ul init">
+                       
+								<ul class="d-flex flex-column ul-category col-12">
+									<iaixsl:for-each select="navigation/item">
+									<li class="li-depth-1">
+										<a>                                            
+											<iaixsl:attribute name="href">
+												<iaixsl:value-of select="@link" />
+											</iaixsl:attribute>
+											<iaixsl:attribute name="target">
+												<iaixsl:value-of select="@target" />
+											</iaixsl:attribute>
 
-                                                    <iaixsl:when test="count(item) > 0">
-                                                    <i class="icon-chevron-right"></i>
-                                                    </iaixsl:when>
+                                            <iaixsl:if test="@gfx">
+                                                    <img>
+                                                    <iaixsl:attribute name="src">
+                                                    <iaixsl:value-of select="@gfx"/>
+                                                    </iaixsl:attribute>
+                                                    <iaixsl:attribute name="class">
+                                                    b2b-category-img
+                                                    </iaixsl:attribute>
+                                                    </img>
+                                            </iaixsl:if> 
+                                            <!-- <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/heart-regular.svg" alt="" class="icon-hearth-custom temporary"/> -->
+											<span>
+												<iaixsl:value-of select="@name" />
+											</span>
+                                            <iaixsl:choose>
 
-                                                    <iaixsl:otherwise>
-                                                    <i class="icon-chevron-right invisible"></i>
-                                                    </iaixsl:otherwise>
+                                                <iaixsl:when test="count(item) > 0">
+											    <i class="icon-chevron-right"></i>
+                                                </iaixsl:when>
 
-                                                </iaixsl:choose>
-                                            
-                                            </a>
-                                            <iaixsl:if test="count(item) > 0">
-                                                    <ul class="nested-ul-category nested-ul-category-1">
-                                                        <iaixsl:for-each select="item">
-                                                            <li class="li-depth-2">
-                                                                <a>
-                                                                <iaixsl:attribute name="href">
-                                                                    <iaixsl:value-of select="@link"/>
-                                                                </iaixsl:attribute>
-                                                                <span>
-                                                                <iaixsl:value-of select="@name" />
-                                                                </span>
-                                                                <iaixsl:if test="count(item) > 0">
-                                                                <i class="icon-chevron-right"></i>
-                                                                </iaixsl:if>
-                                                                </a>
-                                                                <iaixsl:if test="count(item) > 0">
-                                                                <ul class="nested-ul-category nested-ul-category-2">
-                                                                    <iaixsl:for-each select="item">
-                                                                        <li class="li-depth-3">
-                                                                            <a>
-                                                                            <iaixsl:attribute name="href">
-                                                                                                                            <iaixsl:value-of select="@link"/>
-                                                                            </iaixsl:attribute>
-                                                                            <span>
-                                                                            <iaixsl:value-of select="@name" />
-                                                                            </span>
-                                                                            </a>
-                                                                        </li>
-                                                                    </iaixsl:for-each>
-                                                                </ul>
-                                            </iaixsl:if>
-                                                            </li>
-                                                        </iaixsl:for-each>
-                                                    </ul>
-                                            </iaixsl:if>
+                                                <iaixsl:otherwise>
+                                                <i class="icon-chevron-right invisible"></i>
+                                                </iaixsl:otherwise>
 
-                                        </li>
-                                        </iaixsl:for-each>
-                                    </ul>
-                                    </div>
-                                </nav>
-		    </div>
+                                            </iaixsl:choose>
+										
+                                        </a>
+                                        <iaixsl:if test="count(item) > 0">
+											    <ul class="nested-ul-category nested-ul-category-1">
+													<iaixsl:for-each select="item">
+														<li class="li-depth-2">
+															<a>
+															<iaixsl:attribute name="href">
+																<iaixsl:value-of select="@link"/>
+															</iaixsl:attribute>
+                                                            <span>
+															<iaixsl:value-of select="@name" />
+                                                            </span>
+                                                            <iaixsl:if test="count(item) > 0">
+											                 <i class="icon-chevron-right"></i>
+                                                            </iaixsl:if>
+															</a>
+                                                            <iaixsl:if test="count(item) > 0">
+                                                            <ul class="nested-ul-category nested-ul-category-2">
+                                                                <iaixsl:for-each select="item">
+                                                                    <li class="li-depth-3">
+                                                                        <a>
+                                                                        <iaixsl:attribute name="href">
+                                                                            <iaixsl:value-of select="@link"/>
+                                                                        </iaixsl:attribute>
+                                                                        <span>
+                                                                        <iaixsl:value-of select="@name" />
+                                                                        </span>
+                                                                        </a>
+                                                                    </li>
+                                                                </iaixsl:for-each>
+                                                            </ul>
+                                        </iaixsl:if>
+														</li>
+													</iaixsl:for-each>
+												</ul>
+                                        </iaixsl:if>
+
+									</li>
+									</iaixsl:for-each>
+								</ul>
+                                </div>
+                            </nav>
+</div>
                         </aside>
                     </iaixsl:if>
-
-                            <div class="col-9">
+                    <div class="col-9">
 								<div class="b2b-category">
 									<iaixsl:if test="navigation2/item">
 										<ul class="b2b-category-ul main-category-2">
@@ -1923,7 +1932,6 @@
 							</div>
 
                     </div>
-                    
 
                     
                     <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'content')">
@@ -2972,7 +2980,7 @@
 
                     <section id="Progress" class="progress mb-3 py-1 py-md-0">
                         
-                        <div class="progress__item --first --active --shopping-cart">
+                        <div class="progress__item --first --shopping-cart">
                             <div class="progress__icons">
                                 <div class="progress__icon --mobile d-md-none">
                                     <span class="progress__step">
@@ -2994,7 +3002,7 @@
                             </div>
                         </div>
                         
-                        <div class="progress__item --second --active --truck">
+                        <div class="progress__item --second --truck">
                             <div class="progress__icons">
                                 <div class="progress__icon --mobile d-md-none">
                                     <span class="progress__step">
@@ -3016,7 +3024,7 @@
                             </div>
                         </div>
                         
-                        <div class="progress__item --third --active --comment">
+                        <div class="progress__item --third --comment">
                             <div class="progress__icons">
                                 <div class="progress__icon --mobile d-md-none">
                                     <span class="progress__step">
@@ -3556,2082 +3564,1698 @@
             </div>
         </iaixsl:if>
 
-        <!--CMS na stronę przedpłat (orderdetails_cms, 58341.1)-->
-<iaixsl:if test="page/prepaid/text/body != ''">
+        <!--CMS na stronie Order2 (order2_cms, 58336.1)-->
+        <iaixsl:if test="page/order2/text/body">
+    
+            <div class="order2_cms">
+                <div class="order2_cms_sub">
+                          <iaixsl:attribute name="class">order2_cms_sub cm</iaixsl:attribute>
 
-    <div class="orderdetails_cms">
-      <iaixsl:attribute name="class">orderdetails_cms cm</iaixsl:attribute>
-        <div class="orderdetails_cms_sub"><iaixsl:value-of disable-output-escaping="yes" select="page/prepaid/text/body"/></div>
-    </div>
-</iaixsl:if>
-    <!--Informacje o zamówieniu (orderdetails_info, 114646.1)-->
-			<section id="orderdetails_info" class="orderdetails_info d-flex align-items-center mb-4 mb-md-5">
-				<!-- <div class="orderdetails_info__icon d-flex align-items-center justify-content-center mr-2">
-					<iaixsl:attribute name="data-status"><iaixsl:value-of select="/shop/page/prepaid/details/@wykonane"/></iaixsl:attribute>
-					<iaixsl:if test="page/prepaid/details/@wykonane = 't' and page/prepaid/details/@personal_collection = 'yes'">
-						<iaixsl:attribute name="data-received">true</iaixsl:attribute>
-					</iaixsl:if>
-				</div> -->
-                <h2 class="label-custom">Szczegóły zamówienia</h2>
-				<div class="orderdetails_info__wrapper">
-					<div class="orderdetails_info__label d-flex align-items-center justify-content-start">
-                    <div class="thank-you-text">
-						<strong class="orderdetails_info__label_text">
-							<iaixsl:choose>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'n')">Dziękujemy!</iaixsl:when>
-								<!-- <iaixsl:when test="(page/prepaid/details/@wykonane = 'n')">Zamówienie przyjęte. Dziękujemy!</iaixsl:when> -->
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 't')"><iaixsl:choose><iaixsl:when test="(page/prepaid/details/@personal_collection = 'yes')">Zamówienie odebrane.</iaixsl:when><iaixsl:otherwise>Zamówienie wysłane.</iaixsl:otherwise></iaixsl:choose></iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'i')">Zamówienie odrzucone.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 's')">Zamówienie anulowane.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'o')">Zamówienie realizowane.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'p')">Zamówienie gotowe</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'h')">Zamówienie wstrzymane</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'w')">Oczekujemy na wpłatę</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'd')">Oczekujemy na dostawę</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'z')">Zamówienie zwrócone.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'k')">Zamówienie anulowane.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'r')">Zamówienie zareklamowane.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'j')">Zamówienie połączone.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'l')">Zamówienie zgubione.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'a')">Zamówienie realizowane.</iaixsl:when>
-								<iaixsl:when test="(page/prepaid/details/@wykonane = 'b')">Zamówienie pakowane.</iaixsl:when>
-							</iaixsl:choose>
-						</strong>
-                        <iaixsl:if test="(page/prepaid/details/@wykonane = 'n')">
-                        <p>Twoje zamówienie jest już realizowane. Powiadomimy Cię o kolejnych krokach realizacji zamówienia</p>
-                        </iaixsl:if>
-						<!-- <iaixsl:if test="not(page/prepaid/status_explanation = '')">
-							<a href="#show_status_explanation" class="orderdetails_info__status d-flex align-items-center justify-content-center ml-1"/>
-							<div class="orderdetails_info__description d-none"><iaixsl:value-of disable-output-escaping="yes" select="page/prepaid/status_explanation"/></div>
-						</iaixsl:if> -->
+                        <iaixsl:value-of disable-output-escaping="yes" select="page/order2/text/body"/>
                     </div>
-					</div>
+              
+            </div>
+        </iaixsl:if>
+        <!--Potwierdzenie zamówienia (order2, 113475.1)-->
+				<iaixsl:variable name="txt_60826_advance_a">Wymagana zaliczka:</iaixsl:variable>
+				<iaixsl:variable name="wholesalerPrice2">true</iaixsl:variable>
+				<iaixsl:variable name="txt_68638_rpoz">Jeśli opłacisz zamówienia przez </iaixsl:variable>
+				<iaixsl:variable name="order_edit_button">Zmień zamówienie</iaixsl:variable>
+				<iaixsl:variable name="hours_68242"> godz.</iaixsl:variable>
+				<iaixsl:variable name="immediately_txt">Zamówienie będzie gotowe do odbioru natychmiast po przyjęciu zamówienia </iaixsl:variable>
+				<iaixsl:variable name="n68313_order2_document_invoice"> Rachunek</iaixsl:variable>
+				<iaixsl:variable name="n68313_order2_document_e_invoice">Fakturę w formie elektronicznej</iaixsl:variable>
+				<iaixsl:variable name="returns_agree_control"></iaixsl:variable>
+				<iaixsl:variable name="b2b_mask"></iaixsl:variable>
 
-                    <div class="order-details-id">
-                    <div class="top-details">
-                    <div class="number-custom">
-                    <i class="icon-order-number --pink"></i>
-                    <span>Numer zamówienia: </span>
-                    <strong>
-                    <iaixsl:value-of select="page/prepaid/details/@orderid"/>
-                    </strong>
-                    </div>
-                <section class="prepaid_buttons d-flex align-items-center flex-wrap justify-content-end mb-4">
-					<iaixsl:variable name="prepaidProForma"></iaixsl:variable>
-					<iaixsl:if test="/shop/page/prepaid/documents/document/@type='invoice_proforma' and $prepaidProForma">
-						<a class="prepaid_buttons__button --proforma btn --icon-left icon-file-text ml-2 ml-md-3 ml-lg-4">
-						<iaixsl:attribute name="title"></iaixsl:attribute>
-						<iaixsl:attribute name="href"><iaixsl:value-of select="/shop/page/prepaid/documents/document[@type='invoice_proforma']/@link"/></iaixsl:attribute></a>
-					</iaixsl:if>
+				<script>
+						var only_virtual = '<iaixsl:value-of select="page/order2/@only-virtual"/>';
+				</script>
 
-					<iaixsl:if test="page/prepaid/editlink/@active = 'y'">
-						<a class="prepaid_buttons__button --edit btn --icon-left icon-pencil ml-2 ml-md-3 ml-lg-4">
-						<iaixsl:attribute name="title">Kliknij, aby przejść do edycji zamówienia.</iaixsl:attribute>
-						<iaixsl:attribute name="href"><iaixsl:value-of select="page/prepaid/editlink/@link"/></iaixsl:attribute>zmień zamówienie</a>
-					</iaixsl:if>
+				<div class="n57856_order_overtaker">
+						<form class="order2_form">
+								<iaixsl:attribute name="action"><iaixsl:value-of select="page/order2/@url"/></iaixsl:attribute>
+								<iaixsl:choose>
+										<iaixsl:when test="page/order2/@navigation ='order'">
+												<iaixsl:attribute name="method">post</iaixsl:attribute>
+										</iaixsl:when>
+										<iaixsl:when test="page/order2/@navigation ='next'">
+												<iaixsl:attribute name="method">get</iaixsl:attribute>
+										</iaixsl:when>
+										<iaixsl:otherwise>
+												<iaixsl:attribute name="method">post</iaixsl:attribute>
+										</iaixsl:otherwise>
+								</iaixsl:choose>
+								<div class="big_label order2_info_label">
+										<span class="n57856_label" id="labels">Weryfikacja danych:
+										</span>
+								</div>
 
-					<iaixsl:if test="/shop/page/prepaid/opinions_forms/trusted_shops/raiting_action">
-						<a class="prepaid_buttons__button --opinions btn --icon-left icon-star ml-2 ml-md-3 ml-lg-4" target="_blank">
-							<iaixsl:attribute name="title">Oceń nasz sklep!</iaixsl:attribute>
-							<iaixsl:attribute name="href"><iaixsl:value-of select="/shop/page/prepaid/opinions_forms/trusted_shops/raiting_action"/></iaixsl:attribute>
-							Oceń nasz sklep!
-						</a>
-					</iaixsl:if>
-
-					<iaixsl:if test="page/prepaid/confirmlink/@link">
-						<a class="prepaid_buttons__button --resend btn --icon-left icon-envelope ml-2 ml-md-3 ml-lg-4">
-							<iaixsl:attribute name="title">Ponów wysyłkę linku potwierdzającego zamówienie na skrzynkę e-mail</iaixsl:attribute>
-							<iaixsl:attribute name="href"><iaixsl:value-of select="page/prepaid/confirmlink/@link"/></iaixsl:attribute>
-							Potwierdź ponownie e-mailem
-						</a>
-					</iaixsl:if>
-
-					<iaixsl:if test="(page/prepaid/cancellink/@active='y') and not(page/prepaid/order/@payment_paid)">
-						<a class="prepaid_buttons__button --cancel btn --icon-left icon-remove orderdetails_info_cancel ml-2 ml-md-3 ml-lg-4">
-							<iaixsl:attribute name="onclick">return confirm('Anulowanie zamówienia jest czynnością nieodwracalną. Aby kontynuować wciśnij przycisk "anuluj zamówienie".')</iaixsl:attribute>
-							<iaixsl:attribute name="title">anuluj zamówienie</iaixsl:attribute>
-							<iaixsl:attribute name="href"><iaixsl:value-of select="page/prepaid/cancellink/@link"/></iaixsl:attribute>
-							anuluj zamówienie
-						</a>
-					</iaixsl:if>
-			    </section>
-                    </div>
-
-
-
-                    </div>
-					<!-- <div class="orderdetails_info__dates">
-						<span class="orderdetails_info__number">Zamówienie nr <iaixsl:value-of select="page/prepaid/details/@orderid"/></span>
-						<span class="orderdetails_info__date"> z <iaixsl:value-of select="page/prepaid/details/@datetime"/></span>
-					</div> -->
-				</div>
-			</section>
-            
-            
-			<iaixsl:if test="/shop/page/prepaid/opinions_forms/trusted_shops"> </iaixsl:if>
-			<iaixsl:if test="/shop/page/prepaid/editlink/@active='y'"> </iaixsl:if>
-			<iaixsl:if test="/shop/page/prepaid/cancellink/@active='y'"> </iaixsl:if>
-			<iaixsl:if test="/shop/page/prepaid/confirmlink/@link"> </iaixsl:if>
-			<iaixsl:if test="/shop/page/prepaid/cancellink/@link"> </iaixsl:if>
-			<iaixsl:if test="/shop/page/prepaid/cancellink/@link"> </iaixsl:if>
-		<!--Płatności do zamówienia (orderdetails_payments, 114818.1)-->
-
-				<iaixsl:variable name="payments_in_row">7</iaixsl:variable>
-
-				
-						<div id="orderdetails_payments" class="orderdetails_payments">
-								<iaixsl:attribute name="data-cancel_link">
-										<iaixsl:choose>
-												<iaixsl:when test="page/prepaid/prepaid_history/item[position() = last()]/@cancel_link">
-														<iaixsl:value-of select="page/prepaid/prepaid_history/item[position() = last()]/@cancel_link"/>
-												</iaixsl:when>
-												<iaixsl:otherwise>false</iaixsl:otherwise>
-										</iaixsl:choose>
-								</iaixsl:attribute>
-								<iaixsl:if test="page/prepaid/prepaid_history/item">
-									<iaixsl:if test="page/prepaid/details/@paymentstatus != 'g' and /shop/page/prepaid_methods/item and (page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' or page/prepaid/prepaid_history/@show_payment_button = 'true')">
-										<div class="orderdetails_payments__show_container d-flex justify-content-end mb-4 d-md-none">
-											<a href="#orderdetails_payments_content" class="orderdetails_payments__show">Wyświetl historię wpłat</a>
-										</div>
-									</iaixsl:if>
-										<div id="orderdetails_payments_content" class="orderdetails_payments__content d-md-block">
-                        <iaixsl:if test="page/prepaid/details/@paymentstatus != 'g' and /shop/page/prepaid_methods/item and (page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' or page/prepaid/prepaid_history/@show_payment_button = 'true')">
-                            <iaixsl:attribute name="style">display: none;</iaixsl:attribute>
-                        </iaixsl:if>
-												<div class="orderdetails_payments__label d-flex justify-content-start">
-													<div class="orderdetails_payments__label_wrapper pr-2 d-flex align-items-center">
-														<strong class="orderdetails_payments__label_text">Wpłaty </strong>
-														<iaixsl:if test="page/prepaid/order/@payment_info = 'true'">
-																<a href="#payment_status_explanation" class="show_status_explanation orderdetails_payments__status d-flex align-items-center justify-content-center ml-1"/>
-																<div class="orderdetails_payments__description d-none"><iaixsl:value-of disable-output-escaping="yes" select="page/prepaid/payment_status_explanation"/></div>
-														</iaixsl:if>
-													</div>
+								<div class="order2_info">
+                    <iaixsl:if test="/shop/page/order2/payer_address">
+                        <iaixsl:attribute name="class">order2_info --invoice</iaixsl:attribute>
+                    </iaixsl:if>
+										<div class="order2_info_sub" id="order2_info_sub1">
+												<div class="order2_info_label_sub">
+														<h3 class="order2_info1" id="order2_nagl_1">
+																Dane zamawiającego:
+														</h3>
+														<a class="order2_button_change_mobile d-sm-none">
+																<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
+																Edytuj
+														</a>
 												</div>
-												<div class="orderdetails_payments__history">
-													<iaixsl:for-each select="page/prepaid/prepaid_history/item">
-														<iaixsl:if test="not(count(/shop/page/prepaid/prepaid_history/item) - position() > 10)">
-															<div class="orderdetails_payments__item d-flex align-items-center">
-																
-																<div class="orderdetails_payments__icon mr-2">
-																	<iaixsl:if test="@icon">
-																			<img>
-																					<iaixsl:attribute name="src"><iaixsl:value-of select="@icon"/></iaixsl:attribute>
-																					<iaixsl:attribute name="alt"><iaixsl:value-of select="@payment_name"/></iaixsl:attribute>
-																			</img>
-																	</iaixsl:if>
+
+												<div class="order2_info1" id="order2_box_1">
+														<div class="order2_info1_sub">
+																<iaixsl:if test="page/order2/orderclient/@firm">
+																		<iaixsl:value-of select="page/order2/orderclient/@firm"/><br/>
+																</iaixsl:if>
+																<iaixsl:if test="not(page/order2/orderclient/@firm)">
+																		<iaixsl:value-of select="page/order2/orderclient/@firstname"/><iaixsl:text> </iaixsl:text>
+																		<iaixsl:value-of select="page/order2/orderclient/@lastname"/><br/>
+																</iaixsl:if>
+																<iaixsl:value-of select="page/order2/orderclient/@street"/><br/>
+																<iaixsl:value-of select="page/order2/orderclient/@zipcode"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/order2/orderclient/@city"/> (<iaixsl:if test="page/order2/orderclient/@province"><iaixsl:value-of select="page/order2/orderclient/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/order2/orderclient/@country_long"/>)<br/>
+																<iaixsl:if test="page/order2/orderclient/@nip">
+																		NIP: <iaixsl:value-of select="page/order2/orderclient/@nip"/><br/>
+																</iaixsl:if>
+																<iaixsl:if test="(page/order2/orderclient/@phone1) and not(page/order2/orderclient/@phone1 = '')">
+																		telefon: <iaixsl:value-of select="page/order2/orderclient/@phone1"/><br/>
+																</iaixsl:if>
+																<iaixsl:if test="(page/order2/orderclient/@email) and not(page/order2/orderclient/@email = '')">
+																		e-mail: <iaixsl:value-of select="page/order2/orderclient/@email"/><br/>
+																</iaixsl:if>
+
+														</div>
+														<a class="order2_button_change d-none d-sm-inline-block">
+																<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
+																Zmień dane zamawiającego
+														</a>
+
+
+												</div>
+										</div>
+										<div class="order2_info_sub" id="order2_info_sub2">
+												<iaixsl:choose>
+														<iaixsl:when test="page/order2/stock">
+
+																<div class="order2_info_label_sub">
+																		<h3 class="order2_info1" id="order2_nagl_2a">
+																				Punkt odbioru zamówienia:
+																		</h3>
+																		<iaixsl:if test="/shop/page/order2/stock/@other_stocks='true'">
+																				<a class="order2_button_change_stock_mobile d-sm-none">
+																						<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/stock/@change_link"/></iaixsl:attribute>
+																						Edytuj
+																				</a>
+																		</iaixsl:if>
 																</div>
-																<div class="orderdetails_payments__wrapper">
-																	<strong class="orderdetails_payments__date">
-																		<iaixsl:choose>
-																				<iaixsl:when test="dates/date_cancelled/@date">
-																						<iaixsl:value-of select="dates/date_cancelled/@date"/>
-																				</iaixsl:when>
-																				<iaixsl:when test="dates/date_confirm/@date">
-																						<iaixsl:value-of select="dates/date_confirm/@date"/>
-																				</iaixsl:when>
-																				<iaixsl:when test="dates/date_add/@date">
-																						<iaixsl:value-of select="dates/date_add/@date"/>
-																				</iaixsl:when>
-																		</iaixsl:choose>
-																	</strong>
-																	<div class="orderdetails_payments__explanation">
-																		<iaixsl:choose>
-																				<iaixsl:when test="dates/date_canceled/@date">
-																						<iaixsl:choose>
-																								<iaixsl:when test="amount/@mark='negativ'">
-																										Wybrano, ale zrezygnowano ze zwrotu
-																								</iaixsl:when>
-																								<iaixsl:otherwise>
-																										Wybrałeś, ale zrezygnowałeś z płatności
-																								</iaixsl:otherwise>
-																						</iaixsl:choose>
-																				</iaixsl:when>
-																				<iaixsl:otherwise>
-																						<iaixsl:choose>
-																								<iaixsl:when test="amount/@mark='negativ'">
-																										Wybrano
-																								</iaixsl:when>
-																								<iaixsl:otherwise>
-																										Wybrałeś
-																								</iaixsl:otherwise>
-																						</iaixsl:choose>
-																				</iaixsl:otherwise>
-																		</iaixsl:choose>
 
-																		<iaixsl:choose>
-																				<iaixsl:when test="@payment_id='27'"> 
-																						Saldo (nadpłata na koncie klienta)
-																				</iaixsl:when>
-																				<iaixsl:when test="@payment_id='38'"> 
-																						Kredyt Kupiecki
-																				</iaixsl:when>
-																				<iaixsl:otherwise>
-																						<iaixsl:value-of select="@payment_name"/>
-																				</iaixsl:otherwise>
-																		</iaixsl:choose>
-
-																		<iaixsl:if test="dates/date_canceled/@date">
-																				<iaixsl:choose>
-																						<iaixsl:when test="amount/@mark='negativ'">
-																								 na kwotę 
-																						</iaixsl:when>
-																						<iaixsl:otherwise>
-																								 na kwotę 
-																						</iaixsl:otherwise>
-																				</iaixsl:choose>
+																<div class="order2_info1" id="order2_box_2b">
+																		<div class="order2_info1_sub"><p>
+																				<span class="order2_stock_name"><iaixsl:value-of select="page/order2/stock/@name"/></span>
+																				<iaixsl:value-of select="page/order2/stock/@street"/><br/>
+																				<iaixsl:value-of select="page/order2/stock/@zipcode"/><iaixsl:text> </iaixsl:text>
+																				<iaixsl:value-of select="page/order2/stock/@city"/> (<iaixsl:if test="page/order2/stock/@province"><iaixsl:value-of select="page/order2/stock/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/order2/stock/@country"/>)<br/></p>
+																		</div>
+																		<iaixsl:if test="not(/shop/page/order2/stock/@link = '')">
+																				<div class="order2_moreinfo">
+																						<a class="order2_stock_moreinfo" target="_blank">
+																								<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/stock/@link"/></iaixsl:attribute>
+																								Więcej informacji
+																						</a>
+																				</div>
 																		</iaixsl:if>
-
-																		<iaixsl:if test="not(dates/date_canceled/@date)">
-																				<iaixsl:choose>
-																						<iaixsl:when test="amount/@mark='negativ'">
-																								 jako formę zwrotu.
-																								 Kwota do zwrotu to 
-																						</iaixsl:when>
-																						<iaixsl:otherwise>
-																								 jako formę płatności.
-																								<iaixsl:choose>
-																									<iaixsl:when test="@status = 'y'">Wpłacono </iaixsl:when>
-																									<iaixsl:otherwise>Kwota do wpłaty to </iaixsl:otherwise>
-																								</iaixsl:choose>
-																						</iaixsl:otherwise>
-																				</iaixsl:choose>
+																		<iaixsl:if test="/shop/page/order2/stock/@other_stocks='true'">
+																				<a class="order2_button_change_stock d-none d-sm-inline-block">
+																						<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/stock/@change_link"/></iaixsl:attribute>
+																						Zmień punkt odbioru
+																				</a>
 																		</iaixsl:if>
-
-																		<iaixsl:value-of select="amount/client_currency/@value_formatted"/>.
-
-																		<iaixsl:if test="@status = 'n'">
-																				<iaixsl:if test="@automatic_booking = '1'">
-																						<br/>Wpłata zostanie zaksięgowana <b>automatycznie</b>.
+																</div>
+														</iaixsl:when>
+														<iaixsl:otherwise>
+																<div class="order2_info_label_sub">
+																		<h3 class="order2_info1" id="order2_nagl_2b">
+																				Adres dostawy:
+																		</h3>
+																		<a class="order2_button_change_address_mobile d-sm-none">
+																				<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/deliveryaddress/@changelink"/></iaixsl:attribute>
+																				Edytuj
+																		</a>
+																</div>
+																<div class="order2_info1" id="order2_box_2b">
+																		<div class="order2_info1_sub">
+																				
+																				<iaixsl:if test="page/order2/deliveryaddress/@additional">
+																						<iaixsl:value-of select="page/order2/deliveryaddress/@additional"/><br/>
 																				</iaixsl:if>
-																				<iaixsl:if test="not(amount/@mark='negativ')">
-																						<iaixsl:if test="additional_info/data">
+
+																				
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@firstname"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/order2/deliveryaddress/@lastname"/><br/>
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@street"/><br/>
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@zipcode"/><iaixsl:text> </iaixsl:text>
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@city"/> (<iaixsl:if test="page/order2/deliveryaddress/@province"><iaixsl:value-of select="page/order2/deliveryaddress/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/order2/deliveryaddress/@country_long"/>)<br/>
+
+																				<iaixsl:if test="page/order2/deliveryaddress/@phone and page/order2/deliveryaddress/@phone != ''">
+																						telefon: <iaixsl:value-of select="page/order2/deliveryaddress/@phone"/><br/>
+																				</iaixsl:if>
+
+																		</div>
+																		<a class="order2_button_change_address d-none d-sm-inline-block">
+																				<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/deliveryaddress/@changelink"/></iaixsl:attribute>
+																				Zmień punkt dostawy
+																		</a>
+																</div>
+														</iaixsl:otherwise>
+												</iaixsl:choose>
+										</div>
+
+										<div class="order2_info_sub" id="order2_info_sub3">
+												<div class="order2_info_label_sub">
+														<h3 class="order2_info1" id="order2_nagl_1">
+																Dane odbiorcy:
+														</h3>
+														<a class="order2_button_change2_mobile d-sm-none">
+																<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
+																Edytuj
+														</a>
+												</div>
+												<div class="order2_info1" id="order2_box_3">
+
+														<div class="order2_info1_sub">
+
+																<iaixsl:choose>
+
+																		<iaixsl:when test="page/order2/deliveryaddress/@lastname">
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@firstname"/><iaixsl:text> </iaixsl:text>
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@lastname"/><br/>
+																		</iaixsl:when>
+
+																		<iaixsl:otherwise>
+																				<iaixsl:if test="page/order2/orderclient/@firm">
+																						<iaixsl:value-of select="page/order2/orderclient/@firm"/><br/>
+																				</iaixsl:if>
+
+																				<iaixsl:if test="not(page/order2/orderclient/@firm)">
+																						<iaixsl:value-of select="page/order2/orderclient/@firstname"/><iaixsl:text> </iaixsl:text>
+																						<iaixsl:value-of select="page/order2/orderclient/@lastname"/><br/>
+																				</iaixsl:if>
+																		</iaixsl:otherwise>
+																</iaixsl:choose>
+
+																<iaixsl:value-of select="page/order2/deliveryaddress/@street"/><br/>
+																<iaixsl:value-of select="page/order2/deliveryaddress/@zipcode"/><iaixsl:text> </iaixsl:text>
+																<iaixsl:value-of select="page/order2/deliveryaddress/@city"/> (<iaixsl:if test="page/order2/deliveryaddress/@province"><iaixsl:value-of select="page/order2/deliveryaddress/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/order2/deliveryaddress/@country_long"/>)<br/>
+
+
+																<iaixsl:choose>
+																		<iaixsl:when test="(not((page/order2/deliveryaddress/@phone) = (page/order2/orderclient/@phone1))) and (not(page/order2/deliveryaddress/@phone = ''))">
+																				telefon:
+																				<iaixsl:value-of select="page/order2/deliveryaddress/@phone"/><br/>
+																		</iaixsl:when>
+
+																		<iaixsl:otherwise>
+																				<iaixsl:if test="(page/order2/orderclient/@phone1) and not(page/order2/orderclient/@phone1 = '')">
+																						telefon: <iaixsl:value-of select="page/order2/orderclient/@phone1"/><br/>
+																				</iaixsl:if>
+																		</iaixsl:otherwise>
+																</iaixsl:choose>
+
+
+
+														</div>
+														<a class="order2_button_change2 d-none d-sm-inline-block">
+																<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
+																Zmień dane odbiorcy
+														</a>
+
+												</div>
+										</div>
+
+                    <iaixsl:if test="/shop/page/order2/payer_address">
+                        <div class="order2_info_sub" id="order2_info_sub5">
+                            <div class="order2_info_label_sub">
+                                <h3 class="order2_info1" id="order2_nagl_1">
+                                    Dane na fakturze:
+                                </h3>
+                                <a class="order2_button_change2_mobile d-sm-none">
+                                    <iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
+                                    Edytuj
+                                </a>
+                            </div>
+                            <div class="order2_info1" id="order2_box_5">
+
+                                <div class="order2_info1_sub">
+																	<iaixsl:if test="page/order2/payer_address/@firm">
+																			<iaixsl:value-of select="page/order2/payer_address/@firm"/><br/>
+																	</iaixsl:if>
+																	<iaixsl:if test="not(page/order2/payer_address/@firm)">
+																			<iaixsl:value-of select="page/order2/payer_address/@firstname"/><iaixsl:text> </iaixsl:text>
+																			<iaixsl:value-of select="page/order2/payer_address/@lastname"/><br/>
+																	</iaixsl:if>
+																	<iaixsl:value-of select="page/order2/payer_address/@street"/><br/>
+																	<iaixsl:value-of select="page/order2/payer_address/@zipcode"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/order2/payer_address/@city"/> (<iaixsl:if test="page/order2/payer_address/@province"><iaixsl:value-of select="page/order2/payer_address/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/order2/payer_address/@country_long"/>)<br/>
+																	<iaixsl:if test="page/order2/payer_address/@nip">
+																			NIP: <iaixsl:value-of select="page/order2/payer_address/@nip"/><br/>
+																	</iaixsl:if>
+																	<iaixsl:if test="(page/order2/payer_address/@phone) and not(page/order2/payer_address/@phone = '')">
+																			telefon: <iaixsl:value-of select="page/order2/payer_address/@phone"/><br/>
+																	</iaixsl:if>
+																	<iaixsl:if test="(page/order2/payer_address/@email) and not(page/order2/payer_address/@email = '')">
+																			e-mail: <iaixsl:value-of select="page/order2/payer_address/@email"/><br/>
+																	</iaixsl:if>
+                                </div>
+                                <a class="order2_button_change2 d-none d-sm-inline-block">
+                                    <iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/orderclient/@changelink"/></iaixsl:attribute>
+                                    Zmień dane na fakturze
+                                </a>
+
+                            </div>
+                        </div>
+                    </iaixsl:if>
+
+								</div>
+
+								<iaixsl:if test="/shop/page/order2/personal_data_processing_texts/email">
+
+										<div class="email_processing_consent">
+												<label class="email_processing_consent">
+														<input type="checkbox" name="email_processing_consent" value="yes" class="css-checkbox">
+																<iaixsl:if test="(/shop/page/order2/personal_data_processing_texts/email/@checked = 'true')">
+																		<iaixsl:attribute name="checked">checked</iaixsl:attribute>
+																</iaixsl:if>
+														</input>
+														<i class="css-label"/>
+														<span>
+																<iaixsl:value-of disable-output-escaping="yes" select="/shop/page/order2/personal_data_processing_texts/email"/>
+														</span>
+												</label>
+										</div>
+
+								</iaixsl:if>
+
+								<div class="order2_info">
+
+										<div id="order2_info_sub4">
+											<div class="order2_info_label_sub">
+												<h3 class="order2_info1" id="order2_headline_invoice">
+														Chcę otrzymać:
+												</h3>
+											</div>
+												<div class="order2_info1" id="order2_box_4">
+														<div class="order2_info1_sub">
+																<input type="hidden" name="checkinvoice" value="true"/>
+
+																<div class="order2__invoice_group f-group --radio">
+																	<input type="radio" class="order2__invoice_input f-control" name="invoice" id="order2_document_confirmation" value="0">
+																		<iaixsl:if test="(page/order2/orderinvoice/@request = '0' and not($b2b_mask) and not(page/order2/orderclient/@firm)) or (not(page/order2/orderinvoice/@request = '0') and not(page/order2/orderclient/@firm) and not($b2b_mask))">
+																				<iaixsl:attribute name="checked">checked</iaixsl:attribute>
+																		</iaixsl:if>
+																	</input>
+																	<label for="order2_document_confirmation" class="order2__invoice_label f-label">
+																		Potwierdzenie zakupu
+																	</label>
+																</div>
+
+																
+																<iaixsl:if test="page/order2/orderinvoice/@e_invoice='true' and $n68313_order2_document_e_invoice">
+																	<div class="order2__invoice_group f-group --radio">
+																		<input type="radio" class="order2__invoice_input f-control" name="invoice" id="order2_document_e_invoice" value="2">
+																			<iaixsl:if test="((page/order2/orderclient/@firm) and (page/order2/orderclient/@firm != '')) or not(page/order2/orderinvoice/@request = '0') or $b2b_mask">
+																					<iaixsl:attribute name="checked">checked</iaixsl:attribute>
+																			</iaixsl:if>
+																		</input>
+																		<label for="order2_document_e_invoice" class="order2__invoice_label f-label">
+																			Fakturę w formie elektronicznej
+																		</label>
+																	</div>
+																	<div id="e-invoice_dialog">
+																			<span class="big_label">Elektroniczne dostarczanie faktur</span>
+																			<div>
+																					<span class="e-invoice_dialog"><font>Chroń środowisko</font>i przyspiesz otrzymanie faktury</span>
+																					<p>W trosce o środowisko oraz Twoją wygodę dajemy Ci możliwość wyboru elektronicznej wysyłki faktur. Teraz szybko i bezpiecznie możesz otrzymywać faktury na swoją skrzynkę mailową. Elektroniczne dostarczanie faktur jest cyfrowym odpowiednikiem faktury papierowej. Zawiera dokładnie te same dane i ma taką samą wartość prawną jak tradycyjny dokument w formie papierowej. Korzystanie z faktury przekazanej w formie elektronicznej jest bezpłatne.</p>
+																					<button class="btn --solid --medium">Tak, chcę otrzymać fakturę elektronicznie</button>
+																			</div>
+																	</div>
+																</iaixsl:if>
+																<div class="order2__invoice_group f-group --radio">
+																	<input type="radio" class="order2__invoice_input f-control" name="invoice" id="order2_document_invoice" value="1">
+																		<iaixsl:if test="not(page/order2/orderinvoice/@e_invoice='true') and (page/order2/orderinvoice/@request = '1' or (page/order2/orderclient/@firm) and (page/order2/orderclient/@firm != '') and not(page/order2/orderinvoice/@e_invoice='true'))">
+																				<iaixsl:attribute name="checked">checked</iaixsl:attribute>
+																		</iaixsl:if>
+																	</input>
+																	<label for="order2_document_invoice" class="order2__invoice_label f-label">
+																		<iaixsl:choose>
+																			<iaixsl:when test="/shop/contact/owner/@vat_registered = 'false' and $n68313_order2_document_invoice !=''">
+																				<iaixsl:value-of select="$n68313_order2_document_invoice"/>
+																			</iaixsl:when>
+																			<iaixsl:otherwise>
+																				Fakturę drukowaną
+																			</iaixsl:otherwise>
+																		</iaixsl:choose>
+																	</label>
+																</div>
+														</div>
+												</div>
+										</div>
+								</div>
+
+								<div class="order2_info_sub">
+									<div class="order2_info_label_sub">
+										<h3 class="order2_info1">
+												Dodatkowe informacje:
+										</h3>
+									</div>
+										<div class="order2_info1" id="order2_box_7">
+												<div class="order2_info1_sub">
+														
+														<div class="basketedit_summary_shipment_time">
+																<iaixsl:if test="/shop/basket/delay_time/@unknown_delivery_time = 'true'">
+																		<iaixsl:attribute name="style">display:none;</iaixsl:attribute>
+																</iaixsl:if>
+																<iaixsl:if test="/shop/basket/delivery_time/@days and not(basket/@shipping_undefined = 'true')">
+																		
+
+																		<iaixsl:variable name="wys_1_68242">dzisiaj</iaixsl:variable>
+
+																		<iaixsl:if test="not((/shop/page/order2/orderdetails/@deliveryid = '0-0') or (/shop/page/order2/orderdetails/@deliveryid = '0-1')) and $wys_1_68242 and (/shop/basket/shipping_time/@week_amount) and (/shop/basket/shipping_time/@week_amount = 0) and (/shop/basket/shipping_time/@week_day)">
+																				<div class="shipping_time_order1">
+
+																					<span>
+																						Zamówienie będzie gotowe do wysłania 
+
+																						<strong>
+																							<iaixsl:choose>
+																									<iaixsl:when test="/shop/basket/shipping_time/@today = 'true'">
+																											dzisiaj
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 1">
+																											w poniedziałek
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 2">
+																											we wtorek
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 3">
+																											w środę
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 4">
+																											w czwartek
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 5">
+																											w piątek
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 6">
+																											w sobotę
+																									</iaixsl:when>
+																									<iaixsl:when test="/shop/basket/shipping_time/@week_day = 7">
+																											w niedzielę
+																									</iaixsl:when>
+																							</iaixsl:choose>
+																						</strong>
+																					</span>
+																				</div>
+
+																		</iaixsl:if>
+
+																		<div class="delivery_time_order">
+																			<span>
+																				<iaixsl:choose>
+																						<iaixsl:when test="(/shop/page/order2/orderdetails/@deliveryid = '0-0') or (/shop/page/order2/orderdetails/@deliveryid = '0-1')">
 																								<iaixsl:choose>
-																										<iaixsl:when test="@other_payments= 'true'">
-																												<br/>Dokonaj wpłaty na poniższe dane lub wybierz inny sposób zapłaty. 
+																										<iaixsl:when test="$immediately_txt and (/shop/basket/delivery_time/@days = 0) and (/shop/basket/delivery_time/@hours = 0) and (/shop/basket/delivery_time/@minutes = 0)">
+																												<iaixsl:value-of select="$immediately_txt"/>
 																										</iaixsl:when>
 																										<iaixsl:otherwise>
-																												<br/>Dokonaj wpłaty na poniższe dane.
+																												Odbierz zamówienie 
+																										</iaixsl:otherwise>
+																								</iaixsl:choose>
+																						</iaixsl:when>
+																						<iaixsl:when test="$wys_1_68242  and (/shop/basket/delivery_time/@week_amount)  and  (/shop/basket/delivery_time/@week_amount = 0) and (/shop/basket/delivery_time/@hours = 0) and (/shop/basket/delivery_time/@minutes = 0)">
+																								Przesyłka powinna być u Ciebie 
+																						</iaixsl:when>
+																						<iaixsl:when test="/shop/page/order2/orderremarks/@select_date and (/shop/page/order2/orderremarks/@select_date != '')">
+																								Przesyłka będzie dostarczona w dniu 
+																						</iaixsl:when>
+																						<iaixsl:otherwise>
+																								Przesyłka będzie u Ciebie 
+																						</iaixsl:otherwise>
+																				</iaixsl:choose>
+
+																				<iaixsl:choose>
+																						<iaixsl:when test="/shop/page/order2/orderremarks/@select_date and (/shop/page/order2/orderremarks/@select_date != '')">
+																								<strong><iaixsl:value-of select="/shop/page/order2/orderremarks/@select_date"/><iaixsl:if test="/shop/page/order2/orderremarks/@select_time and (/shop/page/order2/orderremarks/@select_time != '')">,  <iaixsl:value-of select="/shop/page/order2/orderremarks/@select_time"/></iaixsl:if></strong>
+																						</iaixsl:when>
+
+
+																						<iaixsl:when test="$wys_1_68242  and (/shop/basket/delivery_time/@week_amount)  and (/shop/basket/delivery_time/@week_amount = 0) and (/shop/basket/delivery_time/@week_day)">
+
+																							<strong>
+																								<iaixsl:choose>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 0">
+																												<iaixsl:value-of select="$wys_1_68242"/>
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 1">
+																												w poniedziałek
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 2">
+																												we wtorek
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 3">
+																												w środę
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 4">
+																												w czwartek
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 5">
+																												w piątek
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 6">
+																												w sobotę
+																										</iaixsl:when>
+																										<iaixsl:when test="/shop/basket/delivery_time/@week_day = 7">
+																												w niedzielę
+																										</iaixsl:when>
+																								</iaixsl:choose>
+																							</strong>
+
+																						</iaixsl:when>
+
+
+																						<iaixsl:when test="(/shop/basket/delivery_time/@days = 0) and (/shop/basket/delivery_time/@hours = 0) and (/shop/basket/delivery_time/@minutes = 0)">
+																								 24h.
+																						</iaixsl:when>
+
+																						<iaixsl:otherwise>
+																								<iaixsl:if test="/shop/basket/delivery_time/@days > 0">
+																										w ciągu 
+																										<strong><iaixsl:value-of select="/shop/basket/delivery_time/@days"/>
+																										<iaixsl:choose>
+																												<iaixsl:when test="/shop/basket/delivery_time/@days ='1'">
+																														<iaixsl:choose><iaixsl:when test="(/shop/page/order2/orderdetails/@deliveryid = '0-0') or (/shop/page/order2/orderdetails/@deliveryid = '0-1')"></iaixsl:when><iaixsl:otherwise> dnia </iaixsl:otherwise></iaixsl:choose>
+																												</iaixsl:when>
+																												<iaixsl:otherwise>
+																														 dni 
+																												</iaixsl:otherwise>
+																										</iaixsl:choose></strong>
+																								</iaixsl:if>
+
+																							<strong>
+																								<iaixsl:choose>
+																										<iaixsl:when test="$hours_68242">
+																												<iaixsl:if test="/shop/basket/delivery_time/@hours > 0">
+																														<iaixsl:value-of select="/shop/basket/delivery_time/@hours"/>
+																														<iaixsl:choose>
+																																<iaixsl:when test="/shop/basket/delivery_time/@hours > 1">
+																																		<iaixsl:value-of select="$hours_68242"/>
+																																</iaixsl:when>
+																																<iaixsl:otherwise>
+																																		 godz. 
+																																</iaixsl:otherwise>
+																														</iaixsl:choose>
+																												</iaixsl:if>
+																										</iaixsl:when>
+																										<iaixsl:otherwise>
+																												<iaixsl:if test="/shop/basket/delivery_time/@hours > 0">
+																														<iaixsl:value-of select="/shop/basket/delivery_time/@hours"/>
+																														 godz. 
+																												</iaixsl:if>
 																										</iaixsl:otherwise>
 																								</iaixsl:choose>
 
-																								<div class="orderdetails_payments__transfer pt-2 pb-1">
-																									<div class="orderdetails_payments__transfer_item d-flex pb-2 pb-sm-1">
-																										<span class="orderdetails_payments__transfer_name">Nazwa odbiorcy: </span>
-																										<strong class="orderdetails_payments__transfer_value"><iaixsl:value-of select="additional_info/data/@receiver"/></strong>
-																									</div>
-																									<div class="orderdetails_payments__transfer_item d-flex pb-2 pb-sm-1">
-																										<span class="orderdetails_payments__transfer_name">Numer konta: </span>
-																										<strong class="orderdetails_payments__transfer_value"><iaixsl:value-of select="additional_info/data/@account"/></strong>
-																									</div>
-																									<iaixsl:if test="additional_info/data/@bankname != ''">
-																										<div class="orderdetails_payments__transfer_item d-flex pb-2 pb-sm-1">
-																											<span class="orderdetails_payments__transfer_name">Bank:  </span>
-																											<strong class="orderdetails_payments__transfer_value"><iaixsl:value-of select="additional_info/data/@bankname"/></strong>
-																										</div>
-																									</iaixsl:if>
-																									<iaixsl:if test="additional_info/data/@swift_bic != ''">
-																										<div class="orderdetails_payments__transfer_item d-flex pb-2 pb-sm-1">
-																											<span class="orderdetails_payments__transfer_name">SWIFT: </span>
-																											<strong class="orderdetails_payments__transfer_value"><iaixsl:value-of select="additional_info/data/@swift_bic"/></strong>
-																										</div>
-																									</iaixsl:if>
-																									<div class="orderdetails_payments__transfer_item d-flex pb-2 pb-sm-1">
-																										<span class="orderdetails_payments__transfer_name">Tytuł przelewu: </span>
-																										<strong class="orderdetails_payments__transfer_value"><iaixsl:value-of select="additional_info/data/@title"/></strong>
-																									</div>
-																									<div class="orderdetails_payments__transfer_item d-flex pb-2 pb-sm-1">
-																										<span class="orderdetails_payments__transfer_name">Kwota przelewu: </span>
-																										<strong class="orderdetails_payments__transfer_value"><iaixsl:value-of select="amount/client_currency/@value_formatted"/></strong>
-																									</div>
-																								</div>
-																						</iaixsl:if>
-																				</iaixsl:if>
-																				<iaixsl:if test="@first_pay = 'false' and /shop/page/prepaid/details/@msg = ''">
-																					<strong class="orderdetails_payments__unfinished d-block">Jeżeli z jakiegokolwiek powodu proces płacenia nie został ukończony, dokonaj wpłaty ponownie lub wybierz inny sposób zapłaty.</strong>
-																				</iaixsl:if>
-																		</iaixsl:if>
-																	</div>
-																</div>
-															</div>
-														</iaixsl:if>
-													</iaixsl:for-each>
-												</div>
-										</div>
 
+																								<iaixsl:if test="/shop/basket/delivery_time/@minutes > 0">
+																										<iaixsl:value-of select="/shop/basket/delivery_time/@minutes"/>
+																										 min 
+																								</iaixsl:if>
 
-								</iaixsl:if>
-						</div>
-				
+																								<iaixsl:if test="not(/shop/basket/delivery_time/@hours > 0)">
+																										
+																								</iaixsl:if>
+																							</strong>
 
-				<iaixsl:if test="page/prepaid/details/@paymentstatus != 'g' and /shop/page/prepaid_methods/item and (page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' or page/prepaid/prepaid_history/@show_payment_button = 'true')">
-					<div class="orderdetails_payment_methods_container bg_alter  row mx-0">
-						<iaixsl:if test="page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' and /shop/page/prepaid/details/@msg = ''">
-							<div class="orderdetails_retry col-12 col-md-8 col-lg-7 mr-lg-auto align-items-center justify-content-center flex-column px-2 mb-3 px-sm-3 flex-sm-row mb-sm-0">
-								<iaixsl:attribute name="data-payform_id"><iaixsl:value-of select="page/prepaid/prepaid_history/item[position() = last()]/@payment_form_id"/></iaixsl:attribute>
-								<a href="#orderdetails_retry_same" class="orderdetails_retry__button --same btn --solid mx-md-3">Ponów wpłatę tą samą formą</a>
-								<div class="orderdetails_retry__or d-flex flex-column align-items-center my-3 mx-sm-4 my-sm-0">
-									<span class="orderdetails_retry__or_text">lub jeśli miałeś problem z&#160;wybraną płatnością</span>
-								</div>
-								<a href="#orderdetails_retry_new" class="orderdetails_retry__button --new btn --solid">Wybierz inną formę płatności</a>
-							</div>
-						</iaixsl:if>
-
-				<div id="orderdetails_prepaid_methods" class="orderdetails_prepaid_methods col-md-8 col-12 mb-3 mb-md-0" data-action="/order-newpayment.php" data-method="post">
-					<iaixsl:attribute name="data-action">/order-newpayment.php?order=<iaixsl:value-of select="/shop/page/prepaid/details/@id"/></iaixsl:attribute>
-					<iaixsl:if test="/shop/page/prepaid/details/@paymentlink">
-						<iaixsl:attribute name="data-action"><iaixsl:value-of select="/shop/page/prepaid/details/@paymentlink"/></iaixsl:attribute>
-					</iaixsl:if>
-					<iaixsl:if test="page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' and /shop/page/prepaid/details/@msg = ''">
-						<iaixsl:attribute name="style">display: none;</iaixsl:attribute>
-					</iaixsl:if>
-					<iaixsl:if test="not(/shop/page/prepaid/details/@allowChoosePaymentType = 'n' and /shop/page/prepaid/prepaid_history/item[position()=last()]/@payment_id = '38')">
-						<div class="prepaid_payitems_wrapper">
-							<iaixsl:if test="/shop/page/groupList/item">
-								<iaixsl:for-each select="/shop/page/groupList/item">
-									<iaixsl:variable name="groupID"><iaixsl:value-of select="@id"/></iaixsl:variable>
-									<iaixsl:if test="/shop/page/prepaid_methods/item[@group = $groupID]">
-										<div class="payments_group">
-											<iaixsl:if test="/shop/page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'true' and /shop/page/prepaid/prepaid_history/item[position()=last()]/@pay_link and /shop/page/prepaid_methods/item[@group = $groupID]/@icon = /shop/page/prepaid/prepaid_history/item[position() = last()]/@icon">
-												<iaixsl:attribute name="class">payments_group group_open</iaixsl:attribute>
-											</iaixsl:if>
-											<iaixsl:attribute name="id"><iaixsl:value-of select="@id"/>_payment</iaixsl:attribute>
-                                                <iaixsl:if test="@single_form = 'true'">
-                                                    <iaixsl:attribute name="data-single_form">true</iaixsl:attribute>
-                                                </iaixsl:if>
-												<iaixsl:if test="@id = 'simple_transfer'">
-													<input value="110" type="radio" name="payform_id" class="hidden_input" autocomplete="off">
-														<iaixsl:if test="/shop/page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'true' and /shoppage/prepaid/prepaid_history/item[position()=last()]/@pay_link and /shop/page/prepaid_methods/item[@group = $groupID]/@icon = /shop/page/prepaid/prepaid_history/item[position() = last()]/@icon">
-															<iaixsl:attribute name="checked">checked</iaixsl:attribute>
-														</iaixsl:if>
-													</input>
-												</iaixsl:if>
-												<iaixsl:if test="@id = 'blik'">
-													<input value="177" type="radio" name="payform_id" class="hidden_input" autocomplete="off">
-														<iaixsl:if test="/shop/page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'true' and /shop/page/prepaid/prepaid_history/item[position()=last()]/@pay_link and /shop/page/prepaid_methods/item[@group = $groupID]/@icon = /shop/page/prepaid/prepaid_history/item[position() = last()]/@icon">
-															<iaixsl:attribute name="checked">checked</iaixsl:attribute>
-														</iaixsl:if>
-													</input>
-												</iaixsl:if>
-
-												<input type="radio" name="selected_group" class="selected_group" autocomplete="off">
-													<iaixsl:attribute name="id"><iaixsl:value-of select="@id"/>_input</iaixsl:attribute>
-													<iaixsl:if test="/shop/page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'true' and /shop/page/prepaid/prepaid_history/item[position()=last()]/@pay_link and /shop/page/prepaid_methods/item[@group = $groupID]/@icon = /shop/page/prepaid/prepaid_history/item[position() = last()]/@icon">
-														<iaixsl:attribute name="checked">checked</iaixsl:attribute>
-													</iaixsl:if>
-												</input>
-
-											<label class="payments_group_sub_content">
-												
-												<span class="prepaid_payment_group_name"><iaixsl:value-of select="@name"/></span>
-
-												<span class="payments_sub_container">
-													<span class="payments_icon_container">
-														<iaixsl:choose>
-															<iaixsl:when test="@id = 'transfer'">
-																<img class="payment_icon" src="//:0">
-																	<iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																</img>
-																<span class="payment_icon_primary"><svg id="Component_1_1" data-name="Component 1 – 1" xmlns="http://www.w3.org/2000/svg" width="25.768" height="33.552" viewBox="0 0 25.768 33.552"><path id="Path_12" data-name="Path 12" d="M25.768,20.77V0H0V20.771H9.446v.85a2.35,2.35,0,0,1-2.36,2.334H5.764v1.5H19.969v-1.5H18.647a2.35,2.35,0,0,1-2.36-2.334v-.85h9.481ZM24.256,1.5V14.383H1.512V1.5ZM1.512,15.878H24.256v3.4H1.512ZM15.58,23.955H10.153a3.782,3.782,0,0,0,.806-2.334v-.85h3.816v.85a3.782,3.782,0,0,0,.806,2.334Zm0,0" transform="translate(0 8.102)" fill="#333"/><g id="Rectangle_15" data-name="Rectangle 15" transform="translate(6.676)" fill="#fff" stroke="#333" stroke-width="1.5"><rect width="12.991" height="16.664" rx="2" stroke="none"/><rect x="0.75" y="0.75" width="11.491" height="15.164" rx="1.25" fill="none"/></g><line id="Line_3" data-name="Line 3" y2="15.787" transform="translate(10.852 0.439)" fill="none" stroke="#333" stroke-width="1.5"/><line id="Line_4" data-name="Line 4" y2="14.91" transform="translate(14.288 1.316)" fill="none" stroke="#333" stroke-width="1.5"/><line id="Line_10" data-name="Line 10" x2="17" transform="translate(4.499 15.987)" fill="none" stroke="#333" stroke-width="1.4"/></svg></span>
-															</iaixsl:when>
-															<iaixsl:when test="@id = 'blik'">
-																<img class="payment_icon" src="//:0">
-																	<iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																</img>
-																<span class="payment_icon_primary"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="44.087" height="20.053" viewBox="0 0 44.087 20.053"><defs><pattern id="pattern" preserveAspectRatio="xMidYMid slice" width="100%" height="100%" viewBox="0 0 327 154"><image width="327" height="154" xlink:href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAPEhIPDxISDxAPFRAPDw8QEhIQEBAOFRIYFxURFRUYISkjGhsnGxUTLTQhJSkrLi4xGB85ODMsNyguLi0BCgoKDg0NGxAQGjUlHyU1Mzc3NzE3Kzc3Nzc0Nzc3NzcvNzU1NTU3KzcrOCs1Mjc3NzM1Nzc1Nzc3Ky04Ny0uLf/AABEIAJoBRwMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAABgcIAgMEBQH/xABMEAABAwIBBgkHCAkDAwUAAAABAAIDBBESBQchMVGRBhMlQXFyk7PSFzVUYXOBsggUIiMzQlKxFSQyYnSSobTBQ1WDgtHTFmOiwuH/xAAaAQEAAwEBAQAAAAAAAAAAAAAAAwQFBgEC/8QAIBEBAAIBBAIDAAAAAAAAAAAAAAIDAQQFEUESIRNxkf/aAAwDAQACEQMRAD8AmmvrYqeN8872xRRAukkcbNa0c5UF8LM+sznGPJkTY4xccfO3FI71tZezR039y+/KI4SvdNFkyM2jja2onAP7Urr4Gn1Bun/qGxQzZA9uzv5bOn5y0dEMI/8AqsfK9lv0kdjF4UjWRZA8+V7LfpI7GLwo8r2W/SR2MXhSNZFkDz5Xst+kjsYvCjyvZb9JHYxeFI1kWQPPley36SOxi8KPK9lv0kdjF4UjWRZA8+V7LfpI7GLwo8r2W/SR2MXhSNZFkDz5Xst+kjsYvCjyvZb9JHYxeFI1kWQPPley36SOxi8KPK9lv0kdjF4UjWRZA8+V7LfpI7GLwo8r2W/SR2MXhSNZFkDz5Xst+kjsYvCjyvZb9JHYxeFI1kWQPPley36SOxi8KPK9lv0kdjF4UjWRZA8+V7LfpI7GLwo8r2W/SR2MXhSNZFkDz5Xst+kjsYvCjyvZb9JHYxeFI1kWQPPley36SOxi8KPK9lv0kdjF4UjWRZA8+V7LfpI7GLwo8r2W/SR2MXhSNZFkDz5Xst+kjsYvCjyvZb9JHYxeFI1kWQPPley36SOxi8KPK9lv0kdjF4UjWRZA8+V7LfpI7GLwo8r2W/SR2MXhSNZFkDz5Xst+kjsYvCjyvZb9JHYxeFI1kWQPbM8GWxp+ctPTDER8KdeBmfMuc2HKsbQ1xDRVQNIw355GE6vW3coPsiyC70EzZGtexwex4DmOabtc0i4IPOLL4oc+TtwkfJHNk2QkiACenJ+7G51pGdAcQR1ihAhZ7TfLFTfmbAPdxTUiWT3nqHLFV0Qd01I9kGFkWWdkWQYWRZZ2RZBgV8uFNfybB9ZX9WD83qdUFH7hfbK62U/sZfZyfCVSpiD5ZfQ2+gaSdAA1krKyZuBtACXTuF8JwR+p1ruduIt71HbZiuGZZWNLp5ai7Fce3zJnBMuAdUOLb6eLZbEB+846ivVHBSltaz+tjOL/ALf0XtNatzWrMxfbPPPLr69r0tcePDn7JeVeB7mgvp3GQDSY3Wx2/dI0H+iVy3+mvpUwtakjh3ksRvbUMFhMS2TZxgFwfeL7itCmcs+pMXdNthVH5avWO8FSyNCzsrQZjvM1L1qn+4kU7CVbuF9V31H+fXzPP16bvmoKwWRZZhFkGFkWWdkWQYWRZZ2RZBgjQrN5i4mnJEN2gnjKjWAf9UqQOIZ+Fv8AKEFJEWVns+MTRkeoIaAcdNpAA/12KsgQYWRZZ2RZBhZFlnZFkGFkWWdkWQYWRZZ2RZBhZFlnZFkEl/J785v/AIeX42IX35Po5Td/Dy/E1CDzc9A5YquiDumpJsnnPMOV6rog7pqSbIMLIss7IsgwsiyzsiyCYvk3j6yu6sH5vU5qDvk4j6yu6sH5vU4oObKf2Mvs5PhKpXEFdTKf2Mvs5PhKpdCEGVk9cEh+rM60l/5ykiyY+BteGOdA/QJSHRn/ANy1i33gDd61BqYedfGGntN0atVjMu/Rwa1bWtQ1q2taqtVTr5SDWpdzggCmbfXxrMPThd/i6aGNUecPcrCaVsEZuyC+Mg6HSm19w0dJKvwhxhlbpdiOnljPfotNVnsyHmem61T/AHMirKxqs3mR8z03Wqv7mRfTkj2o/wA+vmefr03fNUgKP8+vmefr03fNQVlYFlZEYWdkGFkWWdkWQYWRZZ2RZBZTMV5oh9pU96VIKj/MX5oi9rU965SAgQM+fmeo69N37FWNgVnc+fmeo69N37FWWIICyLLOyLIMLIss7IsgwsiyzsiyDCyLLOyLIMLIss7Isgkf5P45Td/Dy/ExfVlmBHKbv4eX4mL4g8/PIOV6nog7pqSrJ4zxDlap6Ie6akvCg12RZbMKMKDXZFlswowoJe+ToPrK7qwfm9TeoS+TuPrK3qwfm9Tag5sp/Yy+zk+EqmFONCuflP7GX2cnwlVS4LcCco17Q6mpnujOqZ9ooj0Odr910HiWQWqUqPMflB32tRSw6tDTLM6+wjC0D3ErZVZja4D6qqpZDseJYRvAcgSMl8LZYRgmbxzRoa4HDIOk6nc3/wCr1/8A1zSgfZ1F9mCO1+nH/hcuXc3WVKIF8tMZIxcmSnPHtAHOQPpAe5KfFArzEcYX69y1MI+OJfr3Ms8NJpgY4G8Qw6C695CCNV/u8+rSluGJdIiCzwr1VtunbLynnlrwqy+ZLzPTdaq/uZFWzCrKZlByRTdaq/uZERHlR/n18zz9em75qkBR/n08zz+0pu+agrVENC2WRCNC9TIGRZa6eOlgwCWW4aZCWs0Ak3IBOobEHl2RZST5Fcrfio+2l/8AGjyK5W/FR9tL/wCNBG1kWXpZdyPLQzyUs+AywkNfxZLmXIBFiQDqI5lw4UFjsxnmmL2tT3zk/pAzG+aYva1PfOT+gQc+fmeo69N37FWiEaFZfPn5nqOvTd+xVrgGhB9siy2YV05MydLVSx08DS+WZ2CNg5zrJOwAAknmAKDisiykTyNZX2Uvbu8CPI1lfZS9u7wII7siycOEmbuuydCairdTMZcNAbMXSPcdTWNwi5/wClPCg12RZbMKMKDXZFlswowoJEzBjlJ38PL8TELPMMOUnfw8vxMQg8/PAOVqnoh7pqTMKds7w5VqeiHumpOwoNWFGFbcKMKDVhRhW3CjCgln5PQ+srerB+b1Nahf5Po+srerB+b1NCD44A6DpB0EHUQhoA0DQBoAGoBfUIBC+OcALkgAc50BfI5Gu0tIcNoIKDJJPDfNtR5TDpGgU1XY2nYND3cwlb94evX607IQVFy7kWegmfTVTMErNlyx7Tqex33mnauDCrO5xuB8eVaYsADaqEOfSynRaS32bj+B1gD7jrCrO6NzXOY8Fr2FzHtOtr2mxB94KDVhVkcy/mim61T/AHEirnhVjszQ5JputU/3EiB2SBn08zz+0pu+an9IGfTzPP7Sm75qCuFONCdM0o5VpemTu3JPphoTpmnHKtL0yd25BZZCEIKs51H8sVo/fZ3TUuWTFnTHLNb12d01eCGoLD5j/NMXtarvnJ+SFmQHJUXtarvnJ9QIOfPzPUdem79irdTjQrI58vM9R16bv2KuVKNCDMNvoAJJ0AAXJPMAOcqw2abgKMnRfOaho+eTgXB0/N4jpEQ/e/EfdzJazN8BMRblSrboGmjiPObfbuGzT9Ee/YpnQC5cp5QipYpKid4jiiaXve7QAB/n1etdLnAAkkADSSdAA2lVrzv8PzlSb5pSuPzGBx0jVUyg24z1sHNv2WDw+HnDObLFUZTdkEeJlLD+CO/7Tv33WF/cOZeKwLCmgsurCg1YUYVtwowoNWFGFbcKMKCQcxA5Sd7CX4mL4tmYscou9hL8TEIODO4OVanoh7pqTsKdM7I5UqeiHumpQwoNWFGFbcKMKDVhRhW3CjCglXMAPrKzqwfm9TMoczBj6ys6sP5uUxoBRtnXzljJQFLSBslbIMRLheOnjOpzhzuOmw955gZFqJQxjnnUxrnHoAuqd11Y+tqZqqQkunkfKb6bBziQ31ACwA5gAgMqZSq69/GVc8k7r3HGOJa2/wCFupuoagF8yfx1O8S08j4ZBqfG4sdrva41jQNC644gFnhQS3mvzoyTSMocpuBkeQymqrBuN/NHLbRiPM4a9R06TMCqGWc40EWII0EEaiPWrRcC8qOrKGlqX/tyRM4zYZW/ReR6sTXIPaVec92RBS5QFQwWZXM4w21cfHZrz7wWHftVhlFHyh6YGjpZrfSiqcGLYySJ1x7yxiCFgFYvM55pp+tU/wBw9V2h0hWLzPjkqn61R/cPQOaQM+fmif2lN3zU/pAz5+aJ/aU3fNQV3pRoTpmpHKlL0yd25J9GNCdM1g5UpemTu3ILHoQhBVrOgOWa3rs7pi8QNXuZzxyzW9dndMXkBqCwGZQclRe1qe+cntIuZcclx+1qe9cnpAg58vM9R16bv2KLM0vAk5Tl46Zv6lA60t7jjpAARCPVpBd6tHPomzOFkE5SozRh4i46WnDnuNrMbK1zrbXWBsNtl7GRclQ0UEdLTtwRQtDGN1n1knnJOsoOtjA0BrQAAAABoAA1ABZISBnj4YTZLpGina4T1RdFHPhuyGwBcb/jIJwjpPMgTs9+cG+PJNG7X9Gtlad9O0j/AOW7aogpKbnXykgLjidckm5J0kk6ySvTZHZBgGIwrbhRhQasKMK24UYUGrCjCtuFGFA/Zjhyi72EvxNQs8yI5Qd7CT4mr4g4s645UqOiHumpRwpyzqDlOo/4e6alLCg1YUYVtwowoNWFGFbcKMKCTcw8gE1WznMcTvcHOH+VMirzmvyoKXKMJcbRzh1M8nUMYuw/ztYOglWGQaayHjI3sGgvY9gPrLSFUGlpXRPfE8WfE58TwRYh7HFpFukFXEUO51c3shlflKhYXiT6VXAwEvxj/WjaNdxrA06Li9ygivCjCtgH9NBGwr7hQaiFZXN9Qup8nUkTwQ7ig9zToLTITJhPrGK3uUV5uuAclZIypqWFlIwh4DrtNQQdDWj8FxpPPzKdQEAos+UPNbJ8DNF5KqPps2KQk77b1KagD5QWWGzVlPRMN/mjHSSgWsJZsJDTp14WtOn8XrQINKNAVi80Xmqn61R371XumZYBWGzSjkun61R370DgkDPn5on9pTd81P6QM+Xmif2lN3zUFf6IfRTnmuHKdL0yd25KFA36Kc82DeU6bpk7tyCxCEIQVdzmjlmt67O6YvKDV6+cocs1vXZ3TF5oagnrM0OTI/aVHelPCSczo5Mj9pUd6U7IEbPRUPiyVNLE4skjlpXse3W14qGEEe9d2bfhgzK1I2U2bURWjqo9VpLfttH4Xax7xzLzc+Pmeo69N37FCvAXL8mTJ2VUd3N/YniB+1hOtunnGsesbCUFp153CHIsFfTyUlQ3FHKLH8TXDS17TzEGy6cn1sdREyeFwfHK0PY4c7SF0IKq5d4Py5NqH0k4+k3TG8fsyxE/Rkb020jmIIXHhVjM4XBBmVKfC2zamG7qaU6LO543H8Lre7QeZV4khfG50UjSySNzmSMcLOa9psQUGrCjCtuFGFBqwowrbhRhQasKMK24UYUD1mUHKDvYSfE1CzzLDlB3sJPiahBx50m8p1H/ABd01KeFOGc9vKVR/wAXdNSrhQacKMK3YUYUGnCjCt2FGFBpw7LgjSCDYg8xBVg83vChuUaZpcf1mENjqG6iXAaJANjtfTccygLCuzIuVp6CZtTTOs9uhzD+xLHzseNn5awgs0hLfA/hnS5TZ9W7i52j62meRxjDzkfib+8PfbUmRB4uV+CdBVkuqKaN7jreAY5Df99hB/qtGTeBGTKYh0VLHiBuHSF8zgfUZCbJhQgEIXj8J+E1JkyIz1cgYNOBgsZZXD7sbec6vUOeyA4V8IYcm0stXOdEYOBl/pSyn9mNvrJ/yqrS1ctbUS1UxxSTvdI87CToaPUBYDoXrcOOF9TluoD3gx00ZIp6e9wwH77jzvO3m1BaaGkwBBsYywU/Zp/NkHWn796gjCp4zVDkyDrT9+9A3JBz5eaJ/aU3fNT8kHPl5om9pTd81BA2T2/RCc82Y5SpumTu3JRya36ITlm1bylTdL+7cgsAhCEFYc5A5ZreuzumLha1ehnGHLNb12d0xcjWoJzzQDk2P2lR3hTokzNGOTY/aT94U5oELPj5nqOvTd+xQJk5t2qe8+Hmio69N37FBGTG/RCCRs0vCz5pL8wnP6vUOvC4nRDOfu6dTXW/mttJU3Kq0kVxZThmu4W/Pofm87v1qmABJteaHU2Xp5j7jzoHlRlnb4F8e05RpWkzxD9YjaLmaEffA/G0bx0BSahBVGMgi4WWFPWdDgb8xlNZTt/VZ3EyNF7QTuN/cxxOjYdGqySgEGrCjCt2FGFBpwowrdhRhQO2Zofr7vYyfE1CzzOj9fd7GT4moQcmc0co1H/F3TUrYU+Z2cnOjrBNb6FQxhB5sbBhc3cGn3pJwoNOFGFbsKMKDThRhW7CjCg04UYVuwowoOJ8DmubJG50cjDiY9hLXtdtBGpNeRc62U6QBlS1ldGLDE/6qcN67RZ2jaL7SV4OFYuiBQSRT586K311JWMdziMQyN3l7fyRNn1yeAcFNWudzBzIGgn1kSH8lGD6Bp5lq/RjNiBry7nurpgWUVOylvo42Q8fINGtosGg9IPQo9q/nNbKZ6qR88rtb5Dc22DYPUF7bKBg5l0NhA1BB51HQBi7cK3YUYUGnCnfg7nKbk2ljpjSumMZkONsoZfE9ztRb60nYVhJCHa0D2c/Ef8At8vbs8KX+HWdRuVaN9E2jkhMjoncY6VrwMEgdqA9SXTQM2L6KBmxBzZNZZoXv8G8qiiqY6osMgixHADhJu0jXY7VwMiA1LItQPtRnxYw2+YSH1idnhWry8x/7fL27PCkCSjadYWH6PZsQc+WsrfpCunrRGYhO5rhG4hxbZgbrHQutrUR0jW6gt+FA3cGs5Dcl0rac0zpi10jsTZAy+JxNrEHauk5+Y/9vl7dnhSLLCHa1zHJzNiBj4dZ1mZVo5KJtHJCZHRO4x0rXAYJGv1AepKuS2fRC6Bk5mxdEcIbqQYYVvybWy0k0dVAcMkRuNjmnQ5jtoIuF8wowoHyfPkxhsaCQ+sTst8K1eXqP/b5e3Z4Ugy0bXawtX6OZsQPldntp6iN8E2TZHxytLHsMzLFp/6VH9NM15dgDmsucDXkOc1l/ohxGs2tpWz9HM2LdFTBupAYUYVuwowoNOFGFbsKMKByzQD9ePsZPiahelmcyc4zT1JH0GMETTte4gkDoDR/MEIJD4R5Dir4TBLo+9G8ftRvGpw/7c6hnLvBOroyeMjL2c00YL4yPWfu9BU9IQVs4k7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4o7DuKOKOw7irI4BsG5GAbBuQVu4k7DuK9/g9wMq6xwOAww6MU0rS0YefADpcf6etTkGDYNyyQcORclRUcLKeEWYznOlznHW4naSvq7UIP//Z"/></pattern></defs><path id="NoPath_kopia_28_" data-name="NoPath �� kopia (28)" d="M0,0H44.087V20.053H0Z" fill="url(#pattern)"/></svg></span>
-															</iaixsl:when>
-															<iaixsl:when test="@id = 'installment'">
-																<img class="payment_icon" src="//:0">
-																	<iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																</img>
-																<span class="payment_icon_primary"><svg xmlns="http://www.w3.org/2000/svg" width="25.418" height="25.418" viewBox="0 0 25.418 25.418"><g id="calendar_1_" transform="translate(0.25 0.25)"><path id="Path_23" data-name="Path 23" d="M22.842,2.336H19.467V.779a.779.779,0,0,0-1.557,0V2.336H13.238V.779a.779.779,0,0,0-1.557,0V2.336H7.008V.779a.779.779,0,0,0-1.557,0V2.336H2.077A2.076,2.076,0,0,0,0,4.412V22.841a2.077,2.077,0,0,0,2.077,2.077H22.842a2.076,2.076,0,0,0,2.076-2.077V4.412A2.075,2.075,0,0,0,22.842,2.336Zm.519,20.505a.52.52,0,0,1-.519.519H2.077a.52.52,0,0,1-.519-.519V4.412a.52.52,0,0,1,.519-.519H5.451V5.451a.779.779,0,0,0,1.557,0V3.893H11.68V5.451a.779.779,0,0,0,1.557,0V3.893H17.91V5.451a.779.779,0,0,0,1.557,0V3.893h3.375a.519.519,0,0,1,.519.519Z" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_18" data-name="Rectangle 18" width="3.115" height="2.336" transform="translate(5.451 9.344)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_19" data-name="Rectangle 19" width="3.115" height="2.336" transform="translate(5.451 13.238)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_20" data-name="Rectangle 20" width="3.115" height="2.336" transform="translate(5.451 17.131)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_21" data-name="Rectangle 21" width="3.115" height="2.336" transform="translate(10.902 17.131)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_22" data-name="Rectangle 22" width="3.115" height="2.336" transform="translate(10.902 13.238)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_23" data-name="Rectangle 23" width="3.115" height="2.336" transform="translate(10.902 9.344)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_24" data-name="Rectangle 24" width="3.115" height="2.336" transform="translate(16.352 17.131)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_25" data-name="Rectangle 25" width="3.115" height="2.336" transform="translate(16.352 13.238)" fill="#333" stroke="#333" stroke-width="0.5"/><rect id="Rectangle_26" data-name="Rectangle 26" width="3.115" height="2.336" transform="translate(16.352 9.344)" fill="#333" stroke="#333" stroke-width="0.5"/></g></svg></span>
-															</iaixsl:when>
-															<iaixsl:when test="@id = 'card'">
-																<img class="payment_icon" src="//:0">
-																	<iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																</img>
-																<span class="payment_icon_primary"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="20.571" viewBox="0 0 32 20.571"><g id="Component_3_2" data-name="Component 3 – 2" transform="translate(0)"><g id="Rectangle_17" data-name="Rectangle 17" transform="translate(32) rotate(90)" fill="#fff" stroke="#333" stroke-width="1.7"><rect width="16" height="21.714" rx="2" stroke="none"/><rect x="0.85" y="0.85" width="14.3" height="20.014" rx="1.15" fill="none"/></g><g id="Rectangle_16" data-name="Rectangle 16" transform="translate(21.714 4.571) rotate(90)" fill="#fff" stroke="#333" stroke-width="1.7"><rect width="16" height="21.714" rx="2" stroke="none"/><rect x="0.85" y="0.85" width="14.3" height="20.014" rx="1.15" fill="none"/></g><line id="Line_5" data-name="Line 5" y2="20.571" transform="translate(21.143 12) rotate(90)" fill="none" stroke="#333" stroke-width="1.7"/><line id="Line_6" data-name="Line 6" y2="19.429" transform="translate(20 15.429) rotate(90)" fill="none" stroke="#333" stroke-width="1.7"/></g></svg></span>
-															</iaixsl:when>
-															<iaixsl:when test="@id = 'simple_transfer'">
-																<img class="payment_icon" src="//:0">
-																	<iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																</img>
-																<span class="payment_icon_primary"><svg xmlns="http://www.w3.org/2000/svg" width="29.654" height="29.567" viewBox="0 0 29.654 29.567"><g id="Component_2_1" data-name="Component 2 – 1" transform="translate(0 0)"><path id="Path_32" data-name="Path 32" d="M311.105,359.2h7.7v1.736h-7.7Zm0,0" transform="translate(-293.086 -338.391)" fill="#333"/><path id="Path_31" data-name="Path 31" d="M234.352,419.145H246.5v1.736H234.352Zm0,0" transform="translate(-220.78 -394.869)" fill="#333"/><path id="Path_30" data-name="Path 30" d="M22.292,13.431,29.08,4.156a2.606,2.606,0,1,0-4.188-3.1L22.576,4.211,20.121,2.358,15.247,8.824,16.633,9.87l3.829-5.08,1.087.821-5.738,7.82H0V29.566H29.655V13.431Zm4-11.345a.87.87,0,0,1,1.219-.177.873.873,0,0,1,.174,1.217L25.354,6.308,23.962,5.257Zm-1.96,5.623L15.449,19.842l-1.433-1.031L22.935,6.657ZM12.8,20.466l.187-.255,1.435,1.032-.174.237-1.792.9ZM27.918,27.83H1.737V15.167h12.8l-3.373,4.6L10.137,25.5,15.4,22.842l4.525-6.184,1.092-1.492h6.9Zm0,0" transform="translate(0 0.001)" fill="#333"/></g></svg></span>
-															</iaixsl:when>
-														</iaixsl:choose>
-													</span>
-													<span class="expand_button"><i class="icon-angle-down"></i></span>
-												</span>
-
-											</label>
-											
-
-											<iaixsl:if test="/shop/page/prepaid_methods/item[@group = $groupID] and not(@id = 'blik')  and not(@id = 'simple_transfer')">
-												<div class="payment_content visible-desktop">
-													<a class="close_popup_payment" href="#close">x</a>
-													<iaixsl:for-each select="/shop/page/prepaid_methods/item[@group = $groupID]">
-														<div class="prepaid_payment">
-
-															<iaixsl:attribute name="id">payment_<iaixsl:value-of select="@id"/></iaixsl:attribute>
-															<iaixsl:attribute name="title"></iaixsl:attribute>
-															
-
-																<input name="payform_id" type="radio" class="orderdetails_radio" autocomplete="off">
-																	<iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
-																	<iaixsl:attribute name="id">payform_<iaixsl:value-of select="@id"/></iaixsl:attribute>
-																	<iaixsl:if test="@checked='true'">
-																		<iaixsl:attribute name="checked">checked</iaixsl:attribute>
-																	</iaixsl:if>
-																	<iaixsl:if test="/shop/page/prepaid/prepaid_history/item[position()=last()]/@pay_link and /shop/page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'true' and @icon = /shop/page/prepaid/prepaid_history/item[position() = last()]/@icon">
-																		<iaixsl:attribute name="checked">checked</iaixsl:attribute>
-																	</iaixsl:if>
-																</input>
-
-
-															<label class="prepaid_payment_sub">
-
-																<iaixsl:attribute name="for">payform_<iaixsl:value-of select="@id"/></iaixsl:attribute>
-
-																<span class="prepaid_payment_header">
-																	<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
-																</span>
-
-																<iaixsl:if test="@icon != ''">
-																	<img class="prepaid_payment_icon"><iaixsl:attribute name="src"><iaixsl:value-of select="@icon"/></iaixsl:attribute><iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute></img>
-																</iaixsl:if>
-															</label>
-
-															<iaixsl:if test="@description and not(@description = ' ')">
-																<div class="prepaid_payment_description">
-																	<iaixsl:attribute name="id">description_<iaixsl:value-of select="@id"/></iaixsl:attribute>
-																	<iaixsl:if test="@description and not(@description = ' ')">
-																		<iaixsl:value-of disable-output-escaping="yes" select="@description"/>
-																		<iaixsl:if test="(@id = '28') and (@allProducts = '0')"><span class="prepaid_payment_lukaswarning">Nie wszystkie umieszczone w koszyku produkty umożliwią zakup z ratami Lukas Bank. Przejdź do szczegółów każdego z produktów aby dowiedzieć się które z nich umożliwiają taki zakup. Jeżeli zdecydujesz się na zakup na raty, opłata za te produkty będzie musiała być wniesiona odrębnie pozostałymi sposobami płatności.</span></iaixsl:if>
-																	</iaixsl:if>
-																</div>
-															</iaixsl:if>
-														</div>
-													</iaixsl:for-each>
-													<iaixsl:if test="@id = 'card'">
-														<div id="card_payment_container"/>
-													</iaixsl:if>
-												</div>
-											</iaixsl:if>
-											<iaixsl:if test="@id = 'simple_transfer'">
-												<div class="payment_content p-0">
-													<div id="simple_transfer_payment_container" class="p-md-3"/>
-												</div>
-											</iaixsl:if>
-                                            <iaixsl:if test="@id = 'blik'">
-												<div class="payment_content justify-content-center p-0">
-													<div id="blik_payment_container"/>
-												</div>
-											</iaixsl:if>
-											<div class="mobile_payment_content">
-												<iaixsl:if test="@id != 'simple_transfer'">
-													<a class="change_payment_method" href="#changed_payment">Zmień płatność </a>
-												</iaixsl:if>
-											</div>
-										</div>
-									</iaixsl:if>
-								</iaixsl:for-each>
-							</iaixsl:if>
-
-						</div>
-										</iaixsl:if>
-				</div>
-				<div class="orderdetails_summary col-md-4 col-12">
-					<div class="orderdetails_summary_info">
-						<iaixsl:if test="/shop/page/prepaid/points/@display">
-							<div class="orderdetails_summary_debit">
-								Obecnie na swoim koncie masz 
-								<b><iaixsl:value-of select="/shop/page/prepaid/points/@client_points"/><span> pkt.</span></b>
-								
-							</div>
-						</iaixsl:if>
-
-						<iaixsl:if test="/shop/page/prepaid/insurance_forms/trusted_shops or /shop/page/prepaid/opinions_forms/trusted_shops/raiting_action">
-							<iaixsl:if test="/shop/page/prepaid/insurance_forms/trusted_shops">
-								<div id="trusted_shops">
-									<div id="trusted_shops_img">
-										<form method="post" target="_blank">
-											<iaixsl:attribute name="action"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/@action"/></iaixsl:attribute>
-											<iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/hidden_params"/>
-											<input type="image">
-												<iaixsl:attribute name="src"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/@icon_src"/></iaixsl:attribute>
-												<iaixsl:attribute name="title"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/@title"/></iaixsl:attribute>
-											</input>
-										</form>
-									</div>
-									<div id="trusted_shops_info">
-										<form method="post" target="_blank">
-											<iaixsl:attribute name="action"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/@action"/></iaixsl:attribute>
-											<iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/hidden_params"/>
-											<p><iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/@descryption"/></p>
-											<button type="submit">
-												<iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/@button"/>
-											</button>
-										</form>
-									</div>
-								</div>
-							</iaixsl:if>
-						</iaixsl:if>
-					</div>
-
-					
-						<div class="orderdetails_summary_price">
-							<div class="orderdetails_calculations">
-								<div class="orderdetails_product_summary">
-									<label>Wartość produktów: </label>
-									<strong><iaixsl:value-of select="page/prepaid/details/@currencycost_formatted"/></strong>
-								</div>
-
-								<iaixsl:if test="page/prepaid/details/@deliveryid != '47'">
-									<div class="orderdetails_product_summary">
-										<label>Dodatkowe opłaty: </label>
-										<strong id="additional_cost_prepaid"><iaixsl:value-of select="page/prepaid/details/@currency_additional_cost_formatted"/></strong>
-									</div>
-								</iaixsl:if>
-								<div style="clear:both"/>
-							</div>
-							<iaixsl:if test="page/prepaid/details/@deliveryid != '47'">
-								<div class="orderdetails_total_summary">
-									<label>
-										Wartość zamówienia:
-									</label>
-									<strong id="currencytotal_prepaid"><iaixsl:value-of select="page/prepaid/details/@currencytotal_formatted"/></strong>
-									<iaixsl:if test="/shop/page/prepaid/points/@display">
-										<span>
-											 + 
-											<iaixsl:value-of select="/shop/page/prepaid/points/@order_cost"/> pkt.
-										</span>
-									</iaixsl:if>
-								</div>
-							</iaixsl:if>
-							
-							<iaixsl:if test="(/shop/page/prepaid/details/@advance > 0)">
-								<div class="orderdetails_product_summary advance">
-										<label class="txt_wrap">wymagana zaliczka: </label>
-										<strong><iaixsl:value-of select="/shop/page/prepaid/details/@advance_formatted"/></strong>
-								</div>
-							</iaixsl:if>
-							<iaixsl:if test="page/prepaid/prepaid_history/@currencysum and page/prepaid/prepaid_history/@currencysum != '0.00' and page/prepaid/prepaid_history/@currencysum != '-0.00' and /shop/page/prepaid/order/@payment_paid_formatted">
-								<div class="orderdetails_product_summary already_paid">
-									<label>Wpłacono:</label>
-									<strong><iaixsl:value-of select="/shop/page/prepaid/order/@payment_paid_formatted"/></strong>
-								</div>
-								<div class="orderdetails_product_summary left_to_pay">
-									<label>Do opłacenia:</label>
-									<strong><iaixsl:value-of select="page/prepaid/prepaid_history/@currencysum_formatted"/></strong>
-								</div>
-							</iaixsl:if>
-							<iaixsl:if test="(page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'false' and (page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' or page/prepaid/prepaid_history/@show_payment_button = 'true')) or (page/prepaid/prepaid_history/item[position()=last()]/@payment_id = '38' and (page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' or page/prepaid/prepaid_history/@show_payment_button = 'true'))">
-								<iaixsl:for-each select="page/prepaid/prepaid_history/item[position()=last()]">
-									<div class="selected_payment_history">
-										<iaixsl:if test="@icon">
-											<div class="selected_payment_history_icon">
-												<img>
-													<iaixsl:attribute name="src"><iaixsl:value-of select="@icon"/></iaixsl:attribute>
-													<iaixsl:attribute name="alt"><iaixsl:value-of select="@payment_name"/></iaixsl:attribute>
-												</img>
-											</div>
-										</iaixsl:if>
-										<div class="selected_payment_history_description">
-											<iaixsl:choose>
-												<iaixsl:when test="dates/date_canceled/@date">
-													<iaixsl:choose>
-														<iaixsl:when test="amount/@mark='negativ'">
-															Wybrano, ale zrezygnowano ze zwrotu
-														</iaixsl:when>
-														<iaixsl:otherwise>
-															Wybrałeś, ale zrezygnowałeś z płatności
-														</iaixsl:otherwise>
-													</iaixsl:choose>
-												</iaixsl:when>
-												<iaixsl:otherwise>
-													<iaixsl:choose>
-														<iaixsl:when test="amount/@mark='negativ'">
-															Wybrano
-														</iaixsl:when>
-														<iaixsl:otherwise>
-															Wybrałeś
-														</iaixsl:otherwise>
-													</iaixsl:choose>
-												</iaixsl:otherwise>
-											</iaixsl:choose>
-											<strong><iaixsl:value-of select="@payment_name"/></strong>
-											<iaixsl:choose>
-												<iaixsl:when test="amount/@mark='negativ'">
-													 jako formę zwrotu.
-												</iaixsl:when>
-												<iaixsl:otherwise>
-													 jako formę płatności.
-												</iaixsl:otherwise>
-											</iaixsl:choose>
-											<br/>
-											<iaixsl:if test="@first_pay = 'false' and @status = 'n' and /shop/page/prepaid/details/@msg = ''">
-												<strong class="selected_payment_history_unfinished">Jeżeli z jakiegokolwiek powodu proces płacenia nie został ukończony, dokonaj wpłaty ponownie lub wybierz inny sposób zapłaty.</strong>
-											</iaixsl:if>
-
-										</div>
-									</div>
-								</iaixsl:for-each>
-							</iaixsl:if>
-						</div>
-					
-
-          <iaixsl:if test="/shop/allow_division_order/@turn_on = 'yes'">
-            <div class="orderdetails_division">
-              <strong>Po dokonaniu płatności, zamówienie zostanie podzielone na dwa oddzielne.</strong>
-            </div>
-          </iaixsl:if>
-				</div>
-
-				<iaixsl:variable name="prepaid_advance_text">Wymagana zaliczka </iaixsl:variable>
-				<iaixsl:variable name="prepaid_advance_button_text">Opłać zaliczkę</iaixsl:variable>
-
-						</div>
-
-				</iaixsl:if>
-
-			
-
-				<script>
-						var orderID = '<iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/details/@id"/>';
-						var orderKey = '<iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/payback/@key"/>';
-						var orderFirstPay = '';
-						<iaixsl:if test="page/prepaid/prepaid_history/item[position()=last()]/@first_pay = 'true'">
-								<iaixsl:if test="page/prepaid/prepaid_history/item[position()=last()]/@pay_link">
-										orderFirstPay = '<iaixsl:value-of disable-output-escaping="yes" select="page/prepaid/prepaid_history/item[position()=last()]/@pay_link"/><iaixsl:text disable-output-escaping="yes">&amp;ajax=true</iaixsl:text>';
-								</iaixsl:if>
-						</iaixsl:if>
-				</script>
-
-
-				<div style="display:none">
-						<iaixsl:for-each select="/shop/page/payments_static/*">
-								<div data-altid="orderdetails_payments_payment_card">
-										<iaixsl:attribute name="class">embeded_card_form_<iaixsl:value-of select="@id"/></iaixsl:attribute>
-
-										<div class="payment_card_sub">
-												<div class="payment_card_info_new" data-altid="payment_card_info_new">
-														Jesteś w bezpiecznym połączeniu SSL, które uniemożliwia podgląd wpisywanych danych przez osoby niepowołane. Dokonując płatności możesz zdecydować czy chcesz, aby dane karty zostały zapisane w naszym systemie. Wyrażając zgodę nie będziesz musiał podawać danych ponownie w przyszłości.
-												</div>
-
-												<iaixsl:if test="payform/headermessage or payform/headerlogo">
-														<div class="payment_head_info" style="display: none;">
-																<iaixsl:if test="payform/headermessage">
-																		<div class="payment_headermessage">
-																				<iaixsl:value-of disable-output-escaping="yes" select="payform/headermessage"/>
+																						</iaixsl:otherwise>
+																				</iaixsl:choose>
+																			</span>
 																		</div>
-																</iaixsl:if>
-																<iaixsl:if test="payform/headerlogo">
-																		<div class="payment_headerlogo">
-																				<img>
-																						<iaixsl:attribute name="src"><iaixsl:value-of select="payform/headerlogo"/></iaixsl:attribute>
-																				</img>
-																		</div>
-																</iaixsl:if>
-														</div>
-												</iaixsl:if>
 
-												<form class="payment_card clearfix">
-														<iaixsl:attribute name="action"><iaixsl:value-of select="payform/@action"/></iaixsl:attribute>
-														<iaixsl:attribute name="method"><iaixsl:value-of select="payform/@method"/></iaixsl:attribute>
-														<iaixsl:for-each select="payform/item">
-																<iaixsl:choose>
-																		<iaixsl:when test="@name = 'creditCard[system]'">
-																				<div class="payment_card_formel cc_wrapper">
-																						<label for="credit_card_system" class="card_type_label">Rodzaje obsługiwanych kart:</label>
-																						<div class="clear_data" data-altid="credit_card_system">
-																								<iaixsl:for-each select="option">
-																										<label class="card-icon">
-																												<iaixsl:attribute name="id">card_icon_<iaixsl:value-of select="@value"/></iaixsl:attribute>
-																												<input type="radio" class="validate required" data-serialize="#dialog_wrapper #credit_card_system input">
-																														<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																														<iaixsl:attribute name="name"><iaixsl:value-of select="../@name"/></iaixsl:attribute>
-																														<iaixsl:if test="@name != ''">
-																																<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																														</iaixsl:if>
-																														<iaixsl:if test="@altName != ''">
-																																<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																														</iaixsl:if>
-																												</input>
-																												<div>
-																														<img>
-																																<iaixsl:attribute name="src"><iaixsl:value-of select="@data-img"/></iaixsl:attribute>
-																																<iaixsl:attribute name="alt"><iaixsl:value-of select="@label"/></iaixsl:attribute>
-																														</img>
-																														<span><iaixsl:value-of select="@label"/></span>
-																												</div>
-																										</label>
-																								</iaixsl:for-each>
-
-																						</div>
-																						
-
-																				</div>
-																		</iaixsl:when>
-																		<iaixsl:when test="@name = 'creditCard[number]'">
-																				<div class="form-group row clearfix">
-																						<div class="col-12">
-																								<label for="credit_card_number" class="control-label">Numer karty:</label>
-																						</div>
-																						<div class="has-feedback col-12 has-required">
-																								<input type="text" data-altid="credit_card_number" class="form-control validate" data-serialize="#dialog_wrapper #credit_card_number">
-																										<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																										<iaixsl:if test="@value != ''">
-																												<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																										</iaixsl:if>
-																										<iaixsl:if test="@name != ''">
-																												<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																										</iaixsl:if>
-																										<iaixsl:if test="@altName != ''">
-																												<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																										</iaixsl:if>
-																								</input>
-																								<span class="form-control-feedback"/>
-																						</div>
-																						
-																				</div>
-																		</iaixsl:when>
-																		<iaixsl:when test="@name = 'creditCard[endDateMonth]'">
-																				<iaixsl:text disable-output-escaping="yes">&lt;div  class="row" &gt;</iaixsl:text>
-																				<div class="form-group date_select col-7 col-sm-8">
-																						<div class="row clearfix">
-																								<div class="col-12">
-																										<label for="credit_card_month" class="control-label">Data ważności: </label>
-																								</div>
-																								<div class="col-12">
-																										<input type="text" data-altid="credit_card_month" class="form-control" data-serialize="#dialog_wrapper #credit_card_month, #dialog_wrapper #credit_card_year">
-																												<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																												<iaixsl:if test="@value != ''">
-																														<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																												</iaixsl:if>
-																												<iaixsl:if test="@name != ''">
-																														<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																												</iaixsl:if>
-																												<iaixsl:if test="@altName != ''">
-																														<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																												</iaixsl:if>
-																										</input>
-
-																										<iaixsl:if test="../item[@name = 'creditCard[endDateYear]']/@name">
-
-																												<span class="payment_card_expire"> / </span>
-																												<input type="text" data-altid="credit_card_year" class="form-control" data-serialize="#dialog_wrapper #credit_card_month, #dialog_wrapper #credit_card_year">
-																														<iaixsl:attribute name="name"><iaixsl:value-of select="../item[@name = 'creditCard[endDateYear]']/@name"/></iaixsl:attribute>
-																														<iaixsl:attribute name="value"><iaixsl:value-of select="../item[@name = 'creditCard[endDateYear]']/@value"/></iaixsl:attribute>
-																														<iaixsl:if test="@name != ''">
-																																<iaixsl:attribute name="data-name"><iaixsl:value-of select="../item[@name = 'creditCard[endDateYear]']/@name"/></iaixsl:attribute>
-																														</iaixsl:if>
-																														<iaixsl:if test="../item[@name = 'creditCard[endDateYear]']/@altName != ''">
-																																<iaixsl:attribute name="data-altName"><iaixsl:value-of select="../item[@name = 'creditCard[endDateYear]']/@altName"/></iaixsl:attribute>
-																														</iaixsl:if>
-																												</input>
-
-																										</iaixsl:if>
-																								</div>
-																						</div>
-																						
-																				</div>
-
-																		</iaixsl:when>
-																		<iaixsl:when test="@name = 'creditCard[securityCode]'">
-																				<div class="form-group security_code col-5 col-sm-4">
-																						<div class="row clearfix">
-																								<div class="col-12">
-																										<label for="credit_card_code" class="control-label">CVV2/CVC2:</label>
-																								</div>
-																								<div class="has-feedback col-12 has-required">
-																										<input type="text" data-altid="credit_card_code" class="form-control validate" data-serialize="#dialog_wrapper #credit_card_code">
-																												<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																												<iaixsl:if test="@value != ''">
-																														<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																												</iaixsl:if>
-																												<iaixsl:if test="@name != ''">
-																														<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																												</iaixsl:if>
-																												<iaixsl:if test="@altName != ''">
-																														<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																												</iaixsl:if>
-																										</input>
-																										<span class="form-control-feedback"/>
-																								</div>
-																						</div>
-																				</div>
-																				<iaixsl:text disable-output-escaping="yes">&lt;/div&gt;</iaixsl:text>
-																		</iaixsl:when>
-																		<iaixsl:when test="@name = 'creditCard[name]'">
-																				<div class="form-group row clearfix">
-																						<div class="col-12">
-																								<label for="credit_card_name" class="control-label">Imię i nazwisko:</label>
-																						</div>
-																						<div class="has-feedback col-12 has-required">
-																								<input type="text" data-altid="credit_card_name" class="form-control validate" data-serialize="#dialog_wrapper #credit_card_name">
-																										<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																										<iaixsl:if test="@value != ''">
-																												<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																										</iaixsl:if>
-																										<iaixsl:if test="@name != ''">
-																												<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																										</iaixsl:if>
-																										<iaixsl:if test="@altName != ''">
-																												<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																										</iaixsl:if>
-																								</input>
-																								<span class="form-control-feedback"/>
-																						</div>
-																				</div>
-																		</iaixsl:when>
-																		<iaixsl:when test="@name = 'payment'">
-																				<input data-altid="credit_card_payment" type="hidden">
-																						<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																						<iaixsl:if test="@value != ''">
-																								<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																						</iaixsl:if>
-																						<iaixsl:if test="@name != ''">
-																								<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																						</iaixsl:if>
-																						<iaixsl:if test="@altName != ''">
-																								<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																						</iaixsl:if>
-																				</input>
-																		</iaixsl:when>
-																		<iaixsl:when test="@name = 'payformid'">
-																				<input data-altid="credit_card_payformid" type="hidden">
-																						<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																						<iaixsl:if test="@value != ''">
-																								<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																						</iaixsl:if>
-																						<iaixsl:if test="@name != ''">
-																								<iaixsl:attribute name="data-name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																						</iaixsl:if>
-																						<iaixsl:if test="@altName != ''">
-																								<iaixsl:attribute name="data-altName"><iaixsl:value-of select="@altName"/></iaixsl:attribute>
-																						</iaixsl:if>
-																				</input>
-																		</iaixsl:when>
-
-																		<iaixsl:when test="@type = 'hidden'">
-																				<input type="hidden">
-																						<iaixsl:attribute name="name"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																						<iaixsl:if test="@value != ''">
-																								<iaixsl:attribute name="value"><iaixsl:value-of select="@value"/></iaixsl:attribute>
-																						</iaixsl:if>
-																				</input>
-																		</iaixsl:when>
-
-																</iaixsl:choose>
-														</iaixsl:for-each>
-														<div class="clear_data cc_wrapper" data-altid="credit_card_agree">
-
-														</div>
-														<div class="credit_card_submit" data-altid="credit_card_submit">
-																<button class="credit_card_submit_no_store btn --medium --outline" type="submit">
-																		<iaixsl:attribute name="title">Zapłać bez zapisywania karty</iaixsl:attribute>
-																		Zapłać bez zapisywania karty
-																</button>
-																<button class="credit_card_submit_store btn --medium --solid" type="submit">
-																		<iaixsl:attribute name="title">Zapłać i zapisz kartę</iaixsl:attribute>
-																		Zapłać i zapisz kartę
-																</button>
-														</div>
-														<div class="clear_data cc_wrapper" data-altid="credit_card_buttons">
-
-														</div>
-														<div class="row">
-																<div class="credit_card_pci_dss col-12">
-																		<span class="pci_dss_label">Payment Card Industry Data Security Standard</span>
-																		<span class="pci_dss_icon_container">
-																				<img src="/gfx/pol/pci_css_logo.png?r=1600678639" alt="PCI DSS Compilant"/>
-																		</span>
-																</div>
-														</div>
-												</form>
-										</div>
-								</div>
-						</iaixsl:for-each>
-
-
-
-				</div>
-
-				<iaixsl:if test="/shop/page/prepaid_methods/item[@id = '190']">
-						<div id="giftcard_data" class="giftcard_form_wrapp" style="display: none;">
-								<form class="giftcard_form" id="giftcard_form">
-										<iaixsl:attribute name="data-action">/order-newpayment.php?order=<iaixsl:value-of select="/shop/page/prepaid/details/@id"/></iaixsl:attribute>
-										<iaixsl:if test="/shop/page/prepaid/details/@paymentlink">
-												<iaixsl:attribute name="data-action"><iaixsl:value-of select="/shop/page/prepaid/details/@paymentlink"/></iaixsl:attribute>
-										</iaixsl:if>
-										<iaixsl:attribute name="action">/order-newpayment.php?order=<iaixsl:value-of select="/shop/page/prepaid/details/@id"/></iaixsl:attribute>
-										<iaixsl:if test="/shop/page/prepaid/details/@paymentlink">
-												<iaixsl:attribute name="action"><iaixsl:value-of select="/shop/page/prepaid/details/@paymentlink"/></iaixsl:attribute>
-										</iaixsl:if>
-										<input name="payform_id" type="checkbox" checked="checked" class="orderdetails_radio" value="190" id="payform_190"/>
-										
-										<p>Zapłać za zakupy swoją Kartą podarunkową</p>
-										
-										<div class="giftcard_inputs">
-												<div class="form-group row">
-														<div class="col-12">
-																<label class="control-label">Numer:</label>
-														</div>
-														<div class="has-feedback col-12 has-required">
-																<input class="form-control" value="" name="voucher_id" type="text">
-																		<iaixsl:attribute name="placeholder">Podaj numer Twojej karty</iaixsl:attribute>
-																</input>
-																<span class="form-control-feedback"/>
-														</div>
-												</div>
-												<div class="form-group row">
-														<div class="col-12">
-																<label class="control-label">PIN:</label>
-														</div>
-														<div class="has-feedback col-12 has-required">
-																<input class="form-control" value="" name="pin_value" type="password">
-																		<iaixsl:attribute name="placeholder">Podaj numer PIN</iaixsl:attribute>
-																</input>
-																<span class="form-control-feedback"/>
-														</div>
-												</div>
-										</div>
-										<button class="btn --medium --solid">Zatwierdź kartę</button>
-								</form>
-						</div>
-				</iaixsl:if>
-
-				<iaixsl:if test="/shop/page/prepaid_methods/item[@id = '2']">
-						<div id="voucher_data" class="voucher_form_wrapp" style="display: none;">
-								<form class="giftcard_form" id="voucher_form">
-										<iaixsl:attribute name="data-action">/order-newpayment.php?order=<iaixsl:value-of select="/shop/page/prepaid/details/@id"/></iaixsl:attribute>
-										<iaixsl:if test="/shop/page/prepaid/details/@paymentlink">
-												<iaixsl:attribute name="data-action"><iaixsl:value-of select="/shop/page/prepaid/details/@paymentlink"/></iaixsl:attribute>
-										</iaixsl:if>
-										<iaixsl:attribute name="action">/order-newpayment.php?order=<iaixsl:value-of select="/shop/page/prepaid/details/@id"/></iaixsl:attribute>
-										<iaixsl:if test="/shop/page/prepaid/details/@paymentlink">
-												<iaixsl:attribute name="action"><iaixsl:value-of select="/shop/page/prepaid/details/@paymentlink"/></iaixsl:attribute>
-										</iaixsl:if>
-										<input name="payform_id" type="checkbox" checked="checked" class="orderdetails_radio" value="2" id="payform_2"/>
-										
-										<p>Zapłać za zakupy bonem produktowym</p>
-										
-										<div class="giftcard_inputs">
-												<div class="form-group row">
-														<div class="col-12">
-																<label for="prepaid_voucher" class="control-label"></label>
-														</div>
-														<div class="has-feedback col-12 has-required">
-																<input class="form-control" name="voucher_id" type="text" minlength="10"/>
-																<span class="form-control-feedback"/>
-														</div>
-												</div>
-										</div>
-										<button class="btn --medium --solid">Zatwierdź bon</button>
-
-										<small>Jeżeli posiadasz więcej bonów, możesz wpisać ich numery po zatwierdzeniu obecnego bonu.</small>
-								</form>
-						</div>
-				</iaixsl:if>
-
-				
-				<div id="alert_cover" class="projector_alert_55916" style="display:none" onclick="Alertek.hide_alert();"></div>
-
-				
-				<iaixsl:if test="/shop/page/prepaid_methods/@extended_js"> </iaixsl:if>
-				<iaixsl:if test="/shop/page/prepaid_methods/@internal_blik"> </iaixsl:if>
-				<iaixsl:if test="/shop/page/prepaid/onside_terms/@active='y'"> </iaixsl:if>
-				<iaixsl:if test="/shop/page/prepaid/editlink/@active='y'"> </iaixsl:if>
-				<iaixsl:if test="page/prepaid/details/@paymentstatus"> </iaixsl:if>
-				<iaixsl:if test="/shop/page/payments_static/embeded_card_form"> </iaixsl:if>
-				<!--Lista zamówionych produktów (prepaid_order_products, 113576.1)-->
-        <iaixsl:if test="page/ordered_products/product">
-
-            
-            <iaixsl:variable name="setIconLarge"></iaixsl:variable>
-
-
-
-            <div id="prepaid_order_products">
-                <h2 class="label-custom summary">Podsumowanie</h2>
-                <!-- <h2 class="big_label ">Zamówione produkty</h2> -->
-                <table class="ui-responsive table-stroke ui-table ui-table-reflow">
-                    <thead>
-                        <tr>
-                            <th class="icon"><i class="pink-icon-comment"></i></th>   
-                            <th class="ordered-items-table-th">Zamówione produkty</th>                           
-                            <iaixsl:if test="not(page/ordered_products/product/@size_id = 'uniw')">
-                                <th>Rozmiar</th>
-                            </iaixsl:if>
-                            <iaixsl:if test="/shop/page/ordered_products/product[not(@code = '')]">
-                                <th>
-                                    Kod produktu
-                                </th>
-                            </iaixsl:if>
-                            <th>Cena jednostkowa</th>
-                            <th>
-                                Ilość
-                            </th>
-                            <th class="vat-custom">VAT</th>
-                            <th>
-                                Wartość
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <iaixsl:for-each select="page/ordered_products/product">
-                            <tr>
-                                <td class="ordered-icon">
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="@link">
-                                            <a>
-                                                <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                <iaixsl:choose>
-                                                    <iaixsl:when test="$setIconLarge">
-                                                        <img>
-                                                            <iaixsl:attribute name="src"><iaixsl:value-of select="icon"/></iaixsl:attribute>
-                                                            <iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-                                                        </img>
-                                                    </iaixsl:when>
-                                                    <iaixsl:otherwise>
-                                                        <img>
-                                                            <iaixsl:attribute name="src"><iaixsl:value-of select="iconsmall"/></iaixsl:attribute>
-                                                            <iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-                                                        </img>
-                                                    </iaixsl:otherwise>
-                                                </iaixsl:choose>
-                                            </a>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="$setIconLarge">
-                                                    <img>
-                                                        <iaixsl:attribute name="src"><iaixsl:value-of select="icon"/></iaixsl:attribute>
-                                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-                                                    </img>
-                                                </iaixsl:when>
-                                                <iaixsl:otherwise>
-                                                    <img>
-                                                        <iaixsl:attribute name="src"><iaixsl:value-of select="iconsmall"/></iaixsl:attribute>
-                                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-                                                    </img>
-                                                </iaixsl:otherwise>
-                                            </iaixsl:choose>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </td>
-                                <td class="ordered-name">
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="@link">
-                                            <a class="ordered__name --link">
-																							<iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-																							<iaixsl:attribute name="title"><iaixsl:value-of select="@name"/></iaixsl:attribute>
-																							<iaixsl:choose>
-																								<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
-																									<iaixsl:attribute name="class">ordered__name --link --now</iaixsl:attribute>
-																								</iaixsl:when>
-																								<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
-																									<iaixsl:attribute name="class">ordered__name --link --later showTip</iaixsl:attribute>
-																								</iaixsl:when>
-																							</iaixsl:choose>
-																							<iaixsl:value-of select="@name"/>
-                                            </a>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <span class="ordered__name">
-																							<iaixsl:choose>
-																								<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
-																									<iaixsl:attribute name="class">ordered__name --now</iaixsl:attribute>
-																								</iaixsl:when>
-																								<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
-																									<iaixsl:attribute name="class">ordered__name --later showTip</iaixsl:attribute>
-																								</iaixsl:when>
-																							</iaixsl:choose>
-																							<iaixsl:value-of select="@name"/>
-                                            </span>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-
-																		<iaixsl:if test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
-																		<div class="tooltipContent">
+																	
+																	<iaixsl:if test="/shop/allow_division_order/@turn_on = 'yes' and /shop/basket/shipping_division_time/@week_amount">
+																		<div class="shipping_time_division">
 																			<iaixsl:attribute name="data-shipping_week"><iaixsl:value-of select="/shop/basket/shipping_division_time/@week_amount"/></iaixsl:attribute>
 																			<iaixsl:attribute name="data-shipping_day"><iaixsl:value-of select="/shop/basket/shipping_division_time/@week_day"/></iaixsl:attribute>
-																			Produkty z dłuższym czasem oczekiwania - gotowe do wysłania za 
-																			<strong/>
+																			<span>
+																				Produkty z dłuższym czasem oczekiwania - gotowe do wysłania za 
+																				<strong/>
+																			</span>
 																		</div>
+																	</iaixsl:if>
+																</iaixsl:if>
+														</div>
+
+														<iaixsl:if test="(page/order2/orderdetails/points/@debit) and (page/order2/orderdetails/points/@debit > 0)">
+																<div class="basketedit_summary_debit">
+																		Po opłaceniu tego zamówienia zyskasz 
+																		<strong><iaixsl:value-of select="page/order2/orderdetails/points/@debit"/><span> pkt. </span></strong> w programie lojalnościowym.
+																		<iaixsl:if test="not(/shop/basket/@client_points = '0')">
+																			Obecnie na swoim koncie masz 
+																			<b><iaixsl:value-of select="/shop/basket/@client_points"/><span> pkt. </span></b>
+																		</iaixsl:if>
+																</div>
+														</iaixsl:if>
+
+														
+														<iaixsl:if test="/shop/client_data/client_balance/limit/@value > '0'">
+																<div class="basketedit_limit_section">
+																		<div class="basketedit_product_summary">
+																				<label>
+																						Dostępny limit zadłużenia:
+																				</label>
+																				<strong class="limit_total">
+
+																						<iaixsl:value-of select="/shop/client_data/client_balance/limit/@value_formatted"/>
+
+																				</strong>
+																		</div>
+
+																		<div class="basketedit_product_summary">
+																				<label>
+																						Pozostały limit kredytowy:
+																				</label>
+																				<strong class="limit_touse">
+
+																						<iaixsl:value-of select="/shop/client_data/client_balance/limit/@to_use_formatted"/>
+
+																				</strong>
+																		</div>
+																</div>
+														</iaixsl:if>
+
+
+
+												</div>
+										</div>
+								</div>
+
+
+								<div class="order2_info comment_container clearfix">
+
+										<a href="#toggleComments" id="toggle_comments_button" class="d-sm-none">Uwagi dla sklepu i kuriera</a>
+
+										<div class="order2_info_sub order_comments">
+												<h3 class="order2_info1">
+														Uwagi dla sklepu:
+												</h3>
+												<div class="order2_info1" id="order2_box_5">
+														<div class="order2_info1_sub">
+
+																<textarea name="remarks" class="order2_text"><iaixsl:if test="/shop/page/order2/orderremarks"><iaixsl:value-of select="/shop/page/order2/orderremarks"/></iaixsl:if><iaixsl:if test="not(/shop/page/order2/orderremarks)"></iaixsl:if></textarea>
+
+
+														</div>
+												</div>
+										</div>
+
+
+										<div class="order2_info_sub">
+												<h3 class="order2_info1">
+														Uwagi dla kuriera:
+												</h3>
+												<div class="order2_info1" id="order2_box_6">
+														<div class="order2_info1_sub">
+
+																<textarea name="deliverer_remarks" class="order2_text"><iaixsl:if test="/shop/page/order2/deliverer_remarks"><iaixsl:value-of select="/shop/page/order2/deliverer_remarks"/></iaixsl:if><iaixsl:if test="not(/shop/page/order2/deliverer_remarks)"></iaixsl:if></textarea>
+
+
+														</div>
+												</div>
+										</div>
+								</div>
+								
+								<iaixsl:if test="/shop/basket/delay_time/@unknown_delivery_time = 'true'">
+										<div class="unknown_delivery_time">
+												<i class="icon-truck"></i>
+												<div>
+														<b>W koszyku jest produkt sprowadzany na zamówienie.</b> Aby oszacować czas przygotowania zamówienia do wysyłki, 
+														<a target="_blank">
+																<iaixsl:attribute name="href"><iaixsl:value-of select="/shop/contact/link/@url"/></iaixsl:attribute>
+																skontaktuj się z obsługą sklepu.
+														</a>
+												</div>
+										</div>
+								</iaixsl:if>
+
+
+								<div class="basketedit_summary_container">
+										<div class="basketedit_summary">
+												<div class="basketedit_summary_sub">
+
+													<div class="order2__products_wrapper">
+														
+														<iaixsl:if test="page/order2/ordersproducts/product[not(@product_type = 'product_virtual' or @product_type = 'product_service')]">
+															<div class="order2__products mb-5">
+
+																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
+																	<strong class="order2__product_item --name">Zamówione produkty</strong>
+																	<span class="order2__product_item --price">Cena jedn.</span>
+																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
+																		<span class="order2__product_item --vat">VAT</span>
+																	</iaixsl:if>
+																	<span class="order2__product_item --quantityity">Ilość</span>
+																	<span class="order2__product_item --worth">Wartość</span>
+																</div>
+
+																<iaixsl:for-each select="page/order2/ordersproducts/product[not(@product_type = 'product_virtual' or @product_type = 'product_service')]">
+																	<div class="order2__product --row mb-3 d-flex flex-wrap align-items-center mx-sm-n1">
+
+																		<div class="order2__product_item --name">
+																			<iaixsl:choose>
+																				<iaixsl:when test="@gratis='y'">
+																					<span class="order2__product_name">
+																						<iaixsl:choose>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																								<iaixsl:attribute name="class">order2__product_name --now</iaixsl:attribute>
+																							</iaixsl:when>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																								<iaixsl:attribute name="class">order2__product_name --later</iaixsl:attribute>
+																							</iaixsl:when>
+																						</iaixsl:choose>
+																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
+																					</span>
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					<a class="order2__product_name --link">
+																						<iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+																						<iaixsl:choose>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																								<iaixsl:attribute name="class">order2__product_name --link --now</iaixsl:attribute>
+																							</iaixsl:when>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																								<iaixsl:attribute name="class">order2__product_name --link --later</iaixsl:attribute>
+																							</iaixsl:when>
+																						</iaixsl:choose>
+																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
+																					</a>
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+
+																			<iaixsl:if test="(price/priceformula/parameters) or (not(@size = '') and (@size != 'uniw')) or (version/@name) or (@product_type = 'product_bundle')">
+																				<div class="order2__product_params">
+																					
+																					<iaixsl:if test="price/priceformula/parameters">
+																						<iaixsl:for-each select="price/priceformula/parameters/parameter">
+																							<div class="order2__param --priceformula">
+																								<span class="param__label"><iaixsl:value-of select="name"/>: </span>
+																								<span class="param__value"><iaixsl:value-of select="values/value"/></span>
+																							</div>
+																						</iaixsl:for-each>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="not(@size = '') and (@size != 'uniw')">
+																						<div class="order2__param --size">
+																							<span class="param__label">Rozmiar: </span>
+																							<span class="param__value"><iaixsl:value-of select="@size_desc"/></span>
+																						</div>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="version/@name">
+																						<div class="order2__param --version">
+																							<span class="param__label"><iaixsl:value-of select="version/@name"/>: </span>
+																							<span class="param__value"><iaixsl:value-of select="version/@product_name"/></span>
+																						</div>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="@product_type = 'product_bundle'">
+																						<div class="order2__param --bundle">
+																							<span class="param__label">Składowe zestawu:</span>
+																							<div class="param__wrapper">
+																								<iaixsl:for-each select="bundled/product">
+																									<span class="param__value">
+																										<iaixsl:if test="@quantity > 1">
+																											<iaixsl:value-of select="@quantity"/>x 
+																										</iaixsl:if>
+
+																										<iaixsl:value-of select="@name"/>
+
+																										<iaixsl:if test="not(size/@type='uniw') or ((version) and (not(version/@product_name='')))">
+																											(<iaixsl:if test="not(size/@type='uniw')">Rozmiar: <iaixsl:value-of select="size/@description"/></iaixsl:if><iaixsl:if test="not(size/@type='uniw') and ((version) and (not(version/@product_name='')))">, </iaixsl:if><iaixsl:if test="(version) and (not(version/@product_name=''))"><iaixsl:value-of select="version/@name"/>: <iaixsl:value-of select="version/@product_name"/></iaixsl:if>)
+																										</iaixsl:if>
+
+																										<iaixsl:if test="@product_type = 'product_virtual'">
+																											<span class="param__virtual">Produkt wirtualny</span>
+																										</iaixsl:if>
+
+																										<iaixsl:if test="@product_type = 'product_service'">
+																											<span class="param__service">Usługa</span>
+																										</iaixsl:if>
+																									</span>
+																								</iaixsl:for-each>
+																							</div>
+																						</div>
+																					</iaixsl:if>
+																				</div>
+																			</iaixsl:if>
+
+																			<iaixsl:if test="order_files/file">
+																				<div class="order2__product_files">
+																					<strong class="order2__file_label">Dodane przez Ciebie pliki:</strong>
+																					<div class="order2__file_wrapper">
+																						<iaixsl:for-each select="order_files/file">
+																							<a class="order2__file btn --icon-left icon-link" href="#previewFile">
+																							<iaixsl:choose>
+																								<iaixsl:when test="@preview = 'true'">
+																									<iaixsl:attribute name="rel"><iaixsl:value-of select="@path"/></iaixsl:attribute>
+																								</iaixsl:when>
+																								<iaixsl:otherwise>
+																									<iaixsl:attribute name="href"><iaixsl:value-of select="@path"/></iaixsl:attribute>
+																									<iaixsl:attribute name="target">_blank</iaixsl:attribute>
+																								</iaixsl:otherwise>
+																							</iaixsl:choose>
+																							<span><iaixsl:value-of select="@file"/></span>
+																						</a>
+																						</iaixsl:for-each>
+																					</div>
+																				</div>
+																			</iaixsl:if>
+
+																			<iaixsl:if test="comment">
+																				<div class="order2__product_comment">
+																					<strong class="order2__comment_label">Wpisane przez Ciebie uwagi do tego produktu:</strong>
+																					<span class="order2__comment"><iaixsl:value-of select="comment"/></span>
+																				</div>
+																			</iaixsl:if>
+																		</div>
+
+																		<span class="order2__product_item --price">
+																			<iaixsl:if test="@forpoints">
+																				<iaixsl:value-of select="@points_for_one"/> pkt.
+																			</iaixsl:if>
+																			<iaixsl:if test="not(@forpoints)">
+																				<iaixsl:value-of select="@detalprice_formatted"/>
+																			</iaixsl:if>
+																		</span>
+
+																		<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
+																				<span class="order2__product_item --vat">
+																					<span class="order2__product_vat --name">VAT</span>
+																					<span class="order2__product_vat --value"><iaixsl:value-of select="@vat"/>%</span>
+																				</span>
 																		</iaixsl:if>
 
-                                    <iaixsl:if test="priceformula/parameters">
-                                        <ul>
-                                            <iaixsl:for-each select="priceformula/parameters/parameter">
-                                                <li class="orderdetails_priceformula">
-                                                    <b><iaixsl:value-of select="name"/>: </b>
-                                                    <iaixsl:value-of select="values/value"/>
-                                                </li>
-                                            </iaixsl:for-each>
-                                        </ul>
-                                    </iaixsl:if>
-
-                                    <iaixsl:if test="version or serial_number">
-                                        <ul>
-                                            
-                                            <iaixsl:if test="version">
-                                                <li><b><iaixsl:value-of select="version/@name"/>: </b><iaixsl:value-of select="version/@product_name"/></li>
-                                            </iaixsl:if>
-
-                                            
-                                            <iaixsl:if test="serial_number">
-                                                <li>
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="count(serial_number/number) = 1">
-                                                            <b>Numer seryjny:</b>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <b>Numery seryjnye: </b>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                    <iaixsl:for-each select="serial_number/number">
-                                                        <iaixsl:value-of select="@value"/><iaixsl:if test="not(position()=last())">, </iaixsl:if>
-                                                    </iaixsl:for-each>
-                                                </li>
-                                            </iaixsl:if>
-                                        </ul>
-                                    </iaixsl:if>
-
-
-                                    
-                                    <iaixsl:if test="@product_type = 'product_bundle'">
-                                        <div class="ordered-product_bundle">
-                                            <label>
-                                                Składowe zestawu:
-                                            </label>
-                                            <ul>
-                                                <iaixsl:for-each select="bundled/product">
-                                                    <li>
-                                                        <iaixsl:if test="@quantity > 1">
-                                                            <iaixsl:value-of select="@quantity"/>x 
-                                                        </iaixsl:if>
-                                                        <iaixsl:value-of select="@name"/>
-                                                        <iaixsl:if test="not(@size_id = 'uniw') or ((version) and (not(version/@product_name='')))">
-                                                            (
-                                                            <iaixsl:if test="not(@size_id = 'uniw')">
-                                                                Rozmiar: <b><iaixsl:value-of select="@size_desc"/></b></iaixsl:if>
-                                                            <iaixsl:if test="not(@size_id = 'uniw') and ((version) and (not(version/@product_name='')))">
-                                                                , 
-                                                            </iaixsl:if>
-                                                            <iaixsl:if test="(version) and (not(version/@product_name=''))"><iaixsl:value-of select="version/@name"/>
-                                                                : <b><iaixsl:value-of select="version/@product_name"/></b></iaixsl:if>
-                                                            )
-                                                        </iaixsl:if>
-                                                    </li>
-                                                </iaixsl:for-each>
-                                            </ul>
-                                        </div>
-                                    </iaixsl:if>
-
-                                    
-                                    <iaixsl:if test="order_files/file">
-                                        <div class="ordered-files">
-                                            <label>
-                                                Dodane przez Ciebie pliki:
-                                            </label>
-                                            <ul>
-                                                <iaixsl:for-each select="order_files/file">
-                                                    <li>
-                                                        <span><iaixsl:value-of select="@file"/></span>
-
-                                                        <iaixsl:if test="@path">
-                                                             [
-                                                            <a>
-                                                                <iaixsl:attribute name="href"><iaixsl:value-of select="@path"/></iaixsl:attribute>
-
-                                                                <iaixsl:choose>
-                                                                    <iaixsl:when test="@preview = 'true'">
-                                                                        <iaixsl:attribute name="data-imagelightbox">f</iaixsl:attribute>
-                                                                    </iaixsl:when>
-                                                                    <iaixsl:otherwise>
-                                                                        <iaixsl:attribute name="target">_blank</iaixsl:attribute>
-                                                                    </iaixsl:otherwise>
-                                                                </iaixsl:choose>
-                                                                podgląd
-                                                            </a>
-                                                            ]
-                                                        </iaixsl:if>
-
-                                                    </li>
-                                                </iaixsl:for-each>
-                                            </ul>
-                                        </div>
-                                    </iaixsl:if>
-
-
-
-                                    
-                                    <iaixsl:if test="@product_type = 'product_virtual'">
-                                        <div class="ordered-info">
-                                            Pliki do pobrania pojawią się w dziale 
-                                            <a>
-                                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/clientFiles/@url"/></iaixsl:attribute>
-                                                "Moje pliki"
-                                            </a>
-                                              w panelu klienta po opłaceniu całego zamówienia.
-                                        </div>
-                                    </iaixsl:if>
-
-
-                                    <iaixsl:if test="not(/shop/page/ordered_products/product/@size_id = 'uniw')">
-                                        <div class="ordered-size d-sm-none">Rozmiar: <iaixsl:value-of select="@size_desc"/></div>
-                                    </iaixsl:if>
-
-
-                                    <iaixsl:if test="/shop/page/ordered_products/product[not(@code = '')]">
-                                        <div class="ordered-code d-sm-none">Kod produktu: <iaixsl:value-of select="@code"/></div>
-                                    </iaixsl:if>
-
-                                    <div class="ordered-quantity d-sm-none">
-                                        Ilość: <iaixsl:value-of select="@quantity"/>
-                                        <iaixsl:text> </iaixsl:text>
-                                        <iaixsl:choose>
-                                            <iaixsl:when test="@quantity > '1'">
-                                                <iaixsl:value-of select="@unit"/>
-                                            </iaixsl:when>
-                                            <iaixsl:otherwise>
-                                                <iaixsl:value-of select="@unit_s"/>
-                                            </iaixsl:otherwise>
-                                        </iaixsl:choose>
-                                    </div>
-
-                                    <iaixsl:if test="comment">
-                                        <div class="ordered-comment">
-                                            <iaixsl:value-of select="comment"/>
-                                        </div>
-                                    </iaixsl:if>
-
-                                    <div class="ordered-price d-sm-none">
-
-                                        Wartość: 
-
-                                        
-                                        <strong>
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="@quantity != '1'">
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="@forpoints='true'">
-                                                            <iaixsl:value-of select="@points_sum"/>
-                                                             pkt.
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:value-of select="@bruttoworth_formatted"/>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </iaixsl:when>
-                                                <iaixsl:otherwise>
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="@gratis='y'">
-                                                             Gratis!
-                                                        </iaixsl:when>
-                                                        <iaixsl:when test="@forpoints='true'">
-                                                            <iaixsl:value-of select="@points"/>
-                                                             pkt.
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:value-of select="@detalprice_formatted"/>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </iaixsl:otherwise>
-                                            </iaixsl:choose>
-                                        </strong>
-                                    </div>
-
-                                </td>
-
-                                
-                                <iaixsl:if test="not(/shop/page/ordered_products/product/@size_id = 'uniw')">
-                                    <td class="ordered-size d-none d-sm-table-cell"><iaixsl:value-of select="@size_desc"/></td>
-                                </iaixsl:if>
-
-
-                                <iaixsl:if test="/shop/page/ordered_products/product[not(@code = '')]">
-                                    <td class="ordered-code d-none d-sm-table-cell"><iaixsl:value-of select="@code"/></td>
-                                </iaixsl:if>
-                                
-                                <td class="unit-price-custom">
-                                <iaixsl:if test="@currentdetalpricenetto_formatted and not(@currentdetalpricenetto = @detalpricenetto)">
-                                <span class="before-rebbate-custom">
-                                <iaixsl:attribute name="class">
-                                before-rebbate-custom
-                                <iaixsl:if test="@currentdetalpricenetto = @detalpricenetto">
-                                d-none
-                                </iaixsl:if>
-                                </iaixsl:attribute>
-                           
-                                    <iaixsl:value-of select="@currentdetalpricenetto_formatted" />
-                                </span>
-                                </iaixsl:if>
-
-                                <iaixsl:if test="@detalpricenetto_formatted">
-                                    <span class="after-rebbate-custom">
-                                    <iaixsl:value-of select="@detalpricenetto_formatted" />
-                                    </span>
-                                </iaixsl:if>
-
-                                <div class="order-vat-custom-mobile">
-                                <iaixsl:value-of select="@vat"/> %
-                                </div>
-
-                                <div class="ordered-price-custom d-sm-none">
-
-                                        Wartość: 
-
-                                        
-                                        <strong>
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="@quantity != '1'">
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="@forpoints='true'">
-                                                            <iaixsl:value-of select="@points_sum"/>
-                                                             pkt.
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:value-of select="@bruttoworth_formatted"/>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </iaixsl:when>
-                                                <iaixsl:otherwise>
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="@gratis='y'">
-                                                             Gratis!
-                                                        </iaixsl:when>
-                                                        <iaixsl:when test="@forpoints='true'">
-                                                            <iaixsl:value-of select="@points"/>
-                                                             pkt.
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:value-of select="@detalprice_formatted"/>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </iaixsl:otherwise>
-                                            </iaixsl:choose>
-                                        </strong>
-                                </div>
-                                </td>
-
-                            
-                                <td class="ordered-quantity d-none d-sm-table-cell">
-                                    <iaixsl:value-of select="@quantity"/>
-                                    <iaixsl:text> </iaixsl:text>
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="@quantity > '1'">
-                                            <iaixsl:value-of select="@unit"/>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <iaixsl:value-of select="@unit_s"/>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </td>
-                                <td class="order-vat-custom">
-                                <iaixsl:value-of select="@vat"/> %
-                                </td>
-                                <td class="ordered-price d-none d-sm-table-cell">
-                                    
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="@quantity != '1'">
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="@forpoints='true'">
-                                                    <iaixsl:value-of select="@points_sum"/>
-                                                     pkt.
-                                                </iaixsl:when>
-                                                <iaixsl:otherwise>
-                                                    <iaixsl:value-of select="@bruttoworth_formatted"/>
-                                                </iaixsl:otherwise>
-                                            </iaixsl:choose>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="@gratis='y'">
-                                                     Gratis!
-                                                </iaixsl:when>
-                                                <iaixsl:when test="@forpoints='true'">
-                                                    <iaixsl:value-of select="@points"/>
-                                                     pkt.
-                                                </iaixsl:when>
-                                                <iaixsl:otherwise>
-                                                    <iaixsl:value-of select="@detalprice_formatted"/>
-                                                </iaixsl:otherwise>
-                                            </iaixsl:choose>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </td>
-                            </tr>
-                        </iaixsl:for-each>
-                    </tbody>
-                </table>
-            </div>
-        </iaixsl:if>
-        <!--Prepaid - płtności i dostawa (lista) (prepaid_payment_and_delivery_list, 107679.1)-->
-
-
-        <div id="prepaid_delivery_list">
-            <!-- <h2 class="big_label label-custom">
-                <iaixsl:choose>
-                    <iaixsl:when test="/shop/page/insurance_product">
-                        Dodatkowe opłaty i usługi
-                    </iaixsl:when>
-                    <iaixsl:otherwise>
-                        Dodatkowe opłaty i usługi
-                    </iaixsl:otherwise>
-                </iaixsl:choose>
-            </h2> -->
-
-
-            
-            <table>
-                <!-- <tr>
-                    <th/>
-                    <th/>
-                    <th>
-                        Wartość
-                    </th>
-                </tr> -->
-                <tr>
-                    <td class="ordered-icon">
-                        <img src="/gfx/pol/shipping_icon.png?r=1600678639">
-                            <iaixsl:if test="page/shipping/delivery[@checked='true']/@icon"><iaixsl:attribute name="src"><iaixsl:value-of select="page/shipping/delivery[@checked='true']/@icon"/></iaixsl:attribute></iaixsl:if>
-                            <iaixsl:attribute name="alt"><iaixsl:value-of select="page/shipping/delivery[@checked='true']/@name"/></iaixsl:attribute>
-                        </img>
-                    </td>
-                    <td class="ordered-name">
-                        SPOSÓB DOSTAWY: 
-                        <strong><iaixsl:value-of select="page/shipping/delivery[@checked='true']/@name"/></strong>
-
-                        <ul>
-                            <iaixsl:if test="page/prepaid/details/@select_date_additional != ''">
-                                <li>
-                                    <strong>Uwagi do daty dostawy: </strong>
-                                    <iaixsl:value-of select="page/prepaid/details/@select_date_additional"/>
-                                </li>
-                            </iaixsl:if>
-
-                            <iaixsl:if test="page/prepaid/details/@delivery = 'true'">
-                                <li>
-                                    <strong>Numer przesyłki: </strong>
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="not(page/prepaid/details/@cancelationpath) and not(page/prepaid/details/@cancelable = 'yes')">
-                                            <iaixsl:value-of select="page/prepaid/details/@dispatchid"/>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            -
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </li>
-                                <iaixsl:if test="page/prepaid/details/@link_tracking != ''">
-                                    <li>
-                                        <strong>Śledzenie przesyłki: </strong>
-                                        <a target="_blank">
-                                            <iaixsl:attribute name="href"><iaixsl:value-of select="page/prepaid/details/@link_tracking"/></iaixsl:attribute>
-                                            strona przewoźnika
-                                        </a>
-                                    </li>
-                                </iaixsl:if>
-                            </iaixsl:if>
-                            <iaixsl:if test="page/prepaid/dispatch/@date_sent != ''">
-                                <iaixsl:choose>
-                                    <iaixsl:when test="page/prepaid/details/@deliveryid = '0'">
-                                        <li>
-                                            <strong>Przesyłka odebrana:  </strong>
-                                            <iaixsl:value-of select="page/prepaid/dispatch/@date_sent"/>
-                                        </li>
-                                    </iaixsl:when>
-                                    <iaixsl:otherwise>
-                                        <li>
-                                            <strong>Przesyłka wysłana: </strong>
-                                            <iaixsl:value-of select="page/prepaid/dispatch/@date_sent"/>
-                                        </li>
-                                        <iaixsl:if test="page/prepaid/dispatch/@date_delivery">
-                                            <li>
-                                                <strong>Przewidywana data doręczenia:  </strong>
-                                                <iaixsl:value-of select="page/prepaid/dispatch/@date_delivery"/>
-                                                <iaixsl:if test="page/prepaid/dispatch/@delivery_range != ''">
-                                                     w przedziale godzin 
-                                                    <iaixsl:value-of select="page/prepaid/dispatch/@delivery_range"/>
-                                                </iaixsl:if>
-                                            </li>
-                                        </iaixsl:if>
-                                    </iaixsl:otherwise>
-                                </iaixsl:choose>
-                            </iaixsl:if>
-                            <iaixsl:if test="page/prepaid/details/@select_date != ''">
-                                <li>
-                                    <strong>
-                                        <iaixsl:choose>
-                                            <iaixsl:when test="page/stock">
-                                                Wybrana data odbioru zamówienia: 
-                                            </iaixsl:when>
-                                            <iaixsl:otherwise>
-                                                Wybrana data doręczenia zamówienia: 
-                                            </iaixsl:otherwise>
-                                        </iaixsl:choose>
-                                    </strong>
-                                    <iaixsl:value-of select="page/prepaid/details/@select_date"/>
-                                </li>
-                            </iaixsl:if>
-                        </ul>
-
-                    </td>
-
-
-                    <td class="ordered-price">
-                        <iaixsl:choose>
-                            <iaixsl:when test="page/shipping/@hide_cost='true'"/>
-                            <iaixsl:when test="page/shipping/delivery[@checked='true']/@points_cost > 0">
-                                <span><iaixsl:value-of select="page/shipping/delivery[@checked='true']/@points_cost"/> pkt.</span>
-                            </iaixsl:when>
-                            <iaixsl:when test="page/shipping/delivery[@checked='true']/@cost > 0">
-                                <span>
-                                    <iaixsl:value-of select="page/shipping/delivery[@checked='true']/@currencycost_formatted"/>
-                                    
-                                </span>
-                            </iaixsl:when>
-                            <iaixsl:when test="page/shipping/delivery[@checked='true']/@cost = 0">
-                                Gratis!
-                            </iaixsl:when>
-                        </iaixsl:choose>
-                    </td>
-                </tr>
-
-                <iaixsl:choose>
-                    <iaixsl:when test="/shop/page/prepaid/prepaid_history/item/@status = 'n'">
-                        <iaixsl:for-each select="/shop/page/prepaid/prepaid_history/item[@status = 'n']">
-                            <tr class="payment_form_item">
-                                <td class="ordered-icon">
-                                    <img src="/gfx/pol/prepaid_method_icon.png?r=1600678639">
-                                        <iaixsl:if test="@icon">
-                                            <iaixsl:attribute name="src"><iaixsl:value-of select="@icon"/></iaixsl:attribute>
-                                        </iaixsl:if>
-                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="@payment_name"/></iaixsl:attribute>
-                                    </img>
-                                </td>
-                                <td class="ordered-name">
-                                    METODA PŁANTOŚCI: 
-                                    <strong><iaixsl:value-of select="@payment_name"/></strong>
-                                </td>
-                                <td>
-                                    <iaixsl:if test="amount/order_currency/@payform_cost > 0">
-                                        <span>
-                                            <iaixsl:value-of select="amount/order_currency/@payform_cost_formatted"/>
-                                            <iaixsl:if test="not(amount/client_currency/@currencysign = amount/order_currency/@currencysign)">
-                                                <small> (<iaixsl:value-of select="amount/client_currency/@payform_cost_formatted"/>)</small>
-                                            </iaixsl:if>
-                                        </span>
-                                    </iaixsl:if>
-                                </td>
-                            </tr>
-                        </iaixsl:for-each>
-                    </iaixsl:when>
-                    <iaixsl:when test="not(not(page/prepaid_methods/item[@checked='true']) and not(page/prepaid/details/@paymentstatus = 'g') and not(page/prepaid/details/@paymentstatus = 'tc'))">
-                        <tr>
-                            <td class="ordered-icon">
-                                <img src="/gfx/pol/prepaid_method_icon.png?r=1600678639">
-                                    <iaixsl:if test="/shop/page/prepaid/prepaid_history/item[position() = last()]/@icon and not(page/prepaid/details/@paymentstatus = 'g')">
-                                        <iaixsl:attribute name="src"><iaixsl:value-of select="/shop/page/prepaid/prepaid_history/item[position() = last()]/@icon"/></iaixsl:attribute>
-                                    </iaixsl:if>
-                                    <iaixsl:attribute name="alt"><iaixsl:value-of select="page/prepaid_methods/item[@checked='true']/@name"/></iaixsl:attribute>
-                                </img>
-                            </td>
-                            <td class="ordered-name">
-                                METODA PŁANTOŚCI: 
-                                <strong>
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="page/prepaid/details/@paymentstatus = 'g'">
-                                            Płatność przy odbiorze 
-                                        </iaixsl:when>
-                                        <iaixsl:when test="page/prepaid/details/@paymentstatus = 'tc'">
-                                            Kredyt kupiecki
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <iaixsl:value-of select="page/prepaid_methods/item[@checked='true']/@name"/>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </strong>
-
-                                <iaixsl:variable name="delivery_id"><iaixsl:value-of select="/shop/page/shipping/delivery/@id"/></iaixsl:variable>
-
-                                <iaixsl:choose>
-                                    <iaixsl:when test="($delivery_id='0-1'                                                         or $delivery_id = '77-1'                                                         or $delivery_id = '89-1'                                                         or $delivery_id = '90-1'                                                         or $delivery_id = '100023-1'                                                         or $delivery_id = '100075-1'                                                         or $delivery_id = '100149-1'                                                         or $delivery_id = '100148-1'                                                         or $delivery_id = '100150-1'                                                         or $delivery_id = '100153-1'                                                         or $delivery_id = '100061-1'                                                         or $delivery_id = '100063-1'                                                         or $delivery_id = '100041-1'                                                         or $delivery_id = '76-1'                                                         or $delivery_id = '38-1'                                                         or (substring-before($delivery_id, '-') > 100100 and substring-after($delivery_id, '-') = '1') ) and page/stock/@stock_id">
-
-                                        
-
-                                        <ul>
-                                            <li>
-                                                Zapłacisz w punkcie w momencie odbierania zamówienia.
-                                            </li>
-                                        </ul>
-                                    </iaixsl:when>
-                                    <iaixsl:when test="page/prepaid/details/@paymentstatus = 'g'">
-                                        <ul>
-                                            <li>
-                                                Zapłacisz listonoszowi lub kurierowi, który dostarczy ci przesyłkę. 
-                                            </li>
-                                        </ul>
-                                    </iaixsl:when>
-                                    <iaixsl:when test="page/prepaid/details/@paymentstatus = 'tc'">
-                                    </iaixsl:when>
-                                </iaixsl:choose>
-                            </td>
-                            <td class="ordered-price">
-                                <iaixsl:choose>
-                                    <iaixsl:when test="/shop/page/shipping/delivery/@id='0-1' and page/stock/@stock_id">
-                                    </iaixsl:when>
-                                    <iaixsl:when test="page/prepaid/details/@paymentstatus = 'g'">
-                                    </iaixsl:when>
-                                    <iaixsl:when test="page/prepaid/details/@paymentstatus = 'tc'">
-                                    </iaixsl:when>
-                                    <iaixsl:otherwise>
-                                        <iaixsl:if test="page/prepaid/details/@currencycost > 0">
-                                            <span>
-                                                <iaixsl:value-of select="page/prepaid/details/@currency_payform_cost_formatted"/>
-                                                
-                                            </span>
-                                        </iaixsl:if>
-                                    </iaixsl:otherwise>
-                                </iaixsl:choose>
-                            </td>
-                        </tr>
-                    </iaixsl:when>
-                </iaixsl:choose>
-
-                <iaixsl:if test="/shop/page/insurance_product">
-
-                    <tr>
-                        <td class="ordered-icon">
-                            <img src="/gfx/pol/insurance_icon.png?r=1600678639" alt="insurance_icon"/>
-                        </td>
-                        <td class="ordered-name">
-                            Ochrona Kupującego: 
-                            <strong><iaixsl:value-of select="/shop/page/insurance_product/@service"/></strong>
-                            <ul>
-                                <li>
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="/shop/page/insurance_product/@status = 'unconfirmed'">
-                                            <strong>Status:</strong> niepotwierdzone
-                                        </iaixsl:when>
-                                        <iaixsl:when test="/shop/page/insurance_product/@status = 'confirmed'">
-                                            <strong>Status:</strong> potwierdzone
-                                        </iaixsl:when>
-                                    </iaixsl:choose>
-                                </li>
-                            </ul>
-                        </td>
-                        <td class="ordered-price">
-                            <iaixsl:if test="/shop/page/insurance_product/@price_gross > 0">
-                                <span><iaixsl:if test="$signbeforeprice = 'true'">
-                                    <iaixsl:value-of select="/shop/page/insurance_product/@currency"/>
-                                    <iaixsl:value-of select="$signbetweenpricecurrency"/>
-                                </iaixsl:if>
-                                    <iaixsl:value-of select="/shop/page/insurance_product/@price_gross"/>
-                                    <iaixsl:if test="$signbeforeprice = 'false'">
-                                        <iaixsl:value-of select="$signbetweenpricecurrency"/>
-                                        <iaixsl:value-of select="/shop/page/insurance_product/@currency"/>
-                                    </iaixsl:if></span>
-                            </iaixsl:if>
-                        </td>
-                    </tr>
-                </iaixsl:if>
-
-                <tr style="display:none" id="prepaid_item_copy">
-                    <td class="ordered-icon">
-                        <img src="/gfx/pol/prepaid_method_icon.png?r=1600678639">
-                            <iaixsl:attribute name="alt">.</iaixsl:attribute>
-                        </img>
-                    </td>
-                    <td class="ordered-name">
-                        METODA PŁANTOŚCI: 
-                        <strong/>
-                    </td>
-                    <td class="ordered-price">
-                        <iaixsl:if test="amount/order_currency/@payform_cost > 0">
-                            <span/>
-                        </iaixsl:if>
-                    </td>
-                </tr>
-
-            </table>
-            
-        </div>
-
-        
-        <!--Prepaid summary  (prepaid_summary, 107685.1)-->
-
-    <iaixsl:if test="not(page/prepaid/details/@paymentstatus != 'g' and /shop/page/prepaid_methods/item and (page/prepaid/prepaid_history/item[position() = last()]/@status = 'n' or page/prepaid/prepaid_history/@show_payment_button = 'true'))">
-    <div id="prepaid_summary">
-      <div class="basketedit_summary">
-         
-          <div class="basketedit_summary_sub">
-              <div class="basketedit_summary_left">
-      
-                 <iaixsl:if test="/shop/page/prepaid/points/@display">
-                     <div class="basketedit_summary_debit">
-                         Obecnie na swoim koncie masz 
-                         <b><iaixsl:value-of select="/shop/page/prepaid/points/@client_points"/><span> pkt.</span></b>
-                         
-                     </div>
-                 </iaixsl:if>
-      
-                 <iaixsl:if test="/shop/page/prepaid/insurance_forms/trusted_shops or /shop/page/prepaid/opinions_forms/trusted_shops/raiting_action">
-                     
-                     
-                         <iaixsl:if test="/shop/page/prepaid/insurance_forms/trusted_shops">
-                             <div id="trusted_shops">
-                                 <div id="trusted_shops_img">
-                                     <form method="post" target="_blank">
-                                         <iaixsl:attribute name="action"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/@action"/></iaixsl:attribute>
-                                         <iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/hidden_params"/>
-                                         <input type="image">
-                                             <iaixsl:attribute name="src"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/@icon_src"/></iaixsl:attribute>
-                                             <iaixsl:attribute name="title"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/icon_form/@title"/></iaixsl:attribute>
-                                         </input>
-                                     </form>
-                                 </div>
-                                 <div id="trusted_shops_info">
-                                     <form method="post" target="_blank">
-                                         <iaixsl:attribute name="action"><iaixsl:value-of select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/@action"/></iaixsl:attribute>
-                                         <iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/hidden_params"/>
-                                         <p><iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/@descryption"/></p>
-                                         <button type="submit">
-                                             <iaixsl:value-of disable-output-escaping="yes" select="/shop/page/prepaid/insurance_forms/trusted_shops/registration_form/@button"/> 
-                                         </button>
-                                     </form>
-                                 </div>
-                             </div>                
-                         </iaixsl:if>
-                  
-                     
-                 </iaixsl:if>
-
-      
-                 
-              </div>
-         
-              <div class="basketedit_summary_right">
-                  <div class="basketedit_calculations">
-                      <div class="basketedit_product_summary">
-                          <label>Wartość produktów: </label>
-                          <strong><iaixsl:value-of select="page/prepaid/details/@currencycost_formatted"/></strong>
-                      </div>
-      
-                      <iaixsl:if test="page/prepaid/details/@deliveryid != '47'">  
-                        <div class="basketedit_product_summary">
-                            <label>Dodatkowe opłaty: </label>
-                            <strong id="additional_cost_prepaid"><iaixsl:value-of select="page/prepaid/details/@currency_additional_cost_formatted"/></strong>
-                        </div>
-                      </iaixsl:if>
-                      <div style="clear:both"/>
-                  </div>
-                  <iaixsl:if test="page/prepaid/details/@deliveryid != '47'">  
-                  <div class="basketedit_total_summary">
-                      <label>
-                          Wartość zamówienia:
-                      </label>
-                      <strong id="currencytotal_prepaid"><iaixsl:value-of select="page/prepaid/details/@currencytotal_formatted"/></strong>
-                      <iaixsl:if test="/shop/page/prepaid/points/@display">
-                          <span>
-                               + 
-                              <iaixsl:value-of select="/shop/page/prepaid/points/@order_cost"/> pkt.
-                          </span>
-                      </iaixsl:if>
-                  </div>
-                  </iaixsl:if>
-                  
-                  <iaixsl:if test="(/shop/page/prepaid/details/@advance > 0)">
-                    <div class="basketedit_product_summary advance">
-                            <label class="txt_wrap">wymagana zaliczka: </label>
-                            <strong><iaixsl:value-of select="/shop/page/prepaid/details/@advance_formatted"/></strong>
-                    </div>
-                </iaixsl:if>
-              </div>
-          </div>
-      </div>
-
-    </div>
-    </iaixsl:if>
-
-    <!--Szczegóły zamówienia - adres (prepaid_address, 114765.1)-->
-            <div id="prepaid_address" class="mb-4">        
-                <div class="n57857_label big_label">
-                <h2 class="label-custom">
-                    <span class="n57857_label">Informacje podane podczas składania zamówienia</span>
-                </h2>
-                </div>
-
-                <div class="order2_info">
-                    <iaixsl:if test="/shop/page/client/payer_address">
-                        <iaixsl:attribute name="class">order2_info --invoice</iaixsl:attribute>
-                    </iaixsl:if>
-                    <div class="order2_info_sub order-1">
-                        <div class="n57857_item">
-                            <div class="order2_info_label_sub">
-                                <h3 class="order2_info1">
-                                    <i class="icon-customer-data --pink"></i>
-                                    Dane zamawiającego:
-                                </h3>
-                            </div>
-
-                            <div class="order2_info1">
-                                <iaixsl:if test="page/client/billing_address/@firm != ''">
-                                    <iaixsl:value-of select="page/client/billing_address/@firm"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:if test="not(page/client/billing_address/@firm)">
-                                    <iaixsl:value-of select="page/client/billing_address/@firstname"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/billing_address/@lastname"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:value-of select="page/client/billing_address/@street"/><br/>
-                                <iaixsl:value-of select="page/client/billing_address/@zipcode"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/billing_address/@city"/><iaixsl:text> </iaixsl:text>(<iaixsl:if test="page/client/billing_address/@province"><iaixsl:value-of select="page/client/billing_address/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/client/billing_address/@country_long"/>)
-                                <br/>
-                                <iaixsl:if test="page/client/billing_address/@nip != ''">
-                                    NIP: <iaixsl:value-of select="page/client/billing_address/@nip"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:if test="(page/client/@phone1) and not(page/client/@phone1 = '')">
-                                    telefon:  <iaixsl:value-of select="page/client/@phone1"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:if test="(page/client/@email) and not(page/client/@email = '')">
-                                    e-mail:  <iaixsl:value-of select="page/client/@email"/><br/>
-                                </iaixsl:if>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="order2_info_sub order-2">
-                        <div class="n57857_item">
-
-                            <iaixsl:choose>
-                                <iaixsl:when test="page/stock">
-
-                            <div class="order2_info_label_sub">
-                                <h3 class="order2_info1">
-                                    Punkt odbioru zamówienia:
-                                </h3>
-                            </div>
-
-                            <div class="order2_info1">
-
-                                        <span class="prepaid_stock_name"><iaixsl:value-of select="page/stock/@name"/></span><br/>
-                                        <iaixsl:value-of select="page/stock/@street"/><br/>
-                                        <iaixsl:value-of select="page/stock/@zipcode"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/stock/@city"/><iaixsl:text> </iaixsl:text>(<iaixsl:value-of select="page/stock/@country"/>)<br/>
-
-                                        <iaixsl:if test="page/stock/@mail != ''">
-                                            <span class="prepaid_stock_contact_item">e-mail: 
-                                                <a><iaixsl:attribute name="href">mailto:<iaixsl:value-of select="page/stock/@mail"/></iaixsl:attribute><iaixsl:value-of select="page/stock/@mail"/></a></span><br/>
-                                        </iaixsl:if>
-
-                                        <iaixsl:if test="page/stock/@phone != ''">
-                                            <span class="prepaid_stock_contact_item">telefon: 
-                                                <span><iaixsl:value-of select="page/stock/@phone"/></span></span><br/>
-                                        </iaixsl:if>
-
-                                        <iaixsl:if test="page/stock/@fax != ''">
-                                            <span class="prepaid_stock_contact_item">fax: 
-                                                <span><iaixsl:value-of select="page/stock/@fax"/></span></span><br/>
-                                        </iaixsl:if>
-
-                                        <iaixsl:if test="page/stock/@gg != ''">
-                                            <span class="prepaid_stock_contact_item">gg: 
-                                                <a><iaixsl:attribute name="href">gg:<iaixsl:value-of select="page/stock/@gg"/></iaixsl:attribute><iaixsl:value-of select="page/stock/@gg"/></a></span><br/>
-                                        </iaixsl:if>
-
-                                        <iaixsl:if test="page/stock/@skype != ''">
-                                            <span class="prepaid_stock_contact_item">skype: 
-                                                <a target="_blank"><iaixsl:attribute name="href">callto://<iaixsl:value-of select="page/stock/@skype"/></iaixsl:attribute><iaixsl:value-of select="page/stock/@skype"/></a></span><br/>
-                                        </iaixsl:if>
-
-                                        <div class="prepaid_stock_link">
-                                            <a class="prepaid_stock_link" target="_blank">
-                                                <iaixsl:attribute name="href"><iaixsl:value-of select="page/stock/@link"/></iaixsl:attribute>
-                                                więcej informacji
-                                            </a>
-                                        </div>
-                            </div>
-
-                                </iaixsl:when>
-                                <iaixsl:otherwise>
-                                    <div class="order2_info_label_sub order-3">
-                                        <h3 class="order2_info1">
-                                             <i class="icon-address-receive"></i>
-                                            Adres dostawy:
-                                        </h3>
-                                    </div>
-
-                                    <div class="order2_info1">
-
-                                        <iaixsl:if test="page/client/shipping_address/@additional != ''"><iaixsl:value-of select="page/client/shipping_address/@additional"/><br/></iaixsl:if>
-                                        <iaixsl:value-of select="page/client/shipping_address/@firstname"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/shipping_address/@lastname"/><br/>
-                                        <iaixsl:value-of select="page/client/shipping_address/@street"/><br/>
-                                        <iaixsl:value-of select="page/client/shipping_address/@zipcode"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/shipping_address/@city"/><iaixsl:text> </iaixsl:text>(<iaixsl:if test="page/client/shipping_address/@province"><iaixsl:value-of select="page/client/shipping_address/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/client/shipping_address/@country_long"/>)<br/>
-                                        <iaixsl:if test="(page/client/shipping_address/@phone) and not(page/client/shipping_address/@phone = '')">
-                                            telefon:  <iaixsl:value-of select="page/client/shipping_address/@phone"/><br/>
-                                        </iaixsl:if>
-                                    </div>
-                                </iaixsl:otherwise>
-                            </iaixsl:choose>
-
-                        </div>
-                    </div>
-                    <div class="order2_info_sub">
-                        <div class="n57857_item">
-                            <div class="order2_info_label_sub">
-                                <h3 class="order2_info1">
-                                 <i class="icon-receiver-data --pink"></i>
-                                    Dane odbiorcy:
-                                </h3>
-                            </div>
-
-                            <div class="order2_info1">
-                                <iaixsl:value-of select="page/client/shipping_address/@firstname"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/shipping_address/@lastname"/><br/>
-
-                                <iaixsl:value-of select="page/client/shipping_address/@street"/><br/>
-                                <iaixsl:value-of select="page/client/shipping_address/@zipcode"/><iaixsl:text> </iaixsl:text>
-                                <iaixsl:value-of select="page/client/shipping_address/@city"/> (<iaixsl:if test="page/client/shipping_address/@province"><iaixsl:value-of select="page/client/shipping_address/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/client/shipping_address/@country_long"/>)<br/>
-                                <iaixsl:if test="page/client/shipping_address/@phone and page/client/shipping_address/@phone != ''">
-                                    telefon: <iaixsl:value-of select="page/client/shipping_address/@phone"/><br/>
-                                </iaixsl:if>
-                            </div>
-                        </div>
-                    </div>
-
-                    <iaixsl:if test="/shop/page/client/payer_address">
-                        <div class="order2_info_sub">
-                            <div class="n57857_item">
-                                <div class="order2_info_label_sub">
-                                    <h3 class="order2_info1">
-                                        Dane na fakturze:
-                                    </h3>
-                                </div>
-                                <div class="order2_info1">
-                                <iaixsl:if test="page/client/payer_address/@firm != ''">
-                                    <iaixsl:value-of select="page/client/payer_address/@firm"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:if test="not(page/client/payer_address/@firm)">
-                                    <iaixsl:value-of select="page/client/payer_address/@firstname"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/payer_address/@lastname"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:value-of select="page/client/payer_address/@street"/><br/>
-                                <iaixsl:value-of select="page/client/payer_address/@zipcode"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="page/client/payer_address/@city"/><iaixsl:text> </iaixsl:text>(<iaixsl:if test="page/client/payer_address/@province"><iaixsl:value-of select="page/client/payer_address/@province"/><iaixsl:text>, </iaixsl:text></iaixsl:if><iaixsl:value-of select="page/client/payer_address/@country_long"/>)
-                                <br/>
-                                <iaixsl:if test="page/client/payer_address/@nip != ''">
-                                    NIP: <iaixsl:value-of select="page/client/payer_address/@nip"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:if test="(page/client/payer_address/@phone) and not(page/client/payer_address/@phone = '')">
-                                    telefon:  <iaixsl:value-of select="page/client/payer_address/@phone"/><br/>
-                                </iaixsl:if>
-                                <iaixsl:if test="(page/client/payer_address/@email) and not(page/client/payer_address/@email = '')">
-                                    e-mail:  <iaixsl:value-of select="page/client/payer_address/@email"/><br/>
-                                </iaixsl:if>
-
-                                </div>
-                            </div>
-                        </div>
-                    </iaixsl:if>
-                </div>
-
-                <iaixsl:if test="page/prepaid/details/@remarks or page/prepaid/details/@deliverer_note">
-                    <div class="order2_info comments_container">
-                    <a href="#toggleComments" id="toggle_comments_button">Uwagi dla sklepu i kuriera</a>
-
-                    <div class="ordered_comments">
-                        <iaixsl:if test="page/prepaid/details/@remarks">
-                            <div class="order2_info_sub">
-                                <div class="n57857_item">
-                                    <div class="order2_info_label_sub">
-                                        <h3 class="order2_info1">
-                                            Uwagi dla sklepu podane podczas składania zamówienia:
-                                        </h3>
-                                    </div>
-
-                                    <div class="order2_info1">
-                                        <iaixsl:value-of select="page/prepaid/details/@remarks"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </iaixsl:if>
-
-                        <iaixsl:if test="page/prepaid/details/@deliverer_note">
-                            <div class="order2_info_sub">
-                                <div class="n57857_item">
-                                    <div class="order2_info_label_sub">
-                                        <h3 class="order2_info1">
-                                            Uwagi dla dostawcy podane podczas składania zamówienia:
-                                        </h3>
-                                    </div>
-
-                                    <div class="order2_info1">
-                                        <iaixsl:value-of select="page/prepaid/details/@deliverer_note"/>
-                                    </div>
-                                </div>
-                            </div>
-                        </iaixsl:if>
-                    </div>
-                    </div>
-                </iaixsl:if>
-            </div>
-        <!--Dokumenty do zamówienia (prepaid_documents, 107686.1)-->
-            <iaixsl:choose>
-                <iaixsl:when test="count(page/prepaid/documents/document) > 0">
-                    <div id="ordered_documents" class="order2_info comments_container d-block">
-                    <h2 class="label-custom documents">
-                        <a href="#toggleDocuments" id="toggle_documents_button" class="d-sm-none">Dokumenty do pobrania</a>
-
-                        <div class="big_label d-none d-sm-inline">Dokumenty do pobrania</div>
-                    </h2>
-
-
-                        <div class="order2_info_sub ordered_documents" id="order2_info_sub1">
-                            <iaixsl:for-each select="page/prepaid/documents/document">
-                                <div class="n57857_item">
-                                    <div class="order2_info1">
-                                        <li class="n54116_item">
-                                            <a class="n54116_item" target="_blank">
-                                                <iaixsl:attribute name="title">Pobierz lub wydrukuj dokument</iaixsl:attribute>
-                                                <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                <iaixsl:value-of select="@id"/>
-                                            </a>
-                                        </li>
-                                    </div>
-                                </div>
-                            </iaixsl:for-each>
-                        </div>
-                    </div>
-                </iaixsl:when>
-            </iaixsl:choose>
-        <!--Formularz płatności (orderdetails_payform, 107692.1)-->
-    <iaixsl:variable name="prepaidzt_txt">Zgłoś reklamację</iaixsl:variable> 
-    <iaixsl:variable name="prepaidrt_txt">Zwróć produkt</iaixsl:variable> 
-
-    <iaixsl:if test="($prepaidrt_txt and /shop/page/prepaid/actions/return/@url) or ($prepaidzt_txt and /shop/page/prepaid/actions/rma/@url)">
-        <div class="actions_return_rma row">
-            <iaixsl:if test="$prepaidrt_txt and /shop/page/prepaid/actions/return/@url">
-                <div class="actions_return col-12 col-sm-6">
-                    <div class="actions_return_sub col-12 mb-4">
-                        <h3>Bezproblemowy zwrot produktu</h3>
-                        <div>
-                            <img alt="returns" src="/gfx/pol/returns_action.png?r=1600678639"/><span>Jeżeli chcesz skorzystać z prawa do zwrotu zakupionych produktów bez podania przyczyny - skorzystaj z naszego systemu do zwrotów, który uczyni proces prostym i bezpiecznym.</span></div>
-                            <a class="btn --solid">
-                                <iaixsl:attribute name="title">Kliknij, aby złożyć reklamację produktu do sklepu. </iaixsl:attribute>
-                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/page/prepaid/actions/return/@url"/></iaixsl:attribute><iaixsl:value-of select="$prepaidrt_txt"/>
-                            </a>
-                    </div>
-                </div>
-            </iaixsl:if>
-            <iaixsl:if test="$prepaidzt_txt and /shop/page/prepaid/actions/rma/@url">
-                <div class="actions_rma col-12 col-sm-6">
-                    <div class="actions_rma_sub col-12">
-                        <h3>Bezproblemowa reklamacja produktu</h3>
-                        <div>
-                            <img alt="rma" src="/gfx/pol/rma_action.png?r=1600678639"/><span>Jeżeli produkt w momencie dostawy był sprawny, ale popsuł się i chcesz zgłosić reklamację z tytułu gwarancji poprzez nasz sklep, skorzystaj z naszego systemu zgłaszania reklamacji, co uczyni proces łatwiejszym i szybszym.</span></div>
-                            <a class="btn --solid">
-                                <iaixsl:attribute name="title">Kliknij, aby nadać zwrot produktu do sklepu.</iaixsl:attribute>
-                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/page/prepaid/actions/rma/@url"/></iaixsl:attribute><iaixsl:value-of select="$prepaidzt_txt"/>
-                            </a>
-                    </div>
-                </div>
-            </iaixsl:if>
-        </div>
-    </iaixsl:if>
-
+																		<span class="order2__product_item --quantity"><iaixsl:value-of select="@quantity"/><iaixsl:text disable-output-escaping="yes"> </iaixsl:text><iaixsl:value-of select="@price_unit"/></span>
+
+																		<strong class="order2__product_item --worth">
+																			<iaixsl:choose>
+																				<iaixsl:when test="@gratis='y'">
+																						Gratis!
+																				</iaixsl:when>
+																				<iaixsl:when test="@forpoints">
+																					<iaixsl:value-of select="@points"/>  pkt.
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					<iaixsl:value-of select="@bruttoworth_formatted"/>
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+																		</strong>
+																	</div>
+																</iaixsl:for-each>
+															</div>
+														</iaixsl:if>
+
+														
+														<iaixsl:if test="page/order2/ordersproducts/product[@product_type = 'product_virtual']">
+															<div class="order2__products --virtual mb-5">
+
+																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
+																	<strong class="order2__product_item --name">Zamówione produkty wirtualne</strong>
+																	<span class="order2__product_item --price">Cena jedn.</span>
+																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
+																		<span class="order2__product_item --vat">VAT</span>
+																	</iaixsl:if>
+																	<span class="order2__product_item --quantityity">Ilość</span>
+																	<span class="order2__product_item --worth">Wartość</span>
+																</div>
+
+																<iaixsl:for-each select="page/order2/ordersproducts/product[@product_type = 'product_virtual']">
+																	<div class="order2__product --row mb-3 d-flex flex-wrap align-items-center mx-sm-n1">
+
+																		<div class="order2__product_item --name">
+																			<iaixsl:choose>
+																				<iaixsl:when test="@gratis='y'">
+																					<span class="order2__product_name">
+																						<iaixsl:choose>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																								<iaixsl:attribute name="class">order2__product_name --now</iaixsl:attribute>
+																							</iaixsl:when>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																								<iaixsl:attribute name="class">order2__product_name --later</iaixsl:attribute>
+																							</iaixsl:when>
+																						</iaixsl:choose>
+																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
+																					</span>
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					<a class="order2__product_name --link">
+																						<iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+																						<iaixsl:choose>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																								<iaixsl:attribute name="class">order2__product_name --link --now</iaixsl:attribute>
+																							</iaixsl:when>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																								<iaixsl:attribute name="class">order2__product_name --link --later</iaixsl:attribute>
+																							</iaixsl:when>
+																						</iaixsl:choose>
+																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
+																					</a>
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+
+																			<iaixsl:if test="(price/priceformula/parameters) or (not(@size = '') and (@size != 'uniw')) or (version/@name) or (@product_type = 'product_bundle')">
+																				<div class="order2__product_params">
+																					
+																					<iaixsl:if test="price/priceformula/parameters">
+																						<iaixsl:for-each select="price/priceformula/parameters/parameter">
+																							<div class="order2__param --priceformula">
+																								<span class="param__label"><iaixsl:value-of select="name"/>: </span>
+																								<span class="param__value"><iaixsl:value-of select="values/value"/></span>
+																							</div>
+																						</iaixsl:for-each>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="not(@size = '') and (@size != 'uniw')">
+																						<div class="order2__param --size">
+																							<span class="param__label">Rozmiar: </span>
+																							<span class="param__value"><iaixsl:value-of select="@size_desc"/></span>
+																						</div>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="version/@name">
+																						<div class="order2__param --version">
+																							<span class="param__label"><iaixsl:value-of select="version/@name"/>: </span>
+																							<span class="param__value"><iaixsl:value-of select="version/@product_name"/></span>
+																						</div>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="@product_type = 'product_bundle'">
+																						<div class="order2__param --bundle">
+																							<span class="param__label">Składowe zestawu:</span>
+																							<div class="param__wrapper">
+																								<iaixsl:for-each select="bundled/product">
+																									<span class="param__value">
+																										<iaixsl:if test="@quantity > 1">
+																											<iaixsl:value-of select="@quantity"/>x 
+																										</iaixsl:if>
+
+																										<iaixsl:value-of select="@name"/>
+
+																										<iaixsl:if test="not(size/@type='uniw') or ((version) and (not(version/@product_name='')))">
+																											(<iaixsl:if test="not(size/@type='uniw')">Rozmiar: <iaixsl:value-of select="size/@description"/></iaixsl:if><iaixsl:if test="not(size/@type='uniw') and ((version) and (not(version/@product_name='')))">, </iaixsl:if><iaixsl:if test="(version) and (not(version/@product_name=''))"><iaixsl:value-of select="version/@name"/>: <iaixsl:value-of select="version/@product_name"/></iaixsl:if>)
+																										</iaixsl:if>
+
+																										<iaixsl:if test="@product_type = 'product_virtual'">
+																											<span class="param__virtual">Produkt wirtualny</span>
+																										</iaixsl:if>
+
+																										<iaixsl:if test="@product_type = 'product_service'">
+																											<span class="param__service">Usługa</span>
+																										</iaixsl:if>
+																									</span>
+																								</iaixsl:for-each>
+																							</div>
+																						</div>
+																					</iaixsl:if>
+																				</div>
+																			</iaixsl:if>
+
+																			<iaixsl:if test="order_files/file">
+																				<div class="order2__product_files">
+																					<strong class="order2__file_label">Dodane przez Ciebie pliki:</strong>
+																					<div class="order2__file_wrapper">
+																						<iaixsl:for-each select="order_files/file">
+																							<a class="order2__file btn --icon-left icon-link" href="#previewFile">
+																							<iaixsl:choose>
+																								<iaixsl:when test="@preview = 'true'">
+																									<iaixsl:attribute name="rel"><iaixsl:value-of select="@path"/></iaixsl:attribute>
+																								</iaixsl:when>
+																								<iaixsl:otherwise>
+																									<iaixsl:attribute name="href"><iaixsl:value-of select="@path"/></iaixsl:attribute>
+																									<iaixsl:attribute name="target">_blank</iaixsl:attribute>
+																								</iaixsl:otherwise>
+																							</iaixsl:choose>
+																							<span><iaixsl:value-of select="@file"/></span>
+																						</a>
+																						</iaixsl:for-each>
+																					</div>
+																				</div>
+																			</iaixsl:if>
+
+																			<iaixsl:if test="comment">
+																				<div class="order2__product_comment">
+																					<strong class="order2__comment_label">Wpisane przez Ciebie uwagi do tego produktu:</strong>
+																					<span class="order2__comment"><iaixsl:value-of select="comment"/></span>
+																				</div>
+																			</iaixsl:if>
+																		</div>
+
+																		<span class="order2__product_item --price">
+																			<iaixsl:if test="@forpoints">
+																				<iaixsl:value-of select="@points_for_one"/> pkt.
+																			</iaixsl:if>
+																			<iaixsl:if test="not(@forpoints)">
+																				<iaixsl:value-of select="@detalprice_formatted"/>
+																			</iaixsl:if>
+																		</span>
+
+																		<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
+																				<span class="order2__product_item --vat">
+																					<span class="order2__product_vat --name">VAT</span>
+																					<span class="order2__product_vat --value"><iaixsl:value-of select="@vat"/>%</span>
+																				</span>
+																		</iaixsl:if>
+
+																		<span class="order2__product_item --quantity"><iaixsl:value-of select="@quantity"/><iaixsl:text disable-output-escaping="yes"> </iaixsl:text><iaixsl:value-of select="@price_unit"/></span>
+
+																		<strong class="order2__product_item --worth">
+																			<iaixsl:choose>
+																				<iaixsl:when test="@gratis='y'">
+																						Gratis!
+																				</iaixsl:when>
+																				<iaixsl:when test="@forpoints">
+																					<iaixsl:value-of select="@points"/>  pkt.
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					<iaixsl:value-of select="@bruttoworth_formatted"/>
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+																		</strong>
+																	</div>
+																</iaixsl:for-each>
+															</div>
+														</iaixsl:if>
+
+														
+														<iaixsl:if test="page/order2/ordersproducts/product[@product_type = 'product_service']">
+															<div class="order2__products --service mb-5">
+
+																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
+																	<strong class="order2__product_item --name">Zamówione usługi</strong>
+																	<span class="order2__product_item --price">Cena jedn.</span>
+																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
+																		<span class="order2__product_item --vat">VAT</span>
+																	</iaixsl:if>
+																	<span class="order2__product_item --quantityity">Ilość</span>
+																	<span class="order2__product_item --worth">Wartość</span>
+																</div>
+
+																<iaixsl:for-each select="page/order2/ordersproducts/product[@product_type = 'product_service']">
+																	<div class="order2__product --row mb-3 d-flex flex-wrap align-items-center mx-sm-n1">
+
+																		<div class="order2__product_item --name">
+																			<iaixsl:choose>
+																				<iaixsl:when test="@gratis='y'">
+																					<span class="order2__product_name">
+																						<iaixsl:choose>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																								<iaixsl:attribute name="class">order2__product_name --now</iaixsl:attribute>
+																							</iaixsl:when>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																								<iaixsl:attribute name="class">order2__product_name --later</iaixsl:attribute>
+																							</iaixsl:when>
+																						</iaixsl:choose>
+																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
+																					</span>
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					<a class="order2__product_name --link">
+																						<iaixsl:choose>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																								<iaixsl:attribute name="class">order2__product_name --link --now</iaixsl:attribute>
+																							</iaixsl:when>
+																							<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																								<iaixsl:attribute name="class">order2__product_name --link --later</iaixsl:attribute>
+																							</iaixsl:when>
+																						</iaixsl:choose>
+																						<iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
+																					</a>
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+
+																			<iaixsl:if test="(price/priceformula/parameters) or (not(@size = '') and (@size != 'uniw')) or (version/@name) or (@product_type = 'product_bundle')">
+																				<div class="order2__product_params">
+																					
+																					<iaixsl:if test="price/priceformula/parameters">
+																						<iaixsl:for-each select="price/priceformula/parameters/parameter">
+																							<div class="order2__param --priceformula">
+																								<span class="param__label"><iaixsl:value-of select="name"/>: </span>
+																								<span class="param__value"><iaixsl:value-of select="values/value"/></span>
+																							</div>
+																						</iaixsl:for-each>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="not(@size = '') and (@size != 'uniw')">
+																						<div class="order2__param --size">
+																							<span class="param__label">Rozmiar: </span>
+																							<span class="param__value"><iaixsl:value-of select="@size_desc"/></span>
+																						</div>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="version/@name">
+																						<div class="order2__param --version">
+																							<span class="param__label"><iaixsl:value-of select="version/@name"/>: </span>
+																							<span class="param__value"><iaixsl:value-of select="version/@product_name"/></span>
+																						</div>
+																					</iaixsl:if>
+																					
+																					<iaixsl:if test="@product_type = 'product_bundle'">
+																						<div class="order2__param --bundle">
+																							<span class="param__label">Składowe zestawu:</span>
+																							<div class="param__wrapper">
+																								<iaixsl:for-each select="bundled/product">
+																									<span class="param__value">
+																										<iaixsl:if test="@quantity > 1">
+																											<iaixsl:value-of select="@quantity"/>x 
+																										</iaixsl:if>
+
+																										<iaixsl:value-of select="@name"/>
+
+																										<iaixsl:if test="not(size/@type='uniw') or ((version) and (not(version/@product_name='')))">
+																											(<iaixsl:if test="not(size/@type='uniw')">Rozmiar: <iaixsl:value-of select="size/@description"/></iaixsl:if><iaixsl:if test="not(size/@type='uniw') and ((version) and (not(version/@product_name='')))">, </iaixsl:if><iaixsl:if test="(version) and (not(version/@product_name=''))"><iaixsl:value-of select="version/@name"/>: <iaixsl:value-of select="version/@product_name"/></iaixsl:if>)
+																										</iaixsl:if>
+
+																										<iaixsl:if test="@product_type = 'product_virtual'">
+																											<span class="param__virtual">Produkt wirtualny</span>
+																										</iaixsl:if>
+
+																										<iaixsl:if test="@product_type = 'product_service'">
+																											<span class="param__service">Usługa</span>
+																										</iaixsl:if>
+																									</span>
+																								</iaixsl:for-each>
+																							</div>
+																						</div>
+																					</iaixsl:if>
+																				</div>
+																			</iaixsl:if>
+
+																			<iaixsl:if test="order_files/file">
+																				<div class="order2__product_files">
+																					<strong class="order2__file_label">Dodane przez Ciebie pliki:</strong>
+																					<div class="order2__file_wrapper">
+																						<iaixsl:for-each select="order_files/file">
+																							<a class="order2__file btn --icon-left icon-link" href="#previewFile">
+																							<iaixsl:choose>
+																								<iaixsl:when test="@preview = 'true'">
+																									<iaixsl:attribute name="rel"><iaixsl:value-of select="@path"/></iaixsl:attribute>
+																								</iaixsl:when>
+																								<iaixsl:otherwise>
+																									<iaixsl:attribute name="href"><iaixsl:value-of select="@path"/></iaixsl:attribute>
+																									<iaixsl:attribute name="target">_blank</iaixsl:attribute>
+																								</iaixsl:otherwise>
+																							</iaixsl:choose>
+																							<span><iaixsl:value-of select="@file"/></span>
+																						</a>
+																						</iaixsl:for-each>
+																					</div>
+																				</div>
+																			</iaixsl:if>
+
+																			<iaixsl:if test="comment">
+																				<div class="order2__product_comment">
+																					<strong class="order2__comment_label">Wpisane przez Ciebie uwagi do tego produktu:</strong>
+																					<span class="order2__comment"><iaixsl:value-of select="comment"/></span>
+																				</div>
+																			</iaixsl:if>
+																		</div>
+
+																		<span class="order2__product_item --price">
+																			<iaixsl:if test="@forpoints">
+																				<iaixsl:value-of select="@points_for_one"/> pkt.
+																			</iaixsl:if>
+																			<iaixsl:if test="not(@forpoints)">
+																				<iaixsl:value-of select="@detalprice_formatted"/>
+																			</iaixsl:if>
+																		</span>
+
+																		<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
+																				<span class="order2__product_item --vat">
+																					<span class="order2__product_vat --name">VAT</span>
+																					<span class="order2__product_vat --value"><iaixsl:value-of select="@vat"/>%</span>
+																				</span>
+																		</iaixsl:if>
+
+																		<span class="order2__product_item --quantity"><iaixsl:value-of select="@quantity"/><iaixsl:text disable-output-escaping="yes"> </iaixsl:text><iaixsl:value-of select="@price_unit"/></span>
+
+																		<strong class="order2__product_item --worth">
+																			<iaixsl:choose>
+																				<iaixsl:when test="@gratis='y'">
+																						Gratis!
+																				</iaixsl:when>
+																				<iaixsl:when test="@forpoints">
+																					<iaixsl:value-of select="@points"/>  pkt.
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					<iaixsl:value-of select="@bruttoworth_formatted"/>
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+																		</strong>
+																	</div>
+																</iaixsl:for-each>
+															</div>
+														</iaixsl:if>
+
+														
+														<iaixsl:if test="page/wrappers/wrapper[@selected = 'true']">
+															<div class="order2__products --wrapper mb-5">
+
+																<input type="hidden" name="wrapper_id"><iaixsl:attribute name="value"><iaixsl:value-of select="page/wrappers/wrapper[@selected = 'true']/@id"/></iaixsl:attribute></input>
+
+																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
+																	<strong class="order2__product_item --name">Wybrane opakowanie</strong>
+																	<span class="order2__product_item --worth">Wartość</span>
+																</div>
+
+																<iaixsl:for-each select="page/wrappers/wrapper[@selected = 'true']">
+																	<div class="order2__product --row mb-3 d-flex flex-wrap align-items-center mx-sm-n1">
+
+																		<div class="order2__product_item --name">
+																			<span class="order2__product_name">
+																				<iaixsl:choose>
+																					<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'now'">
+																						<iaixsl:attribute name="class">order2__product_name --now</iaixsl:attribute>
+																					</iaixsl:when>
+																					<iaixsl:when test="/shop/allow_division_order/@turn_on = 'yes' and @division = 'later'">
+																						<iaixsl:attribute name="class">order2__product_name --later</iaixsl:attribute>
+																					</iaixsl:when>
+																				</iaixsl:choose>
+																				<iaixsl:value-of disable-output-escaping="yes" select="name"/>
+																			</span>
+																		</div>
+
+																		<strong class="order2__product_item --worth">
+																			<iaixsl:if test="$signbeforeprice = 'true'">
+																				<iaixsl:value-of select="/shop/currency/@name"/>
+																				<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																			</iaixsl:if>
+																			<iaixsl:value-of select="price/@value"/>
+																			<iaixsl:if test="$signbeforeprice = 'false'">
+																				<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																				<iaixsl:value-of select="/shop/currency/@name"/>
+																			</iaixsl:if>
+																		</strong>
+																	</div>
+																</iaixsl:for-each>
+															</div>
+														</iaixsl:if>
+													</div>
+
+													
+													<iaixsl:if test="/shop/page/order2/orderdetails/@deliveryid !='47-1'">
+														<div class="order2__orderdetails mb-5">
+
+															<div class="order2__orderdetails_headline pb-2 mb-2">
+																<strong class="order2__orderdetails_name">
+																	<iaixsl:choose>
+																		<iaixsl:when test="/shop/page/order2/insurance_product">
+																			Dostawa, płatności i ubezpieczenia
+																		</iaixsl:when>
+																		<iaixsl:otherwise>
+																			Dostawa i płatność
+																		</iaixsl:otherwise>
+																	</iaixsl:choose>
+																</strong>
+															</div>
+
+															<div class="order2__orderdetails_block">
+																
+																<div class="order2__delivery mb-3">
+																	<div class="order2__delivery_item d-flex flex-wrap align-items-end">
+																		<strong class="order2__delivery_text">
+																			<iaixsl:choose>
+																				<iaixsl:when test="not(page/order2/orderdetails/@deliveryname_division)">
+																					Forma dostawy: 
+																				</iaixsl:when>
+																				<iaixsl:otherwise>
+																					Forma dostawy dla produktów dostępnych od ręki: 
+																				</iaixsl:otherwise>
+																			</iaixsl:choose>
+																		</strong>
+
+																		<div class="order2__delivery_wrapper">
+																			<strong class="order2__delivery_name"><iaixsl:value-of select="page/order2/orderdetails/@deliveryname"/></strong>
+
+																			<a class="order2__delivery_link" href="order1.php">Zmień</a>
+																		</div>
+
+																		<strong class="order2__delivery_worth">
+																			<iaixsl:if test="(page/order2/shipping/@cost > 0) or (not(page/order2/orderdetails/@deliverytype = 'dvp' and page/order2/stock/@stock_id)) and not(page/order2/shipping/@hide_cost = 'true')">
+																				<iaixsl:choose>
+																					<iaixsl:when test="page/order2/shipping/@cost_type = 'points'">
+																							<iaixsl:value-of select="page/order2/shipping/@points_cost"/> pkt.
+																					</iaixsl:when>
+																					<iaixsl:when test="page/order2/shipping/@cost = 0">
+																						Gratis!
+																					</iaixsl:when>
+																					<iaixsl:when test="page/order2/shipping/@cost">
+																						<iaixsl:value-of select="page/order2/shipping/@cost_formatted"/>
+																					</iaixsl:when>
+																				</iaixsl:choose>
+																			</iaixsl:if>
+																		</strong>
+
+																		<iaixsl:if test="/shop/page/order2/shipping/comment and /shop/page/order2/shipping/comment != ''">
+																			<div class="order2__delivery_comment"><iaixsl:value-of disable-output-escaping="yes" select="/shop/page/order2/shipping/comment"/></div>
+																		</iaixsl:if>
+																	</div>
+
+																	
+																	<iaixsl:if test="/shop/allow_division_order/@turn_on = 'yes' and /shop/page/order2/orderdetails/@deliveryname_division">
+																		<div class="order2__delivery_item --division d-flex flex-wrap">
+																			<strong class="order2__delivery_text">
+																				Forma dostawy dla produktów z dłuższym czasem oczekiwania: 
+																			</strong>
+
+																			<div class="order2__delivery_wrapper">
+																				<strong class="order2__delivery_name"><iaixsl:value-of select="page/order2/orderdetails/@deliveryname_division"/></strong>
+
+																				<a class="order2__delivery_link" href="order1.php">Zmień</a>
+																			</div>
+
+																			<strong class="order2__delivery_worth">
+																				<iaixsl:if test="(page/order2/shipping_division/@cost > 0) or (not(page/order2/orderdetails/@deliverytype_division = 'dvp' and page/order2/stock/@stock_id)) and not(page/order2/shipping_division/@hide_cost = 'true')">
+																					<iaixsl:choose>
+																						<iaixsl:when test="page/order2/shipping_division/@cost_type = 'points'">
+																								<iaixsl:value-of select="page/order2/shipping_division/@points_cost"/> pkt.
+																						</iaixsl:when>
+																						<iaixsl:when test="page/order2/shipping_division/@cost = 0">
+																							Gratis!
+																						</iaixsl:when>
+																						<iaixsl:when test="page/order2/shipping_division/@cost">
+																							<iaixsl:value-of select="page/order2/shipping_division/@cost_formatted"/>
+																						</iaixsl:when>
+																					</iaixsl:choose>
+																				</iaixsl:if>
+																			</strong>
+
+																			<iaixsl:if test="/shop/page/order2/shipping_division/comment and /shop/page/order2/shipping_division/comment != ''">
+																				<div class="order2__delivery_comment"><iaixsl:value-of disable-output-escaping="yes" select="/shop/page/order2/shipping_division/comment"/></div>
+																			</iaixsl:if>
+																		</div>
+																	</iaixsl:if>
+																</div>
+
+																
+																<div class="order2__payment mb-3">
+																	<iaixsl:if test="not(page/order2/orderdetails/@deliverytype = 'prepaid' and page/order2/orderdetails/@payment_name = '') or (page/order2/orderdetails/@tradeCredit = 'y')">
+																		<div class="order2__payment_item d-flex flex-wrap">
+																			<strong class="order2__payment_text">Forma płatności: </strong>
+
+																			<div class="order2__payment_wrapper">
+																				<strong class="order2__payment_name">
+																					<iaixsl:choose>
+																						<iaixsl:when test="(page/order2/orderdetails/@deliverytype = 'prepaid') and (page/order2/orderdetails/@tradeCredit = 'y')">
+																							kredyt kupiecki
+																						</iaixsl:when>
+																						<iaixsl:when test="page/order2/orderdetails/@deliverytype = 'dvp'">
+																							kredyt kupiecki
+																						</iaixsl:when>
+																						<iaixsl:otherwise>
+																							<iaixsl:value-of select="page/order2/orderdetails/@payment_name"/>
+																						</iaixsl:otherwise>
+																					</iaixsl:choose>
+																				</strong>
+
+																				
+																				<iaixsl:if test="page/order2/instalment">
+																					<a class="order2__payment_instalment"><iaixsl:attribute name="onclick">calculate_instalments('<iaixsl:value-of select="page/order2/instalment/@minprice"/>','<iaixsl:value-of select="page/order2/instalment/@maxprice"/>','<iaixsl:value-of select="page/order2/instalment/@priceTotal"/>','<iaixsl:value-of select="page/order2/instalment/@alert"/>',$(this).attr('rel'),'<iaixsl:value-of select="page/order2/instalment/@maxquantity"/>');</iaixsl:attribute><iaixsl:attribute name="rel"><iaixsl:value-of select="page/order2/instalment/@calculate"/></iaixsl:attribute>oblicz ratę</a>
+																				</iaixsl:if>
+
+																				<iaixsl:if test="not(page/order2/orderdetails/@tradeCredit = 'y')">
+																					<a class="order2__payment_link" href="order1.php">Zmień</a>
+																				</iaixsl:if>
+																			</div>
+
+																			<strong class="order2__payment_worth">
+																				<iaixsl:choose>
+																					<iaixsl:when test="page/order2/orderdetails/voucher/@value">
+																						<iaixsl:if test="$signbeforeprice = 'true'">
+																							<span class="currency_order2"><iaixsl:value-of select="/shop/currency/@name"/></span>
+																							<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																						</iaixsl:if>
+																						<iaixsl:value-of select="page/order2/orderdetails/voucher/@value"/>
+																						<iaixsl:if test="$signbeforeprice = 'false'">
+																							<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																							<span class="currency_order2"><iaixsl:value-of select="/shop/currency/@name"/></span>
+																						</iaixsl:if>
+																					</iaixsl:when>
+																					<iaixsl:when test="page/order2/orderdetails/@paymentcost > 0 and page/order2/shipping/@cost">
+																						<iaixsl:value-of select="page/order2/orderdetails/@paymentcost_formatted"/>
+																					</iaixsl:when>
+																				</iaixsl:choose>
+																			</strong>
+
+																			<div class="order2__payment_comment">
+																				<iaixsl:choose>
+																					<iaixsl:when test="page/order2/orderdetails/voucher/@value and (page/order2/orderdetails/@paymentcost > 0)">
+																						Dodatkowa opłata 
+																						<iaixsl:value-of select="page/order2/orderdetails/@paymentcost_formatted"/>
+																					</iaixsl:when>
+																					<iaixsl:when test="(page/order2/orderdetails/@deliverytype = 'prepaid') and not(page/order2/orderdetails/@tradeCredit = 'y')">
+																						Płatność przed wysyłką
+																					</iaixsl:when>
+																					<iaixsl:when test="page/order2/orderdetails/@deliverytype = 'dvp' and page/order2/stock/@stock_id">
+																						Zapłacisz w naszym punkcie w momencie odbierania zamówienia.
+																					</iaixsl:when>
+																					<iaixsl:when test="page/order2/orderdetails/@deliverytype = 'dvp'">
+																						Zapłacisz odbierając przesyłkę
+																					</iaixsl:when>
+																				</iaixsl:choose>
+																			</div>
+																		</div>
+																	</iaixsl:if>
+
+																	
+																	<iaixsl:if test="/shop/page/order2/balance/@currency_value and /shop/page/order2/balance/@currency_value > 0">
+																		<div class="order2__payment_item d-flex flex-wrap">
+																			<strong class="order2__payment_text">Opłacone z salda (nadpłaty na koncie klienta)</strong>
+
+																			<strong class="order2__payment_worth minus_sign">
+																				<iaixsl:if test="$signbeforeprice = 'true'">
+																					<span class="currency_order2"><iaixsl:value-of select="/shop/currency/@name"/></span>
+																					<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																				</iaixsl:if>
+																				<iaixsl:value-of select="/shop/page/order2/balance/@currency_value"/>
+																				<iaixsl:if test="$signbeforeprice = 'false'">
+																					<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																					<span class="currency_order2"><iaixsl:value-of select="/shop/currency/@name"/></span>
+																				</iaixsl:if>
+																			</strong>
+																		</div>
+																	</iaixsl:if>
+
+																	
+																	<iaixsl:if test="/shop/page/order2/insurance_product">
+																		<div class="order2__payment_item d-flex flex-wrap">
+																			<strong class="order2__payment_text">Ochrona Kupującego: </strong>
+
+																			<div class="order2__payment_wrapper">
+																				<strong class="order2__payment_name"><iaixsl:value-of select="/shop/page/order2/insurance_product/@service"/></strong>
+																			</div>
+
+																			<strong class="order2__payment_worth">
+																				<iaixsl:if test="/shop/page/order2/insurance_product/@price_gross > 0">
+																					<iaixsl:if test="$signbeforeprice = 'true'">
+																						<span class="currency_order2"><iaixsl:value-of select="/shop/currency/@name"/></span>
+																						<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																					</iaixsl:if>
+																					<iaixsl:value-of select="/shop/page/order2/insurance_product/@price_gross"/>
+																					<iaixsl:if test="$signbeforeprice = 'false'">
+																						<iaixsl:value-of select="$signbetweenpricecurrency"/>
+																						<span class="currency_order2"><iaixsl:value-of select="/shop/currency/@name"/></span>
+																					</iaixsl:if>
+																				</iaixsl:if>
+																			</strong>
+
+																			<div class="order2__payment_comment">
+																				<iaixsl:choose>
+																					<iaixsl:when test="/shop/page/order2/insurance_product/@status = 'unconfirmed'">
+																						Status: niepotwierdzone
+																					</iaixsl:when>
+																					<iaixsl:when test="/shop/page/order2/insurance_product/@status = 'confirmed'">
+																						Status: potwierdzone
+																					</iaixsl:when>
+																				</iaixsl:choose>
+																			</div>
+																		</div>
+																	</iaixsl:if>
+																</div>
+															</div>
+														</div>
+													</iaixsl:if>
+
+													<div class="basketedit_summary_right">
+
+															<div class="basketedit_calculations">
+																	<iaixsl:if test="/shop/basket/summary/products_worth/@value_formatted">
+																			<div class="basketedit_product_summary">
+																					<label>
+																							Wartość zamówienia:
+																					</label>
+
+																					<strong>
+																							<iaixsl:value-of select="/shop/basket/summary/products_worth/@value_formatted"/>
+																					</strong>
+																			</div>
+																	</iaixsl:if>
+
+
+																	
+
+
+																	<iaixsl:choose>
+																			<iaixsl:when test="/shop/basket/summary/total_additional_cost_after_rebate/@value">
+																					<iaixsl:if test="/shop/basket/summary/total_additional_cost_after_rebate/@value > 0">
+																							<div class="basketedit_product_summary">
+																									<label>
+																											Dodatkowe opłaty:
+																									</label>
+
+																									<strong class="paymentcost_value">
+																											<iaixsl:attribute name="class">paymentcost_value plus_sign</iaixsl:attribute>
+																											<iaixsl:value-of select="/shop/basket/summary/total_additional_cost_after_rebate/@value_formatted"/>
+																									</strong>
+																							</div>
+																					</iaixsl:if>
+																			</iaixsl:when>
+																			<iaixsl:otherwise>
+																					<iaixsl:if test="/shop/basket/summary/total_additional_cost/@value > 0">
+																							<div class="basketedit_product_summary">
+																									<label>
+																											Dodatkowe opłaty:
+																									</label>
+
+																									<strong class="paymentcost_value">
+																											<iaixsl:attribute name="class">paymentcost_value plus_sign</iaixsl:attribute>
+																											<iaixsl:value-of select="/shop/basket/summary/total_additional_cost/@value_formatted"/>
+																									</strong>
+																							</div>
+																					</iaixsl:if>
+																			</iaixsl:otherwise>
+																	</iaixsl:choose>
+
+
+
+
+
+
+																	
+
+																	<iaixsl:if test="/shop/client_data/client_balance/balance/@is_selected_and_allowed_order='true' and /shop/client_data/client_balance/balance[@is_selected_and_allowed_order='true']/@value != 0">
+																			<div class="basketedit_product_summary">
+																					<label>
+																							Opłacone z salda:<br />(nadpłaty na koncie klienta)
+																					</label>
+
+																					<strong class="saldo_value">
+																							<iaixsl:attribute name="class">saldo_value minus_sign</iaixsl:attribute>
+																							
+																							<iaixsl:value-of select="/shop/page/order2/balance[@active='y']/@currency_value_formatted"/>
+																					</strong>
+																			</div>
+																	</iaixsl:if>
+
+																	<iaixsl:choose>
+																			<iaixsl:when test="/shop/basket/@total_rebate_without_shipping">
+																					<iaixsl:if test="/shop/basket/@total_rebate_without_shipping > 0">
+																							<div class="basketedit_rabats_summary">
+																									<label>
+																											Rabat:
+																									</label>
+
+																									<strong>
+																											<iaixsl:attribute name="class">minus_sign</iaixsl:attribute>
+																											<iaixsl:value-of select="/shop/basket/@total_rebate_without_shipping_formatted"/>
+																									</strong>
+																							</div>
+																					</iaixsl:if>
+																			</iaixsl:when>
+																			<iaixsl:otherwise>
+																					<iaixsl:if test="/shop/basket/summary/total_rebate/@value_formatted">
+																							<div class="basketedit_rabats_summary">
+																									<label>
+																											Rabat:
+																									</label>
+
+																									<strong>
+																											<iaixsl:attribute name="class">minus_sign</iaixsl:attribute>
+																											<iaixsl:value-of select="/shop/basket/summary/total_rebate/@value_formatted"/>
+																									</strong>
+																							</div>
+																					</iaixsl:if>
+																			</iaixsl:otherwise>
+																	</iaixsl:choose>
+
+
+
+															</div>
+
+															<div class="basketedit_total_summary">
+																	<label>
+																			Do zapłaty:
+																	</label>
+																	<iaixsl:choose>
+																			<iaixsl:when test="(/shop/basket/@wholesaler = 'true') and not($wholesalerPrice2)">
+																					<strong>
+																							<iaixsl:value-of select="/shop/basket/summary/total_to_pay/@value_formatted"/>
+																					</strong>
+																			</iaixsl:when>
+																			<iaixsl:otherwise>
+																					<strong>
+																							<iaixsl:value-of select="/shop/basket/summary/total_to_pay/@value_formatted"/>
+																							<iaixsl:if test="not(/shop/client_data/@uses_vat='false') and not(/shop/contact/owner/@vat_registered = 'false')">
+																									 brutto
+																							</iaixsl:if>
+																					</strong>
+																			</iaixsl:otherwise>
+																	</iaixsl:choose>
+																	<iaixsl:if test="(basket/@points_used) and (basket/@points_used != 0)">
+																			<b>
+																					 + 
+																					<span><iaixsl:value-of select="basket/@points_used"/>
+																							 pkt.</span>
+																			</b>
+																	</iaixsl:if>
+															</div>
+
+															<iaixsl:if test="/shop/basket/summary/prepaid_discount/@value_formatted and $txt_68638_rpoz">
+																	<div style="clear:both"/>
+																	<div class="basketedit_product_summary prepaid_discount_wrapper">
+																			<label>
+																					<iaixsl:value-of select="$txt_68638_rpoz"/>
+																					<span id="discount_paiment_name"><iaixsl:value-of select="page/order2/orderdetails/@payment_name"/></span>
+																					 otrzymasz dodatkowy rabat:
+																			</label>
+
+																			<strong class="paymentcost_value">
+																					<iaixsl:attribute name="class">paymentcost_value minus_sign</iaixsl:attribute>
+																					<iaixsl:value-of select="/shop/basket/summary/prepaid_discount/@value_formatted"/>
+																			</strong>
+																	</div>
+															</iaixsl:if>
+
+															
+															<iaixsl:if test="$txt_60826_advance_a and (/shop/page/order2/orderdetails/@advance > 0)">
+																	<div class="basketedit_product_summary advance">
+																			<label>Wymagana zaliczka:</label>
+																			<strong><iaixsl:value-of select="/shop/page/order2/orderdetails/@advance_formatted"/></strong>
+																	</div>
+															</iaixsl:if>
+
+													</div>
+
+													<div class="order2_terms_wrapper">
+
+
+															<div class="order2_terms_wrapper_sub">
+																	<label class="order2_terms_conditions">
+																			<input type="checkbox" name="order2_terms_conditions" value="yes" class="css-checkbox" required="required"/>
+																			<i class="css-label"/>
+																			<span><i class="icon-need"></i>  Akceptuję warunki 
+																					<a target="_blank">
+																							<iaixsl:attribute name="title">Regulamin
+																							</iaixsl:attribute>
+																							<iaixsl:attribute name="href">
+																									<iaixsl:value-of select="/shop/action/terms/@url"/>
+																							</iaixsl:attribute>
+																							regulaminu
+																					</a>
+																			</span>
+																	</label>
+															</div>
+
+															<iaixsl:if test="not($returns_agree_control)">
+																	<div class="order2_terms_wrapper_sub">
+																			<label class="order2_cancel">
+																					<input type="checkbox" name="order2_cancel" value="yes" class="css-checkbox" required="required"/>
+																					<i class="css-label"/>
+																					<span><i class="icon-need"></i>  Zapoznałem się z moim 
+																							<a target="_blank">
+																									<iaixsl:attribute name="title">Odstąpienie od umowy
+																									</iaixsl:attribute>
+																									<iaixsl:attribute name="href">
+																											<iaixsl:value-of select="/shop/action/order_cancel/@url"/>
+																									</iaixsl:attribute>
+																									prawem do odstąpienia od umowy
+																							</a>
+																					</span>
+																			</label>
+																	</div>
+															</iaixsl:if>
+
+															<iaixsl:if test="page/order2/ordersproducts//product[@product_type = 'product_virtual']">
+																	<div class="order2_terms_wrapper_sub virtual">
+																			<label class="order2_virtual">
+																					<input type="checkbox" name="order2_virtual" value="yes" class="css-checkbox" required="required"/>
+																					<i class="css-label"/>
+																					<span><i class="icon-need"></i>  Wyrażam zgodę i proszę zarazem o spełnienie świadczenia przed upływem terminu do odstąpienia od umowy. Jestem świadomy/a, że udzielając niniejszej zgody tracę moje prawo do odstąpienia od umowy wraz z momentem rozpoczęcia świadczenia.</span>
+																			</label>
+																	</div>
+															</iaixsl:if>
+
+															<iaixsl:if test="page/order2/ordersproducts//product[@product_type = 'product_service']">
+																	<div class="order2_terms_wrapper_sub service">
+																			<label class="order2_service">
+																					<input type="checkbox" name="order2_service" value="yes" class="css-checkbox" required="required"/>
+																					<i class="css-label"/>
+																					<span><i class="icon-need"></i>  Wyrażam zgodę i proszę zarazem o rozpoczęcie świadczenia usługi przed upływem terminu do odstąpienia od umowy. Jestem świadomy/a, że w przypadku pełnego wykonania usługi tracę moje prawo do odstąpienia od umowy.</span>
+																			</label>
+																	</div>
+															</iaixsl:if>
+
+															
+													</div>
+
+													<div class="basketedit_summary_buttons table_display">
+
+															<div class="btn_wrapper">
+																	<input class="btn --solid --large order2_button_order terms_required" type="submit">
+
+																			<iaixsl:attribute name="value">Zamawiam z obowiązkiem zapłaty</iaixsl:attribute>
+
+																			<iaixsl:if test="/shop/order_edit/@order_id">
+																					<iaixsl:attribute name="data-change_order">true</iaixsl:attribute>
+
+																					<iaixsl:if test="$order_edit_button">
+																							<iaixsl:attribute name="value"><iaixsl:value-of select="$order_edit_button"/></iaixsl:attribute>
+																					</iaixsl:if>
+
+																			</iaixsl:if>
+																	</input>
+																	<div class="button_legend">
+																			<i class="icon-need"></i> Pola oznaczone gwiazdką są wymagane.
+																	</div>
+
+															</div>
+													</div>
+												</div>
+										</div>
+								</div>
+
+
+
+								<iaixsl:if test="/shop/page/wrappers">
+										<iaixsl:for-each select="/shop/page/wrappers/wrapper">
+												<iaixsl:if test="@selected = 'true'">
+														<input type="hidden" name="wrapper_id"><iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute></input>
+												</iaixsl:if>
+										</iaixsl:for-each>
+								</iaixsl:if>
+
+
+						</form>
+				</div>
+				
                         </div>
                     </iaixsl:if>
                 </div>
@@ -6723,17 +6347,14 @@
                 <iaixsl:choose>
                     <iaixsl:when test="/shop/@preview > 0">
                         <script><iaixsl:attribute name="src">/gfx/<iaixsl:value-of select="language/@id"/>/<iaixsl:value-of select="/shop/@preview"/>/shop.js</iaixsl:attribute></script>
-<script src="/gfx/pol/orderdetails_payments.js.gzip?r=1600678639"></script>
                     </iaixsl:when>
                     <iaixsl:otherwise>
                         <script><iaixsl:attribute name="src">/gfx/<iaixsl:value-of select="language/@id"/>/shop.js.gzip?r=1600678639</iaixsl:attribute></script>
-<script src="/gfx/pol/orderdetails_payments.js.gzip?r=1600678639"></script>
                     </iaixsl:otherwise>
                 </iaixsl:choose>
             </iaixsl:if>
-            <script src="/gfx/pol/prepaid_order_products.js.gzip?r=1600678639"></script>
             <script>
-                app_shop.runApp();
+                  app_shop.runApp();
             </script>
 
  <!-- !CUSTOM SCRIPTS -->
@@ -6750,6 +6371,7 @@
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
  <!-- !CUSTOM SCRIPTS -->
+        
             <iaixsl:if test="/shop/page/seolink_with_language_directory"/>
 
         

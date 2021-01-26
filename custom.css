@@ -4109,11 +4109,13 @@ h3#order2_headline_invoice {
     justify-content: center;
 }
 
+.btn.--solid.--medium:hover:after,
 .btn.--solid.--large:hover::after,
 button.search_buy:hover::after {
     left: 0;
 }
 
+.btn.--solid.--medium:after,
 .btn.--solid.--large::after,
 button.search_buy::after {
     content: '';
@@ -4127,8 +4129,10 @@ button.search_buy::after {
     position: absolute;
     z-index: -1;
     ;
+    border-radius: 24px;
 }
 
+.btn.--solid.--medium:hover,
 button.search_buy:hover {
     background: var(--gradient) !important;
 }
@@ -4138,12 +4142,14 @@ button.search_buy:hover i {
 }
 
 .btn.--solid.--large,
+.btn.--solid.--medium,
 button.search_buy {
     transition: all .5s ease;
     position: relative !important;
     overflow: hidden;
     right: 0 !important;
     z-index: 1;
+    top: 0 !important
 }
 
 textarea.order2_text {
@@ -4158,7 +4164,7 @@ textarea.order2_text:focus {
 @media(min-width:978px) {
 
     #projector_buy_section .projector_butttons_buy {
-        width: 250px;
+        width: 100%;
     }
 }
 
@@ -4318,6 +4324,7 @@ input.orderdetails_radio:checked~label.prepaid_payment_sub {
     justify-content: space-evenly;
     position: absolute;
     top: 0;
+    flex-direction: column;
     left: 0;
 }
 
@@ -4326,13 +4333,390 @@ input.orderdetails_radio:checked~label.prepaid_payment_sub {
 }
 
 #layout .product-custom .product-icon-custom .label_icons img {
+    max-width: 50px;
     min-width: 50px;
     height: auto;
-    margin: 0;
+    margin-top: 1rem;
+    margin-right: 1rem;
 }
 
 .number-custom {
     flex-wrap: wrap;
     align-items: center;
     display: flex;
+}
+
+#layout .product-custom .product-icon-custom .label_icons .label {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.custom-nav .ul-category li.li-depth-2:hover>a {
+    border-left: 4px solid var(--purple-light) !important;
+}
+
+.progress__name::after {
+    height: 3px;
+}
+
+#prepaid_order_products .pink-icon-comment,
+.order2__product_item .icon-comment {
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    margin: 0;
+    padding-right: 4rem;
+}
+
+#prepaid_order_products .pink-icon-comment {
+    padding: 0
+}
+
+#prepaid_order_products .pink-icon-comment::before,
+.order2__product_item .icon-comment::before {
+    min-width: 30px;
+    min-height: 30px;
+    max-height: 30px;
+    max-width: 30px;
+    font-size: 30px;
+
+    margin: 0;
+}
+
+#order2_info_sub2 {
+    order: 3
+}
+
+.order2_page .btn_wrapper {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+form.order2_form div.basketedit_summary_buttons .button_legend {
+    margin-top: .5rem;
+}
+
+#prepaid_order_product .ordered-items-table-th {
+    text-transform: uppercase !important;
+    text-align: left;
+}
+
+.order-3 {
+    order: 3
+}
+
+.order-2 {
+    order: 2
+}
+
+.order-1 {
+    order: 1
+}
+
+.order2_info_label_sub {
+    margin: 0;
+}
+
+.order-details-id {
+    margin-top: .5rem;
+}
+
+@media(max-width:978px) {
+
+    .prepaid_page .progress__item.--first,
+    .prepaid_page .progress__item.--second,
+    .prepaid_page .progress__item.--third {
+        display: none;
+    }
+
+    .progress__item {
+        overflow: hidden;
+    }
+
+    .progress__item .progress__text {
+        overflow: visible;
+    }
+}
+
+.ordered-items-table-th {
+    text-align: left !important;
+    text-transform: uppercase !important;
+}
+
+#prepaid_order_products>table>thead th {
+    vertical-align: middle;
+}
+
+.number-custom>span {
+    margin-right: 1rem;
+}
+
+.label-custom.documents>a {
+    text-transform: none !important;
+}
+
+.prepaid_page #currencytotal_prepaid {
+    font-weight: 600;
+}
+
+.payment_popup_submit_form .form-control.form-control {
+    border-radius: 24px;
+}
+
+.before-rebbate-custom {
+    text-decoration: line-through;
+}
+
+.order2__product_item.--name {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.prepaid_page #prepaid_order_products .pink-icon-comment {
+    display: flex;
+    margin: auto;
+}
+
+.prepaid_page input.selected_group {
+    display: none;
+}
+
+.prepaid_page input.selected_group:checked+label {
+    border-color: var(--purple-light);
+    color: var(--purple-light)
+}
+
+.prepaid_page .form-control.form-control {
+    border-radius: 24px;
+}
+
+.prepaid_page .payments_group_sub_content {
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.prepaid_payment {
+    min-height: 80px;
+}
+
+input.orderdetails_radio:checked~label.prepaid_payment_sub {
+    border-radius: 24px;
+}
+
+.prepaid_page .prepaid_payment_group_name {
+    font-weight: 600;
+}
+
+.label-custom.documents {
+    display: flex;
+    margin: 0;
+}
+
+.prepaid_page .order2_info1 {
+    margin-bottom: 1rem;
+}
+
+h2.label-custom.documents {
+    line-height: 1;
+}
+
+#toggle_documents_button {
+    text-transform: none;
+}
+
+.label-custom.documents .big_label {
+    text-transform: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+h2.label-custom.documents::after {
+    left: 20rem;
+}
+
+div.n57857_label {
+    padding-left: 0;
+}
+
+.n57857_item {
+    padding-left: 0;
+}
+
+@media(max-width:978px) {
+    #layout div.basketedit_summary_right {
+        width: 100%;
+    }
+}
+
+#dialog_wrapper {
+    max-width: 100%;
+    margin: 0 !important;
+    transform: translateX(-50%);
+    width: auto !important;
+}
+
+@media(max-width:978px) {
+    #dialog_wrapper {
+        width: 80% !important;
+    }
+}
+
+.input-btn-wrapper-custom:after {
+    content: '';
+    position: absolute;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    transition: all .2s ease;
+    background: var(--purple-dark);
+}
+
+.input-btn-wrapper-custom {
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--gradient);
+    position: relative;
+}
+
+.input-btn-wrapper-custom:hover:after {
+    left: 0
+}
+
+#layout .basketedit_summary_buttons input {
+    margin: 0;
+    background: transparent;
+}
+
+.order2_page .basketedit_summary_sub .order2__product.--head .order2__product_item.--name {
+    flex-direction: row;
+    align-items: center;
+}
+
+.order2_page .basketedit_summary_sub .order2__product.--head .order2__product_item.--name i {
+    padding: 0;
+    margin-right: 1rem;
+}
+
+.order2_terms_wrapper_sub {
+    transition: all .2s ease
+}
+
+#prepaid_delivery_list td.ordered-price {
+    padding-right: 0;
+}
+
+.orderdetails_summary #go_payment {
+    border: none
+}
+
+@media(max-width:755px) {
+    .prepaid_page .ui-responsive tbody {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        ;
+    }
+
+
+    .prepaid_page .ui-responsive tbody tr {
+        display: grid;
+        width: 100%;
+        grid-template-columns: 1fr 10fr;
+        border-bottom: 1px solid var(--gray-light);
+        padding-bottom: .5rem;
+        margin-bottom: .5rem;
+    }
+
+    .prepaid_page .ui-responsive tbody tr>th {
+        display: flex;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .prepaid_page .ui-responsive tbody tr>th>a img {
+        max-width: 80px;
+    }
+
+    .prepaid_page .ui-responsive tbody tr>th>a {
+        display: flex;
+
+    }
+
+    .prepaid_page .ui-table-reflow td .ui-table-cell-label,
+    .prepaid_page .ui-table-reflow th .ui-table-cell-label {
+        display: none;
+    }
+
+    .prepaid_page .order-vat-custom {
+        display: none;
+    }
+
+    .prepaid_page .ordered-name {
+        padding: 0 !important;
+    }
+
+    .prepaid_page .unit-price-custom {
+        grid-column-start: 2;
+        display: flex;
+        padding-top: 0 !important;
+    }
+
+    .prepaid_page .ordered-price.d-sm-none {
+        display: none;
+    }
+
+    .prepaid_page .ordered-price-custom {
+        margin-left: auto;
+    }
+
+    .prepaid_page .order-vat-custom-mobile {
+        margin-left: 1rem;
+    }
+
+    .prepaid_page #prepaid_order_products table {
+        border: none
+    }
+}
+
+@media(min-width:756px) {
+    .prepaid_page .order-vat-custom-mobile {
+        display: none;
+    }
+}
+
+@media(max-width:978px) {
+    .prepaid_page #orderdetails_prepaid_methods {
+        padding: 0
+    }
+
+    .prepaid_page #orderdetails_summary {
+        padding: 0;
+    }
+}
+
+.projector_product_status_wrapper {
+    line-height: 2;
+}
+
+#projector_details .showWarranty {
+    line-height: 2;
+}
+
+/* ! BUTTONY HEADER */
+
+.komunikat-top {
+    position: relative;
+    min-height: 3rem;
+    height: 3rem;
+    z-index: 101;
+    background: #ddd;
 }

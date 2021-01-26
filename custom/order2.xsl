@@ -3702,7 +3702,7 @@
 																<div class="order2_info_label_sub">
 																		<h3 class="order2_info1" id="order2_nagl_2b">
                                                                                 <i class="icon-address-receive"></i>
-																				Adres dostawy
+																				Adres dostawy:
 																		</h3>
 																		<a class="order2_button_change_address_mobile d-sm-none">
 																				<iaixsl:attribute name="href"><iaixsl:value-of select="page/order2/deliveryaddress/@changelink"/></iaixsl:attribute>
@@ -3842,7 +3842,7 @@
                     </iaixsl:if>
 
 								</div>
-
+                                
 								
 
 								<div class="order2_info">
@@ -4231,7 +4231,10 @@
                                                                    
 																	<strong class="order2__product_item --name">
                                                                      <i class="icon-comment pink-icon-comment"></i>
-                                                                    Zamówione produkty</strong>
+                                                                     <span>
+                                                                    Zamówione produkty
+                                                                     </span>
+                                                                    </strong>
 																	<span class="order2__product_item --price">Cena jedn.</span>
 																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
 																		<span class="order2__product_item --vat">VAT</span>
@@ -4404,8 +4407,10 @@
 																<div class="order2__product --head pb-2 mb-2 d-sm-flex align-items-sm-center mx-sm-n1">
 																	<strong class="order2__product_item --name">
                                                                     <i class="icon-comment pink-icon-comment"></i>
-                                                                    
-                                                                    Zamówione produkty wirtualne</strong>
+                                                                    <span>
+                                                                    Zamówione produkty wirtualne
+                                                                    </span>
+                                                                    </strong>
 																	<span class="order2__product_item --price">Cena jedn.</span>
 																	<iaixsl:if test="not(/shop/contact/owner/@vat_registered = 'false')">
 																		<span class="order2__product_item --vat">VAT</span>
@@ -5476,7 +5481,8 @@
 													<div class="basketedit_summary_buttons table_display">
 
 															<div class="btn_wrapper">
-																	<button class="btn --solid --large order2_button_order terms_required" type="submit">
+                                                                    <div class="input-btn-wrapper-custom">
+																	<input class="btn --solid --large order2_button_order terms_required" type="submit">
 
 																			<iaixsl:attribute name="value">Zamawiam z obowiązkiem zapłaty</iaixsl:attribute>
 
@@ -5488,7 +5494,8 @@
 																					</iaixsl:if>
 
 																			</iaixsl:if>
-																	</button>
+																	</input>
+                                                                    </div>
 																	<div class="button_legend">
 																			<i class="icon-need"></i> Pola oznaczone gwiazdką są wymagane.
 																	</div>

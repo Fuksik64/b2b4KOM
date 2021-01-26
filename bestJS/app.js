@@ -1,9 +1,9 @@
-let link = document.createElement("link");
-link.setAttribute("href", "/data/include/cms/b2b4kom/JS/custom.css");
-link.setAttribute("rel", "stylesheet");
-link.setAttribute("type", "text/css");
+// let link = document.createElement("link");
+// link.setAttribute("href", "/data/include/cms/b2b4kom/JS/custom.css");
+// link.setAttribute("rel", "stylesheet");
+// link.setAttribute("type", "text/css");
 
-document.head.appendChild(link);
+// document.head.appendChild(link);
 window.addEventListener("scroll", backButton);
 
 import createOverlay from "./includes/createOverlay.js";
@@ -97,3 +97,18 @@ function iOS() {
     (navigator.userAgent.includes("Mac") && "ontouchend" in document)
   );
 }
+
+const topHeaderButtonsCount = document.querySelectorAll(".komunikat-top")
+  .length;
+v.header.style.top = topHeaderButtonsCount * 30 + "px";
+
+window.addEventListener("scroll", (e) => {
+  if (
+    window.pageYOffset >= 0 &&
+    window.pageYOffset <= topHeaderButtonsCount * 30
+  ) {
+    v.header.style.top = topHeaderButtonsCount * 30 - window.pageYOffset + "px";
+  } else {
+    v.header.style.top = 0 + "px";
+  }
+});

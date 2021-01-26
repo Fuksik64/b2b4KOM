@@ -271,19 +271,22 @@
                     </div>
             </div>
             <script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
+            <iaixsl:if test="/shop/commercial_button">
+            
+                                <iaixsl:for-each select="/shop/commercial_button/link">
+
+                                    <iaixsl:if test="html/@title='Komunikat'">
+                                    <div class="komunikat-top">
+                                    <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                    </div>
+                                    </iaixsl:if>
+                                </iaixsl:for-each>
+            </iaixsl:if>
             <div id="container">
                 <iaixsl:attribute name="class"><iaixsl:value-of select="page/@type"/>_page <iaixsl:if test="/shop/page/login/@shop_registration = 'true'">registration_page </iaixsl:if>container</iaixsl:attribute>
 
                 <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'head')">
 
-                <iaixsl:if test="/shop/commercial_button">
-                
-                                    <iaixsl:for-each select="/shop/commercial_button/link">
-                                        <iaixsl:if test="html/@title='Komunikat'">
-                                        <iaixsl:value-of select="html" disable-output-escaping="yes" />
-                                        </iaixsl:if>
-                                    </iaixsl:for-each>
-                </iaixsl:if>
 <header>
                         <iaixsl:attribute name="class">d-flex flex-wrap container<iaixsl:if test="count(commercial_banner/link) > 0"> commercial_banner</iaixsl:if></iaixsl:attribute>
                         <!--Javascript (menu_javascript, 107349.1)-->
@@ -505,7 +508,7 @@
                 </iaixsl:if>
                 <div class="logo-text">
                 <!-- <iaixsl:attribute name="class">logo-text</iaixsl:attribute> -->
-                <p>Hurtownia</p>
+                <p>Hurtownia test IAI</p>
                 <p>akcesoriów GSM</p>
                 </div>
                 

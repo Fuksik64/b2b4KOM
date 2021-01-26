@@ -3411,14 +3411,11 @@
                             </label>
                             <div>
                                 
-                                <iaixsl:if test="/shop/page/projector/product/sizes/size/availability/@status_gfx">
 				         <strong class="projector_status_gfx_wrapper">
-                                    <!-- <img id="projector_status_gfx" class="projector_status_gfx" alt="status_icon">
-                                        <iaixsl:attribute name="src"><iaixsl:choose><iaixsl:when test="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_gfx"><iaixsl:value-of select="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_gfx"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="/shop/page/projector/product/sizes/size/availability/@status_gfx"/></iaixsl:otherwise></iaixsl:choose></iaixsl:attribute>
-                                    </img> -->
+                                   
                                     Dostępność: 
     				  </strong>
-                                </iaixsl:if>
+                              
                                 
                                 <iaixsl:if test="$amount_txt and not(/shop/page/projector/product/@product_type = 'product_bundle')">
                                     <span class="projector_amount d-flex" id="projector_amount">
@@ -3426,6 +3423,11 @@
                                         <iaixsl:attribute name="style">
                                         display:none
                                         </iaixsl:attribute></iaixsl:if> -->
+                                        <iaixsl:if test="/shop/page/projector/product/sizes/size/availability/@status_gfx">
+                                        <img id="projector_status_gfx" class="projector_status_gfx" alt="status_icon">
+                                        <iaixsl:attribute name="src"><iaixsl:choose><iaixsl:when test="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_gfx"><iaixsl:value-of select="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_gfx"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="/shop/page/projector/product/sizes/size/availability/@status_gfx"/></iaixsl:otherwise></iaixsl:choose></iaixsl:attribute>
+                                        </img> 
+                                        </iaixsl:if>
                                         <span>
                                             <iaixsl:choose>
                                                 <iaixsl:when test="$fashion_view and not($fashion_view = '0')">

@@ -19686,6 +19686,7 @@ const HotspotSlider = function HotspotSlider(params) {
     // dotsClass: "hotspot__dots",
     arrows: true,
     // dots: true,
+    infinte: false,
     dots: false,
     slidesToShow: 4,
     slidesToScroll: 4,
