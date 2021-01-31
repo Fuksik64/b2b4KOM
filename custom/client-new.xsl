@@ -256,7 +256,7 @@
                     document.getElementsByTagName('body')[0].insertBefore(script, document.getElementsByTagName('body')[0].firstChild);
                 </script>
             </iaixsl:if>
-<div class="loader">
+            <div class="loader">
                     <div class="loader-container">
                         <div class="loader-img">
                                 <img src="/data/gfx/mask/pol/logo_4_big.png" />
@@ -267,8 +267,19 @@
                                 <div></div>
                         </div>
                     </div>
-</div>
-<script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
+            </div>
+            <script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
+            <iaixsl:if test="/shop/commercial_button">
+            
+                                <iaixsl:for-each select="/shop/commercial_button/link">
+
+                                    <iaixsl:if test="html/@title='Komunikat'">
+                                    <div class="komunikat-top">
+                                    <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                    </div>
+                                    </iaixsl:if>
+                                </iaixsl:for-each>
+            </iaixsl:if>
 
             <!--Układ graficzny (layout, 107419.1)-->
             <div id="container">

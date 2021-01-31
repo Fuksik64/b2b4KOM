@@ -269,7 +269,18 @@
                         </div>
                     </div>
             </div>
+            <script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
+            <iaixsl:if test="/shop/commercial_button">
+            
+                                <iaixsl:for-each select="/shop/commercial_button/link">
 
+                                    <iaixsl:if test="html/@title='Komunikat'">
+                                    <div class="komunikat-top">
+                                    <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                    </div>
+                                    </iaixsl:if>
+                                </iaixsl:for-each>
+            </iaixsl:if>
             <script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
             <!--Układ graficzny (layout, 107419.1)-->
             <div id="container">

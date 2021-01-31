@@ -51596,7 +51596,7 @@ header a {
   ;
   transform-origin: left;
   padding-left: .5rem;
-  max-height: 78px;
+  max-height: 71px;
 }
 
 header.isSticky .contact-info-header,
