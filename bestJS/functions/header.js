@@ -55,6 +55,7 @@ function header() {
       wrapCategories();
     },
     resize() {
+      if (window.innerWidth < MOBILE_BREAKPOINT) return;
       STARTING_WIDTH = v.navContainer.clientWidth - 30;
       resetDimensions(v);
       defaultDimensions();
@@ -201,10 +202,8 @@ function enterTwoHeader(e) {
 
   setters.width(v.categoriesWrapperHeader, WIDTH);
   setters.width(nestedUl2, WIDTH_SUB_CATEGORY);
-  setters.heightMultiple(
-    [v.categoriesWrapperHeader, v.ulHeader, nestedUl2, ul2],
-    HEIGHT
-  );
+  setters.heightMultiple([v.categoriesWrapperHeader, v.ulHeader, ul2], HEIGHT);
+  setters.height(nestedUl2, HEIGHT - 2 * REM);
 }
 function leaveTwoHeader(e) {
   const li = e.target.parentElement.parentElement;

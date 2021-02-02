@@ -5,8 +5,8 @@ import variables from "../includes/variables.js";
 import * as scroll from "../includes/scroll.js";
 import * as setters from "../includes/setters.js";
 import calculateHeightOfList from "./mobileIncludes/calculations.js";
-import replaceSearchBar from "../includes/replaceSearchBar.js";
-import reverseSearchBar from "../includes/reverseSearchBar.js";
+// import replaceSearchBar from "../includes/replaceSearchBar.js";
+// import reverseSearchBar from "../includes/reverseSearchBar.js";
 
 const LI_HEIGHT = 26;
 let v = variables();
@@ -35,13 +35,14 @@ function mobile() {
 
       addListeners();
       v.iconInBreadcrumbMobile.style.display = "none";
-      if (window.innerWidth < MOBILE_BREAKPOINT) replaceSearchBar();
+      // if (window.innerWidth < MOBILE_BREAKPOINT) replaceSearchBar();
     },
     resize() {
+      if (window.innerWidth > MOBILE_BREAKPOINT) return;
       hideCategories();
-      window.innerWidth < MOBILE_BREAKPOINT
-        ? replaceSearchBar()
-        : reverseSearchBar();
+      // window.innerWidth < MOBILE_BREAKPOINT
+      //   ? replaceSearchBar()
+      //   : reverseSearchBar();
     },
   };
 }
@@ -212,48 +213,7 @@ function moreItemsScroll(e) {
 function changeScroll() {
   currentHeight < wrapperHeight ? scroll.disable() : scroll.enable();
 }
-// function touchAndWheelMobile(e) {
-//   console.log(e);
-//   if (e.type == "scroll") {
-//     console.log("scroll");
-//   }
-//   if (e.type == "touchmove") {
-//     let currentY = e.touches[0].pageY;
-//     if (currentY > lastY) {
-//       v.body.classList.contains("iOS") ? (delta += 10) : (delta += 25);
-//     } else if (currentY < lastY) {
-//       v.body.classList.contains("iOS") ? (delta -= 10) : (delta -= 25);
-//     }
-//     lastY = currentY;
-//   } else if (e.type == "wheel") {
-//     delta -= parseInt(e.deltaY) / 2;
-//   }
-//   if (delta > 0) delta = 0;
-//   v.categoriesWrapperMobile.classList.add("moreItems");
-//   if (wrapperHeight > currentHeight) {
-//     delta = 0;
-//     v.categoriesWrapperMobile.classList.remove("moreItems");
-//   } else if (-delta + wrapperHeight - 5 * LI_HEIGHT > currentHeight) {
-//     v.categoriesWrapperMobile.classList.remove("moreItems");
-//     if (e.type == "wheel") {
-//       delta += parseInt(e.deltaY) / 2;
-//     } else if (e.type == "touchmove") {
-//       delta += 10;
-//     }
-//   }
 
-//   switch (currentLevel) {
-//     case 0:
-//       setters.setTranslateY(v.ulMobileWrapper, delta);
-//       break;
-//     case 1:
-//       setters.setTranslate(v.ulMobileWrapper, -100, delta, "%", "px");
-//       break;
-//     case 2:
-//       setters.setTranslate(v.ulMobileWrapper, -200, delta, "%", "px");
-//       break;
-//   }
-// }
 function scrollToWrapperTop() {
   v.wrapperMobileDivUl.scrollTo({ top: 0 });
 }

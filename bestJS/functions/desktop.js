@@ -60,6 +60,7 @@ function desktop() {
       }
     },
     resize() {
+      if (window.innerWidth < MOBILE_BREAKPOINT) return;
       v.container.classList.contains("main_page")
         ? (STARTING_WIDTH = v.navContainer.clientWidth - 15)
         : (STARTING_WIDTH = v.navContainer.clientWidth);

@@ -269,17 +269,22 @@
                 </div>
             </div>
             <script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
+            <div id="over_header">
+            <div class="container">
             <iaixsl:if test="/shop/commercial_button">
             
                                 <iaixsl:for-each select="/shop/commercial_button/link">
 
-                                    <iaixsl:if test="html/@title='Komunikat'">
+                                    <iaixsl:if test="(html/@title='Komunikat') or (html/@title='Komunikat1') or (html/@title='Komunikat2') or (html/@title='Komunikat3')">
                                     <div class="komunikat-top">
                                     <iaixsl:value-of select="html" disable-output-escaping="yes" />
                                     </div>
                                     </iaixsl:if>
                                 </iaixsl:for-each>
             </iaixsl:if>
+            </div>
+
+            </div>
             <!--Układ graficzny (layout, 107419.1)-->
             <div id="container">
                 <iaixsl:attribute name="class"><iaixsl:value-of select="page/@type"/>_page <iaixsl:if test="/shop/page/login/@shop_registration = 'true'">registration_page </iaixsl:if>container</iaixsl:attribute>
@@ -482,7 +487,7 @@
 									</iaixsl:for-each>
 								</ul>
                                 </div>
-					</nav>
+				</nav>
 
             <iaixsl:if test="mask/top2/link/image/@src and (mask/top2/link/image/@width>1 or mask/top2/link/image/@height > 1)"><iaixsl:attribute name="data-bg"><iaixsl:value-of select="mask/top2/link/image/@src"/></iaixsl:attribute></iaixsl:if>
             <a>
@@ -526,10 +531,22 @@
 	            <label class="d-md-none"><i class="icon-search"/></label>
 	            
             	<div>
+                <div class="selectDiv">
+                    <select name="menu_alt[1_1]" id="searching_category_select">
+                                        <option value="">Wszystko</option>
+                                        <iaixsl:for-each select="/shop/navigation/item">
+                                            <option>
+                                                <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                <iaixsl:value-of select="@name"/>
+                                            </option>
+                                        </iaixsl:for-each>
+                    </select>
+                </div>
+
 		            <div class="form-group">
 		                <input id="menu_search_text" type="text" name="text">
 			                <iaixsl:attribute name="class">catcomplete</iaixsl:attribute>
-			                <iaixsl:attribute name="placeholder">Wpisz czego szukasz</iaixsl:attribute>
+			                <iaixsl:attribute name="placeholder">Czego szukasz?</iaixsl:attribute>
 		                    
 		                    <iaixsl:if test="/shop/page/search_params/text">
 		                        <iaixsl:attribute name="placeholder"><iaixsl:value-of select="/shop/page/search_params/text/@value"/></iaixsl:attribute>
@@ -1298,10 +1315,7 @@
             </div>
         </nav>
         <iaixsl:if test="/shop/page/navigation/item/@gfx_active_desktop"> </iaixsl:if>
-            <div class="bottom-header-custom">
-            <div class="replaceMe"></div>
-           
-            </div>
+         
 
 </header>
                 </iaixsl:if>
@@ -1812,7 +1826,7 @@
                 </iaixsl:choose>
             </div>
             <div class="setMobileGrid" data-item="#menu_contact"/>
-            <div class="setMobileGrid" data-item="#menu_settings"/>
+            <!-- <div class="setMobileGrid" data-item="#menu_settings"/> -->
             <iaixsl:if test="$SET_filters and not($SET_filters = '')">
                 <div class="setMobileGrid">
                   <iaixsl:attribute name="data-item"><iaixsl:value-of select="$SET_filters"/></iaixsl:attribute>

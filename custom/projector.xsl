@@ -270,17 +270,22 @@
                     </div>
             </div>
             <script src='/data/include/cms/b2b4kom/JS/loader.js'></script>
+            <div id="over_header">
+            <div class="container">
             <iaixsl:if test="/shop/commercial_button">
             
                                 <iaixsl:for-each select="/shop/commercial_button/link">
 
-                                    <iaixsl:if test="html/@title='Komunikat'">
+                                    <iaixsl:if test="(html/@title='Komunikat') or (html/@title='Komunikat1') or (html/@title='Komunikat2') or (html/@title='Komunikat3')">
                                     <div class="komunikat-top">
                                     <iaixsl:value-of select="html" disable-output-escaping="yes" />
                                     </div>
                                     </iaixsl:if>
                                 </iaixsl:for-each>
             </iaixsl:if>
+            </div>
+
+            </div>
             <!--Układ graficzny (layout, 107419.1)-->
             <div id="container">
                 <iaixsl:attribute name="class"><iaixsl:value-of select="page/@type"/>_page <iaixsl:if test="/shop/page/login/@shop_registration = 'true'">registration_page </iaixsl:if>container</iaixsl:attribute>
@@ -482,7 +487,7 @@
 									</iaixsl:for-each>
 								</ul>
                                 </div>
-					</nav>
+				</nav>
 
             <iaixsl:if test="mask/top2/link/image/@src and (mask/top2/link/image/@width>1 or mask/top2/link/image/@height > 1)"><iaixsl:attribute name="data-bg"><iaixsl:value-of select="mask/top2/link/image/@src"/></iaixsl:attribute></iaixsl:if>
             <a>
@@ -526,10 +531,22 @@
 	            <label class="d-md-none"><i class="icon-search"/></label>
 	            
             	<div>
+                <div class="selectDiv">
+                    <select name="menu_alt[1_1]" id="searching_category_select">
+                                        <option value="">Wszystko</option>
+                                        <iaixsl:for-each select="/shop/navigation/item">
+                                            <option>
+                                                <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                <iaixsl:value-of select="@name"/>
+                                            </option>
+                                        </iaixsl:for-each>
+                    </select>
+                </div>
+
 		            <div class="form-group">
 		                <input id="menu_search_text" type="text" name="text">
 			                <iaixsl:attribute name="class">catcomplete</iaixsl:attribute>
-			                <iaixsl:attribute name="placeholder">Wpisz czego szukasz</iaixsl:attribute>
+			                <iaixsl:attribute name="placeholder">Czego szukasz?</iaixsl:attribute>
 		                    
 		                    <iaixsl:if test="/shop/page/search_params/text">
 		                        <iaixsl:attribute name="placeholder"><iaixsl:value-of select="/shop/page/search_params/text/@value"/></iaixsl:attribute>
@@ -1298,10 +1315,7 @@
             </div>
         </nav>
         <iaixsl:if test="/shop/page/navigation/item/@gfx_active_desktop"> </iaixsl:if>
-            <div class="bottom-header-custom">
-            <div class="replaceMe"></div>
-           
-            </div>
+         
 
 </header>
                 </iaixsl:if>
@@ -3412,7 +3426,154 @@
                 <!--!  -->
 
 
-                    <div class="projector_product_status_wrapper">
+
+
+
+                    
+
+                            
+                            <iaixsl:if test="$showComments">
+                                <div class="product_section comment">
+                                    <div class="product_section_sub">
+                                        <label>
+                                            
+                                        </label>
+                                        <div>
+                                            <textarea name="comment" maxlength="255"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </iaixsl:if>
+
+                            
+                            <div class="product_section tell_availability" id="projector_tell_availability">
+                                <iaixsl:if test="not(/shop/page/projector/product/sizes/size[@selected='true']/availability/@status = 'disable')">
+                                    <iaixsl:attribute name="style">display:none</iaixsl:attribute>
+                                </iaixsl:if>
+                                <iaixsl:if test="$fashion_view and not($fashion_view = '0')">
+                                    <iaixsl:attribute name="class">product_section tell_availability col-md-7 col-sm-12 col-xs-12</iaixsl:attribute>
+                                </iaixsl:if>
+                                <label>
+                                    Powiadomienie:
+                                </label>
+                                <div class="product_section_sub">
+                                    <div class="form-group">
+                                        <div class="input-group has-feedback has-required">
+                                            <div class="input-group-addon"><i class="icon-envelope-alt"/></div>
+                                            <input type="text" class="form-control validate" name="email" data-validation-url="/ajax/client-new.php?validAjax=true" data-validation="client_email" required="required" disabled="disabled">
+                                                <iaixsl:attribute name="placeholder">Twój adres e-mail</iaixsl:attribute>
+                                            </input>
+                                            <span class="form-control-feedback"/>
+                                        </div>
+                                    </div>
+                                    <div class="checkbox" style="display:none;" id="sms_active_checkbox">
+                                        <label>
+                                            <input type="checkbox"/>Chcę dodatkowo otrzymać wiadomość SMS z powiadomieniem 
+                                        </label>
+                                    </div>
+                                    <div class="form-group" style="display:none;" id="sms_active_group">
+                                        <div class="input-group has-feedback has-required">
+                                            <div class="input-group-addon"><i class="icon-phone"/></div>
+                                            <input type="text" class="form-control validate" name="phone" data-validation-url="/ajax/client-new.php?validAjax=true" data-validation="client_phone" required="required" disabled="disabled">
+                                                <iaixsl:attribute name="placeholder">Twój numer telefonu</iaixsl:attribute>
+                                            </input>
+                                            <span class="form-control-feedback"/>
+                                        </div>
+                                    </div>
+
+                                    <iaixsl:if test="$projector_form_privacy_info_text1">
+                                        <p class="form-privacy-info"><iaixsl:value-of select="$projector_form_privacy_info_text1"/><a><iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/private_policy/@url"/></iaixsl:attribute>polityką prywatności</a><iaixsl:value-of select="$projector_form_privacy_info_text2"/></p>
+                                    </iaixsl:if>
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn --solid --large">
+                                            Powiadom o dostępności
+                                        </button>
+                                    </div>
+                                    <div class="form-group">
+                                        <p> Powyższe dane nie są używane do przesyłania newsletterów lub innych reklam. Włączając powiadomienie zgadzasz się jedynie na wysłanie jednorazowo informacji o ponownej dostępności tego produktu. </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div id="projector_buy_section" class="product_section">
+                                <label class="projector_label">
+                                    <iaixsl:if test="/shop/page/projector/product/@product_type = 'product_virtual'">
+                                        <iaixsl:attribute name="style">visibility: hidden;</iaixsl:attribute>
+                                    </iaixsl:if>
+                                    <iaixsl:choose>
+                                        <iaixsl:when test="/shop/page/projector/bundled/@collection = 'true' and $dokoszyka_bundle_txt">
+                                            <iaixsl:value-of disable-output-escaping="yes" select="$dokoszyka_bundle_txt"/>
+                                        </iaixsl:when>
+                                        <iaixsl:otherwise>
+                                            Ilość: 
+                                        </iaixsl:otherwise>
+                                    </iaixsl:choose>
+                                </label>
+                                <div class="projector_buttons" id="projector_buttons">
+                                    <iaixsl:if test="not(/shop/page/projector/product/@product_type = 'product_virtual')">
+                                        <div class="projector_number" id="projector_number_cont">
+                                          
+                                            <input class="projector_number" name="number" id="projector_number">
+                                                <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/page/projector/product/sizes/@unit_sellby"/></iaixsl:attribute>
+                                                <iaixsl:if test="page/projector/product/exchange/@exchange_id">
+                                                    <iaixsl:attribute name="disabled">disabled</iaixsl:attribute>
+                                                </iaixsl:if>
+                                            </input>
+                                            <div class="buttons-projector-input">
+                                                <iaixsl:if test="not(page/projector/product/exchange/@exchange_id)">
+                                                    <button id="projector_number_up" class="projector_number_up" type="button">
+                                                        <i class="icon-chevron-up"></i>
+                                                    </button>
+                                                </iaixsl:if>
+                                                <iaixsl:if test="not(page/projector/product/exchange/@exchange_id)">
+                                            
+                                                    <button id="projector_number_down" class="projector_number_down" type="button">
+                                                        <i class="icon-chevron-down"></i>
+                                                    </button>
+                                                </iaixsl:if>
+                                             </div>
+                                        </div>
+                                    </iaixsl:if>
+
+                                    <button class="btn --solid --large projector_butttons_buy" id="projector_button_basket" type="submit">
+                                        
+                                        <iaixsl:attribute name="title">Dodaj produkt do koszyka</iaixsl:attribute>
+                                        <iaixsl:choose>
+                                            <iaixsl:when test="page/projector/product/exchange/@exchange_id">
+                                                Wymień produkt
+                                            </iaixsl:when>
+                                            <iaixsl:when test="/shop/page/projector/bundled/@collection = 'true' and $dokoszykabu_bundle_txt">
+                                                <iaixsl:value-of disable-output-escaping="yes" select="$dokoszykabu_bundle_txt"/>
+                                            </iaixsl:when>
+                                            <iaixsl:otherwise>
+                                            <i class="icon-shopping-cart"></i>
+                                                Dodaj do koszyka
+                                            </iaixsl:otherwise>
+                                        </iaixsl:choose>
+                                    </button>
+
+                                    <a href="#add_favorite" class="projector_buttons_obs" id="projector_button_observe">
+                                    
+                                        <iaixsl:attribute name="title">Dodaj do listy zakupów</iaixsl:attribute>
+                                        <i class="icon-heart"></i>
+                                        Dodaj do listy zakupów
+                                    </a>
+                                    <iaixsl:if test="/shop/compare/@active = 'y'">
+                                        <a class="projector_prodstock_compare">
+                                            <iaixsl:attribute name="href">settings.php?comparers=add&amp;product=<iaixsl:value-of select="page/projector/product/@id"/></iaixsl:attribute>
+                                            <iaixsl:if test="/shop/action/settings/@url">
+                                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/settings/@url"/>?comparers=add&amp;product=<iaixsl:value-of select="page/projector/product/@id"/></iaixsl:attribute>
+                                            </iaixsl:if>
+                                            <iaixsl:attribute name="title">Dodaj do porównania</iaixsl:attribute>
+                                            Dodaj do porównania
+                                        </a>
+                                    </iaixsl:if>
+                                </div>
+                            </div>
+
+                                                <div class="projector_product_status_wrapper">
                         <iaixsl:if test="not(/shop/page/projector/product/sizes/size[@selected='true'])"><iaixsl:attribute name="style">display:none</iaixsl:attribute></iaixsl:if>
                         
                         <div id="projector_status_description_wrapper">
@@ -3657,151 +3818,6 @@
                     <div class="warranty__description col-12 col-md-7 mx-auto"><iaixsl:value-of disable-output-escaping="yes" select="page/projector/product/warranty/text()"/></div>
                 </section>
             </iaixsl:if>
-
-
-                    
-
-                            
-                            <iaixsl:if test="$showComments">
-                                <div class="product_section comment">
-                                    <div class="product_section_sub">
-                                        <label>
-                                            
-                                        </label>
-                                        <div>
-                                            <textarea name="comment" maxlength="255"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </iaixsl:if>
-
-                            
-                            <div class="product_section tell_availability" id="projector_tell_availability">
-                                <iaixsl:if test="not(/shop/page/projector/product/sizes/size[@selected='true']/availability/@status = 'disable')">
-                                    <iaixsl:attribute name="style">display:none</iaixsl:attribute>
-                                </iaixsl:if>
-                                <iaixsl:if test="$fashion_view and not($fashion_view = '0')">
-                                    <iaixsl:attribute name="class">product_section tell_availability col-md-7 col-sm-12 col-xs-12</iaixsl:attribute>
-                                </iaixsl:if>
-                                <label>
-                                    Powiadomienie:
-                                </label>
-                                <div class="product_section_sub">
-                                    <div class="form-group">
-                                        <div class="input-group has-feedback has-required">
-                                            <div class="input-group-addon"><i class="icon-envelope-alt"/></div>
-                                            <input type="text" class="form-control validate" name="email" data-validation-url="/ajax/client-new.php?validAjax=true" data-validation="client_email" required="required" disabled="disabled">
-                                                <iaixsl:attribute name="placeholder">Twój adres e-mail</iaixsl:attribute>
-                                            </input>
-                                            <span class="form-control-feedback"/>
-                                        </div>
-                                    </div>
-                                    <div class="checkbox" style="display:none;" id="sms_active_checkbox">
-                                        <label>
-                                            <input type="checkbox"/>Chcę dodatkowo otrzymać wiadomość SMS z powiadomieniem 
-                                        </label>
-                                    </div>
-                                    <div class="form-group" style="display:none;" id="sms_active_group">
-                                        <div class="input-group has-feedback has-required">
-                                            <div class="input-group-addon"><i class="icon-phone"/></div>
-                                            <input type="text" class="form-control validate" name="phone" data-validation-url="/ajax/client-new.php?validAjax=true" data-validation="client_phone" required="required" disabled="disabled">
-                                                <iaixsl:attribute name="placeholder">Twój numer telefonu</iaixsl:attribute>
-                                            </input>
-                                            <span class="form-control-feedback"/>
-                                        </div>
-                                    </div>
-
-                                    <iaixsl:if test="$projector_form_privacy_info_text1">
-                                        <p class="form-privacy-info"><iaixsl:value-of select="$projector_form_privacy_info_text1"/><a><iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/private_policy/@url"/></iaixsl:attribute>polityką prywatności</a><iaixsl:value-of select="$projector_form_privacy_info_text2"/></p>
-                                    </iaixsl:if>
-
-                                    <div class="form-group">
-                                        <button type="submit" class="btn --solid --large">
-                                            Powiadom o dostępności
-                                        </button>
-                                    </div>
-                                    <div class="form-group">
-                                        <p> Powyższe dane nie są używane do przesyłania newsletterów lub innych reklam. Włączając powiadomienie zgadzasz się jedynie na wysłanie jednorazowo informacji o ponownej dostępności tego produktu. </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                            <div id="projector_buy_section" class="product_section">
-                                <label class="projector_label">
-                                    <iaixsl:if test="/shop/page/projector/product/@product_type = 'product_virtual'">
-                                        <iaixsl:attribute name="style">visibility: hidden;</iaixsl:attribute>
-                                    </iaixsl:if>
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="/shop/page/projector/bundled/@collection = 'true' and $dokoszyka_bundle_txt">
-                                            <iaixsl:value-of disable-output-escaping="yes" select="$dokoszyka_bundle_txt"/>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            Ilość: 
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </label>
-                                <div class="projector_buttons" id="projector_buttons">
-                                    <iaixsl:if test="not(/shop/page/projector/product/@product_type = 'product_virtual')">
-                                        <div class="projector_number" id="projector_number_cont">
-                                          
-                                            <input class="projector_number" name="number" id="projector_number">
-                                                <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/page/projector/product/sizes/@unit_sellby"/></iaixsl:attribute>
-                                                <iaixsl:if test="page/projector/product/exchange/@exchange_id">
-                                                    <iaixsl:attribute name="disabled">disabled</iaixsl:attribute>
-                                                </iaixsl:if>
-                                            </input>
-                                            <div class="buttons-projector-input">
-                                                <iaixsl:if test="not(page/projector/product/exchange/@exchange_id)">
-                                                    <button id="projector_number_up" class="projector_number_up" type="button">
-                                                        <i class="icon-chevron-up"></i>
-                                                    </button>
-                                                </iaixsl:if>
-                                                <iaixsl:if test="not(page/projector/product/exchange/@exchange_id)">
-                                            
-                                                    <button id="projector_number_down" class="projector_number_down" type="button">
-                                                        <i class="icon-chevron-down"></i>
-                                                    </button>
-                                                </iaixsl:if>
-                                             </div>
-                                        </div>
-                                    </iaixsl:if>
-
-                                    <button class="btn --solid --large projector_butttons_buy" id="projector_button_basket" type="submit">
-                                        
-                                        <iaixsl:attribute name="title">Dodaj produkt do koszyka</iaixsl:attribute>
-                                        <iaixsl:choose>
-                                            <iaixsl:when test="page/projector/product/exchange/@exchange_id">
-                                                Wymień produkt
-                                            </iaixsl:when>
-                                            <iaixsl:when test="/shop/page/projector/bundled/@collection = 'true' and $dokoszykabu_bundle_txt">
-                                                <iaixsl:value-of disable-output-escaping="yes" select="$dokoszykabu_bundle_txt"/>
-                                            </iaixsl:when>
-                                            <iaixsl:otherwise>
-                                            <i class="icon-shopping-cart"></i>
-                                                Dodaj do koszyka
-                                            </iaixsl:otherwise>
-                                        </iaixsl:choose>
-                                    </button>
-
-                                    <a href="#add_favorite" class="projector_buttons_obs" id="projector_button_observe">
-                                    
-                                        <iaixsl:attribute name="title">Dodaj do listy zakupów</iaixsl:attribute>
-                                        <i class="icon-heart"></i>
-                                        Dodaj do listy zakupów
-                                    </a>
-                                    <iaixsl:if test="/shop/compare/@active = 'y'">
-                                        <a class="projector_prodstock_compare">
-                                            <iaixsl:attribute name="href">settings.php?comparers=add&amp;product=<iaixsl:value-of select="page/projector/product/@id"/></iaixsl:attribute>
-                                            <iaixsl:if test="/shop/action/settings/@url">
-                                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/settings/@url"/>?comparers=add&amp;product=<iaixsl:value-of select="page/projector/product/@id"/></iaixsl:attribute>
-                                            </iaixsl:if>
-                                            <iaixsl:attribute name="title">Dodaj do porównania</iaixsl:attribute>
-                                            Dodaj do porównania
-                                        </a>
-                                    </iaixsl:if>
-                                </div>
-                            </div>
 
                             
                             <iaixsl:if test="$points_in_prices_section">
@@ -5133,8 +5149,7 @@
 				</section>
 			</iaixsl:if>
 
-			<iaixsl:comment>           
-                <section id="product_askforproduct" class="askforproduct mb-5 col-12">
+                <section id="product_askforproduct" class="askforproduct mb-5 col-12 col-md-6">
                     <iaixsl:if test="count(page/projector/questions/question)">
                         <iaixsl:attribute name="data-questions">true</iaixsl:attribute>
                     </iaixsl:if>
@@ -5148,7 +5163,7 @@
 
                     
                     <iaixsl:if test="$label_askforproduct">
-                        <div class="askforproduct__label headline">
+                        <div class="askforproduct__label headline  big_label custom-label">
                             <span class="askforproduct__label_txt headline__name"><iaixsl:value-of select="$label_askforproduct"/></span>
                         </div>
                     </iaixsl:if>
@@ -5206,19 +5221,17 @@
                         </div>
                     </form>
                 </section>
-            </iaixsl:comment>
 			
 			<iaixsl:if test="/shop/@projector_askforproduct"> </iaixsl:if>
 		<!--Karta towaru - opinie (projector_projector_opinons_form, 111948.1)-->
-            <iaixsl:comment>           
-                <section id="opinions_section" class="row mb-4 mx-0">
+                <section id="opinions_section" class="row mb-4 mx-0 col-12 col-md-6">
 
                     <iaixsl:variable name="count_opinions">3</iaixsl:variable>
                     <iaixsl:variable name="more_opinions">Zobacz więcej</iaixsl:variable>
 
                     <iaixsl:if test="/shop/page/projector/comments/@all > '0'">
                         <div class="col-12">
-                            <h2 class="headline">
+                            <h2 class="headline big_label custom-label">
                                 <span class="headline__name">Opinie o <iaixsl:value-of disable-output-escaping="yes" select="/shop/page/projector/product/name"/></span>
                             </h2>
                         </div>
@@ -5496,7 +5509,8 @@
                                 <iaixsl:attribute name="class">opinions_add_form d-none</iaixsl:attribute>
                             </iaixsl:if>
 
-                            <div class="big_label">
+                            <div class="big_label custom-label">
+                                <span>
                                 <iaixsl:choose>
                                     <iaixsl:when test="(/shop/page/projector/comments/opinionClient/opinion/@stat = 'n')">
                                         Zmień swoją opinię
@@ -5505,6 +5519,8 @@
                                         Napisz swoją opinię
                                     </iaixsl:otherwise>
                                 </iaixsl:choose>
+                                </span>
+
                             </div>
                             <form class="row flex-column align-items-center shop_opinion_form" enctype="multipart/form-data" id="shop_opinion_form" action="/settings.php" method="post">
                                 <input type="hidden" name="product">
@@ -5691,7 +5707,6 @@
                         </div>
                     </iaixsl:if>
                 </section>
-            </iaixsl:comment>
 			<iaixsl:if test="/shop/page/projector/sender/@active='true'">
 				<iaixsl:if test="/shop/page/projector/comments/opinions/opinion/response"/>
 			</iaixsl:if>

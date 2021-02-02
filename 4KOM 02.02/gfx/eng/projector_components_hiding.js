@@ -1,0 +1,6 @@
+
+$(document).on('click','.minified_wrapper .mobile_show_button',function(){var element=$(this);var txt=element.html();var alt_txt=element.attr('data-alt');element.parents('.minified_wrapper').toggleClass('open');element.html(alt_txt);element.attr('data-alt',txt);})
+var elementMinified=function(object,index){if(app_shop.vars.mobileElementHeight){var element=$(object.name);if(!element.length||element.hasClass('minified'))return false;var name=object.name;if(element.height()>app_shop.vars.mobileElementHeight){if(txt_show_button==='')
+element.attr('data-height',element.outerHeight()).addClass('minified').append('<div class="lay_shadow"></div>').after('<div class="mobile_show_wrapper"><a class="btn-small mobile_show_button" data-alt="'+object.btnTextOpen+'">'+object.btnText+'</a></div>');else
+element.attr('data-height',element.outerHeight()).addClass('minified').append('<div class="lay_shadow"></div>').after('<div class="mobile_show_wrapper"><a class="'+txt_show_button+' mobile_show_button" data-alt="'+object.btnTextOpen+'">'+object.btnText+'</a></div>');$(name+','+name+' + .mobile_show_wrapper').wrapAll('<div class="minified_wrapper"></div>');};}}
+app_shop.run(function(){var elementsArray=elementsArrayFunction();elementsArray.forEach(elementMinified);},1,'.projector_page');

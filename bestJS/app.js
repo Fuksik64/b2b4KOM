@@ -34,7 +34,7 @@ const resizer = new ResizeObserver(() => {
   headerController.resize();
   desktopController.resize();
   mobileController.resize();
-
+  setHeaderTop();
   if (window.innerWidth > MOBILE_BREAKPOINT) {
     v.header.classList.remove("stickyMobile");
     if (window.pageYOffset > HEADER_HEIGHT_DEFAULT) {
@@ -54,7 +54,7 @@ const resizer = new ResizeObserver(() => {
     }
   }
 });
-resizer.observe(document.body);
+resizer.observe(document.querySelector("#layout"));
 
 export const scroll = new IntersectionObserver(
   (entries) => {
@@ -98,16 +98,19 @@ function iOS() {
   );
 }
 
-const topHeaderButtonsCount = document.querySelectorAll(".komunikat-top")
-  .length;
-v.header.style.top = topHeaderButtonsCount * 30 + "px";
-
+let overHeaderHeight = document.querySelector("#over_header").offsetHeight;
+function setHeaderTop() {
+  overHeaderHeight = document.querySelector("#over_header").offsetHeight;
+  v.header.style.top = overHeaderHeight + "px";
+  v.container.setAttribute(
+    "style",
+    `padding-top:${v.header.clientHeight + 4}px!important`
+  );
+}
+setHeaderTop();
 window.addEventListener("scroll", (e) => {
-  if (
-    window.pageYOffset >= 0 &&
-    window.pageYOffset <= topHeaderButtonsCount * 30
-  ) {
-    v.header.style.top = topHeaderButtonsCount * 30 - window.pageYOffset + "px";
+  if (window.pageYOffset >= 0 && window.pageYOffset <= overHeaderHeight) {
+    v.header.style.top = overHeaderHeight - window.pageYOffset + "px";
   } else {
     v.header.style.top = 0 + "px";
   }
