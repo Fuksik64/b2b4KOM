@@ -55336,7 +55336,7 @@ header {
 }
 
 #over_header .container {
-  padding-right: 15px;
+  padding: 0 15px;
 }
 
 .banners-featured {
@@ -55459,5 +55459,9 @@ header {
     position: absolute;
     right: 0;
     bottom: 0;
+  }
+
+  #over_header .komunikat-top .button-top-link-wrapper a {
+    min-width: 65px
   }
 }
