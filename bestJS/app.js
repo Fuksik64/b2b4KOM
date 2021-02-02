@@ -61,14 +61,17 @@ export const scroll = new IntersectionObserver(
     if (!entries[0].isIntersecting) {
       if (window.innerWidth < MOBILE_BREAKPOINT) {
         v.header.classList.add("stickyMobile");
+        v.body.classList.add("stickyMobile");
         v.header.classList.remove("isSticky");
         v.body.classList.remove("isSticky");
       } else {
+        v.body.classList.remove("stickyMobile");
         v.header.classList.remove("stickyMobile");
         v.header.classList.add("isSticky");
         v.body.classList.add("isSticky");
       }
     } else {
+      v.body.classList.remove("stickyMobile");
       v.header.classList.remove("stickyMobile");
       v.header.classList.remove("isSticky");
       v.body.classList.remove("isSticky");
@@ -98,20 +101,20 @@ function iOS() {
   );
 }
 
-let overHeaderHeight = document.querySelector("#over_header").offsetHeight;
+const overHeaderHeight = document.querySelector("#over_header");
 function setHeaderTop() {
-  overHeaderHeight = document.querySelector("#over_header").offsetHeight;
-  v.header.style.top = overHeaderHeight + "px";
+  let height = document.querySelector("#over_header").offsetHeight;
+  v.header.style.top = height + "px";
   v.container.setAttribute(
     "style",
-    `padding-top:${v.header.clientHeight + 4}px!important`
+    `padding-top:${v.header.clientHeight + 4 + height}px!important`
   );
 }
 setHeaderTop();
-window.addEventListener("scroll", (e) => {
-  if (window.pageYOffset >= 0 && window.pageYOffset <= overHeaderHeight) {
-    v.header.style.top = overHeaderHeight - window.pageYOffset + "px";
-  } else {
-    v.header.style.top = 0 + "px";
-  }
-});
+// window.addEventListener("scroll", (e) => {
+//   if (window.pageYOffset >= 0 && window.pageYOffset <= overHeaderHeight) {
+//     v.header.style.top = overHeaderHeight - window.pageYOffset + "px";
+//   } else {
+//     v.header.style.top = 0 + "px";
+//   }
+// });
