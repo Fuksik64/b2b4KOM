@@ -5,8 +5,6 @@ import variables from "../includes/variables.js";
 import * as scroll from "../includes/scroll.js";
 import * as setters from "../includes/setters.js";
 import calculateHeightOfList from "./mobileIncludes/calculations.js";
-// import replaceSearchBar from "../includes/replaceSearchBar.js";
-// import reverseSearchBar from "../includes/reverseSearchBar.js";
 
 const LI_HEIGHT = 26;
 let v = variables();
@@ -24,10 +22,7 @@ export const mobileController = mobile();
 function mobile() {
   return {
     init() {
-      if (
-        window.innerWidth <= MOBILE_BREAKPOINT &&
-        window.pageYOffset > HEADER_HEIGHT_DEFAULT
-      ) {
+      if (window.innerWidth <= MOBILE_BREAKPOINT && window.pageYOffset > 100) {
         v.header.classList.add("stickyMobile");
         v.header.classList.remove("isSticky");
         v.body.classList.remove("isSticky");
@@ -35,14 +30,10 @@ function mobile() {
 
       addListeners();
       v.iconInBreadcrumbMobile.style.display = "none";
-      // if (window.innerWidth < MOBILE_BREAKPOINT) replaceSearchBar();
     },
     resize() {
       if (window.innerWidth > MOBILE_BREAKPOINT) return;
       hideCategories();
-      // window.innerWidth < MOBILE_BREAKPOINT
-      //   ? replaceSearchBar()
-      //   : reverseSearchBar();
     },
   };
 }
@@ -198,9 +189,7 @@ function hideCategories() {
   setters.resetTransform(v.categoriesWrapperMobile);
   v.iconSpan.innerHTML = "Kategorie";
   scroll.enable();
-  setTimeout(() => {
-    v.body.classList.remove("mobileCategoriesActive");
-  }, 200);
+  v.body.classList.remove("mobileCategoriesActive");
   hideOverlay();
 }
 

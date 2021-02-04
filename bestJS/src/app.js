@@ -1,9 +1,3 @@
-// let link = document.createElement("link");
-// link.setAttribute("href", "/data/include/cms/b2b4kom/JS/custom.css");
-// link.setAttribute("rel", "stylesheet");
-// link.setAttribute("type", "text/css");
-
-// document.head.appendChild(link);
 window.addEventListener("scroll", backButton);
 
 import createOverlay from "./includes/createOverlay.js";
@@ -12,11 +6,13 @@ import { desktopController } from "./functions/desktop.js";
 import { mobileController } from "./functions/mobile.js";
 import variables from "./includes/variables.js";
 import backButton from "./includes/backButton.js";
+import "./basketDetailsHover.js";
+import "./footerRotateChevron.js";
 
 export const SUB_CATEGORY_MULTIPLIER = 0.75;
 export const MOBILE_BREAKPOINT = 979;
 export const LARGE_BREAKPOINT = 1199;
-export const HEADER_HEIGHT_DEFAULT = 60;
+export const HEADER_HEIGHT_DEFAULT = 80;
 export const REM = parseInt(
   window
     .getComputedStyle(document.body)
@@ -34,10 +30,12 @@ const resizer = new ResizeObserver(() => {
   headerController.resize();
   desktopController.resize();
   mobileController.resize();
-  setHeaderTop();
   if (window.innerWidth > MOBILE_BREAKPOINT) {
     v.header.classList.remove("stickyMobile");
-    if (window.pageYOffset > HEADER_HEIGHT_DEFAULT) {
+    v.body.classList.remove("stickyMobile");
+    setHeaderTop(80);
+
+    if (window.pageYOffset > 80) {
       v.header.classList.add("isSticky");
       v.body.classList.add("isSticky");
     } else {
@@ -47,7 +45,9 @@ const resizer = new ResizeObserver(() => {
   } else {
     v.header.classList.remove("isSticky");
     v.body.classList.remove("isSticky");
-    if (window.scrollY > HEADER_HEIGHT_DEFAULT) {
+    setHeaderTop(100);
+
+    if (window.scrollY > 100) {
       v.header.classList.add("stickyMobile");
     } else {
       v.header.classList.remove("stickyMobile");
@@ -75,10 +75,10 @@ export const scroll = new IntersectionObserver(
       v.header.classList.remove("stickyMobile");
       v.header.classList.remove("isSticky");
       v.body.classList.remove("isSticky");
-      document.body.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      // window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
   },
-  { rootMargin: "-80px 0px 0px 0px" }
+  { rootMargin: "80px 0px 0px 0px" }
 );
 scroll.observe(document.querySelector(".b2b-category"));
 
@@ -101,20 +101,11 @@ function iOS() {
   );
 }
 
-const overHeaderHeight = document.querySelector("#over_header");
-function setHeaderTop() {
-  let height = document.querySelector("#over_header").offsetHeight;
-  v.header.style.top = height + "px";
-  v.container.setAttribute(
-    "style",
-    `padding-top:${v.header.clientHeight + 4 + height}px!important`
-  );
+const height = document.querySelector("#over_header").clientHeight;
+v.header.style.top = height + "px";
+function setHeaderTop(headerHeight) {
+  let calc = height + headerHeight + 4;
+  v.container.setAttribute("style", `padding-top:${calc}px!important`);
 }
-setHeaderTop();
-// window.addEventListener("scroll", (e) => {
-//   if (window.pageYOffset >= 0 && window.pageYOffset <= overHeaderHeight) {
-//     v.header.style.top = overHeaderHeight - window.pageYOffset + "px";
-//   } else {
-//     v.header.style.top = 0 + "px";
-//   }
-// });
+
+window.innerWidth > MOBILE_BREAKPOINT ? setHeaderTop(80) : setHeaderTop(100);

@@ -3573,7 +3573,7 @@
                                 </div>
                             </div>
 
-                                                <div class="projector_product_status_wrapper">
+                                                <div class="projector_product_status_wrapper pt-2">
                         <iaixsl:if test="not(/shop/page/projector/product/sizes/size[@selected='true'])"><iaixsl:attribute name="style">display:none</iaixsl:attribute></iaixsl:if>
                         
                         <div id="projector_status_description_wrapper">
@@ -3583,8 +3583,16 @@
                             </label>
                             <div>
                                 
-				         <strong class="projector_status_gfx_wrapper">
+                                     <img  class="projector-desc-img mr-2" alt="status_icon">
+                                        <iaixsl:attribute name="src">
+                                        <iaixsl:choose>
+                                        <iaixsl:when test="/shop/page/projector/product/sizes/size/availability/@status = 'enable'">/data/include/cms/b2b4kom/B2B-IKONY-SVG/dostepnosc_tak.svg</iaixsl:when>
+                                        <iaixsl:otherwise>/data/include/cms/b2b4kom/B2B-IKONY-SVG/dostepnosc_nie.svg</iaixsl:otherwise>
+                                        </iaixsl:choose>
                                    
+                                        </iaixsl:attribute>
+                                        </img> 
+				         <strong class="projector_status_gfx_wrapper">
                                     Dostępność: 
     				  </strong>
                               
@@ -3596,9 +3604,9 @@
                                         display:none
                                         </iaixsl:attribute></iaixsl:if> -->
                                         <iaixsl:if test="/shop/page/projector/product/sizes/size/availability/@status_gfx">
-                                        <img id="projector_status_gfx" class="projector_status_gfx" alt="status_icon">
+                                        <!-- <img id="projector_status_gfx" class="projector_status_gfx" alt="status_icon">
                                         <iaixsl:attribute name="src"><iaixsl:choose><iaixsl:when test="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_gfx"><iaixsl:value-of select="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_gfx"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="/shop/page/projector/product/sizes/size/availability/@status_gfx"/></iaixsl:otherwise></iaixsl:choose></iaixsl:attribute>
-                                        </img> 
+                                        </img>  -->
                                         </iaixsl:if>
                                         <span>
                                             <iaixsl:choose>
@@ -3618,16 +3626,7 @@
                                     </span>
                                 </iaixsl:if>
                                 
-                                <!-- <span class="projector_status_description" id="projector_status_description">
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_description">
-                                            <iaixsl:value-of select="/shop/page/projector/product/sizes/size[@selected='true']/availability/@status_description"/>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <iaixsl:value-of select="/shop/page/projector/product/sizes/size/availability/@status_description"/>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </span> -->
+          
                             </div>
                         </div>
 
@@ -3652,6 +3651,7 @@
                             <div id="projector_shipping_info">
                                 <iaixsl:if test="not(/shop/page/projector/product/sizes/size[@selected='true'])"><iaixsl:attribute name="style">display:none</iaixsl:attribute></iaixsl:if>
                                 <div>
+                                    <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/wysylka.svg" alt="" class="mr-2 projector-desc-img"/>
                                     <strong>
                                         <iaixsl:choose>
                                             <iaixsl:when test="/shop/page/projector/bundled/@collection = 'true' and $wysylka_bundle_txt">
@@ -3777,7 +3777,10 @@
                                     </span>
                                 </div>
                                 <div class="shipping-custom-info">
-                                <strong>Koszt wysyłki: </strong>
+                                <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/koszt_wysylki.svg" alt="" class="mr-2 projector-desc-img"/>
+                                <strong>
+                                
+                                Koszt wysyłki: </strong>
                                 <a class="shipping_info" href="#shipping_info">
                                     <iaixsl:attribute name="title">Sprawdź czasy i koszty wysyłki</iaixsl:attribute>
                                     sprawdź
@@ -3791,12 +3794,12 @@
             <iaixsl:if test="page/projector/product/warranty and not(page/projector/product/warranty= '')">
             
 
-                    <div class="showWarranty mb-2">
-                        <strong>Gwarancja:</strong>
-                        <span class="warrantyLink">
-                        <iaixsl:value-of disable-output-escaping="yes" select="page/projector/product/warranty/@period"/>
-                         miesięcy
-                        </span>
+                    
+                    <div class="pb-2 shipping-info-projector">
+                        <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/darmowa_dostawa.svg" alt="" class="mr-2 projector-desc-img"/>
+                        <strong>Darmowa wysyłka </strong>
+                        <p> od kwoty 500zł</p>
+
                     </div>
                 <section id="projector_warranty" class="warranty mb-5 col-12 d-none">
                     <iaixsl:attribute name="data-type"><iaixsl:value-of select="page/projector/product/warranty/@type"/></iaixsl:attribute>
@@ -5170,7 +5173,7 @@
 
                     <form action="/settings.php" class="askforproduct__form row flex-column align-items-center" method="post" novalidate="novalidate">
                         
-                        <div class="askforproduct__description col-12 col-sm-7 mb-4">
+                        <div class="askforproduct__description col-12 mb-4">
                             <span class="askforproduct__description_txt">Jeżeli powyższy opis jest dla Ciebie niewystarczający, prześlij nam swoje pytanie odnośnie tego produktu. Postaramy się odpowiedzieć tak szybko jak tylko będzie to możliwe.
                             </span>
                             <span class="askforproduct__privacy"><iaixsl:value-of select="$privacy_text1_askforproduct"/><a><iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/private_policy/@url"/></iaixsl:attribute><iaixsl:value-of select="$privacy_text2_askforproduct"/></a><iaixsl:value-of select="$privacy_text3_askforproduct"/></span>
@@ -5179,8 +5182,18 @@
                         <input type="hidden" name="question_product_id"><iaixsl:attribute name="value"><iaixsl:value-of select="page/projector/product/@id"/></iaixsl:attribute></input>
                         <input type="hidden" name="question_action" value="add"/>
 
-                        <div class="askforproduct__inputs col-12 col-sm-7">
+                        <div class="askforproduct__inputs col-12 row">
                             
+                            <div class="f-group askforproduct__question col-6">
+                                <div class="f-feedback askforproduct__feedback --question">
+                                    <textarea id="askforproduct__question_input" rows="6" cols="52" type="question" class="f-control --validate" name="product_question" minlength="3" required="required"/>
+                                    <label for="askforproduct__question_input" class="f-label">
+                                        Pytanie
+                                    </label>
+                                    <span class="f-control-feedback"/>
+                                </div>
+                            </div>
+                            <div class="col-6">
                             <div class="f-group askforproduct__email">
                                 <div class="f-feedback askforproduct__feedback --email">
                                     <input id="askforproduct__email_input" type="email" class="f-control --validate" name="question_email" required="required">
@@ -5195,21 +5208,7 @@
                                     <span class="f-control-feedback"/>
                                 </div>
                             </div>
-
-                            
-                            <div class="f-group askforproduct__question">
-                                <div class="f-feedback askforproduct__feedback --question">
-                                    <textarea id="askforproduct__question_input" rows="6" cols="52" type="question" class="f-control --validate" name="product_question" minlength="3" required="required"/>
-                                    <label for="askforproduct__question_input" class="f-label">
-                                        Pytanie
-                                    </label>
-                                    <span class="f-control-feedback"/>
-                                </div>
-                            </div>
-                        </div>
-
-                        
-                        <div class="askforproduct__submit  col-12 col-sm-7">
+                            <div class="askforproduct__submit col-12 px-0">
                             <button class="btn --solid --medium px-5 mb-2 askforproduct__button">
                                 Wyślij
                             </button>
@@ -5218,7 +5217,14 @@
                                     <iaixsl:value-of select="$button_legend_askforproduct"/>
                                 </div>
                             </iaixsl:if>
+                            </div>
+                            </div>
+
+                            
                         </div>
+
+                        
+                        
                     </form>
                 </section>
 			
@@ -5236,7 +5242,7 @@
                             </h2>
                         </div>
 
-                        <div class="average_opinions_container col-12 col-md-4 col-lg-3 mb-4">
+                        <div class="average_opinions_container col-12">
                             <div class="row">
                                 <div class="col-12 col-sm-6 col-md-12">
                                     <div class="average_opinions_box">
@@ -5383,7 +5389,7 @@
                         </div>
 
                         
-                        <div class="opinions_list col-12 col-md-8 ml-md-auto">
+                        <div class="opinions_list col-12 ml-md-auto">
                             <div class="row">
                                 <iaixsl:for-each select="/shop/page/projector/comments/opinions/opinion">
                                     <div class="col-12">
@@ -5528,7 +5534,122 @@
                                 </input>
 
                                 
-                                <div class="shop_opinions_notes col-12 col-sm-6">
+                                
+
+                                
+                                
+                                <div class="row">
+                                <iaixsl:if test="(page/projector/comments/opinionClient/image/@enabled='true')">
+                                    <div class="opinion_add_photos col-6">
+                                        <div class="opinion_add_photos_wrapper d-flex align-items-center">
+                                            <span class="opinion_add_photos_text">
+                                                <i class="icon-file-image"></i>  Dodaj własne zdjęcie produktu:
+                                            </span>
+                                            <input class="opinion_add_photo" type="file" name="opinion_photo">
+                                                <iaixsl:if test="/shop/form_data/upload_file/max_filesize/@bytes">
+                                                    <iaixsl:attribute name="data-max_filesize"><iaixsl:value-of select="/shop/form_data/upload_file/max_filesize/@bytes"/></iaixsl:attribute>
+                                                </iaixsl:if>
+                                            </input>
+
+                                            
+                                            <iaixsl:if test="/shop/page/projector/comments/opinionClient/image/@points">
+                                                <strong class="opinions_points">
+                                                    <iaixsl:text>+ </iaixsl:text>
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="substring-after(/shop/page/projector/comments/opinionClient/image/@points, '.') = '00'">
+                                                            <iaixsl:value-of select="substring-before(/shop/page/projector/comments/opinionClient/image/@points, '.')"/>
+                                                        </iaixsl:when>
+                                                        <iaixsl:otherwise>
+                                                            <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/image/@points"/>
+                                                        </iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                    pkt.
+                                                </strong>
+                                            </iaixsl:if>
+                                        </div>
+                                        <iaixsl:if test="/shop/page/projector/comments/opinionClient/image/@points">
+                                            <div class="opinions_points_picture">
+                                                Dodaj zrobione przez siebie zdjęcie tego produktu <br/> i zdobądź dodatkowe
+                                                <strong>
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="substring-after(/shop/page/projector/comments/opinionClient/image/@points, '.') = '00'">
+                                                            <iaixsl:value-of select="substring-before(/shop/page/projector/comments/opinionClient/image/@points, '.')"/>
+                                                        </iaixsl:when>
+                                                        <iaixsl:otherwise>
+                                                            <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/image/@points"/>
+                                                        </iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                    pkt.
+                                                </strong>
+                                                w naszym programie lojalnościowym.
+                                            </div>
+                                        </iaixsl:if>
+                                    </div>
+                                </iaixsl:if>
+
+                                <div class="col-6">
+                                <iaixsl:if test="/shop/page/projector/sender/@opinion_unregistered = 'true'">
+                                    <div class="form-group  ">
+                                        <div class="has-feedback has-required">
+                                            <input id="addopinion_name" class="form-control" type="text" name="addopinion_name" value="">
+                                                <iaixsl:attribute name="required">required</iaixsl:attribute>
+                                            </input>
+                                            <label for="addopinion_name" class="control-label">
+                                                Twoje imię
+                                            </label>
+                                            <span class="form-control-feedback"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group  ">
+                                        <div class="has-feedback has-required">
+                                            <input id="addopinion_email" class="form-control" type="email" name="addopinion_email" value="">
+                                                <iaixsl:attribute name="required">required</iaixsl:attribute>
+                                            </input>
+                                            <label for="addopinion_email" class="control-label">
+                                                Twój email
+                                            </label>
+                                            <span class="form-control-feedback"/>
+                                        </div>
+                                    </div>
+                                </iaixsl:if>
+                                </div>
+
+                                </div>
+
+                                <div class="form-group col-12 px-0">
+                                    <div class="has-feedback">
+                                        <textarea id="addopp" class="form-control" name="opinion">
+                                            <iaixsl:if test="/shop/page/projector/comments/opinionClient/opinion and not(/shop/page/projector/comments/opinionClient/opinion = '')">
+                                                <iaixsl:attribute name="class">form-control focused</iaixsl:attribute>
+                                            </iaixsl:if>
+                                            <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/opinion"/>
+                                        </textarea>
+                                        <label for="opinion" class="control-label">
+                                            Treść twojej opinii
+                                        </label>
+                                        <span class="form-control-feedback"/>
+
+                                        
+                                        <iaixsl:if test="/shop/page/projector/comments/opinionClient/opinion/@points">
+                                            <strong class="opinions_points">
+                                                <iaixsl:text>+ </iaixsl:text>
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="substring-after(/shop/page/projector/comments/opinionClient/opinion/@points, '.') = '00'">
+                                                        <iaixsl:value-of select="substring-before(/shop/page/projector/comments/opinionClient/opinion/@points, '.')"/>
+                                                    </iaixsl:when>
+                                                    <iaixsl:otherwise>
+                                                        <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/opinion/@points"/>
+                                                    </iaixsl:otherwise>
+                                                </iaixsl:choose>
+                                                pkt.
+                                            </strong>
+                                        </iaixsl:if>
+                                    </div>
+                                </div>
+
+
+                                <div class="shop_opinions_button col-12 row">
+                                    <div class="shop_opinions_notes col-6">
                                     <div class="shop_opinions_name">
                                         Twoja ocena:
                                     </div>
@@ -5582,114 +5703,8 @@
                                     </div>
                                 </div>
 
-                                
-                                <div class="form-group col-12 col-sm-7">
-                                    <div class="has-feedback">
-                                        <textarea id="addopp" class="form-control" name="opinion">
-                                            <iaixsl:if test="/shop/page/projector/comments/opinionClient/opinion and not(/shop/page/projector/comments/opinionClient/opinion = '')">
-                                                <iaixsl:attribute name="class">form-control focused</iaixsl:attribute>
-                                            </iaixsl:if>
-                                            <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/opinion"/>
-                                        </textarea>
-                                        <label for="opinion" class="control-label">
-                                            Treść twojej opinii
-                                        </label>
-                                        <span class="form-control-feedback"/>
 
-                                        
-                                        <iaixsl:if test="/shop/page/projector/comments/opinionClient/opinion/@points">
-                                            <strong class="opinions_points">
-                                                <iaixsl:text>+ </iaixsl:text>
-                                                <iaixsl:choose>
-                                                    <iaixsl:when test="substring-after(/shop/page/projector/comments/opinionClient/opinion/@points, '.') = '00'">
-                                                        <iaixsl:value-of select="substring-before(/shop/page/projector/comments/opinionClient/opinion/@points, '.')"/>
-                                                    </iaixsl:when>
-                                                    <iaixsl:otherwise>
-                                                        <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/opinion/@points"/>
-                                                    </iaixsl:otherwise>
-                                                </iaixsl:choose>
-                                                pkt.
-                                            </strong>
-                                        </iaixsl:if>
-                                    </div>
-                                </div>
-
-                                
-                                <iaixsl:if test="(page/projector/comments/opinionClient/image/@enabled='true')">
-                                    <div class="opinion_add_photos col-12 col-sm-7">
-                                        <div class="opinion_add_photos_wrapper d-flex align-items-center">
-                                            <span class="opinion_add_photos_text">
-                                                <i class="icon-file-image"></i>  Dodaj własne zdjęcie produktu:
-                                            </span>
-                                            <input class="opinion_add_photo" type="file" name="opinion_photo">
-                                                <iaixsl:if test="/shop/form_data/upload_file/max_filesize/@bytes">
-                                                    <iaixsl:attribute name="data-max_filesize"><iaixsl:value-of select="/shop/form_data/upload_file/max_filesize/@bytes"/></iaixsl:attribute>
-                                                </iaixsl:if>
-                                            </input>
-
-                                            
-                                            <iaixsl:if test="/shop/page/projector/comments/opinionClient/image/@points">
-                                                <strong class="opinions_points">
-                                                    <iaixsl:text>+ </iaixsl:text>
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="substring-after(/shop/page/projector/comments/opinionClient/image/@points, '.') = '00'">
-                                                            <iaixsl:value-of select="substring-before(/shop/page/projector/comments/opinionClient/image/@points, '.')"/>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/image/@points"/>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                    pkt.
-                                                </strong>
-                                            </iaixsl:if>
-                                        </div>
-                                        <iaixsl:if test="/shop/page/projector/comments/opinionClient/image/@points">
-                                            <div class="opinions_points_picture">
-                                                Dodaj zrobione przez siebie zdjęcie tego produktu <br/> i zdobądź dodatkowe
-                                                <strong>
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="substring-after(/shop/page/projector/comments/opinionClient/image/@points, '.') = '00'">
-                                                            <iaixsl:value-of select="substring-before(/shop/page/projector/comments/opinionClient/image/@points, '.')"/>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:value-of select="/shop/page/projector/comments/opinionClient/image/@points"/>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                    pkt.
-                                                </strong>
-                                                w naszym programie lojalnościowym.
-                                            </div>
-                                        </iaixsl:if>
-                                    </div>
-                                </iaixsl:if>
-
-                                
-                                <iaixsl:if test="/shop/page/projector/sender/@opinion_unregistered = 'true'">
-                                    <div class="form-group col-12 col-sm-7">
-                                        <div class="has-feedback has-required">
-                                            <input id="addopinion_name" class="form-control" type="text" name="addopinion_name" value="">
-                                                <iaixsl:attribute name="required">required</iaixsl:attribute>
-                                            </input>
-                                            <label for="addopinion_name" class="control-label">
-                                                Twoje imię
-                                            </label>
-                                            <span class="form-control-feedback"/>
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-12 col-sm-7">
-                                        <div class="has-feedback has-required">
-                                            <input id="addopinion_email" class="form-control" type="email" name="addopinion_email" value="">
-                                                <iaixsl:attribute name="required">required</iaixsl:attribute>
-                                            </input>
-                                            <label for="addopinion_email" class="control-label">
-                                                Twój email
-                                            </label>
-                                            <span class="form-control-feedback"/>
-                                        </div>
-                                    </div>
-                                </iaixsl:if>
-                                <div class="shop_opinions_button col-12">
-                                    <button type="submit" class="btn --solid --medium opinions-shop_opinions_button px-5">
+                                    <button type="submit" class="btn --solid --medium opinions-shop_opinions_button px-5 col-6">
                                         <iaixsl:choose>
                                             <iaixsl:when test="/shop/page/projector/comments/opinionClient/opinion and not(/shop/page/projector/comments/opinionClient/opinion = '')">
                                                 <iaixsl:attribute name="title">Zmień swoją opinię</iaixsl:attribute>
@@ -5703,6 +5718,7 @@
                                         </iaixsl:choose>
                                     </button>
                                 </div>
+                                
                             </form>
                         </div>
                     </iaixsl:if>
@@ -6614,32 +6630,38 @@
                             <div class="bottom-newsletter">
                                 
                                 <iaixsl:if test="not($hideFirstname)">
-                                    <div class=" has-feedback">              
-                                            <input class="form-control validate" name="mailing_name" type="text" minlength="3" required="required">
+                                    <div class=" has-feedback newsletter-input-text">
+                                            <input class="form-control validate" name="mailing_name" type="text"  required="required">
                                                 <iaixsl:choose>
                                                     <iaixsl:when test="/shop/client_data/@mailing = '1'">
                                                         <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/client_data/@firstname"/></iaixsl:attribute>                         
                                                     </iaixsl:when>
                                                     <iaixsl:otherwise>
-                                                        <iaixsl:attribute name="placeholder">Twoje imię</iaixsl:attribute>
+                                                        <!-- <iaixsl:attribute name="placeholder">Twoje imię</iaixsl:attribute> -->
                                                     </iaixsl:otherwise>
                                                 </iaixsl:choose> 
                                             </input>
+                                    <label>
+                                    Twoje imię
+                                    </label>              
                                             <span class="form-control-feedback"/>
                                     </div>
                                 </iaixsl:if>
 
-                                <div class=" has-feedback">
+                                <div class=" has-feedback newsletter-input-text">
                                         <input class="form-control validate" name="mailing_emaail" type="text" required="required" data-validate="email">                            
                                             <iaixsl:choose>
                                                 <iaixsl:when test="/shop/client_data/@mailing = '1'">
                                                     <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/client_data/@email"/></iaixsl:attribute>
                                                 </iaixsl:when>
                                                 <iaixsl:otherwise>
-                                                    <iaixsl:attribute name="placeholder">E-mail</iaixsl:attribute>
+                                                    <!-- <iaixsl:attribute name="placeholder">E-mail</iaixsl:attribute> -->
                                                 </iaixsl:otherwise>       
                                             </iaixsl:choose> 
                                         </input>
+                                    <label>
+                                    E-mail
+                                    </label>  
                                         <span class="form-control-feedback"/>
                                 </div>
                                 
@@ -6669,7 +6691,7 @@
                     
                     <iaixsl:if test="/shop/@menu_newsletter"></iaixsl:if>
                     <iaixsl:if test="/shop/@menu_newsletter_remove"></iaixsl:if>
-                    <!-- NEWSLETTER -->
+            <!-- NEWSLETTER -->
 
                      
                     <!--Buttony reklamowe (menu_buttons, 112160.1)-->
@@ -7679,19 +7701,11 @@
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-            <script src="/data/include/cms/b2b4kom/JS/basketDetailsHover.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
-            
             <script src="/data/include/cms/b2b4kom/JS/projector/projectorSliders.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-            <script src="/data/include/cms/b2b4kom/JS/footerRotateChevron.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
+
           
 <!-- !CUSTOM SCRIPT -->
 

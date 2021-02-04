@@ -5468,32 +5468,38 @@
                             <div class="bottom-newsletter">
                                 
                                 <iaixsl:if test="not($hideFirstname)">
-                                    <div class=" has-feedback">              
-                                            <input class="form-control validate" name="mailing_name" type="text" minlength="3" required="required">
+                                    <div class=" has-feedback newsletter-input-text">
+                                            <input class="form-control validate" name="mailing_name" type="text"  required="required">
                                                 <iaixsl:choose>
                                                     <iaixsl:when test="/shop/client_data/@mailing = '1'">
                                                         <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/client_data/@firstname"/></iaixsl:attribute>                         
                                                     </iaixsl:when>
                                                     <iaixsl:otherwise>
-                                                        <iaixsl:attribute name="placeholder">Twoje imię</iaixsl:attribute>
+                                                        <!-- <iaixsl:attribute name="placeholder">Twoje imię</iaixsl:attribute> -->
                                                     </iaixsl:otherwise>
                                                 </iaixsl:choose> 
                                             </input>
+                                    <label>
+                                    Twoje imię
+                                    </label>              
                                             <span class="form-control-feedback"/>
                                     </div>
                                 </iaixsl:if>
 
-                                <div class=" has-feedback">
+                                <div class=" has-feedback newsletter-input-text">
                                         <input class="form-control validate" name="mailing_emaail" type="text" required="required" data-validate="email">                            
                                             <iaixsl:choose>
                                                 <iaixsl:when test="/shop/client_data/@mailing = '1'">
                                                     <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/client_data/@email"/></iaixsl:attribute>
                                                 </iaixsl:when>
                                                 <iaixsl:otherwise>
-                                                    <iaixsl:attribute name="placeholder">E-mail</iaixsl:attribute>
+                                                    <!-- <iaixsl:attribute name="placeholder">E-mail</iaixsl:attribute> -->
                                                 </iaixsl:otherwise>       
                                             </iaixsl:choose> 
                                         </input>
+                                    <label>
+                                    E-mail
+                                    </label>  
                                         <span class="form-control-feedback"/>
                                 </div>
                                 
@@ -5523,7 +5529,7 @@
                     
                     <iaixsl:if test="/shop/@menu_newsletter"></iaixsl:if>
                     <iaixsl:if test="/shop/@menu_newsletter_remove"></iaixsl:if>
-                    <!-- NEWSLETTER -->
+            <!-- NEWSLETTER -->
 
                      
                     <!--Buttony reklamowe (menu_buttons, 112160.1)-->
@@ -6524,14 +6530,7 @@
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
-            <script src="/data/include/cms/b2b4kom/JS/basketDetailsHover.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
-            <script src="/data/include/cms/b2b4kom/JS/footerRotateChevron.js" >
-                <iaixsl:attribute name="defer"></iaixsl:attribute>
-                <iaixsl:attribute name="type">module</iaixsl:attribute>
-            </script>
+
  <!-- !CUSTOM SCRIPTS -->
             <iaixsl:if test="/shop/page/seolink_with_language_directory"/>
 
