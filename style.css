@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-@import url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 :root {
   --purple-light: #a82eb4;
@@ -18,11 +17,6 @@
 html,
 body {
   height: 100%;
-}
-
-@font-face {
-  font-family: 'Barlow';
-  src: url("https://fonts.googleapis.com/css2?family=Barlow:wght@100;200;300;400;500;600;700;800;900&display=swap");
 }
 
 * {
@@ -7861,8 +7855,7 @@ body#trusted_shops_fix div[id*="tscard"] {
 
 @font-face {
   font-family: 'FontAwesome';
-  src: url("http://b2b4kom.iai-shop.com/gfx/pol/fontello.eot");
-  src: url("http://b2b4kom.iai-shop.com/gfx/pol/fontello.eot#iefix") format("embedded-opentype"), url("http://b2b4kom.iai-shop.com/gfx/pol/fontello.woff") format("woff"), url("http://b2b4kom.iai-shop.com/gfx/pol/fontello.ttf") format("truetype"), url("http://b2b4kom.iai-shop.com/gfx/pol/fontello.svg#fontello") format("svg");
+  src: url("http://b2b4kom.iai-shop.com/gfx/pol/fontello.woff") format("woff");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -20328,16 +20321,14 @@ input.ui-autocomplete-loading {
 
 @media (max-width: 980px) {
   ._mobile:not(.sidebar_open) .ui-autocomplete {
-    top: 61px !important;
-    height: calc(100vh - 60px);
+    height: auto;
+    overflow: scroll;
+    max-height: 80vh;
+
   }
 
   .ui-autocomplete {
-    width: 100% !important;
-    position: fixed !important;
-    left: 0 !important;
     z-index: 900 !important;
-    overflow-y: auto;
   }
 }
 
@@ -55651,4 +55642,48 @@ header.stickyMobile #menu_search {
 
 .shipping-info-projector strong {
   margin-right: .5rem;
+}
+
+._mobile #dialog_wrapper {
+  width: 90% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+
+.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all {
+  top: 100% !important;
+  margin: 0 !important;
+  position: absolute !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
+.menuitem_product {
+  width: 100% !important;
+  background: none !important;
+  border: 2px solid transparent !important;
+}
+
+.menuitem_category {
+  width: 100% !important;
+  background: none !important;
+  border: none !important;
+}
+
+@media(max-width:978px) {
+  .ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all {
+    border: 1px solid var(--gray-light);
+    max-height: 80vh !important;
+    height: auto !important;
+  }
+}
+
+.ui-autocomplete .menuitem_product.ui-state-hover,
+.ui-autocomplete .menuitem_product:hover {
+  border: 2px solid var(--purple-light) !important
+}
+
+body.stickyMobile .ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all {
+  display: none !important
 }

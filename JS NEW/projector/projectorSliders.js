@@ -32,14 +32,14 @@ function projectorSliders() {
           {
             breakpoint: 1199,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: howManySlides > 3 ? 3 : howManySlides,
               slidesToScroll: 1,
             },
           },
           {
             breakpoint: 585,
             settings: {
-              slidesToShow: 3,
+              slidesToShow: howManySlides > 3 ? 3 : howManySlides,
               slidesToScroll: 1,
             },
           },

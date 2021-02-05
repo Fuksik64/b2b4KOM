@@ -11432,7 +11432,7 @@ jQuery.cookie = function (key, value, options) {
   var requestIndex = 0;
   $.widget("ui.autocomplete", {
     options: {
-      appendTo: "body",
+      appendTo: document.querySelector("#menu_search"),
       autoFocus: false,
       delay: 300,
       minLength: 1,
@@ -11659,6 +11659,7 @@ jQuery.cookie = function (key, value, options) {
       }
     },
     search: function (value, event) {
+      document.body.classList.add("search_opened");
       value = value != null ? value : this.element.val();
       this.term = this.element.val();
       if (value.length < this.options.minLength) {
@@ -11689,6 +11690,7 @@ jQuery.cookie = function (key, value, options) {
       }
     },
     close: function (event) {
+      document.body.classList.remove("search_opened");
       clearTimeout(this.closing);
       if (this.menu.element.is(":visible")) {
         this.menu.element.hide();

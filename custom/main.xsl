@@ -38,6 +38,18 @@
                     <iaixsl:if test="$meta_variable_emulate_ie">
                         <meta http-equiv="X-UA-Compatible"><iaixsl:attribute name="content"><iaixsl:value-of select="$meta_variable_emulate_ie"/></iaixsl:attribute></meta>
                     </iaixsl:if>
+
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link rel="preload" as="style">
+                    <iaixsl:attribute name="href">/gfx/<iaixsl:value-of select="language/@id"/>/style.css.gzip?r=605202273</iaixsl:attribute>
+                    </link>
+                    <link rel="preload" as="font" type="font/woff2" crossorigin="anonymous"  >
+                    <iaixsl:attribute name="href">/gfx/<iaixsl:value-of select="language/@id"/>/fontello.woff</iaixsl:attribute>
+                    </link>
+                    <link rel="preload" as="script" href="http://b2b4kom.iai-shop.com/data/include/cms/b2b4kom/JS/loader.js"   />
+                    <link rel="stylesheet"> 
+                    <iaixsl:attribute name='href'>https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap</iaixsl:attribute>
+                    </link>
                     <iaixsl:choose>
                         <iaixsl:when test="page/@search_title">
                             <title><iaixsl:value-of select="page/@search_title" disable-output-escaping="yes"/></title>
@@ -100,6 +112,7 @@
                             <meta name="apple-mobile-web-app-status-bar-style"><iaixsl:attribute name="content"><iaixsl:value-of select="$themeColor"/></iaixsl:attribute></meta>
                         </iaixsl:when>
                     </iaixsl:choose>
+
                     <iaixsl:choose>
                         <iaixsl:when test="$asyncJS">
                             <iaixsl:choose>

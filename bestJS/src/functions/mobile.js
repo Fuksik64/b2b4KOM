@@ -92,8 +92,7 @@ function levelOneClick(e) {
   e.preventDefault();
 
   let v = variables();
-  const name = e.target.parentElement.parentElement.querySelector("div>span")
-    .innerHTML;
+  const name = e.target.parentElement.querySelector("div>span").innerHTML;
   const li = e.target.parentElement;
   const ul = li.querySelectorAll("ul > li.li-depth-22");
 
