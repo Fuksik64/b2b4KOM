@@ -15,6 +15,7 @@ let lastY;
 let currentHeight = calculateHeightOfList(v.liDepthOneMobile, LI_HEIGHT);
 let wrapperHeight = v.wrapperMobileDivUl.clientHeight;
 
+let maxScrollWrapper;
 let mainParentUl;
 let subParentUl;
 
@@ -211,6 +212,34 @@ function checkForMoreItems() {
   currentHeight > wrapperHeight
     ? v.menuSettings2.classList.add("moreItems")
     : v.menuSettings2.classList.remove("moreItems");
+  currentHeight > wrapperHeight ? addScrollClass() : removeScrollClass();
 }
 //=======================================================================
+v.wrapperMobileDivUl.scrollTop = 100000;
+maxScrollWrapper = v.wrapperMobileDivUl.scrollTop;
+v.wrapperMobileDivUl.scrollTop = 0;
+
+const before = v.wrapperMobileDivUl.querySelector(".before");
+v.wrapperMobileDivUl.addEventListener("scroll", () => {
+  if (v.wrapperMobileDivUl.scrollTop == 0) {
+    v.goBackDiv.classList.remove("before");
+    return;
+  } else if (v.wrapperMobileDivUl.scrollTop > 0) {
+    v.goBackDiv.classList.add("before");
+    return;
+  }
+});
+
+//=======================================================================
+
+//=======================================================================
+//=======================================================================
+function removeScrollClass() {
+  v.goBackDiv.classList.add("before");
+}
+//=======================================================================
+//=======================================================================
+function addScrollClass() {
+  v.goBackDiv.classList.remove("before");
+}
 //=======================================================================
