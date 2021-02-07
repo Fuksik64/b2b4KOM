@@ -1961,6 +1961,8 @@
                     </div>
 
                     <div class="breadcrumb-search d-flex col-12 py-2">
+                        <div class="bc-projector-before"></div>
+
                         <a>
                         <iaixsl:attribute name="href">
                         <iaixsl:value-of select="/shop/bc/@link"/>
@@ -1992,6 +1994,8 @@
                             </iaixsl:attribute>
                             <iaixsl:value-of select="/shop/page/projector/product/name"/>
                             </a>
+                        <div class="bc-projector-after"></div>
+                        
                     </div>
 
                     
@@ -2606,12 +2610,17 @@
 								<strong class="label_icons">
 									<iaixsl:if test="/shop/page/projector/product/@promotion">
 										<span class="label --promo">
-											W promocji
+                                            <img>
+                                                <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/promo.svg</iaixsl:attribute>
+                                            </img>
 										</span>
+                                        
 									</iaixsl:if>
 									<iaixsl:if test="/shop/page/projector/product/@new">
 										<span class="label --new">
-											Nowość
+											 <img>
+                                                <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/new.svg</iaixsl:attribute>
+                                            </img>
 										</span>
 									</iaixsl:if>
 									<iaixsl:choose>
@@ -2621,12 +2630,16 @@
 											<iaixsl:choose>
 												<iaixsl:when test="/shop/page/projector/product/@bestseller">
 													<span class="label --bestseller">
-														Nasz bestseller
+                                                        <img>
+                                                            <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/best.svg</iaixsl:attribute>
+                                                        </img>
 													</span>
 												</iaixsl:when>
 												<iaixsl:when test="/shop/page/projector/product/@discount">
 													<span class="label --discount">
-														Przecena
+                                                        <img>
+                                                            <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/promo.svg</iaixsl:attribute>
+                                                        </img>
 													</span>
 												</iaixsl:when>
 												<iaixsl:when test="/shop/page/projector/product/@distinguished">
@@ -2639,12 +2652,16 @@
 										<iaixsl:otherwise>
 											<iaixsl:if test="/shop/page/projector/product/@bestseller">
 												<span class="label --bestseller">
-													Nasz bestseller
+                                                        <img>
+                                                            <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/best.svg</iaixsl:attribute>
+                                                        </img>
 												</span>
 											</iaixsl:if>
 											<iaixsl:if test="/shop/page/projector/product/@discount">
 												<span class="label --discount">
-													Przecena
+                                                        <img>
+                                                            <iaixsl:attribute name="src">/data/include/cms/b2b4kom/B2B-IKONY-SVG/promo.svg</iaixsl:attribute>
+                                                        </img>
 												</span>
 											</iaixsl:if>
 											<iaixsl:if test="/shop/page/projector/product/@distinguished and not(/shop/page/projector/product/@bestseller and /shop/page/projector/product/@discount)">
@@ -7702,6 +7719,10 @@
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
             <script src="/data/include/cms/b2b4kom/JS/projector/projectorSliders.js" >
+                <iaixsl:attribute name="defer"></iaixsl:attribute>
+                <iaixsl:attribute name="type">module</iaixsl:attribute>
+            </script>
+            <script src="/data/include/cms/b2b4kom/JS/projector/projectorBreadcrumb.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>

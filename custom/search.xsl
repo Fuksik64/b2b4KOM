@@ -4309,7 +4309,7 @@
                                                             </span>
                                                         </iaixsl:if>
                                                        
-                                                        <iaixsl:choose>
+                                                        <!-- <iaixsl:choose>
                                                             <iaixsl:when test="@promo and @new">
                                                             </iaixsl:when>
                                                             <iaixsl:when test="@promo or @new">
@@ -4348,7 +4348,7 @@
                                                                     </span>
                                                                 </iaixsl:if>
                                                             </iaixsl:otherwise>
-                                                        </iaixsl:choose>
+                                                        </iaixsl:choose> -->
 
 
                                                     </strong>
@@ -7446,6 +7446,10 @@
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
             <script src="/data/include/cms/b2b4kom/JS/search/categoryPictureDropdown.js" >
+                <iaixsl:attribute name="defer"></iaixsl:attribute>
+                <iaixsl:attribute name="type">module</iaixsl:attribute>
+            </script>
+            <script src="/data/include/cms/b2b4kom/JS/search/sortSystemOverlay.js" >
                 <iaixsl:attribute name="defer"></iaixsl:attribute>
                 <iaixsl:attribute name="type">module</iaixsl:attribute>
             </script>
