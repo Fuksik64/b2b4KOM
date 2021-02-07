@@ -204,22 +204,26 @@ function changeScroll() {
 }
 
 function scrollToWrapperTop() {
-  v.wrapperMobileDivUl.scrollTo({ top: 0 });
+  v.wrapperMobileDivUl.scrollTo({ top: 0, behavior: "auto" });
 }
 //=======================================================================
 function checkForMoreItems() {
   let v = variables();
-  currentHeight > wrapperHeight
-    ? v.menuSettings2.classList.add("moreItems")
-    : v.menuSettings2.classList.remove("moreItems");
-  currentHeight > wrapperHeight ? addScrollClass() : removeScrollClass();
+  scrollToWrapperTop();
+  setTimeout(() => {
+    v.goBackDiv.classList.remove("before");
+    v.menuSettings2.classList.remove("moreItems");
+
+    currentHeight > wrapperHeight
+      ? v.menuSettings2.classList.add("moreItems")
+      : v.menuSettings2.classList.remove("moreItems");
+  }, 100);
 }
 //=======================================================================
 v.wrapperMobileDivUl.scrollTop = 100000;
 maxScrollWrapper = v.wrapperMobileDivUl.scrollTop;
 v.wrapperMobileDivUl.scrollTop = 0;
 
-const before = v.wrapperMobileDivUl.querySelector(".before");
 v.wrapperMobileDivUl.addEventListener("scroll", () => {
   if (v.wrapperMobileDivUl.scrollTop == 0) {
     v.goBackDiv.classList.remove("before");
@@ -231,15 +235,4 @@ v.wrapperMobileDivUl.addEventListener("scroll", () => {
 });
 
 //=======================================================================
-
-//=======================================================================
-//=======================================================================
-function removeScrollClass() {
-  v.goBackDiv.classList.add("before");
-}
-//=======================================================================
-//=======================================================================
-function addScrollClass() {
-  v.goBackDiv.classList.remove("before");
-}
 //=======================================================================
