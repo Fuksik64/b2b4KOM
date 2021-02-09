@@ -5176,11 +5176,11 @@
 					<div class="summary__sub --left">
 						<iaixsl:if test="/shop/client_data/client_balance/limit/@value > '0'">
 							<div class="summary__limits pb-2 mb-2 pb-md-0 mb-md-0">
-								<div class="summary__limit --total d-flex justify-content-between align-items-center">
+								<div class="summary__limit --total d-flex justify-content-between align-items-center limit-order">
 									<span class="summary__limit_label">Limit zadłużenia:</span>
 									<strong class="summary__limit_value"><iaixsl:value-of select="/shop/client_data/client_balance/limit/@value_formatted"/></strong>
 								</div>
-								<div class="summary__limit --touse d-flex justify-content-between align-items-center">
+								<div class="summary__limit --touse d-flex justify-content-between align-items-center limit-order">
 									<span class="summary__limit_label">Pozostały limit kredytowy:</span>
 									<strong class="summary__limit_value"><iaixsl:value-of select="/shop/client_data/client_balance/limit/@to_use_formatted"/></strong>
 								</div>

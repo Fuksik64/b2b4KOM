@@ -144,7 +144,6 @@
 
                                                 <div class="product__prices">
                                                     <iaixsl:choose>
-                                                        
                                                         <iaixsl:when test="$var_size_min_formatted != $var_size_max_formatted">
                                                             <iaixsl:if test="$var_size_min_maxprice_formatted != ''">
                                                                 <del class="price --max">
@@ -152,7 +151,12 @@
                                                                 </del>
                                                             </iaixsl:if>
                                                             <strong class="price">
+                                                            <span>
                                                                 <iaixsl:value-of select="$var_size_min_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_formatted"/>
+                                                            </span>
+                                                            <span>
+                                                                netto
+                                                            </span>
                                                             </strong>
                                                             <iaixsl:if test="$var_points != ''">
                                                                 <span class="price --points">
@@ -187,7 +191,12 @@
                                                                 </del>
                                                             </iaixsl:if>
                                                             <strong class="price">
+                                                            <span>
                                                                 <iaixsl:value-of select="$var_price_formatted"/>
+                                                            </span>
+                                                            <span>
+                                                                netto
+                                                            </span>
                                                             </strong>
                                                             <iaixsl:if test="$var_points != ''">
                                                                 <span class="price --points">
@@ -240,7 +249,12 @@
                                                                 </del>
                                                             </iaixsl:if>
                                                             <strong class="price">
+                                                            <span>
                                                                 <iaixsl:value-of select="$var_size_min_net_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_net_formatted"/>
+                                                            </span>
+                                                            <span>
+                                                                netto
+                                                            </span>
                                                                 <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                             </strong>
                                                             <iaixsl:if test="$var_points_net != ''">
@@ -277,7 +291,12 @@
                                                                 </del>
                                                             </iaixsl:if>
                                                             <strong class="price">
+                                                            <span>
                                                                 <iaixsl:value-of select="$var_price_formatted"/>
+                                                            </span>
+                                                            <span>
+                                                                netto
+                                                            </span>
                                                                 <!-- <iaixsl:value-of select="$var_net_prices"/> -->
                                                             </strong>
                                                             <iaixsl:if test="$var_points_net != ''">

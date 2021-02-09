@@ -21704,12 +21704,15 @@ function projectorEndStartCallback() {
   }
   if (projectorObj.currentSizeObj.phone_price == "false") {
     $("#projector_price_value").html(
-      projectorObj.formatPrice(
-        projectorObj.currentSizeObj.price.price_net,
-        true,
-        false,
-        false
-      )
+      "<span>" +
+        projectorObj.formatPrice(
+          projectorObj.currentSizeObj.price.price_net,
+          true,
+          false,
+          false
+        ) +
+        "</span>" +
+        "<span class='netto-projector-price'> netto</span>"
     );
   }
   if (

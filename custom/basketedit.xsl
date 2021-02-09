@@ -5576,7 +5576,7 @@
                             
                             <iaixsl:if test="/shop/client_data/client_balance/limit/@value > '0'">
                                 <div class="basketedit_limit_section">
-                                    <div class="basketedit_product_summary">
+                                    <div class="basketedit_product_summary limit-kupiecki">
                                         <label>
                                             Limit zadłużenia:
                                         </label>
@@ -5585,7 +5585,7 @@
                                         </strong>
                                     </div>
 
-                                    <div class="basketedit_product_summary">
+                                    <div class="basketedit_product_summary limit-kredytowy">
                                         <label>
                                             Pozostały limit kredytowy:
                                         </label>

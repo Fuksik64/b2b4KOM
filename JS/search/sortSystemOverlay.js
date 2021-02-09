@@ -6,21 +6,25 @@ function sortSystemOverlay() {
   const dropdownMenu = document.querySelector(
     ".sort-system-custom .f-dropdown-menu"
   );
-  console.log(dropdownMenu);
   return {
     init() {
       overlay.addEventListener("click", () => {
-        overlay.classList.remove("active");
-        overlay.classList.remove("sortSystem");
+        if (window.innerWidth < 978) {
+          overlay.classList.remove("active");
+          overlay.classList.remove("sortSystem");
+        }
       });
       dropdownCheck.addEventListener("click", () => {
-        overlay.classList.add("sortSystem");
-        overlay.classList.add("active");
+        if (window.innerWidth < 978) {
+          overlay.classList.add("sortSystem");
+          overlay.classList.add("active");
+        }
       });
       dropdownMenu.addEventListener("click", () => {
-        console.log("click");
-        overlay.classList.remove("active");
-        overlay.classList.remove("sortSystem");
+        if (window.innerWidth < 978) {
+          overlay.classList.remove("active");
+          overlay.classList.remove("sortSystem");
+        }
       });
     },
   };

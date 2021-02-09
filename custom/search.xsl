@@ -4380,6 +4380,7 @@
 
                                                     <iaixsl:if test="sizes/size/price/@price_net_formatted">
                                                         <span class="price-custom">
+                                                        <span>
                                                         <iaixsl:choose>
                                                             <iaixsl:when test="price/@price_unit_net_formatted">
                                                                 <iaixsl:value-of select="price/@price_unit_net_formatted"/>
@@ -4393,6 +4394,10 @@
                                                                 <iaixsl:value-of select="price/@price_net_formatted"/>
                                                             </iaixsl:otherwise>
                                                         </iaixsl:choose>
+                                                        </span>
+                                                        <span>
+                                                            netto
+                                                        </span>
                                                         </span>
                                                     </iaixsl:if>
                                                 </iaixsl:if>

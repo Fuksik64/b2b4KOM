@@ -3168,7 +3168,12 @@
                                                                     <iaixsl:value-of select="/shop/page/projector/product/sizes/prices/@maxprice_net_formatted"/>
                                                                 </iaixsl:when>
                                                                 <iaixsl:otherwise>
+                                                                <span>
                                                                     <iaixsl:value-of select="page/projector/product/price/@price_net_formatted"/>
+                                                                </span>
+                                                                <span>
+                                                                    netto
+                                                                </span>
                                                                 </iaixsl:otherwise>
                                                             </iaixsl:choose>
                                                         </strong>
