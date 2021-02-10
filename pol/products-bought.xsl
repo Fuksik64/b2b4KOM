@@ -2795,19 +2795,122 @@
  <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'footer')">
                 <footer>
                     <iaixsl:attribute name="class"></iaixsl:attribute>
-            <!-- NEWSLETTER -->
-                    
-                    <iaixsl:variable name="hideLabel"></iaixsl:variable>
-                    <iaixsl:variable name="hideFirstname"></iaixsl:variable>
-                    <div id="menu_newsletter" class="newsletter-custom">
-                    <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png" alt=""/>
-                        <div class="container">
-                            <form action="/settings.php" method="post" class="row">
-                                <iaixsl:if test="/shop/action/settings/@url">
-                                    <iaixsl:attribute name="action"><iaixsl:value-of select="/shop/action/settings/@url"/></iaixsl:attribute>
-                                </iaixsl:if>
+        <!-- NEWSLETTER -->
+            <iaixsl:variable name="account_email_info">Jesteś już zapisany do naszego newslettera. Adres e-mail przypisany do Twojego konta to</iaixsl:variable>
+            <div id="newsletter_form" class="newsletter-custom">
+                <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png" alt=""/>
+                <div class="container">
+                    <!-- <div class="newsletter_form_label">
+                    <iaixsl:attribute name="class">newsletter_form_label big_label</iaixsl:attribute>
+                    <span class="newsletter_form_label">Newsletter</span>
+                    </div> -->
 
 
+                    <iaixsl:if test="/shop/page/communicates_newsletter/message">
+                    <div class="newsletter_message_wrapper">
+                        <div class="newsletter_message n54531_outline">
+                            <iaixsl:choose>
+                                <iaixsl:when test="(/shop/page/communicates_newsletter/message/@type = 'mailing_maileregerror') or (/shop/page/communicates_newsletter/message/@type = 'mailing_nosuchemail')">
+                                    <iaixsl:attribute name="id">return_error</iaixsl:attribute>
+                                    <iaixsl:attribute name="class">newsletter_message n54531_outline menu_messages_error</iaixsl:attribute>
+                                </iaixsl:when>
+                                <iaixsl:when test="(/shop/page/communicates_newsletter/message/@type = 'mailing_addsuccess') or (/shop/page/communicates_newsletter/message/@type = 'mailing_removesuccess')">
+                                    <iaixsl:attribute name="id">return_success</iaixsl:attribute>
+                                    <iaixsl:attribute name="class">newsletter_message n54531_outline menu_messages_success</iaixsl:attribute>
+                                </iaixsl:when>
+                                <iaixsl:otherwise>
+                                    <iaixsl:attribute name="id">return_message</iaixsl:attribute>
+                                    <iaixsl:attribute name="class">newsletter_message n54531_outline menu_messages_message</iaixsl:attribute>
+                                </iaixsl:otherwise>
+                            </iaixsl:choose>
+
+                            <div class="n54531_outline_sub">
+                                <iaixsl:choose>
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_addsuccess'">Dziękujemy za zapisanie się na nasz newsletter. Kolejne newslettery będą przychodziły prosto na Twoją skrzynkę e-mail. Aby upewnić się, że dostaniesz wszystkie, proponujemy dodać e-mail naszego sklepu do książki adresowej.</iaixsl:when>
+
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_maileregerror'">Podany adres e-mail jest błędny.</iaixsl:when>
+
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_removesuccess'">Twój e-mail został wypisany z bazy newslettera.</iaixsl:when>
+
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_nosuchemail'">Podany adres e-mail nie został odnaleziony w bazie newslettera.</iaixsl:when>
+
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_sendingconfirm'">Na podany adres został wysłany e-mail zawierający link do potwierdzenia zapisania się do newslettera.</iaixsl:when>
+
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_emailexist'">Podany adres e-mail znajduje się już w naszej bazie.</iaixsl:when>
+
+                                    <iaixsl:when test="/shop/page/communicates_newsletter/message/@type = 'mailing_sendingconfirm_remove'">Na podany adres został wysłany e-mail zawierający link do potwierdzenia wypisania się z newslettera.</iaixsl:when>
+                                </iaixsl:choose>
+                            </div>
+                        </div>
+                    </div>
+                    </iaixsl:if>
+
+                    <iaixsl:choose>
+                    <iaixsl:when test="not(/shop/page/communicates_newsletter/message) or (/shop/page/communicates_newsletter/message/@type = 'mailing_maileregerror') or (/shop/page/communicates_newsletter/message/@type = 'mailing_emailexist') or (/shop/page/communicates_newsletter/message/@type = 'mailing_nosuchemail')">
+                        <iaixsl:choose>
+                            
+                            <iaixsl:when test="page/client/@login != ''">
+                                <iaixsl:choose>
+                                    
+                                    <iaixsl:when test="/shop/page/client/@newsletter = 'yes'">
+                                        <form action="/settings.php" method="post" class="newsletter_form row flex-column align-items-center">
+                                            <input id="mailing_action_contact" name="mailing_action" value="remove" type="hidden"/>
+                                            <iaixsl:choose>
+                                                <iaixsl:when test="$account_email_info">
+                                                    <p class="col-md-6 col-12">Jesteś już zapisany do naszego newslettera. Adres e-mail przypisany do Twojego konta to <b><iaixsl:value-of select="/shop/page/client/@email"/></b>.<br />W każdej chwili możesz się z niego wypisać klikając poniższy przycisk.</p>
+                                                </iaixsl:when>
+                                                <iaixsl:otherwise>
+                                                    <p class="col-md-6 col-12">Jesteś już zapisany do naszego newslettera. W każdej chwili możesz się z niego wypisać klikając poniższy przycisk.</p>
+                                                </iaixsl:otherwise>
+                                            </iaixsl:choose>
+                                            <input name="mailing_email" type="hidden">
+                                                <iaixsl:attribute name="value"><iaixsl:value-of select="page/client/@email"/></iaixsl:attribute>
+                                            </input>
+                                            <div class="newsletter_button_wrapper col-md-6 col-12">
+                                                <button id="newsletter_button_remove" type="submit" class="btn --solid --secondary">
+                                                    <iaixsl:attribute name="value">Wypisz się</iaixsl:attribute>Wypisz się
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </iaixsl:when>
+
+                                    
+                                    <iaixsl:when test="page/client/@newsletter= 'no'">
+                                        <iaixsl:choose>
+                                            
+                                            <iaixsl:when test="/shop/page/client/@email != ''">
+                                                <form action="/settings.php" method="post" class="newsletter_form row flex-column align-items-center">
+                                                    <input id="mailing_action_contact" name="mailing_action" value="add" type="hidden"/>
+                                                    <p id="newsletter_longdesc" class="col-md-6 col-12">Nie jesteś zapisany do naszego newslettera. Jeżeli chcesz być informowany o nowościach i promocjach w sklepie, kliknij na przycisk poniżej. Newsletter będzie wysyłany na adres <strong><iaixsl:value-of select="page/client/@email"/></strong>, który podałeś jako swój adres kontaktowy. Jeśli chcesz zmienić adres e-mail, na który będzie przychodzić newsletter, przejdź do <a href="/loginedit.php?operation=edit">edycji danych kontaktowych</a></p>
+                                                    <input name="mailing_email" type="hidden">
+                                                        <iaixsl:attribute name="value"><iaixsl:value-of select="page/client/@email"/></iaixsl:attribute>
+                                                    </input>
+
+                                                    <div id="newsletter_privacy_consent" class="form-group col-md-6 col-12">
+                                                        <div class="has-feedback">
+                                                            <label class="control-label d-flex align-items-center">
+                                                                <div class="text_to_right">
+                                                                    <input class="newsletter_form_field validate" name="newsletter_consent" id="newsletter_consent" type="checkbox"/>
+                                                                </div>
+                                                                <div class="text_to_left">
+                                                                    Chcę otrzymywać E-mail Newsletter. Wyrażam zgodę na przetwarzanie moich danych osobowych do celów marketingowych zgodnie z <a><iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/private_policy/@url"/></iaixsl:attribute>polityką prywatności</a>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="newsletter_button_wrapper col-md-6 col-12">
+                                                        <button id="newsletter_button_add" type="submit" class="btn --solid">
+                                                            <iaixsl:attribute name="value">Zapisz się</iaixsl:attribute>Zapisz się
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </iaixsl:when>
+                                            
+                                            <iaixsl:otherwise>
+                                                <form action="/settings.php" method="post" class="newsletter_form row flex-column align-items-center">
+                                                    <input id="mailing_action_contact" name="mailing_action" value="add" type="hidden"/>
+                                                    <p id="newsletter_longdesc" class="col-md-6 col-12">Nie jesteś zapisany do naszego newslettera. Jeżeli chcesz być informowany o nowościach i promocjach w sklepie, wpisz adres e-mail na który chcesz otrzymywać newsletter i kliknij na przycisk poniżej. Podany adres e-mail zostanie przypisany do danych kontaktowych w Twoim profilu. W każdej chwili będziesz mógł go zmienić korzystając z <a href="/loginedit.php?operation=edit">edycji danych kontaktowych</a></p>
                             <div class="top-newsletter">
                                 <iaixsl:if test="not($hideLabel)">
                                     <div class="">
@@ -2834,70 +2937,146 @@
 
                             </div>
                             <div class="bottom-newsletter">
-                                
-                                <iaixsl:if test="not($hideFirstname)">
-                                    <div class=" has-feedback newsletter-input-text">
-                                            <input class="form-control validate" name="mailing_name" type="text"  required="required">
-                                                <iaixsl:choose>
-                                                    <iaixsl:when test="/shop/client_data/@mailing = '1'">
-                                                        <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/client_data/@firstname"/></iaixsl:attribute>                         
-                                                    </iaixsl:when>
-                                                    <iaixsl:otherwise>
-                                                        <!-- <iaixsl:attribute name="placeholder">Twoje imię</iaixsl:attribute> -->
-                                                    </iaixsl:otherwise>
-                                                </iaixsl:choose> 
-                                            </input>
-                                    <label>
-                                    Twoje imię
-                                    </label>              
-                                            <span class="form-control-feedback"/>
-                                    </div>
-                                </iaixsl:if>
+                                                    <div class="form-group col-md-6 col-12">
+                                                        <div class="has-feedback">
+                                                            <input class="newsletter_form_field form-control validate" name="mailing_name" id="mailing_name" type="text" maxlength="50" minlength="3"/>
+                                                            <label for="mailing_name" class="control-label">
+                                                                Twoje imię
+                                                            </label>
+                                                            <span class="form-control-feedback"/>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group col-md-6 col-12">
+                                                        <div class="has-feedback">
+                                                            <input class="newsletter_form_field form-control validate" name="mailing_email" id="mailing_email" type="text" data-validate="email"/>
+                                                            <label for="mailing_email" class="control-label">
+                                                            E-mail
+                                                            </label>
+                                                            <span class="form-control-feedback"/>
+                                                        </div>
+                                                    </div>
 
-                                <div class=" has-feedback newsletter-input-text">
-                                        <input class="form-control validate" name="mailing_emaail" type="text" required="required" data-validate="email">                            
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="/shop/client_data/@mailing = '1'">
-                                                    <iaixsl:attribute name="value"><iaixsl:value-of select="/shop/client_data/@email"/></iaixsl:attribute>
-                                                </iaixsl:when>
-                                                <iaixsl:otherwise>
-                                                    <!-- <iaixsl:attribute name="placeholder">E-mail</iaixsl:attribute> -->
-                                                </iaixsl:otherwise>       
-                                            </iaixsl:choose> 
-                                        </input>
-                                    <label>
-                                    E-mail
-                                    </label>  
-                                        <span class="form-control-feedback"/>
-                                </div>
-                                
-                                <div class=" news_btn">
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="/shop/client_data/@mailing = '1'">
-                                                <button name="mailing_action" value="Wypisz się" type="submit" class="remove_newsletter">
-                                                    <iaixsl:attribute name="title"></iaixsl:attribute>
-                                                    Wypisz się
-                                                </button>
-                                        </iaixsl:when>       
-
-                                        <iaixsl:otherwise>
-                                            <button name="mailing_action" value="add" type="submit" class="btn add_newsletter">
-                                                <iaixsl:attribute name="title">Zapisz się</iaixsl:attribute>
-                                                Zapisz się <i class="icon-angle-right"></i>
-                                            </button>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>          
-                                </div>
                             </div>
+
+
+                                                    <div id="newsletter_privacy_consent" class="form-group col-md-6 col-12">
+                                                        <div class="has-feedback">
+                                                            <label class="control-label d-flex align-items-center">
+                                                                <div class="text_to_right">
+                                                                    <input class="newsletter_form_field validate" name="newsletter_consent" id="newsletter_consent" type="checkbox"/>
+                                                                </div>
+                                                                <div class="text_to_left">
+                                                                    Chcę otrzymywać E-mail Newsletter. Wyrażam zgodę na przetwarzanie moich danych osobowych do celów marketingowych zgodnie z <a><iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/private_policy/@url"/></iaixsl:attribute>polityką prywatności</a>
+                                                                </div>
+                                                            </label>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="newsletter_button_wrapper col-md-6 col-12">
+                                                        <button id="newsletter_button_add" type="submit" class="btn --solid">
+                                                            <iaixsl:attribute name="value">Zapisz się</iaixsl:attribute>Zapisz się
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </iaixsl:otherwise>
+                                        </iaixsl:choose>
+                                    </iaixsl:when>
+                                </iaixsl:choose>
+                            </iaixsl:when>
                             
-                            </form>
+                            <iaixsl:otherwise>
+                                <form action="/settings.php" method="post" class="newsletter_form row flex-column align-items-center">
+                                    <input id="mailing_action_contact" name="mailing_action" value="add" type="hidden"/>
+                                    <!-- <p class="col-md-6 col-12">Wpisz swój adres e-mail i kliknij odpowiedni przycisk, aby zapisać się lub wypisać z naszego newslettera.</p> -->
+                            <div class="top-newsletter">
+                                    <div class="">
+                                                <label><b>Newsletter</b></label>
+                                    </div>  
+                
+                                    <iaixsl:for-each select="/shop/commercial_button/link">
+                                        <iaixsl:if test="html/@title='Newsletter'">
+                                        <iaixsl:value-of select="html" disable-output-escaping="yes" />
+                                        </iaixsl:if>
+                                    </iaixsl:for-each>
+
+                            </div>
+                            <div class="bottom-newsletter">
+                                    <div class="form-group col-md-6 col-lg-4 col-12">
+                                        <div class="has-feedback">
+                                            <input class="newsletter_form_field form-control validate" name="mailing_name" id="mailing_name" type="text" maxlength="50"  minlength="3" required="required"/>
+                                            <label for="mailing_name" class="control-label">
+                                                Twoje imię
+                                            </label>
+                                            <span class="form-control-feedback"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-lg-4 col-md-6 col-12">
+                                        <div class="has-feedback">
+                                            <input class="newsletter_form_field form-control validate" name="mailing_email" id="mailing_email" type="text" data-validate="email" required="required" />
+                                            <label for="mailing_email" class="control-label">
+                                                E-mail
+                                            </label>
+                                            <span class="form-control-feedback"/>
+                                        </div>
+                                    </div>
+                                    <div class="newsletter_button_wrapper col-12 col-lg-4 ">
+                                        <button type="submit" style="display: none;"/>
+
+                                        <button id="newsletter_button_add" type="submit" class="btn --solid">
+                                            <iaixsl:attribute name="value">Zapisz się</iaixsl:attribute>Zapisz się
+                                            <i class="icon-chevron-right"></i>
+                                        </button>
+
+                                        <button id="newsletter_button_remove" type="submit" class="btn --solid --secondary">
+                                            <iaixsl:attribute name="value">Wypisz się</iaixsl:attribute>Wypisz się
+                                        </button>
+                                    </div>
+
+                            </div>
+
+                                    <div id="newsletter_privacy_consent" class="form-group col-12">
+                                        <div class="has-feedback">
+                                            <label class="control-label d-flex align-items-center d-flex flex-row">
+                                                <div class="text_to_right">
+                                                    <input class="newsletter_form_field validate" name="newsletter_consent" id="newsletter_consent" type="checkbox"/>
+                                                </div>
+                                                <div class="text_to_left">
+                                                    Chcę otrzymywać E-mail Newsletter. Wyrażam zgodę na przetwarzanie moich danych osobowych do celów marketingowych zgodnie z <a><iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/private_policy/@url"/></iaixsl:attribute>polityką prywatności</a>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </iaixsl:otherwise>
+                        </iaixsl:choose>
+                    </iaixsl:when>
+                    <iaixsl:otherwise>
+                        <iaixsl:variable name="newsletter_mainpage_txt">Strona główna</iaixsl:variable>
+                        <div class="newsletter_button_wrapper news_btn">
+                            <a class="btn --solid" href="/">
+                                <iaixsl:choose>
+                                    <iaixsl:when test="$newsletter_mainpage_txt">
+                                        <iaixsl:attribute name="title"><iaixsl:value-of select="$newsletter_mainpage_txt"/></iaixsl:attribute>
+                                        <iaixsl:value-of select="$newsletter_mainpage_txt"/>
+                                    </iaixsl:when>
+                                    
+                                    <iaixsl:otherwise>
+                                        <iaixsl:attribute name="title">Strona główna</iaixsl:attribute>
+                                        Strona główna
+                                    </iaixsl:otherwise>
+                                </iaixsl:choose>
+                            </a>
                         </div>
-                    </div>
-                    
-                    
-                    <iaixsl:if test="/shop/@menu_newsletter"></iaixsl:if>
-                    <iaixsl:if test="/shop/@menu_newsletter_remove"></iaixsl:if>
-            <!-- NEWSLETTER -->
+                    </iaixsl:otherwise>
+                    </iaixsl:choose>
+                </div>
+            </div>
+
+            
+            <iaixsl:if test="/shop/@newsletter_form_remove"> </iaixsl:if>
+        <!-- NEWSLETTER -->
 
                      
                     <!--Buttony reklamowe (menu_buttons, 112160.1)-->

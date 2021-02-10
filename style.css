@@ -56197,3 +56197,104 @@ strong.projector_price_value {
 .bottom-newsletter .form-group {
   padding-bottom: 0 !important;
 }
+
+form.rabat-card>div {
+  border-radius: 24px;
+}
+
+div.active-code.n67313_out,
+div.n67313_out {
+  border-radius: 24px;
+}
+
+@media(max-width:756px) {
+  .code-name span {
+    display: flex;
+  }
+
+  .code-name span strong {
+    margin-left: 1rem;
+
+  }
+}
+
+.aside .filters__toggler .btn span {
+  display: flex;
+}
+
+.projector_page .hotspot.--list .product__promo {
+  margin-left: auto;
+  order: 1
+}
+
+.projector_page .hotspot.--list .product__price_wrapper {
+  order: 2
+}
+
+@media(min-width:978px) {
+  .projector_page .hotspot.--list .product__promo {
+    margin-right: 1rem;
+
+  }
+}
+
+@media(max-width:978px) {
+  .projector_price_subwrapper {
+    display: initial;
+  }
+
+  #products_associated_zone1 .product__prices {
+    flex-direction: column;
+  }
+
+  .projector_page #products_associated_zone1.hotspot .product .product__prices .price {
+    margin-left: auto;
+  }
+
+  strong.projector_price_value {
+    justify-content: flex-end;
+  }
+
+  .instalment_yousave {
+    text-align: right;
+  }
+
+  #projector_price_maxprice_wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  #projector_buy_section a.projector_buttons_obs {
+    justify-content: flex-end;
+  }
+
+  #projector_buy_section .projector_butttons_buy {
+    width: 100%
+  }
+}
+
+@media(max-width:420px) {
+  .navigation-2-item .b2b-category-img {
+    display: initial !important;
+    ;
+  }
+
+  .b2b-category-ul .navigation-2-item a {
+    font-size: 1rem;
+  }
+
+
+}
+
+@media(max-width:740px) {
+
+  .b2b-category-ul .navigation-2-item:nth-child(3),
+  .b2b-category-ul .navigation-2-item:nth-child(4) {
+    justify-content: center;
+  }
+
+  .b2b-category-ul .navigation-2-item:nth-child(5),
+  .b2b-category-ul .navigation-2-item:nth-child(6) {
+    justify-content: flex-end;
+  }
+}

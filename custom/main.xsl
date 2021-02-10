@@ -3826,7 +3826,7 @@
  <iaixsl:if test="not(action/set_render/item) or (action/set_render/item/@name = 'footer')">
                 <footer>
                     <iaixsl:attribute name="class"></iaixsl:attribute>
-            <!-- NEWSLETTER -->
+        <!-- NEWSLETTER -->
             <iaixsl:variable name="account_email_info">Jesteś już zapisany do naszego newslettera. Adres e-mail przypisany do Twojego konta to</iaixsl:variable>
             <div id="newsletter_form" class="newsletter-custom">
                 <img src="/data/include/cms/b2b4kom/B2B-IKONY-SVG/wave.png" alt=""/>
@@ -4107,7 +4107,7 @@
 
             
             <iaixsl:if test="/shop/@newsletter_form_remove"> </iaixsl:if>
-            <!-- NEWSLETTER -->
+        <!-- NEWSLETTER -->
 
 
                      
