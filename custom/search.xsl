@@ -4260,7 +4260,7 @@
 
                         <iaixsl:for-each select="/shop/page/products/product">
                             <iaixsl:variable name="product_position"><iaixsl:value-of select="position()"/></iaixsl:variable>
-
+                            
                             <div>
                             <!-- clearfix -->
                                 <iaixsl:attribute name="class">
@@ -4277,9 +4277,13 @@
                                 <iaixsl:attribute name="data-id"><iaixsl:value-of select="@id"/></iaixsl:attribute>
 
 
-                          
-                                <div class="product-wrapper-top product-custom">
 
+                                <div class="product-wrapper-top product-custom">
+                                    <iaixsl:if test="not(/shop/basket/@login != '')">
+                                    <iaixsl:attribute name="class">
+                                    product-wrapper-top product-custom user-not-logged-search
+                                    </iaixsl:attribute>
+                                    </iaixsl:if>
                                     <a class="product-icon-custom">
                                         <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
                                         <iaixsl:attribute name="target">_self</iaixsl:attribute>
@@ -4370,6 +4374,9 @@
                                                 <iaixsl:value-of disable-output-escaping="yes" select="name"/>
                                             </span>
                                         </h3>
+
+                                        <iaixsl:if test="/shop/basket/@login != ''">
+                                        
                                              <p>
                                                 <iaixsl:if test="price/@value != 0 or /shop/basket/@wholesaler = 'true'">
                                                     <iaixsl:if test="sizes/size/price/@maxprice_net_formatted">
@@ -4448,6 +4455,7 @@
                                                         </iaixsl:choose>
                                                     </iaixsl:otherwise>
                                                 </iaixsl:choose>
+                                        </iaixsl:if>
                                     </a>
 
                              
@@ -4481,7 +4489,7 @@
 
                                              
 
-
+                                <iaixsl:if test="/shop/basket/@login != ''">
                                 <div class="cutContent"></div>
                                 <div class="search-sizes">
                         
@@ -4927,6 +4935,8 @@
                                         </iaixsl:if>
                                     </iaixsl:if>
                                 </div>
+                                </iaixsl:if>
+
                             </div>
                                 
 

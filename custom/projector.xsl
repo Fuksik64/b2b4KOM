@@ -3088,6 +3088,7 @@
                                         <iaixsl:value-of disable-output-escaping="yes" select="/shop/page/projector/product/name"/>
                                     </h1>
 
+                                    <iaixsl:if test="/shop/basket/@login != ''">
 
                                     <div id="projector_prices_wrapper">
                                         
@@ -3330,6 +3331,8 @@
                                             </div>
                                         </iaixsl:if>
                                     </div>
+                                    
+                                    </iaixsl:if>
 
                                     
                                     <iaixsl:if test="page/projector/product/description and page/projector/product/description != ''">
@@ -3359,7 +3362,6 @@
                                     </div>
                                 </iaixsl:if> -->
                             </section>
-
 
 
 
@@ -3518,6 +3520,7 @@
                                 </div>
                             </div>
 
+            <iaixsl:if test="/shop/basket/@login != ''">
                             
                             <div id="projector_buy_section" class="product_section">
                                 <label class="projector_label">
@@ -3594,8 +3597,8 @@
                                     </iaixsl:if>
                                 </div>
                             </div>
-
-                                                <div class="projector_product_status_wrapper pt-2">
+            </iaixsl:if>
+                        <div class="projector_product_status_wrapper pt-2">
                         <iaixsl:if test="not(/shop/page/projector/product/sizes/size[@selected='true'])"><iaixsl:attribute name="style">display:none</iaixsl:attribute></iaixsl:if>
                         
                         <div id="projector_status_description_wrapper">
