@@ -5537,7 +5537,509 @@
                         </span>
                         </p>
                     </div>
+    <div class="span-rabbate-code col-12 col-sm-6 col-md-12">
 
+                    <iaixsl:variable name="showGifts"></iaixsl:variable>
+
+        <iaixsl:if test="/shop/page/@type = 'basketedit'">
+            <iaixsl:if test="/shop/page/rebates/@rebates_codes = 'y'">
+                <div class="basketedit_rebatecodes_outline">
+                    
+                    <iaixsl:if test="/shop/page/rebates/code_details/@active = 'y'">
+                    <i class="rabbate-icon --pink"></i>
+                        <div class="basketedit_rebatecode_title">
+                            <span class="basketedit_rebatecode_title">
+                                Aktywny kod rabatowy: 
+                            </span>
+                            <span class="basketedit_rebatecode_value">
+                                <iaixsl:value-of select="/shop/page/rebates/code_details/@number"/>
+                            </span>
+                            <div class="basketedit_rebatecode_action">
+                                <a id="a_remove_code" href="#">[usuń kod]</a>
+                                <a id="a_change_code" href="#">[użyj innego kodu]</a>
+                            </div>
+                            <form action="/settings.php?from=basket" method="post" id="change_code">
+                                <input class="basketedit_rebatecode_input" name="rebates_codes" type="text" value=""/>
+                                <input id="global_rebates_codes" name="global_rebates_codes" value="add" type="hidden"/>
+                                <input class="btn --solid basketedit_change_code" type="submit" value="">
+                                    <iaixsl:attribute name="value">Użyj innego kodu</iaixsl:attribute>
+                                </input>
+                            </form>
+                        </div>
+                        <div class="basketedit_rebatecode_r">
+                            <iaixsl:if test="/shop/page/rebates/code_details/@min_order > 0">
+                                <div class="basketedit_rebatecode_title_out">
+                                    <span class="basketedit_rebatecode_title">
+                                        Wymagana wartość produktów w koszyku: 
+                                    </span>
+                                    <span class="basketedit_rebatecode_value">
+                                        <iaixsl:value-of select="/shop/page/rebates/code_details/@min_order"/><iaixsl:value-of select="$signbetweenpricecurrency"/><iaixsl:value-of select="/shop/currency/@name"/>
+                                    </span>
+                                </div>
+                            </iaixsl:if>
+                            <iaixsl:if test="/shop/page/rebates/code_details/@expires">
+                                <div class="basketedit_rebatecode_title_out">
+                                    <span class="basketedit_rebatecode_title">
+                                        Kod rabatowy ważny do dnia: 
+                                    </span>
+                                    <span class="basketedit_rebatecode_value">
+                                        <iaixsl:value-of select="/shop/page/rebates/code_details/@expires"/>
+                                    </span>
+                                </div>
+                            </iaixsl:if>
+                            <a href="/client-rebate.php" class="btn --solid basketedit_client_rebate" id="basketedit_client_rebate">
+                                <iaixsl:attribute name="title">Szczegółowy wykaz rabatów</iaixsl:attribute>
+                                Więcej informacji o przyznanych rabatach
+                            </a>
+                        </div>
+                    </iaixsl:if>
+                    
+                    <iaixsl:if test="/shop/page/rebates/code_details/@active = 'n'">
+                        <iaixsl:if test="/shop/rebate_code_delete_client_advanced_rebate/@active = 'y'">
+                            <div id="basketedit_rebatecode_activate_info" style="display:none;">
+                                Wpisywanie kodu rabatowego skasuje rabat przypisany do Twojego konta. 
+                            </div>
+                        </iaixsl:if>
+                        <i class="rabbate-icon --pink"></i>
+                        <p class="rabbate-text">
+
+                        <span class="basketedit_rebatecode_activate_txt">Masz kod rabatowy? </span>
+                        <span>
+                            Wpisz go poniżej
+                        </span>
+                        </p>
+                        <!-- <span class="basketedit_rebatecode_activate_txt">Posiadasz kod rabatowy? </span> -->
+
+                        <form action="/settings.php?from=basket" method="post">
+                            
+                            <input onclick="$('#basketedit_rebatecode_activate_info').fadeIn('slow');" class="basketedit_rebatecode_input" name="rebates_codes" type="text" value="" placeholder="kod rabatowy"/>
+                            <input id="global_rebates_codes" name="global_rebates_codes" value="add" type="hidden"/>
+                            <button class="btn --solid basketedit_submit_code" type="submit" value="">
+                                <i class="icon-check"></i>
+                            </button>
+                            <!-- <input class="btn solid basketedit_submit_code" type="submit" value="">
+                                <iaixsl:attribute name="value">Zatwierdź kod</iaixsl:attribute>
+                            </input> -->
+                        </form>
+                        <a href="/client-rebate.php" class="btn --solid basketedit_client_rebate">
+                            <iaixsl:attribute name="title">Szczegółowy wykaz rabatów</iaixsl:attribute>
+                            Więcej informacji o rabatach
+                        </a>
+                    </iaixsl:if>
+
+                </div>
+            </iaixsl:if>
+
+
+            <iaixsl:if test="(/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )) or /shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product or /shop/page/rebates_for_points/rebate">
+                <div id="basketedit_gifts" class="bg_alter">
+
+                    
+                    <iaixsl:if test="(/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )) or /shop/rebatecode/@code">
+                        <div class="basket_rabates col-lg-4 col-md-6 col-12">
+                            <iaixsl:if test="/shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product">
+                                <iaixsl:attribute name="STYLE">float: right;</iaixsl:attribute>
+                            </iaixsl:if>
+
+                            <iaixsl:if test="/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )">
+                                <div class="basket_rabates_label">
+                                    Rabaty do zamówienia
+                                </div>
+
+                                <table class="menu_rebates">
+                                    <tr>
+                                        <th>
+                                            <span>Kwota zamówienia powyżej:</span>
+                                        </th>
+                                        <th class="menu_rebates_value">
+                                            <span>Wartość rabatu:</span>
+                                        </th>
+                                    </tr>
+
+                                    <iaixsl:for-each select="/shop/rebatesLocal/rebate[@value > 0 ]">
+                                        <tr>
+                                            <iaixsl:if test="@selected = 'selected'">
+                                                <iaixsl:attribute name="class">selected</iaixsl:attribute>
+                                            </iaixsl:if>
+                                            <td class="menu_rebates_threshold">
+                                                <iaixsl:value-of select="format-number(@threshold, '#')"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="/shop/currency/@name"/><iaixsl:if test="not(@selected = 'selected') and @left > 0"> - <span>Brakuje Ci 
+                                                <iaixsl:value-of select="@left_formatted"/></span></iaixsl:if>
+                                            </td>
+                                            <td class="menu_rebates_value">
+                                                <iaixsl:if test="@selected = 'selected'">
+                                                    <strong>Twój rabat: </strong>
+                                                </iaixsl:if>
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="contains(@value, '.00')">
+                                                        <iaixsl:value-of select="format-number(@value, '#')"/>%
+                                                    </iaixsl:when>
+                                                    <iaixsl:otherwise>
+                                                         <iaixsl:value-of select="@value"/>%
+                                                    </iaixsl:otherwise>
+                                                 </iaixsl:choose>
+                                            </td>
+                                        </tr>
+                                    </iaixsl:for-each>
+                                </table>
+                            </iaixsl:if>
+
+                        </div>
+                    </iaixsl:if>
+
+                    
+                    <iaixsl:if test="/shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product">
+
+                        <div class="basketedit_gifts_label col-lg-8 col-md-6 col-12">
+                            <strong>Premiujemy duże zamówienia! </strong>
+                            <span>Sprawdź jakie gratisy przygotowaliśmy dla Ciebie</span>
+
+                            <iaixsl:if test="not($showGifts = '1')">
+                                <a href="#showGifts" class="btn --solid --secondary basketedit_gifts_btn">
+                                    <iaixsl:if test="/shop/page/basket-details/rebate_local/active/selected/product/@id">
+                                        <iaixsl:attribute name="data-active">true</iaixsl:attribute>
+                                    </iaixsl:if>
+                                    <iaixsl:attribute name="title">Wybierz swój gratis</iaixsl:attribute>
+                                    Wybierz swój gratis
+                                </a>
+                            </iaixsl:if>
+                        </div>
+
+                        <div class="basketedit_gifts_wrapper" style="display: none;">
+                            <iaixsl:if test="$showGifts = '1' or /shop/page/basket-details/rebate_local/active/selected/product/@id">
+                                <iaixsl:attribute name="style">display: block;</iaixsl:attribute>
+                            </iaixsl:if>
+
+                            <iaixsl:if test="/shop/page/basket-details/rebate_local/active/products/product">
+                                <p class="gift_info">
+                                    Twoje zamówienie przekracza 
+                                    <b><iaixsl:if test="$signbeforeprice = 'true'"><iaixsl:value-of select="/shop/currency/@name"/><iaixsl:value-of select="$signbetweenpricecurrency"/></iaixsl:if><iaixsl:value-of select="/shop/page/basket-details/rebate_local/active/@threshold"/><iaixsl:if test="$signbeforeprice = 'false'"><iaixsl:value-of select="$signbetweenpricecurrency"/><iaixsl:value-of select="/shop/currency/@name"/></iaixsl:if></b>, dlatego możesz wybrać sobie prezent! 
+                                </p>
+                            </iaixsl:if>
+                            <ul>
+                                <iaixsl:for-each select="/shop/page/basket-details/rebate_local/active">
+                                    <iaixsl:for-each select="products/product">
+                                        <li class="gift_enable col-lg-3 col-md-4 col-sm-6 col-12">
+                                            <iaixsl:if test="@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
+                                                <iaixsl:attribute name="class">gift_enable col-lg-3 col-md-4 col-sm-6 col-12 gift_active</iaixsl:attribute>
+                                            </iaixsl:if>
+                                            <div class="gift_item_sub">
+                                                <input type="radio" name="radio_gift">
+                                                    <iaixsl:if test="@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
+                                                        <iaixsl:attribute name="checked">checked</iaixsl:attribute>
+                                                    </iaixsl:if>
+                                                </input>
+                                                <input type="hidden" name="product[0]">
+                                                    <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                                </input>
+                                                <input type="hidden" value="1" name="gift[0]"/>
+                                                <input type="hidden" value="1" name="set_quantity[0]"/>
+
+                                                <div class="gift_item_icon">
+                                                    <img>
+                                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="name"/></iaixsl:attribute>
+                                                        <iaixsl:attribute name="src"><iaixsl:value-of select="icon_small"/></iaixsl:attribute>
+                                                    </img>
+                                                </div>
+                                                <div class="gift_item_info">
+                                                    <h3>
+                                                        <iaixsl:if test="@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
+                                                            <div id="your_gift_txt">TWÓJ PREZENT:</div>
+                                                        </iaixsl:if>
+                                                        <strong class="gift_item_name"><iaixsl:value-of select="name"/></strong>
+                                                    </h3>
+
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="sizes/size/@type = 'uniw' or not(sizes/size)">
+                                                            <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
+                                                        </iaixsl:when>
+                                                        <iaixsl:when test="count(sizes/size) = 1">
+                                                            <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
+                                                            <div class="gift_choose_size">
+                                                                <label>rozmiar: </label>
+
+                                                                <iaixsl:for-each select="sizes/size">
+                                                                    <iaixsl:value-of select="@description"/>
+                                                                </iaixsl:for-each>
+                                                            </div>
+                                                        </iaixsl:when>
+                                                        <iaixsl:otherwise>
+                                                            <div class="gift_choose_size">
+                                                                <label>rozmiar: </label>
+                                                                <select>
+                                                                    <iaixsl:for-each select="sizes/size[@amount != 0]">
+                                                                        <option>
+                                                                            <iaixsl:if test="@amount = '0'">
+                                                                                <iaixsl:attribute name="class">no_gift</iaixsl:attribute>
+                                                                            </iaixsl:if>
+
+                                                                            <iaixsl:if test="@type=/shop/page/basket-details/rebate_local/active/selected/product/@size and ../../@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
+                                                                                <iaixsl:attribute name="selected">selected</iaixsl:attribute>
+                                                                            </iaixsl:if>
+                                                                            <iaixsl:attribute name="value"><iaixsl:value-of select="@type"/></iaixsl:attribute><iaixsl:value-of select="@description"/>
+                                                                        </option>
+                                                                    </iaixsl:for-each>
+                                                                </select>
+                                                                <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
+                                                            </div>
+                                                        </iaixsl:otherwise>
+                                                    </iaixsl:choose>
+
+                                                    <iaixsl:if test="@link">
+                                                        <div class="gift_tooltip" style="display:none;">
+                                                            <a target="_blank" class="btn --outline --icon-left icon-plus gift_description">
+                                                                <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+                                                                Zobacz więcej
+                                                            </a>
+                                                            <div class="btn --outline --icon-left icon-plus gift_choose">
+                                                                Wybierz ten prezent
+                                                            </div>
+                                                            <div class="btn --outline --icon-left icon-plus gift_resign">
+                                                                Zrezygnuj z tego prezentu
+                                                            </div>
+                                                        </div>
+                                                    </iaixsl:if>
+
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="price/@beforerebate > 0">
+                                                            <div class="gift_price">
+                                                                <b>Wartość</b>
+                                                                <span>
+                                                                    <iaixsl:value-of select="price/@beforerebate_formatted"/>
+                                                                </span>
+                                                            </div>
+                                                        </iaixsl:when>
+                                                        <iaixsl:when test="price/@value > 0">
+                                                            <div class="gift_price">
+                                                                <b>Wartość</b>
+                                                                <span>
+                                                                    <iaixsl:value-of select="price/@price_formatted"/>
+                                                                </span>
+                                                            </div>
+                                                        </iaixsl:when>
+                                                        <iaixsl:otherwise>
+                                                        </iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </iaixsl:for-each>
+                                </iaixsl:for-each>
+
+                                <iaixsl:for-each select="/shop/page/basket-details/rebate_local/rebates/rebate[products/product][1]">
+                                    <iaixsl:if test="products/product">
+                                        <li class="gift_label_needs">
+                                            <iaixsl:choose>
+                                                <iaixsl:when test="(@left_price > 0) and (@left_quantity > 0)">
+                                                    <span>Aby otrzymać prezent zwiększ wartość zamówienia o minimum  <iaixsl:value-of select="@left_price_formatted"/>   i wybierz jeszcze <iaixsl:value-of select="@left_quantity"/> 
+                                                        <iaixsl:choose>
+                                                            <iaixsl:when test="(@left_quantity = '1' )">
+                                                                 inny produkt.
+                                                            </iaixsl:when>
+                                                            <iaixsl:when test=" (substring(@left_quantity, string-length(@left_quantity), 1) = '2') or (substring(@left_quantity, string-length(@left_quantity), 1)='3') or (substring(@left_quantity, string-length(@left_quantity), 1)='4') ">  inne produkty
+                                                            </iaixsl:when>
+                                                            <iaixsl:otherwise>
+                                                                 innych produktów.
+                                                            </iaixsl:otherwise>
+                                                        </iaixsl:choose>
+                                                    </span>
+                                                </iaixsl:when>
+                                                <iaixsl:when test="not(@left_price > 0) and (@left_quantity > 0)">
+                                                    <span>
+                                                        Aby otrzymać prezent wybierz jeszcze  <iaixsl:value-of select="@left_quantity"/>  <iaixsl:choose> <iaixsl:when test="(@left_quantity = '1' )">  inny produkt. </iaixsl:when> <iaixsl:when test=" (substring(@left_quantity, string-length(@left_quantity), 1) = '2') or (substring(@left_quantity, string-length(@left_quantity), 1)='3') or (substring(@left_quantity, string-length(@left_quantity), 1)='4') ">  inne produkty </iaixsl:when> <iaixsl:otherwise>  innych produktów. </iaixsl:otherwise> </iaixsl:choose>
+                                                    </span>
+                                                </iaixsl:when>
+                                                <iaixsl:when test="(@left_price > 0) and not(@left_quantity > 0)">
+                                                    <span> Aby otrzymać prezent zwiększ wartość zamówienia o minimum  <iaixsl:value-of select="@left_price_formatted"/>
+                                                    </span>
+                                                </iaixsl:when>
+                                            </iaixsl:choose>
+                                        </li>
+                                    </iaixsl:if>
+                                    <iaixsl:for-each select="products/product">
+                                        <li class="gift_disable showTip_gift col-lg-3 col-md-4 col-sm-6 col-12">
+                                            <div class="gift_item_sub">
+                                                <input type="radio" disabled="disabled" name="radio_gift"><iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute></input>
+                                                <div class="gift_item_icon">
+                                                    <img>
+                                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="name"/></iaixsl:attribute>
+                                                        <iaixsl:attribute name="src"><iaixsl:value-of select="icon_small"/></iaixsl:attribute>
+                                                    </img>
+                                                </div>
+                                                <div class="gift_item_info">
+                                                    <h3>
+                                                        <strong class="gift_item_name"><iaixsl:value-of select="name"/></strong>
+                                                    </h3>
+
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="sizes/size/@type = 'uniw' or not(sizes/size)">
+                                                            <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
+                                                        </iaixsl:when>
+                                                        <iaixsl:otherwise>
+                                                            <div class="gift_choose_size">
+                                                                <label>rozmiar: </label>
+
+                                                                <iaixsl:for-each select="sizes/size">
+                                                                    <iaixsl:value-of select="@description"/><iaixsl:if test="not(position()=last())">, </iaixsl:if>
+                                                                </iaixsl:for-each>
+                                                            </div>
+                                                        </iaixsl:otherwise>
+                                                    </iaixsl:choose>
+
+                                                    <iaixsl:if test="@link">
+                                                        <a target="_blank">
+                                                            <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
+                                                            Zobacz więcej
+                                                        </a>
+                                                    </iaixsl:if>
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="price/@beforerebate > 0">
+                                                            <div class="gift_price">
+                                                                <b>Wartość</b>
+                                                                <span>
+                                                                    <iaixsl:value-of select="price/@beforerebate_formatted"/>
+                                                                </span>
+                                                            </div>
+                                                        </iaixsl:when>
+                                                        <iaixsl:when test="price/@value > 0">
+                                                            <div class="gift_price">
+                                                                <b>Wartość</b>
+                                                                <span>
+                                                                    <iaixsl:value-of select="price/@price_formatted"/>
+                                                                </span>
+                                                            </div>
+                                                        </iaixsl:when>
+                                                        <iaixsl:otherwise>
+                                                        </iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </iaixsl:for-each>
+                                </iaixsl:for-each>
+                            </ul>
+                        </div>
+                    </iaixsl:if>
+
+                    <iaixsl:if test="/shop/page/rebates_for_points/rebate">
+                        <div class="rebates_for_points_wrapper">
+                            <iaixsl:if test="(/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )) or /shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product">
+                                <iaixsl:attribute name="style">padding-top: 20px;</iaixsl:attribute>
+                            </iaixsl:if>
+                            <table class="menu_rebates">
+                                <tr>
+                                    <th>
+                                        <span class="rebates_for_points col-12">Wymień punkty na rabat</span>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td class="rebates_for_points">
+                                        <iaixsl:for-each select="/shop/page/rebates_for_points/rebate">
+                                            <div class="col-lg-4 col-md-6 col-12">
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="@order_link">
+                                                        <a class="btn --solid --medium for_points">
+                                                            <iaixsl:attribute name="href"><iaixsl:value-of select="@order_link"/></iaixsl:attribute>
+
+                                                            <iaixsl:if test="/shop/rebate_for_profit_points_delete_client_advanced_rebate/@active = 'y'">
+                                                                <iaixsl:attribute name="title">Po wymianie punktów na rabat zostanie skasowany rabat przypisany do Twojego konta.</iaixsl:attribute>
+                                                                <iaixsl:attribute name="data-title">Potwierdzenie wymiany punktów na rabat</iaixsl:attribute>
+
+                                                                <iaixsl:attribute name="data-button_txt">wymień</iaixsl:attribute>
+
+                                                                <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
+                                                            </iaixsl:if>
+
+                                                            <iaixsl:if test="/shop/rebate_for_profit_points_delete_rebate_code/@active = 'y'">
+                                                                <iaixsl:attribute name="title">Po wymianie punktów na rabat zostanie skasowany rabat przypisany do kodu rabatowego.</iaixsl:attribute>
+                                                                <iaixsl:attribute name="data-title">Potwierdzenie wymiany punktów na rabat</iaixsl:attribute>
+                                                                <iaixsl:attribute name="data-button_txt">wymień</iaixsl:attribute>
+
+                                                                <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
+                                                            </iaixsl:if>
+
+                                                            <iaixsl:if test="@selected = 'selected'">
+                                                                <iaixsl:attribute name="data-selected">true</iaixsl:attribute>
+                                                                <iaixsl:if test="/shop/rebate_for_profit_points_delete_rebate_code/@active = 'y'">
+                                                                    <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
+                                                                </iaixsl:if>
+                                                                <iaixsl:if test="/shop/rebate_for_profit_points_delete_client_advanced_rebate/@active = 'y'">
+                                                                    <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
+                                                                </iaixsl:if>
+                                                            </iaixsl:if>
+
+                                                            <span class="for_points_value">
+                                                                <iaixsl:if test="@selected = 'selected'">
+                                                                    <strong>Twój rabat: </strong>
+                                                                </iaixsl:if>
+                                                                <span>Rabat 
+                                                                    <iaixsl:choose>
+                                                                        <iaixsl:when test="@rebate_type='quota'">
+                                                                            <iaixsl:value-of select="format-number(@threshold, '#')"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="/shop/currency/@name"/>
+                                                                        </iaixsl:when>
+                                                                        <iaixsl:otherwise>
+                                                                            <iaixsl:value-of select="format-number(@threshold, '#')"/>%
+                                                                        </iaixsl:otherwise>
+                                                                    </iaixsl:choose>
+                                                                </span>
+                                                                <iaixsl:choose>
+                                                                    <iaixsl:when test="@permanent='true'">
+                                                                        na stałe
+                                                                    </iaixsl:when>
+                                                                    <iaixsl:otherwise>
+                                                                        na to zamówienie
+                                                                    </iaixsl:otherwise>
+                                                                </iaixsl:choose>
+                                                            </span>
+                                                            <span class="for_points_points">
+                                                                <iaixsl:value-of select="format-number(@points, '#')"/> pkt.
+                                                            </span>
+                                                        </a>
+                                                    </iaixsl:when>
+                                                    <iaixsl:otherwise>
+                                                        <div class="btn --solid --medium for_points">
+                                                            <iaixsl:if test="@selected = 'selected'">
+                                                                <iaixsl:attribute name="data-selected">true</iaixsl:attribute>
+                                                            </iaixsl:if>
+                                                            <span class="for_points_value">
+                                                                <iaixsl:if test="@selected = 'selected'">
+                                                                    <strong>Twój rabat: </strong>
+                                                                </iaixsl:if>
+                                                                <span>Rabat 
+                                                                    <iaixsl:choose>
+                                                                        <iaixsl:when test="@rebate_type='quota'">
+                                                                            <iaixsl:value-of select="@threshold_formatted"/>
+                                                                        </iaixsl:when>
+                                                                        <iaixsl:otherwise>
+                                                                            <iaixsl:value-of select="@threshold"/>%
+                                                                        </iaixsl:otherwise>
+                                                                    </iaixsl:choose>
+                                                                </span>
+                                                                <iaixsl:choose>
+                                                                    <iaixsl:when test="@permanent='true'">
+                                                                        na stałe
+                                                                    </iaixsl:when>
+                                                                    <iaixsl:otherwise>
+                                                                        na to zamówienie
+                                                                    </iaixsl:otherwise>
+                                                                </iaixsl:choose>
+                                                            </span>
+                                                            <span class="for_points_points">
+                                                                <iaixsl:value-of select="@points"/> pkt.
+                                                            </span>
+                                                        </div>
+                                                    </iaixsl:otherwise>
+                                                </iaixsl:choose>
+                                            </div>
+                                        </iaixsl:for-each>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </iaixsl:if>
+                </div>
+            </iaixsl:if>
+        </iaixsl:if>
+    </div>
                 </div>
                 <div class="col-12 col-md-6">
                 
@@ -6055,509 +6557,7 @@
 					</iaixsl:if>
                 </div>
                 </div>
-    <div class="span-rabbate-code col-12 col-sm-6 col-md-12">
-
-                    <iaixsl:variable name="showGifts"></iaixsl:variable>
-
-        <iaixsl:if test="/shop/page/@type = 'basketedit'">
-            <iaixsl:if test="/shop/page/rebates/@rebates_codes = 'y'">
-                <div class="basketedit_rebatecodes_outline">
-                    
-                    <iaixsl:if test="/shop/page/rebates/code_details/@active = 'y'">
-                    <i class="rabbate-icon --pink"></i>
-                        <div class="basketedit_rebatecode_title">
-                            <span class="basketedit_rebatecode_title">
-                                Aktywny kod rabatowy: 
-                            </span>
-                            <span class="basketedit_rebatecode_value">
-                                <iaixsl:value-of select="/shop/page/rebates/code_details/@number"/>
-                            </span>
-                            <div class="basketedit_rebatecode_action">
-                                <a id="a_remove_code" href="#">[usuń kod]</a>
-                                <a id="a_change_code" href="#">[użyj innego kodu]</a>
-                            </div>
-                            <form action="/settings.php?from=basket" method="post" id="change_code">
-                                <input class="basketedit_rebatecode_input" name="rebates_codes" type="text" value=""/>
-                                <input id="global_rebates_codes" name="global_rebates_codes" value="add" type="hidden"/>
-                                <input class="btn --solid basketedit_change_code" type="submit" value="">
-                                    <iaixsl:attribute name="value">Użyj innego kodu</iaixsl:attribute>
-                                </input>
-                            </form>
-                        </div>
-                        <div class="basketedit_rebatecode_r">
-                            <iaixsl:if test="/shop/page/rebates/code_details/@min_order > 0">
-                                <div class="basketedit_rebatecode_title_out">
-                                    <span class="basketedit_rebatecode_title">
-                                        Wymagana wartość produktów w koszyku: 
-                                    </span>
-                                    <span class="basketedit_rebatecode_value">
-                                        <iaixsl:value-of select="/shop/page/rebates/code_details/@min_order"/><iaixsl:value-of select="$signbetweenpricecurrency"/><iaixsl:value-of select="/shop/currency/@name"/>
-                                    </span>
-                                </div>
-                            </iaixsl:if>
-                            <iaixsl:if test="/shop/page/rebates/code_details/@expires">
-                                <div class="basketedit_rebatecode_title_out">
-                                    <span class="basketedit_rebatecode_title">
-                                        Kod rabatowy ważny do dnia: 
-                                    </span>
-                                    <span class="basketedit_rebatecode_value">
-                                        <iaixsl:value-of select="/shop/page/rebates/code_details/@expires"/>
-                                    </span>
-                                </div>
-                            </iaixsl:if>
-                            <a href="/client-rebate.php" class="btn --solid basketedit_client_rebate" id="basketedit_client_rebate">
-                                <iaixsl:attribute name="title">Szczegółowy wykaz rabatów</iaixsl:attribute>
-                                Więcej informacji o przyznanych rabatach
-                            </a>
-                        </div>
-                    </iaixsl:if>
-                    
-                    <iaixsl:if test="/shop/page/rebates/code_details/@active = 'n'">
-                        <iaixsl:if test="/shop/rebate_code_delete_client_advanced_rebate/@active = 'y'">
-                            <div id="basketedit_rebatecode_activate_info" style="display:none;">
-                                Wpisywanie kodu rabatowego skasuje rabat przypisany do Twojego konta. 
-                            </div>
-                        </iaixsl:if>
-                        <i class="rabbate-icon --pink"></i>
-                        <p class="rabbate-text">
-
-                        <span class="basketedit_rebatecode_activate_txt">Masz kod rabatowy? </span>
-                        <span>
-                            Wpisz go poniżej
-                        </span>
-                        </p>
-                        <!-- <span class="basketedit_rebatecode_activate_txt">Posiadasz kod rabatowy? </span> -->
-
-                        <form action="/settings.php?from=basket" method="post">
-                            
-                            <input onclick="$('#basketedit_rebatecode_activate_info').fadeIn('slow');" class="basketedit_rebatecode_input" name="rebates_codes" type="text" value="" placeholder="kod rabatowy"/>
-                            <input id="global_rebates_codes" name="global_rebates_codes" value="add" type="hidden"/>
-                            <button class="btn --solid basketedit_submit_code" type="submit" value="">
-                                <i class="icon-check"></i>
-                            </button>
-                            <!-- <input class="btn solid basketedit_submit_code" type="submit" value="">
-                                <iaixsl:attribute name="value">Zatwierdź kod</iaixsl:attribute>
-                            </input> -->
-                        </form>
-                        <a href="/client-rebate.php" class="btn --solid basketedit_client_rebate">
-                            <iaixsl:attribute name="title">Szczegółowy wykaz rabatów</iaixsl:attribute>
-                            Więcej informacji o rabatach
-                        </a>
-                    </iaixsl:if>
-
-                </div>
-            </iaixsl:if>
-
-
-            <iaixsl:if test="(/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )) or /shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product or /shop/page/rebates_for_points/rebate">
-                <div id="basketedit_gifts" class="bg_alter">
-
-                    
-                    <iaixsl:if test="(/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )) or /shop/rebatecode/@code">
-                        <div class="basket_rabates col-lg-4 col-md-6 col-12">
-                            <iaixsl:if test="/shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product">
-                                <iaixsl:attribute name="STYLE">float: right;</iaixsl:attribute>
-                            </iaixsl:if>
-
-                            <iaixsl:if test="/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )">
-                                <div class="basket_rabates_label">
-                                    Rabaty do zamówienia
-                                </div>
-
-                                <table class="menu_rebates">
-                                    <tr>
-                                        <th>
-                                            <span>Kwota zamówienia powyżej:</span>
-                                        </th>
-                                        <th class="menu_rebates_value">
-                                            <span>Wartość rabatu:</span>
-                                        </th>
-                                    </tr>
-
-                                    <iaixsl:for-each select="/shop/rebatesLocal/rebate[@value > 0 ]">
-                                        <tr>
-                                            <iaixsl:if test="@selected = 'selected'">
-                                                <iaixsl:attribute name="class">selected</iaixsl:attribute>
-                                            </iaixsl:if>
-                                            <td class="menu_rebates_threshold">
-                                                <iaixsl:value-of select="format-number(@threshold, '#')"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="/shop/currency/@name"/><iaixsl:if test="not(@selected = 'selected') and @left > 0"> - <span>Brakuje Ci 
-                                                <iaixsl:value-of select="@left_formatted"/></span></iaixsl:if>
-                                            </td>
-                                            <td class="menu_rebates_value">
-                                                <iaixsl:if test="@selected = 'selected'">
-                                                    <strong>Twój rabat: </strong>
-                                                </iaixsl:if>
-                                                <iaixsl:choose>
-                                                    <iaixsl:when test="contains(@value, '.00')">
-                                                        <iaixsl:value-of select="format-number(@value, '#')"/>%
-                                                    </iaixsl:when>
-                                                    <iaixsl:otherwise>
-                                                         <iaixsl:value-of select="@value"/>%
-                                                    </iaixsl:otherwise>
-                                                 </iaixsl:choose>
-                                            </td>
-                                        </tr>
-                                    </iaixsl:for-each>
-                                </table>
-                            </iaixsl:if>
-
-                        </div>
-                    </iaixsl:if>
-
-                    
-                    <iaixsl:if test="/shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product">
-
-                        <div class="basketedit_gifts_label col-lg-8 col-md-6 col-12">
-                            <strong>Premiujemy duże zamówienia! </strong>
-                            <span>Sprawdź jakie gratisy przygotowaliśmy dla Ciebie</span>
-
-                            <iaixsl:if test="not($showGifts = '1')">
-                                <a href="#showGifts" class="btn --solid --secondary basketedit_gifts_btn">
-                                    <iaixsl:if test="/shop/page/basket-details/rebate_local/active/selected/product/@id">
-                                        <iaixsl:attribute name="data-active">true</iaixsl:attribute>
-                                    </iaixsl:if>
-                                    <iaixsl:attribute name="title">Wybierz swój gratis</iaixsl:attribute>
-                                    Wybierz swój gratis
-                                </a>
-                            </iaixsl:if>
-                        </div>
-
-                        <div class="basketedit_gifts_wrapper" style="display: none;">
-                            <iaixsl:if test="$showGifts = '1' or /shop/page/basket-details/rebate_local/active/selected/product/@id">
-                                <iaixsl:attribute name="style">display: block;</iaixsl:attribute>
-                            </iaixsl:if>
-
-                            <iaixsl:if test="/shop/page/basket-details/rebate_local/active/products/product">
-                                <p class="gift_info">
-                                    Twoje zamówienie przekracza 
-                                    <b><iaixsl:if test="$signbeforeprice = 'true'"><iaixsl:value-of select="/shop/currency/@name"/><iaixsl:value-of select="$signbetweenpricecurrency"/></iaixsl:if><iaixsl:value-of select="/shop/page/basket-details/rebate_local/active/@threshold"/><iaixsl:if test="$signbeforeprice = 'false'"><iaixsl:value-of select="$signbetweenpricecurrency"/><iaixsl:value-of select="/shop/currency/@name"/></iaixsl:if></b>, dlatego możesz wybrać sobie prezent! 
-                                </p>
-                            </iaixsl:if>
-                            <ul>
-                                <iaixsl:for-each select="/shop/page/basket-details/rebate_local/active">
-                                    <iaixsl:for-each select="products/product">
-                                        <li class="gift_enable col-lg-3 col-md-4 col-sm-6 col-12">
-                                            <iaixsl:if test="@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
-                                                <iaixsl:attribute name="class">gift_enable col-lg-3 col-md-4 col-sm-6 col-12 gift_active</iaixsl:attribute>
-                                            </iaixsl:if>
-                                            <div class="gift_item_sub">
-                                                <input type="radio" name="radio_gift">
-                                                    <iaixsl:if test="@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
-                                                        <iaixsl:attribute name="checked">checked</iaixsl:attribute>
-                                                    </iaixsl:if>
-                                                </input>
-                                                <input type="hidden" name="product[0]">
-                                                    <iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute>
-                                                </input>
-                                                <input type="hidden" value="1" name="gift[0]"/>
-                                                <input type="hidden" value="1" name="set_quantity[0]"/>
-
-                                                <div class="gift_item_icon">
-                                                    <img>
-                                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="name"/></iaixsl:attribute>
-                                                        <iaixsl:attribute name="src"><iaixsl:value-of select="icon_small"/></iaixsl:attribute>
-                                                    </img>
-                                                </div>
-                                                <div class="gift_item_info">
-                                                    <h3>
-                                                        <iaixsl:if test="@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
-                                                            <div id="your_gift_txt">TWÓJ PREZENT:</div>
-                                                        </iaixsl:if>
-                                                        <strong class="gift_item_name"><iaixsl:value-of select="name"/></strong>
-                                                    </h3>
-
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="sizes/size/@type = 'uniw' or not(sizes/size)">
-                                                            <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
-                                                        </iaixsl:when>
-                                                        <iaixsl:when test="count(sizes/size) = 1">
-                                                            <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
-                                                            <div class="gift_choose_size">
-                                                                <label>rozmiar: </label>
-
-                                                                <iaixsl:for-each select="sizes/size">
-                                                                    <iaixsl:value-of select="@description"/>
-                                                                </iaixsl:for-each>
-                                                            </div>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <div class="gift_choose_size">
-                                                                <label>rozmiar: </label>
-                                                                <select>
-                                                                    <iaixsl:for-each select="sizes/size[@amount != 0]">
-                                                                        <option>
-                                                                            <iaixsl:if test="@amount = '0'">
-                                                                                <iaixsl:attribute name="class">no_gift</iaixsl:attribute>
-                                                                            </iaixsl:if>
-
-                                                                            <iaixsl:if test="@type=/shop/page/basket-details/rebate_local/active/selected/product/@size and ../../@id=/shop/page/basket-details/rebate_local/active/selected/product/@id">
-                                                                                <iaixsl:attribute name="selected">selected</iaixsl:attribute>
-                                                                            </iaixsl:if>
-                                                                            <iaixsl:attribute name="value"><iaixsl:value-of select="@type"/></iaixsl:attribute><iaixsl:value-of select="@description"/>
-                                                                        </option>
-                                                                    </iaixsl:for-each>
-                                                                </select>
-                                                                <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
-                                                            </div>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-
-                                                    <iaixsl:if test="@link">
-                                                        <div class="gift_tooltip" style="display:none;">
-                                                            <a target="_blank" class="btn --outline --icon-left icon-plus gift_description">
-                                                                <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                                Zobacz więcej
-                                                            </a>
-                                                            <div class="btn --outline --icon-left icon-plus gift_choose">
-                                                                Wybierz ten prezent
-                                                            </div>
-                                                            <div class="btn --outline --icon-left icon-plus gift_resign">
-                                                                Zrezygnuj z tego prezentu
-                                                            </div>
-                                                        </div>
-                                                    </iaixsl:if>
-
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="price/@beforerebate > 0">
-                                                            <div class="gift_price">
-                                                                <b>Wartość</b>
-                                                                <span>
-                                                                    <iaixsl:value-of select="price/@beforerebate_formatted"/>
-                                                                </span>
-                                                            </div>
-                                                        </iaixsl:when>
-                                                        <iaixsl:when test="price/@value > 0">
-                                                            <div class="gift_price">
-                                                                <b>Wartość</b>
-                                                                <span>
-                                                                    <iaixsl:value-of select="price/@price_formatted"/>
-                                                                </span>
-                                                            </div>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </iaixsl:for-each>
-                                </iaixsl:for-each>
-
-                                <iaixsl:for-each select="/shop/page/basket-details/rebate_local/rebates/rebate[products/product][1]">
-                                    <iaixsl:if test="products/product">
-                                        <li class="gift_label_needs">
-                                            <iaixsl:choose>
-                                                <iaixsl:when test="(@left_price > 0) and (@left_quantity > 0)">
-                                                    <span>Aby otrzymać prezent zwiększ wartość zamówienia o minimum  <iaixsl:value-of select="@left_price_formatted"/>   i wybierz jeszcze <iaixsl:value-of select="@left_quantity"/> 
-                                                        <iaixsl:choose>
-                                                            <iaixsl:when test="(@left_quantity = '1' )">
-                                                                 inny produkt.
-                                                            </iaixsl:when>
-                                                            <iaixsl:when test=" (substring(@left_quantity, string-length(@left_quantity), 1) = '2') or (substring(@left_quantity, string-length(@left_quantity), 1)='3') or (substring(@left_quantity, string-length(@left_quantity), 1)='4') ">  inne produkty
-                                                            </iaixsl:when>
-                                                            <iaixsl:otherwise>
-                                                                 innych produktów.
-                                                            </iaixsl:otherwise>
-                                                        </iaixsl:choose>
-                                                    </span>
-                                                </iaixsl:when>
-                                                <iaixsl:when test="not(@left_price > 0) and (@left_quantity > 0)">
-                                                    <span>
-                                                        Aby otrzymać prezent wybierz jeszcze  <iaixsl:value-of select="@left_quantity"/>  <iaixsl:choose> <iaixsl:when test="(@left_quantity = '1' )">  inny produkt. </iaixsl:when> <iaixsl:when test=" (substring(@left_quantity, string-length(@left_quantity), 1) = '2') or (substring(@left_quantity, string-length(@left_quantity), 1)='3') or (substring(@left_quantity, string-length(@left_quantity), 1)='4') ">  inne produkty </iaixsl:when> <iaixsl:otherwise>  innych produktów. </iaixsl:otherwise> </iaixsl:choose>
-                                                    </span>
-                                                </iaixsl:when>
-                                                <iaixsl:when test="(@left_price > 0) and not(@left_quantity > 0)">
-                                                    <span> Aby otrzymać prezent zwiększ wartość zamówienia o minimum  <iaixsl:value-of select="@left_price_formatted"/>
-                                                    </span>
-                                                </iaixsl:when>
-                                            </iaixsl:choose>
-                                        </li>
-                                    </iaixsl:if>
-                                    <iaixsl:for-each select="products/product">
-                                        <li class="gift_disable showTip_gift col-lg-3 col-md-4 col-sm-6 col-12">
-                                            <div class="gift_item_sub">
-                                                <input type="radio" disabled="disabled" name="radio_gift"><iaixsl:attribute name="value"><iaixsl:value-of select="@id"/></iaixsl:attribute></input>
-                                                <div class="gift_item_icon">
-                                                    <img>
-                                                        <iaixsl:attribute name="alt"><iaixsl:value-of select="name"/></iaixsl:attribute>
-                                                        <iaixsl:attribute name="src"><iaixsl:value-of select="icon_small"/></iaixsl:attribute>
-                                                    </img>
-                                                </div>
-                                                <div class="gift_item_info">
-                                                    <h3>
-                                                        <strong class="gift_item_name"><iaixsl:value-of select="name"/></strong>
-                                                    </h3>
-
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="sizes/size/@type = 'uniw' or not(sizes/size)">
-                                                            <input type="hidden" name="size[0]"><iaixsl:attribute name="value"><iaixsl:value-of select="sizes/size/@type"/></iaixsl:attribute></input>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <div class="gift_choose_size">
-                                                                <label>rozmiar: </label>
-
-                                                                <iaixsl:for-each select="sizes/size">
-                                                                    <iaixsl:value-of select="@description"/><iaixsl:if test="not(position()=last())">, </iaixsl:if>
-                                                                </iaixsl:for-each>
-                                                            </div>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-
-                                                    <iaixsl:if test="@link">
-                                                        <a target="_blank">
-                                                            <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                            Zobacz więcej
-                                                        </a>
-                                                    </iaixsl:if>
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="price/@beforerebate > 0">
-                                                            <div class="gift_price">
-                                                                <b>Wartość</b>
-                                                                <span>
-                                                                    <iaixsl:value-of select="price/@beforerebate_formatted"/>
-                                                                </span>
-                                                            </div>
-                                                        </iaixsl:when>
-                                                        <iaixsl:when test="price/@value > 0">
-                                                            <div class="gift_price">
-                                                                <b>Wartość</b>
-                                                                <span>
-                                                                    <iaixsl:value-of select="price/@price_formatted"/>
-                                                                </span>
-                                                            </div>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </iaixsl:for-each>
-                                </iaixsl:for-each>
-                            </ul>
-                        </div>
-                    </iaixsl:if>
-
-                    <iaixsl:if test="/shop/page/rebates_for_points/rebate">
-                        <div class="rebates_for_points_wrapper">
-                            <iaixsl:if test="(/shop/rebatesLocal and (/shop/rebatesLocal/rebate/@value > 0 )) or /shop/page/basket-details/rebate_local/active/products/product or /shop/page/basket-details/rebate_local/rebates/rebate/products/product">
-                                <iaixsl:attribute name="style">padding-top: 20px;</iaixsl:attribute>
-                            </iaixsl:if>
-                            <table class="menu_rebates">
-                                <tr>
-                                    <th>
-                                        <span class="rebates_for_points col-12">Wymień punkty na rabat</span>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td class="rebates_for_points">
-                                        <iaixsl:for-each select="/shop/page/rebates_for_points/rebate">
-                                            <div class="col-lg-4 col-md-6 col-12">
-                                                <iaixsl:choose>
-                                                    <iaixsl:when test="@order_link">
-                                                        <a class="btn --solid --medium for_points">
-                                                            <iaixsl:attribute name="href"><iaixsl:value-of select="@order_link"/></iaixsl:attribute>
-
-                                                            <iaixsl:if test="/shop/rebate_for_profit_points_delete_client_advanced_rebate/@active = 'y'">
-                                                                <iaixsl:attribute name="title">Po wymianie punktów na rabat zostanie skasowany rabat przypisany do Twojego konta.</iaixsl:attribute>
-                                                                <iaixsl:attribute name="data-title">Potwierdzenie wymiany punktów na rabat</iaixsl:attribute>
-
-                                                                <iaixsl:attribute name="data-button_txt">wymień</iaixsl:attribute>
-
-                                                                <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
-                                                            </iaixsl:if>
-
-                                                            <iaixsl:if test="/shop/rebate_for_profit_points_delete_rebate_code/@active = 'y'">
-                                                                <iaixsl:attribute name="title">Po wymianie punktów na rabat zostanie skasowany rabat przypisany do kodu rabatowego.</iaixsl:attribute>
-                                                                <iaixsl:attribute name="data-title">Potwierdzenie wymiany punktów na rabat</iaixsl:attribute>
-                                                                <iaixsl:attribute name="data-button_txt">wymień</iaixsl:attribute>
-
-                                                                <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
-                                                            </iaixsl:if>
-
-                                                            <iaixsl:if test="@selected = 'selected'">
-                                                                <iaixsl:attribute name="data-selected">true</iaixsl:attribute>
-                                                                <iaixsl:if test="/shop/rebate_for_profit_points_delete_rebate_code/@active = 'y'">
-                                                                    <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
-                                                                </iaixsl:if>
-                                                                <iaixsl:if test="/shop/rebate_for_profit_points_delete_client_advanced_rebate/@active = 'y'">
-                                                                    <iaixsl:attribute name="data-confirmation_link">true</iaixsl:attribute>
-                                                                </iaixsl:if>
-                                                            </iaixsl:if>
-
-                                                            <span class="for_points_value">
-                                                                <iaixsl:if test="@selected = 'selected'">
-                                                                    <strong>Twój rabat: </strong>
-                                                                </iaixsl:if>
-                                                                <span>Rabat 
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="@rebate_type='quota'">
-                                                                            <iaixsl:value-of select="format-number(@threshold, '#')"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="/shop/currency/@name"/>
-                                                                        </iaixsl:when>
-                                                                        <iaixsl:otherwise>
-                                                                            <iaixsl:value-of select="format-number(@threshold, '#')"/>%
-                                                                        </iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                </span>
-                                                                <iaixsl:choose>
-                                                                    <iaixsl:when test="@permanent='true'">
-                                                                        na stałe
-                                                                    </iaixsl:when>
-                                                                    <iaixsl:otherwise>
-                                                                        na to zamówienie
-                                                                    </iaixsl:otherwise>
-                                                                </iaixsl:choose>
-                                                            </span>
-                                                            <span class="for_points_points">
-                                                                <iaixsl:value-of select="format-number(@points, '#')"/> pkt.
-                                                            </span>
-                                                        </a>
-                                                    </iaixsl:when>
-                                                    <iaixsl:otherwise>
-                                                        <div class="btn --solid --medium for_points">
-                                                            <iaixsl:if test="@selected = 'selected'">
-                                                                <iaixsl:attribute name="data-selected">true</iaixsl:attribute>
-                                                            </iaixsl:if>
-                                                            <span class="for_points_value">
-                                                                <iaixsl:if test="@selected = 'selected'">
-                                                                    <strong>Twój rabat: </strong>
-                                                                </iaixsl:if>
-                                                                <span>Rabat 
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="@rebate_type='quota'">
-                                                                            <iaixsl:value-of select="@threshold_formatted"/>
-                                                                        </iaixsl:when>
-                                                                        <iaixsl:otherwise>
-                                                                            <iaixsl:value-of select="@threshold"/>%
-                                                                        </iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                </span>
-                                                                <iaixsl:choose>
-                                                                    <iaixsl:when test="@permanent='true'">
-                                                                        na stałe
-                                                                    </iaixsl:when>
-                                                                    <iaixsl:otherwise>
-                                                                        na to zamówienie
-                                                                    </iaixsl:otherwise>
-                                                                </iaixsl:choose>
-                                                            </span>
-                                                            <span class="for_points_points">
-                                                                <iaixsl:value-of select="@points"/> pkt.
-                                                            </span>
-                                                        </div>
-                                                    </iaixsl:otherwise>
-                                                </iaixsl:choose>
-                                            </div>
-                                        </iaixsl:for-each>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </iaixsl:if>
-                </div>
-            </iaixsl:if>
-        </iaixsl:if>
-    </div>
+  
             </div>
 
         </iaixsl:if>
