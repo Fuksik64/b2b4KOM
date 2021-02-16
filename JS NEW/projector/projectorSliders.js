@@ -5,7 +5,8 @@ function projectorSliders() {
   return {
     init() {
       count > 5 ? (howManySlides = 5) : (howManySlides = count);
-      console.log("haba");
+      console.log(count);
+      console.log(howManySlides);
       $(".slick-slider").not(".slick-initialized").slick({
         slidesToShow: 1,
         slidesToScroll: 1,

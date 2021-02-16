@@ -1,0 +1,1 @@
+var newsletter_txt = 'Ihre E-Mail';

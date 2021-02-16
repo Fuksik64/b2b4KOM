@@ -1,0 +1,1 @@
+search_txt = 'wpisz szukane wyrażenie';

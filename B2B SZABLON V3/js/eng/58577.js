@@ -1,0 +1,1 @@
+var noproduct_alert = "You can not send empty form. Enter product name or description.";

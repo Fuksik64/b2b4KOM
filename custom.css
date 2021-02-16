@@ -55535,4 +55535,31 @@ div.n67313_out {
   -webkit-box-shadow: none !important;
           box-shadow: none !important;
 }
+
+.user-not-logged-search .product-icon-custom {
+  border-radius: 24px !important;
+  border: 1px solid transparent !important;
+}
+
+.user-not-logged-search .product-icon-custom:hover {
+  border: 1px solid var(--gray-light) !important;
+}
+
+h2.label-specyfikacja:after {
+  width: 1500px;
+}
+
+.projector-not-logged .dictionary__group {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 978px) {
+  .projector-not-logged .dictionary__group {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
+}
 /*# sourceMappingURL=custom.css.map */

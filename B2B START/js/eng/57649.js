@@ -1,0 +1,1 @@
+var zagielnotconfirmed = "Before you place an order, please make familiar with the procedures of the loan installment E-Żagiel Kredyt";

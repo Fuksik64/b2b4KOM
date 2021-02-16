@@ -1,0 +1,10 @@
+var creditcard_alert = "please, correctly fill all fields";
+var creditcard_helptime = 3000;
+var card_error1 = "You have not selected the proper card system.";
+var card_error2 = "The specified card number has invalid length. Should consist of 16 cards (Visa, MasterCard) or 15 (American Express) digits.";
+var card_error3 = "Incorrect month.";
+var card_error4 = "Card expiry date passed.";
+var card_error5 = "Specified expiry date is earlier than today date";
+var card_error6 = "The code contains illegal characters, or the wrong length. Visa and MasterCard code should consist of a three-digit code, for American Express four-digit code.";
+var card_error7 = "Specified phrase is too long (limit the quantity of characters to 70)";
+var card_error8 = "The code contains illegal characters.";

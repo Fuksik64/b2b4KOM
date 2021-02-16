@@ -33,7 +33,7 @@
                                             <iaixsl:if test="$headline_after_products_zone3">
                                                 <span class="headline__after">
                                                 <span>
-                                                sprawdź nasze bestsellery
+                                                najnowsze produkty w ofercie
                                                 </span>
                                                 <span>
                                                 <iaixsl:value-of select="$headline_after_products_zone3"/>

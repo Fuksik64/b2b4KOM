@@ -30,7 +30,7 @@
                                             <iaixsl:if test="$headline_after_products_zone4">
                                                 <span class="headline__after">
                                                 <span>
-                                                najnowsze produkty w ofercie
+                                                sprawdź nasze bestsellery
                                                 </span>
                                                 <span>
                                                 <iaixsl:value-of select="$headline_after_products_zone4"/>
@@ -53,7 +53,7 @@
                                 </iaixsl:choose>
                             </h2>
 
-                            <div class="products d-flex flex-wrap ">
+                            <div class="products d-flex flex-wrap custom-settings-slick">
                                 <iaixsl:for-each select="page/hotspot/products_zone4/*">
                                     
                                     <iaixsl:variable name="var_name"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of disable-output-escaping="yes" select="product/name/text()"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of disable-output-escaping="yes" select="name/text()"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>

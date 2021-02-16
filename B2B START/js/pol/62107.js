@@ -1,0 +1,1 @@
+var creditcard_helptime = 3000;

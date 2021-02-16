@@ -1,352 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <iaixsl:stylesheet xmlns:php="http://php.net/xsl" xmlns:iaixsl="http://www.w3.org/1999/XSL/Transform" xmlns:iaielement="http://iai-system.com/ddd" xmlns:fb="http://www.facebook.com/2008/fbml" version="1.0" exclude-result-prefixes="php iaielement fb"><iaixsl:output indent="no" method="html" doctype-system="about:legacy-compat" version="1.0" encoding="UTF-8"/><iaixsl:strip-space elements="table tr td img"/><iaixsl:decimal-format name="yen" NaN="" grouping-separator="," decimal-separator="."/><iaixsl:template match="shop">
                 <iaixsl:if test="page/hotspot/products_zone1">
-                    <section id="main_hotspot_zone1" class="hotspot mb-5">
+                    <section id="main_hotspot_zone1" class="hotspot --slider mb-5">
+                        <iaixsl:attribute name="class">hotspot --slider mb-5</iaixsl:attribute>
+                        <iaixsl:variable name="headline_after_products_zone1">pokaż więcej</iaixsl:variable>
                         
-                        <iaixsl:variable name="headline_after_products_zone1">Zobacz wszystkie</iaixsl:variable>
-                        
-                        <iaixsl:if test="not(page/hotspot/products_zone1/product)">
+                        <iaixsl:if test="not(page/hotspot/products_zone1/product or page/hotspot/products_zone1/opinion)">
                             <iaixsl:attribute name="data-ajaxLoad">true</iaixsl:attribute>
                             <iaixsl:attribute name="data-pageType">main</iaixsl:attribute>
                         </iaixsl:if>
                         <iaixsl:choose>
-                            <iaixsl:when test="count(page/hotspot/products_zone1/product) > 0">
-                                <iaixsl:variable name="main_hotspot_zone1_lazy">true</iaixsl:variable>
-                                <iaixsl:variable name="main_hotspot_zone1_b2b_var">Produkt niedostępny w sprzedaży detalicznej. Zarejestruj się, aby zobaczyć ceny hurtowe.</iaixsl:variable>
+                            <iaixsl:when test="page/hotspot/products_zone1/product or page/hotspot/products_zone1/opinion">
 
-                                
-                                <h2>
-                                    <iaixsl:choose>
-                                        <iaixsl:when test="page/hotspot/products_zone1/@link">
-                                            <a class="headline">
-                                                <iaixsl:attribute name="href"><iaixsl:value-of select="page/hotspot/products_zone1/@link"/></iaixsl:attribute>
-                                                <iaixsl:attribute name="title">Kliknij aby zobaczyć wszystkie produkty</iaixsl:attribute>
+                            
+                            <h2 class="big_label custom-label">
+                                <iaixsl:choose>
+                                    <iaixsl:when test="page/hotspot/products_zone1/@link">
+                                        <a class="headline">
+                                            <iaixsl:attribute name="href"><iaixsl:value-of select="page/hotspot/products_zone1/@link"/></iaixsl:attribute>
+                                            <iaixsl:attribute name="title">Kliknij aby zobaczyć wszystkie produkty </iaixsl:attribute>
 
-                                                <span class="headline__name">
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="page/hotspot/products_zone1/@name"><iaixsl:value-of select="page/hotspot/products_zone1/@name"/></iaixsl:when>
-                                                        <iaixsl:otherwise>Promocje</iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </span>
-                                                <iaixsl:if test="$headline_after_products_zone1">
-                                                    <span class="headline__after"><iaixsl:value-of select="$headline_after_products_zone1"/></span>
-                                                </iaixsl:if>
-                                            </a>
-                                        </iaixsl:when>
-                                        <iaixsl:otherwise>
-                                            <span class="headline">
-                                                <span class="headline__name">
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="page/hotspot/products_zone1/@name"><iaixsl:value-of select="page/hotspot/products_zone1/@name"/></iaixsl:when>
-                                                        <iaixsl:otherwise>Promocje</iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                </span>
+                                            <span class="headline__name">
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="page/hotspot/products_zone1/@name"><iaixsl:value-of select="page/hotspot/products_zone1/@name"/></iaixsl:when>
+                                                    <iaixsl:otherwise>Nowości </iaixsl:otherwise>
+                                                </iaixsl:choose>
                                             </span>
-                                        </iaixsl:otherwise>
-                                    </iaixsl:choose>
-                                </h2>
-                                <div class="products d-flex flex-wrap">
-                                    <div class="col-12 col-sm-8">
-                                        <ul class="slickslider">
-                                            <iaixsl:for-each select="page/hotspot/products_zone1/product[not(position() > 4)]">
-                                                <li class="d-flex align-items-start">
-                                                    
-                                                    <a class="product__icon d-flex justify-content-center align-self-center align-items-center col-6">
-                                                        <iaixsl:attribute name="data-product-id"><iaixsl:value-of select="@id"/></iaixsl:attribute>
-                                                        <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                        <iaixsl:attribute name="title"><iaixsl:value-of disable-output-escaping="yes" select="name/text()"/></iaixsl:attribute>
-                                                        <img src="/gfx/pol/loader.gif?r=1600678639">
-                                                            <iaixsl:choose>
-                                                                <iaixsl:when test="$main_hotspot_zone1_lazy">
-                                                                    <iaixsl:attribute name="data-src-small"><iaixsl:value-of disable-output-escaping="yes" select="icon"/></iaixsl:attribute>
-                                                                    <iaixsl:attribute name="data-src"><iaixsl:value-of disable-output-escaping="yes" select="icon"/></iaixsl:attribute>
-                                                                    <iaixsl:attribute name="class">b-lazy</iaixsl:attribute>
-                                                                </iaixsl:when>
-                                                                <iaixsl:otherwise>
-                                                                    <iaixsl:attribute name="src"><iaixsl:value-of select="icon"/></iaixsl:attribute>
-                                                                </iaixsl:otherwise>
-                                                            </iaixsl:choose>
-                                                            <iaixsl:attribute name="alt"><iaixsl:value-of disable-output-escaping="yes" select="name/text()"/></iaixsl:attribute>
-                                                        </img>
-                                                    </a>
+                                            <iaixsl:if test="$headline_after_products_zone1">
+                                                <span class="headline__after">
+                                                <span>
+                                                skorzystaj z oferty promocyjnej
+                                                </span>
+                                                <span>
+                                                <iaixsl:value-of select="$headline_after_products_zone1"/>
+                                                </span>
+                                                
+                                                </span>
+                                            </iaixsl:if>
+                                        </a>
+                                    </iaixsl:when>
+                                    <iaixsl:otherwise>
+                                        <span class="headline">
+                                            <span class="headline__name">
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="page/hotspot/products_zone1/@name"><iaixsl:value-of select="page/hotspot/products_zone1/@name"/></iaixsl:when>
+                                                    <iaixsl:otherwise>Nowości </iaixsl:otherwise>
+                                                </iaixsl:choose>
+                                            </span>
+                                        </span>
+                                    </iaixsl:otherwise>
+                                </iaixsl:choose>
+                            </h2>
 
-                                                    <div class="col-6 product__description">
-                                                        
-                                                        <h3>
-                                                            <a class="product__name">
-                                                                <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                                <iaixsl:attribute name="title"><iaixsl:value-of disable-output-escaping="yes" select="name/text()"/></iaixsl:attribute>
-                                                                <iaixsl:value-of disable-output-escaping="yes" select="name/text()"/>
-                                                            </a>
-                                                        </h3>
+                            <div class="products d-flex flex-wrap ">
+                                <iaixsl:for-each select="page/hotspot/products_zone1/*">
+                                    
+                                    <iaixsl:variable name="var_name"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of disable-output-escaping="yes" select="product/name/text()"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of disable-output-escaping="yes" select="name/text()"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                    <iaixsl:variable name="var_icon"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/icon"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="icon"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                    <iaixsl:variable name="var_icon_small"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/icon_small"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="icon_small"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                    <iaixsl:variable name="var_link"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/@link"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="@link"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                    <iaixsl:variable name="var_yousave"></iaixsl:variable>
+                                    <iaixsl:variable name="var_net_prices"> netto</iaixsl:variable>
+                                    <iaixsl:variable name="var_b2b">Produkt niedostępny w sprzedaży detalicznej. Zarejestruj się, aby zobaczyć ceny hurtowe.</iaixsl:variable>
 
-                                                        <iaixsl:variable name="var_net_prices"> netto</iaixsl:variable>
-                                                        <iaixsl:choose>
-                                                            <iaixsl:when test="$var_net_prices = ''">
-                                                                <iaixsl:variable name="var_size_min_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_size_max_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_size_min_maxprice_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_maxprice_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_maxprice_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_size_max_maxprice_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_maxprice_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_maxprice_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_points"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@points"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@points"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                    <div class="product ">
 
-                                                                
-                                                                <iaixsl:variable name="var_value"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_price_formatted">
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="price/@price_unit_formatted and sizes/@unit"><iaixsl:value-of select="price/@price_unit_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="sizes/@unit"/></iaixsl:when>
-                                                                        <iaixsl:when test="product/price/@price_unit_formatted and product/sizes/@unit"><iaixsl:value-of select="product/price/@price_unit_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="product/sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="product/sizes/@unit"/></iaixsl:when>
-                                                                        <iaixsl:otherwise><iaixsl:value-of select="$var_size_min_formatted"/></iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                </iaixsl:variable>
+                                        
+                                        <iaixsl:if test="$var_yousave and not($var_yousave = '') and price/@yousave_formatted != ''">
+                                            <div class="product__yousave">
+                                                <span class="product__yousave --label"><iaixsl:value-of select="$var_yousave"/></span>
+                                                <span class="product__yousave --value"><iaixsl:value-of select="price/@yousave_formatted"/></span>
+                                            </div>
+                                        </iaixsl:if>
 
-                                                                <iaixsl:variable name="var_maxprice_formatted">
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="price/@maxprice_unit_formatted"><iaixsl:value-of select="price/@maxprice_unit_formatted"/></iaixsl:when>
-                                                                        <iaixsl:when test="product/price/@maxprice_unit_formatted"><iaixsl:value-of select="product/price/@maxprice_unit_formatted"/></iaixsl:when>
-                                                                        <iaixsl:when test="product"><iaixsl:value-of select="product/price/@maxprice_formatted"/></iaixsl:when>
-                                                                        <iaixsl:otherwise><iaixsl:value-of select="price/@maxprice_formatted"/></iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                </iaixsl:variable>
+                                        <span class="label">
+                                                <iaixsl:choose>
+                                                    <iaixsl:when test="@bestseller=true">
+                                                    Bestseller
+                                                    </iaixsl:when>
+                                                    <iaixsl:otherwise>
+                                                        <iaixsl:value-of select="firm/@name"/>
+                                                    </iaixsl:otherwise>
+                                                </iaixsl:choose>
+                                       
+                                        </span>
 
-                                                                
-                                                                <div class="product__prices">
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="$var_size_min_formatted != $var_size_max_formatted">
-                                                                            <iaixsl:if test="$var_size_min_maxprice_formatted != ''">
-                                                                                
-                                                                                <del class="price --max">
-                                                                                    <span><iaixsl:value-of select="$var_size_min_maxprice_formatted"/></span><b><iaixsl:text> - </iaixsl:text></b><span><iaixsl:value-of select="$var_size_max_maxprice_formatted"/></span>
-                                                                                </del>
-                                                                            </iaixsl:if>
+                                        <a class="product__icon d-flex justify-content-center align-items-center">
+                                            <iaixsl:attribute name="data-product-id"><iaixsl:value-of select="@id"/></iaixsl:attribute>
+                                            <iaixsl:attribute name="href"><iaixsl:value-of select="$var_link"/></iaixsl:attribute>
+                                            <iaixsl:attribute name="title"><iaixsl:value-of select="$var_name"/></iaixsl:attribute>
 
-                                                                            <strong class="price">
-                                                                                <iaixsl:value-of select="$var_size_min_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_formatted"/>
-                                                                            </strong>
+                                            <img src="/gfx/pol/loader.gif?r=1600678639" class="b-lazy">
+                                                <iaixsl:attribute name="data-src-small"><iaixsl:value-of disable-output-escaping="yes" select="$var_icon_small"/></iaixsl:attribute>
+                                                <iaixsl:attribute name="data-src"><iaixsl:value-of disable-output-escaping="yes" select="$var_icon"/></iaixsl:attribute>
+                                                <iaixsl:attribute name="alt"><iaixsl:value-of disable-output-escaping="yes" select="$var_name"/></iaixsl:attribute>
+                                            </img>
+                                        </a>
 
-                                                                            <iaixsl:if test="$var_points != ''">
-                                                                                
-                                                                                <span class="price --points">
-                                                                                    <iaixsl:value-of select="$var_points"/><span class="currency"> pkt.</span>
-                                                                                </span>
-                                                                            </iaixsl:if>
-                                                                        </iaixsl:when>
-                                                                        <iaixsl:when test="(($var_value = 0) and $var_points = '') or ($var_value = 0 and $main_hotspot_zone1_b2b_var and not($main_hotspot_zone1_b2b_var = '') and not(/shop/basket/@wholesaler = 'true'))">
-                                                                            <iaixsl:choose>
-                                                                              <iaixsl:when test="$main_hotspot_zone1_b2b_var and not($main_hotspot_zone1_b2b_var = '')">
-                                                                              <a class="price --phone" href="/signin.php">
-                                                                                  <iaixsl:attribute name="title"><iaixsl:value-of select="$main_hotspot_zone1_b2b_var"/></iaixsl:attribute>
-                                                                                  <iaixsl:value-of select="$main_hotspot_zone1_b2b_var"/>
-                                                                              </a>
-                                                                              </iaixsl:when>
-                                                                              <iaixsl:otherwise>
-                                                                                <a class="price --phone" href="/contact.php">
-                                                                                  <iaixsl:attribute name="title">Kliknij, by przejść do formularza kontaktu</iaixsl:attribute>
-                                                                                  Cena na telefon
-                                                                                </a>
-                                                                              </iaixsl:otherwise>
-                                                                          </iaixsl:choose>
-                                                                        </iaixsl:when>
-                                                                        <iaixsl:otherwise>
-                                                                            <iaixsl:if test="$var_maxprice_formatted != ''">
-                                                                            
-                                                                                <del class="price --max">
-                                                                                    
-                                                                                    <iaixsl:value-of select="$var_maxprice_formatted"/>
-                                                                                </del>
-                                                                            </iaixsl:if>
-                                                                            <strong class="price">
-                                                                                
-                                                                                <iaixsl:value-of select="$var_price_formatted"/>
-                                                                            </strong>
-                                                                            <iaixsl:if test="$var_points != ''">
-                                                                            
-                                                                                <span class="price --points">
-                                                                                    <iaixsl:value-of select="$var_points"/><span class="currency"> pkt.</span>
-                                                                                </span>
-                                                                            </iaixsl:if>
-                                                                        </iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                    <iaixsl:if test="price/@unit_converted_price_formatted">
-                                                                        <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/></small>
-                                                                    </iaixsl:if>
-                                                                </div>
-                                                            </iaixsl:when>
-                                                            <iaixsl:otherwise>
-                                                                
-
-                                                                <iaixsl:variable name="var_size_min_net_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_size_max_net_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_size_min_net_maxprice_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_maxprice_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_maxprice_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_size_max_maxprice_net_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_maxprice_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_maxprice_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_points_net"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@points"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@points"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-
-                                                                
-                                                                <iaixsl:variable name="var_net_value"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_net"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_net"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
-                                                                <iaixsl:variable name="var_price_formatted">
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="price/@price_unit_net_formatted and sizes/@unit"><iaixsl:value-of select="price/@price_unit_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="sizes/@unit"/></iaixsl:when>
-                                                                        <iaixsl:when test="product/price/@price_unit_net_formatted and product/sizes/@unit"><iaixsl:value-of select="product/price/@price_unit_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="product/sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="product/sizes/@unit"/></iaixsl:when>
-                                                                        <iaixsl:otherwise><iaixsl:value-of select="$var_size_min_net_formatted"/></iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                </iaixsl:variable>
-
-                                                                <iaixsl:variable name="var_maxprice_net_formatted">
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="price/@maxprice_unit_net_formatted"><iaixsl:value-of select="price/@maxprice_unit_net_formatted"/></iaixsl:when>
-                                                                        <iaixsl:when test="product/price/@maxprice_unit_net_formatted"><iaixsl:value-of select="product/price/@maxprice_unit_net_formatted"/></iaixsl:when>
-                                                                        <iaixsl:when test="product"><iaixsl:value-of select="product/price/@maxprice_net_formatted"/></iaixsl:when>
-                                                                        <iaixsl:otherwise><iaixsl:value-of select="price/@maxprice_net_formatted"/></iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                </iaixsl:variable>
-
-                                                                
-                                                                <div class="product__prices">
-                                                                    <iaixsl:choose>
-                                                                        <iaixsl:when test="$var_size_min_net_formatted != $var_size_max_net_formatted">
-                                                                            <iaixsl:if test="$var_size_min_net_maxprice_formatted != ''">
-                                                                            
-                                                                                <del class="price --max">
-                                                                                    <span><iaixsl:value-of select="$var_size_min_net_maxprice_formatted"/></span><b><iaixsl:text> - </iaixsl:text></b><span><iaixsl:value-of select="$var_size_max_maxprice_net_formatted"/></span>
-                                                                                    <!-- <iaixsl:value-of select="$var_net_prices"/> -->
-                                                                                </del>
-                                                                            </iaixsl:if>
-
-                                                                            <strong class="price">
-                                                                                <iaixsl:value-of select="$var_size_min_net_formatted"/><iaixsl:text> - </iaixsl:text><iaixsl:value-of select="$var_size_max_net_formatted"/>
-                                                                                <!-- <iaixsl:value-of select="$var_net_prices"/> -->
-                                                                            </strong>
-
-                                                                            <iaixsl:if test="$var_points_net != ''">
-                                                                            
-                                                                                <span class="price --points">
-                                                                                    <iaixsl:value-of select="$var_points_net"/><span class="currency"> pkt.</span>
-                                                                                </span>
-                                                                            </iaixsl:if>
-                                                                        </iaixsl:when>
-                                                                        <iaixsl:when test="(($var_net_value = 0) and $var_points_net = '') or ($var_net_value = 0 and $main_hotspot_zone1_b2b_var and not($main_hotspot_zone1_b2b_var = '') and not(/shop/basket/@wholesaler = 'true'))">
-                                                                                <iaixsl:choose>
-                                                                                    <iaixsl:when test="$main_hotspot_zone1_b2b_var and not($main_hotspot_zone1_b2b_var = '')">
-                                                                                    <a class="price --phone" href="/signin.php">
-                                                                                        <iaixsl:attribute name="title"><iaixsl:value-of select="$main_hotspot_zone1_b2b_var"/></iaixsl:attribute>
-                                                                                        <iaixsl:value-of select="$main_hotspot_zone1_b2b_var"/>
-                                                                                    </a>
-                                                                                    </iaixsl:when>
-                                                                                    <iaixsl:otherwise>
-                                                                                     <a class="price --phone" href="/contact.php">
-                                                                                        <iaixsl:attribute name="title">Kliknij, by przejść do formularza kontaktu</iaixsl:attribute>
-                                                                                        Cena na telefon
-                                                                                      </a>
-                                                                                    </iaixsl:otherwise>
-                                                                                </iaixsl:choose>
-                                                                        </iaixsl:when>
-                                                                        <iaixsl:otherwise>
-                                                                            <iaixsl:if test="$var_maxprice_net_formatted != ''">
-                                                                                
-                                                                                <del class="price --max">
-                                                                                    
-                                                                                    <iaixsl:value-of select="$var_maxprice_net_formatted"/>
-                                                                                    <!-- <iaixsl:value-of select="$var_net_prices"/> -->
-                                                                                </del>
-                                                                            </iaixsl:if>
-                                                                            <strong class="price">
-                                                                                
-                                                                                <iaixsl:value-of select="$var_price_formatted"/>
-                                                                                <!-- <iaixsl:value-of select="$var_net_prices"/> -->
-                                                                            </strong>
-                                                                            <iaixsl:if test="$var_points_net != ''">
-                                                                            
-                                                                                <span class="price --points">
-                                                                                    <iaixsl:value-of select="$var_points_net"/><span class="currency"> pkt.</span>
-                                                                                </span>
-                                                                            </iaixsl:if>
-                                                                        </iaixsl:otherwise>
-                                                                    </iaixsl:choose>
-                                                                    <iaixsl:if test="price/@unit_converted_price_net_formatted">
-                                                                        <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/>
-                                                                        <!-- <iaixsl:value-of select="$var_net_prices"/> -->
-                                                                        </small>
-                                                                    </iaixsl:if>
-                                                                </div>
-
-                                                                
-                                                            </iaixsl:otherwise>
-                                                        </iaixsl:choose>
-                                                        <iaixsl:if test="firm">
-                                                            <div class="product__firm">
-                                                                Producent:
-                                                                <a>
-                                                                    <iaixsl:attribute name="href"><iaixsl:value-of select="firm/@productslink"/></iaixsl:attribute>
-                                                                    <iaixsl:value-of disable-output-escaping="yes" select="firm/@name"/>
-                                                                </a>
-                                                            </div>
-                                                        </iaixsl:if>
-                                                        <iaixsl:if test="cleardescription">
-                                                            <div class="product__cleardescription mb-3">
-                                                                <iaixsl:value-of disable-output-escaping="yes" select="cleardescription/text()"/>
-                                                            </div>
-                                                        </iaixsl:if>
-
-                                                        <a class="btn --solid --medium  more-button">
-                                                            <iaixsl:attribute name="href"><iaixsl:value-of select="@link"/></iaixsl:attribute>
-                                                            Kup teraz
-
-                                                        </a>
-                                                    </div>
-
-                                                </li>
-                                            </iaixsl:for-each>
-                                        </ul>
-                                    </div>
-                                    <div id="slick-pager" class="col-12 col-sm-4 d-flex flex-wrap my-3 my-sm-0 p-0">
-                                        <iaixsl:for-each select="page/hotspot/products_zone1/product[not(position() > 4)]">
-                                            <a href="" class="col-3 col-sm-6 d-flex justify-content-center">
-                                                <iaixsl:attribute name="data-slick-index"><iaixsl:value-of select="position()-1"/></iaixsl:attribute>
-
-                                                <img src="/gfx/pol/loader.gif?r=1600678639">
-                                                    <iaixsl:choose>
-                                                        <iaixsl:when test="$main_hotspot_zone1_lazy">
-                                                            <iaixsl:attribute name="data-src-small"><iaixsl:value-of disable-output-escaping="yes" select="icon_small"/></iaixsl:attribute>
-                                                            <iaixsl:attribute name="data-src"><iaixsl:value-of disable-output-escaping="yes" select="icon_small"/></iaixsl:attribute>
-                                                            <iaixsl:attribute name="class">b-lazy</iaixsl:attribute>
-                                                        </iaixsl:when>
-                                                        <iaixsl:otherwise>
-                                                            <iaixsl:attribute name="src"><iaixsl:value-of select="icon_small"/></iaixsl:attribute>
-                                                        </iaixsl:otherwise>
-                                                    </iaixsl:choose>
-                                                    <iaixsl:attribute name="alt"><iaixsl:value-of disable-output-escaping="yes" select="name/text()"/></iaixsl:attribute>
-                                                </img>
+                                        
+                                        <h3>
+                                            <a class="product__name">
+                                                <iaixsl:attribute name="href"><iaixsl:value-of select="$var_link"/></iaixsl:attribute>
+                                                <iaixsl:attribute name="title"><iaixsl:value-of select="$var_name"/></iaixsl:attribute>
+                                                <iaixsl:value-of select="$var_name"/>
                                             </a>
-                                        </iaixsl:for-each>
+                                        </h3>
+
+                                        <iaixsl:choose>
+                                            
+                                            <iaixsl:when test="$var_net_prices = ''">
+                                                <iaixsl:variable name="var_size_min_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_size_max_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_size_min_maxprice_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_maxprice_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_maxprice_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_size_max_maxprice_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_maxprice_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_maxprice_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_points"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@points"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@points"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+
+                                                <iaixsl:variable name="var_value"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_price_formatted">
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="price/@price_unit_formatted and sizes/@unit"><iaixsl:value-of select="price/@price_unit_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="sizes/@unit"/></iaixsl:when>
+                                                        <iaixsl:when test="product/price/@price_unit_formatted and product/sizes/@unit"><iaixsl:value-of select="product/price/@price_unit_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="product/sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="product/sizes/@unit"/></iaixsl:when>
+                                                        <iaixsl:otherwise><iaixsl:value-of select="$var_size_min_formatted"/></iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                </iaixsl:variable>
+
+                                                <iaixsl:variable name="var_maxprice_formatted">
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="price/@maxprice_unit_formatted"><iaixsl:value-of select="price/@maxprice_unit_formatted"/></iaixsl:when>
+                                                        <iaixsl:when test="product/price/@maxprice_unit_formatted"><iaixsl:value-of select="product/price/@maxprice_unit_formatted"/></iaixsl:when>
+                                                        <iaixsl:when test="product"><iaixsl:value-of select="product/price/@maxprice_formatted"/></iaixsl:when>
+                                                        <iaixsl:otherwise><iaixsl:value-of select="price/@maxprice_formatted"/></iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                </iaixsl:variable>
+
+
+                                                <iaixsl:if test="price/@unit_converted_price_formatted">
+                                                    <small class="s_unit_converted_price"><iaixsl:value-of select="price/@unit_converted_price_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="price/@unit_converted_format"/></small>
+                                                </iaixsl:if>
+                                            </iaixsl:when>
+
+                                            
+                                            <iaixsl:otherwise>
+                                                <iaixsl:variable name="var_size_min_net_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_size_max_net_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_size_min_net_maxprice_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_maxprice_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_maxprice_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_size_max_maxprice_net_formatted"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_max_maxprice_net_formatted"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_max_maxprice_net_formatted"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_points_net"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@points"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@points"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+
+                                                <iaixsl:variable name="var_net_value"><iaixsl:choose><iaixsl:when test="product"><iaixsl:value-of select="product/price/@size_min_net"/></iaixsl:when><iaixsl:otherwise><iaixsl:value-of select="price/@size_min_net"/></iaixsl:otherwise></iaixsl:choose></iaixsl:variable>
+                                                <iaixsl:variable name="var_price_formatted">
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="price/@price_unit_net_formatted and sizes/@unit"><iaixsl:value-of select="price/@price_unit_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="sizes/@unit"/></iaixsl:when>
+                                                        <iaixsl:when test="product/price/@price_unit_net_formatted and product/sizes/@unit"><iaixsl:value-of select="product/price/@price_unit_net_formatted"/><iaixsl:text> / </iaixsl:text><iaixsl:value-of select="product/sizes/@unit_sellby"/><iaixsl:text> </iaixsl:text><iaixsl:value-of select="product/sizes/@unit"/></iaixsl:when>
+                                                        <iaixsl:otherwise><iaixsl:value-of select="$var_size_min_net_formatted"/></iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                </iaixsl:variable>
+
+                                                <iaixsl:variable name="var_maxprice_net_formatted">
+                                                    <iaixsl:choose>
+                                                        <iaixsl:when test="price/@maxprice_unit_net_formatted"><iaixsl:value-of select="price/@maxprice_unit_net_formatted"/></iaixsl:when>
+                                                        <iaixsl:when test="product/price/@maxprice_unit_net_formatted"><iaixsl:value-of select="product/price/@maxprice_unit_net_formatted"/></iaixsl:when>
+                                                        <iaixsl:when test="product"><iaixsl:value-of select="product/price/@maxprice_net_formatted"/></iaixsl:when>
+                                                        <iaixsl:otherwise><iaixsl:value-of select="price/@maxprice_net_formatted"/></iaixsl:otherwise>
+                                                    </iaixsl:choose>
+                                                </iaixsl:variable>
+
+
+                                            </iaixsl:otherwise>
+                                        </iaixsl:choose>
+
+                                        
+                                        <iaixsl:if test="client/@client or @note or content">
+                                            <div class="product__opinion">
+                                                
+                                                <iaixsl:if test="client/@client">
+                                                    <div class="product__opinion_client"><iaixsl:value-of disable-output-escaping="yes" select="client/@client"/></div>
+                                                </iaixsl:if>
+
+                                                
+                                                <iaixsl:if test="@note">
+                                                    <div class="note">
+                                                        <span>
+                                                            <i class="icon-star">
+                                                                <iaixsl:if test="@note > 0.5"><iaixsl:attribute name="class">icon-star --active</iaixsl:attribute></iaixsl:if>
+                                                            </i>
+                                                            <i class="icon-star">
+                                                                <iaixsl:if test="@note > 1.5"><iaixsl:attribute name="class">icon-star --active</iaixsl:attribute></iaixsl:if>
+                                                            </i>
+                                                            <i class="icon-star">
+                                                                <iaixsl:if test="@note > 2.5"><iaixsl:attribute name="class">icon-star --active</iaixsl:attribute></iaixsl:if>
+                                                            </i>
+                                                            <i class="icon-star">
+                                                                <iaixsl:if test="@note > 3.5"><iaixsl:attribute name="class">icon-star --active</iaixsl:attribute></iaixsl:if>
+                                                            </i>
+                                                            <i class="icon-star">
+                                                                <iaixsl:if test="@note > 4.5"><iaixsl:attribute name="class">icon-star --active</iaixsl:attribute></iaixsl:if>
+                                                            </i>
+                                                        </span>
+                                                        <small>
+                                                            Ocena: <iaixsl:value-of disable-output-escaping="yes" select="@note"/>/5
+                                                        </small>
+                                                    </div>
+                                                </iaixsl:if>
+
+                                                
+                                                <iaixsl:if test="content">
+                                                    <div class="product__opinion_content"><iaixsl:value-of disable-output-escaping="yes" select="content"/></div>
+                                                </iaixsl:if>
+                                            </div>
+                                        </iaixsl:if>
+                                    </div>
+                                </iaixsl:for-each>
+                            </div>
+                        </iaixsl:when>
+                        <iaixsl:otherwise>
+                            <div class="hotspot mb-5 skeleton">
+                                <span class="headline"/>
+                                <div class="products d-flex flex-wrap">
+                                    <div class="product ">
+                                        <span class="product__icon d-flex justify-content-center align-items-center"/>
+                                        <span class="product__name"/>
+                                        <div class="product__prices"/>
+                                    </div>
+                                    <div class="product ">
+                                        <span class="product__icon d-flex justify-content-center align-items-center"/>
+                                        <span class="product__name"/>
+                                        <div class="product__prices"/>
+                                    </div>
+                                    <div class="product ">
+                                        <span class="product__icon d-flex justify-content-center align-items-center"/>
+                                        <span class="product__name"/>
+                                        <div class="product__prices"/>
+                                    </div>
+                                    <div class="product ">
+                                        <span class="product__icon d-flex justify-content-center align-items-center"/>
+                                        <span class="product__name"/>
+                                        <div class="product__prices"/>
                                     </div>
                                 </div>
-                            </iaixsl:when>
-                            <iaixsl:otherwise>
-                                <div class="hotspot mb-5 skeleton">
-                                    <span class="headline"/>
-                                    <div class="products d-flex flex-wrap">
-                                        <div class="product col-6 col-sm-3 py-3">
-                                            <span class="product__icon d-flex justify-content-center align-items-center"/>
-                                            <span class="product__name"/>
-                                            <div class="product__prices"/>
-                                        </div>
-                                        <div class="product col-6 col-sm-3 py-3">
-                                            <span class="product__icon d-flex justify-content-center align-items-center"/>
-                                            <span class="product__name"/>
-                                            <div class="product__prices"/>
-                                        </div>
-                                        <div class="product col-6 col-sm-3 py-3">
-                                            <span class="product__icon d-flex justify-content-center align-items-center"/>
-                                            <span class="product__name"/>
-                                            <div class="product__prices"/>
-                                        </div>
-                                        <div class="product col-6 col-sm-3 py-3">
-                                            <span class="product__icon d-flex justify-content-center align-items-center"/>
-                                            <span class="product__name"/>
-                                            <div class="product__prices"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </iaixsl:otherwise>
+                            </div>
+                        </iaixsl:otherwise>
                         </iaixsl:choose>
                     </section>
                 </iaixsl:if>

@@ -1,0 +1,3 @@
+
+const form=document.querySelector('.noproduct__form');const inputs=form.querySelectorAll('input, textarea');inputs.forEach((input)=>{input.addEventListener('input',()=>{clearTimeout(app_shop.formControl.timeHandle);app_shop.formControl.timeHandle=setTimeout(function(){app_shop.formControl.validate($(input));},500);})})
+form.addEventListener('submit',(e)=>{if(!app_shop.formControl.checkForm($(form))){e.preventDefault();return false;}});

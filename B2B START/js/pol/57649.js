@@ -1,0 +1,1 @@
+var zagielnotconfirmed = "Zanim złożysz zamówienie, zapoznaj się z procedurą udzielenia kredytu ratalnego E-kredyt Żagiel.";

@@ -1,0 +1,1 @@
+var noproduct_alert = "Nie możesz wysłać pustego formularza. Wpisz nazwę produktu lub jego opis.";

@@ -1,0 +1,1 @@
+var order1_animspeed = 500;

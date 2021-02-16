@@ -1,0 +1,1 @@
+top_txt = 'kod lub nazwa produktu';

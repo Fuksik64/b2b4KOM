@@ -1,0 +1,1 @@
+var newpayment_bonalert = "You selected to pay by voucher, but you did not enter a voucher ID";

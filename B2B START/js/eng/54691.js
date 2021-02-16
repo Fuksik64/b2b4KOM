@@ -1,0 +1,1 @@
+var newstxt = "your e-mail";

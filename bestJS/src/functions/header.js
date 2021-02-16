@@ -184,8 +184,6 @@ function enterTwoHeader(e) {
     columnCount = Math.ceil(HEIGHT_CHILD / HEIGHT);
   }
 
-  HEIGHT = HEIGHT + 2 * REM;
-
   let WIDTH =
     STARTING_WIDTH + PARENT_CATEGORY_WIDTH + SPAN_MAX_WIDTH * columnCount;
   let WIDTH_SUB_CATEGORY = SPAN_MAX_WIDTH * columnCount;
@@ -195,11 +193,16 @@ function enterTwoHeader(e) {
     WIDTH_SUB_CATEGORY = PARENT_CATEGORY_WIDTH * 2;
   }
 
-  while (WIDTH > CONTAINER_WIDTH) {
-    WIDTH--;
-    WIDTH_SUB_CATEGORY--;
+  if (WIDTH > CONTAINER_WIDTH) {
+    while (columnCount > 3) {
+      HEIGHT += LI_HEIGHT;
+      columnCount = Math.ceil(HEIGHT_CHILD / HEIGHT);
+    }
+    WIDTH =
+      STARTING_WIDTH + PARENT_CATEGORY_WIDTH + SPAN_MAX_WIDTH * columnCount;
+    WIDTH_SUB_CATEGORY = SPAN_MAX_WIDTH * columnCount;
   }
-
+  HEIGHT = HEIGHT + 2 * REM;
   setters.width(v.categoriesWrapperHeader, WIDTH);
   setters.width(nestedUl2, WIDTH_SUB_CATEGORY);
   setters.heightMultiple([v.categoriesWrapperHeader, v.ulHeader, ul2], HEIGHT);

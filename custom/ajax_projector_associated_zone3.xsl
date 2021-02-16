@@ -2,7 +2,7 @@
 <iaixsl:stylesheet xmlns:php="http://php.net/xsl" xmlns:iaixsl="http://www.w3.org/1999/XSL/Transform" xmlns:iaielement="http://iai-system.com/ddd" xmlns:fb="http://www.facebook.com/2008/fbml" version="1.0" exclude-result-prefixes="php iaielement fb"><iaixsl:output indent="no" method="html" doctype-system="about:legacy-compat" version="1.0" encoding="UTF-8"/><iaixsl:strip-space elements="table tr td img"/><iaixsl:decimal-format name="yen" NaN="" grouping-separator="," decimal-separator="."/><iaixsl:template match="shop">
                 <iaixsl:if test="page/projector/products_associated_zone3">
 
-                    <section id="products_associated_zone3" class="hotspot mb-5 col-12">
+                    <section id="products_associated_zone3" class="hotspot --slider mb-5 col-12">
                         
                         <iaixsl:variable name="headline_after_products_associated_zone3"></iaixsl:variable>
                         
@@ -14,21 +14,29 @@
                             <iaixsl:when test="page/projector/products_associated_zone3/product or page/projector/products_associated_zone3/opinion">
 
                             
-                            <h2>
+                            <h2 class="big_label custom-label">
                                 <iaixsl:choose>
                                     <iaixsl:when test="page/projector/products_associated_zone3/@link">
                                         <a class="headline">
                                             <iaixsl:attribute name="href"><iaixsl:value-of select="page/projector/products_associated_zone3/@link"/></iaixsl:attribute>
-                                            <iaixsl:attribute name="title"></iaixsl:attribute>
+                                            <iaixsl:attribute name="title">Kliknij aby zobaczyć wszystkie produkty </iaixsl:attribute>
 
                                             <span class="headline__name">
                                                 <iaixsl:choose>
                                                     <iaixsl:when test="page/projector/products_associated_zone3/@name"><iaixsl:value-of select="page/projector/products_associated_zone3/@name"/></iaixsl:when>
-                                                    <iaixsl:otherwise>Produkty kupione z tym produktem</iaixsl:otherwise>
+                                                    <iaixsl:otherwise>Nowości </iaixsl:otherwise>
                                                 </iaixsl:choose>
                                             </span>
-                                            <iaixsl:if test="$headline_after_products_associated_zone3">
-                                                <span class="headline__after"><iaixsl:value-of select="$headline_after_products_associated_zone3"/></span>
+                                            <iaixsl:if test="$headline_after_products_zone3">
+                                                <span class="headline__after">
+                                                <span>
+                                                skorzystaj z oferty promocyjnej
+                                                </span>
+                                                <span>
+                                                <iaixsl:value-of select="$headline_after_products_zone3"/>
+                                                </span>
+                                                
+                                                </span>
                                             </iaixsl:if>
                                         </a>
                                     </iaixsl:when>
@@ -37,7 +45,7 @@
                                             <span class="headline__name">
                                                 <iaixsl:choose>
                                                     <iaixsl:when test="page/projector/products_associated_zone3/@name"><iaixsl:value-of select="page/projector/products_associated_zone3/@name"/></iaixsl:when>
-                                                    <iaixsl:otherwise>Produkty kupione z tym produktem</iaixsl:otherwise>
+                                                    <iaixsl:otherwise>Nowości </iaixsl:otherwise>
                                                 </iaixsl:choose>
                                             </span>
                                         </span>

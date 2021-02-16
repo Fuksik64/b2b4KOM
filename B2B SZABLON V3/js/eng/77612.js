@@ -1,0 +1,1 @@
+app_shop.fn.rwdBanner('#menu_buttons',[1,2,3,4]);

@@ -403,7 +403,6 @@
                 
         </div>
         <div id="logo" class="col-md-4 col-lg-3 d-flex align-items-center">
-
             	<nav class="nav d-flex flex-column custom-nav-header custom-nav-header">
 								<div class="d-flex nav-category-header">
 									<i class="icon-bars"></i>
@@ -491,14 +490,8 @@
 
             <iaixsl:if test="mask/top2/link/image/@src and (mask/top2/link/image/@width>1 or mask/top2/link/image/@height > 1)"><iaixsl:attribute name="data-bg"><iaixsl:value-of select="mask/top2/link/image/@src"/></iaixsl:attribute></iaixsl:if>
             <a>
-                <iaixsl:attribute name="href">
-                <!-- <iaixsl:value-of select="/shop/mask/top/link/@href"/> -->
-                <iaixsl:value-of select="/shop/@baseurl"/>
-                </iaixsl:attribute>
-                <iaixsl:attribute name="target">
-                <!-- <iaixsl:value-of select="/shop/mask/top/link/@target"/> -->
-                _self
-                </iaixsl:attribute>
+                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/@sslurl"/></iaixsl:attribute>
+                <iaixsl:attribute name="target">_self</iaixsl:attribute>
                 <iaixsl:attribute name="class">
                 d-flex
                 </iaixsl:attribute>
@@ -796,9 +789,14 @@
                             <iaixsl:attribute name="class">menu_basket_list empty</iaixsl:attribute>
                         </iaixsl:if>
                         <a href="/basketedit.php?mode=1">
-                            <iaixsl:if test="/shop/action/basket/@url">
-                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/basket/@url"/>?mode=1</iaixsl:attribute>
-                            </iaixsl:if>
+                        <iaixsl:choose>
+                            <iaixsl:when test="/shop/action/login/@url and not(/shop/basket/@login != '')">
+                                <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/login/@url"/></iaixsl:attribute>
+                            </iaixsl:when>
+                            <iaixsl:otherwise>
+                            <iaixsl:attribute name="href"><iaixsl:value-of select="/shop/action/basket/@url"/>?mode=1</iaixsl:attribute>
+                            </iaixsl:otherwise>
+                        </iaixsl:choose>
                             <iaixsl:if test="basket/@points_used > 0">
                                 <iaixsl:attribute name="class">points</iaixsl:attribute>
                             </iaixsl:if>

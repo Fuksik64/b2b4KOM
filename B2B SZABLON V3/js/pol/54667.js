@@ -1,0 +1,1 @@
+newsletter_txt = 'Adres e-mail';

@@ -1,0 +1,1 @@
+app_shop.fn.rwdBanner('.platnosci_54388',[1,2,3,4]);

@@ -1,0 +1,1 @@
+app_shop.fn.load('/return.php?ajax=true',[['#menu_basket','#menu_basket']],function(){},'&set_render=content,head');

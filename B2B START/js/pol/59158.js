@@ -1,0 +1,1 @@
+var newpayment_bonalert = "Wybrano płatność bonem towarowym ale nie wpisano numeru bonu";
