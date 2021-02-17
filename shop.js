@@ -19708,7 +19708,6 @@ const HotspotSlider = function HotspotSlider(params) {
     this.slider.on("afterChange", function slickAfterScroll() {
       if (app_shop.vars.bLazy) app_shop.vars.bLazy.revalidate();
     });
-    console.log(this.slider);
     this.slider.slick(this.settings);
     if (typeof callbackAfter === "function") callbackAfter(this.slider);
   };

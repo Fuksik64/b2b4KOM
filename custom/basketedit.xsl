@@ -5504,34 +5504,35 @@
                     <div class="span-delivery-time-basket col-12 col-sm-6 col-md-12">
                         <i class="icon-calendar --pink"></i>
                         <p class="text-delivery">
-                        Twoje zamówienie będzie gotowe do wysłania w 
+                        Twoje zamówienie będzie gotowe do wysłania 
                         <span>
-                        <iaixsl:if test="/shop/page/basket-details/product/ size/    availability/delivery_time/@week_day">
-                        <iaixsl:choose test="/shop/page/basket-details/product/ size/    availability/delivery_time/@week_day">
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '2'">
-                        Poniedziałek
-                        </iaixsl:when>
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '3'">
-                        Wtorek
-                        </iaixsl:when>
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '4'">
-                        Środę
-                        </iaixsl:when>
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '5'">
-                        Czwartek
-                        </iaixsl:when>
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '6'">
-                        Piątek
-                        </iaixsl:when>
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '7'">
-                        Sobotę
-                        </iaixsl:when>
-                        <iaixsl:when test="/shop/page/basket-details/product/   size/  availability/delivery_time/@week_day = '1'">
-                        Niedzielę
-                        </iaixsl:when>
+                        <iaixsl:choose test="/shop/page/basket-details/product/size/availability/delivery_time/@week_day">
+							<iaixsl:when test="/shop/basket/shipping_time/@today = 'true'">
+								<iaixsl:text> </iaixsl:text> Dzisiaj
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 1">
+								<iaixsl:text> </iaixsl:text>w Poniedziałek
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 2">
+								<iaixsl:text> </iaixsl:text>w Wtorek
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 3">
+								<iaixsl:text> </iaixsl:text>w Środę
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 4">
+								<iaixsl:text> </iaixsl:text>w Czwartek
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 5">
+								<iaixsl:text> </iaixsl:text>w Piątek
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 6">
+								<iaixsl:text> </iaixsl:text>w Sobotę
+							</iaixsl:when>
+							<iaixsl:when test="/shop/basket/shipping_time/@week_day = 7">
+								<iaixsl:text> </iaixsl:text>w Niedzielę
+							</iaixsl:when>
                         </iaixsl:choose>
 
-                        </iaixsl:if>
                         </span>
                         </p>
                     </div>

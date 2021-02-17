@@ -4295,6 +4295,11 @@
 																								<iaixsl:attribute name="class">order2__product_name --link --later</iaixsl:attribute>
 																							</iaixsl:when>
 																						</iaixsl:choose>
+                                                                                                    <img class="order2_product_icon">
+                                                                                                    <iaixsl:attribute name="src">
+                                                                                                      <iaixsl:value-of select="iconsmall"/>
+                                                                                                     </iaixsl:attribute>
+                                                                                                   </img>
 																						<iaixsl:value-of disable-output-escaping="yes" select="@name"/>
 																					</a>
 																				</iaixsl:otherwise>

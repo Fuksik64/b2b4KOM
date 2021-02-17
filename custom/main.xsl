@@ -3934,7 +3934,7 @@
         <section id="marks">
         <h2 class="big_label custom-label">
             <span>
-            Jesteśmy dystrybutorem
+            Producenci
             </span>
         </h2>
             <iaixsl:if test="/shop/commercial_button">

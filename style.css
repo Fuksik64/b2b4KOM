@@ -56378,7 +56378,7 @@ h2.label-specyfikacja:after {
   .banners-featured-4 {
     grid-template-columns: 1fr;
     grid-column-gap: 0rem;
-    grid-row-gap: 2rem;
+    grid-row-gap: 1rem;
   }
 
   .banners-featured .banner {
@@ -56458,12 +56458,12 @@ section#marks {
 
 /* the slides */
 .actual-slider .slick-slide {
-  margin: 0 27px;
+  margin: 0 2px;
 }
 
 /* the parent */
 .actual-slider .slick-list {
-  margin: 0 -27px;
+  margin: 0 -2px;
 }
 
 .firm-icon-projector {
@@ -56538,6 +56538,7 @@ section#marks {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
+  grid-template-rows: auto;
 }
 
 .banners-featured .banner {
@@ -56638,12 +56639,12 @@ td.productslist_product_comment i {
 }
 
 .hotspot.--slider .slick-list {
-  margin: 0 -27px !important;
+  margin: 0 -2px !important;
   ;
 }
 
 .hotspot.--slider .slick-slide {
-  margin: 0 27px !important;
+  margin: 0 2px !important;
   border: 0 !important;
   transition: box-shadow .2s ease;
 }
@@ -56886,4 +56887,149 @@ body {
 
 body * {
   backface-visibility: hidden;
+}
+
+#main_hotspot_zone1 .slick-track {
+  max-height: unset !important;
+}
+
+@media(max-width:585px) {
+  .banners-featured {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(min-width:1199px) {
+
+  .banners-featured-4 .banner img {
+    border-radius: 14px;
+  }
+}
+
+#basket_go_next {
+  background: #fff;
+}
+
+tr.productslist_tools_top {
+  border-radius: 14px;
+}
+
+td.productslist_product_comment {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#layout .basketedit_summary_buttons input {
+  background: transparent !important;
+}
+
+#layout .basketedit_summary_buttons input:hover {
+  color: #fff !important
+}
+
+.input-btn-wrapper-custom {
+  background: #fff;
+}
+
+/* .order2_custom_span {
+  flex: 1;
+} */
+.order2__product_item.--icon {
+  max-width: 35px;
+  flex: none;
+  padding: 0;
+}
+
+.order2_custom_span {
+  max-width: 30px;
+}
+
+/* 
+.order2_custom_span i {
+  min-width: 30px;
+  max-width: 30px;
+  width: 30px;
+} */
+
+.order2_custom_span i.pink-icon-comment::before {
+  padding-left: .5rem;
+  min-height: 30px;
+  height: 30px;
+}
+
+.order2_page .basketedit_summary_sub .order2__product.--head .order2__product_item.--name {
+  padding-left: 1.2rem;
+}
+
+.order2__product_name.--link {
+  display: flex;
+  align-items: center;
+}
+
+.order2_product_icon {
+  max-width: 30px;
+  margin-right: .4rem;
+}
+
+.prepaid_page #prepaid_order_products img {
+  max-height: 40px;
+  margin-right: .4rem;
+}
+
+.banner>a {
+  display: block;
+}
+
+#layout .s_paging__item.--filters>a {
+  color: var(--black-color-lighter) !important;
+}
+
+html.filters_open #layout .s_paging__item.--filters>a {
+  color: #fff !important;
+}
+
+html.filters_open #layout .s_paging__item.--filters>a i.icon-lejek::before {
+  background: url('https://4kom.pl/data/include/cms/b2b4kom/B2B-IKONY-SVG/lejekWHITE.svg');
+}
+
+.banners-featured img {
+  max-height: 150px;
+  border-radius: 24px;
+}
+
+.main_page .slick-slide img {
+  border-radius: 24px;
+}
+
+.banners-featured .banner a {
+  border-radius: 0;
+}
+
+.multiple-rows-slider .slick-slide {
+  box-shadow: none !important;
+}
+
+.multiple-rows-slider .product {
+  margin: 0 !important;
+  border: 0 !important;
+  transition: box-shadow.2s ease;
+
+}
+
+.multiple-rows-slider .product:hover {
+  box-shadow: inset 1px 0px 0px 0px var(--gray-light), inset -1px 0px 0px 0px var(--gray-light), inset 0px 1px 0px 0px var(--gray-light), inset 0px -1px 0px 0px var(--gray-light);
+  border: none !important;
+}
+
+.hotspot.--slider .slick-initialized .product h3 {
+  margin: 0;
+}
+
+.hotspot.--slider .slick-initialized .product h3 a {
+  padding: 0 5px
+}
+
+.product-custom .product-icon-custom h3 {
+  padding: 1rem .5rem
 }
